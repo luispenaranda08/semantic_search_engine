@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>05 · Evaluación con validez externa (Escalera 1) &#8212; Buscador Semántico GovTech</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05_Evaluacion_Validez_Externa';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/notebooks/05_Evaluacion_Validez_Externa.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="06 · Expansión del corpus a Competencias (Escalera 2)" href="06_Expansion_Corpus_Competencias.html" />
+    <link rel="prev" title="Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia" href="Benchmark_Matryoshka_P6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscador Semántico GovTech - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscador Semántico GovTech - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscador Semántico GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contexto y datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Benchmarks de la escalera de ablación</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validez externa y escala</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Síntesis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guia_estudio.html">Guía de Estudio y Exposición — Buscador Semántico GovTech</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/05_Evaluacion_Validez_Externa.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>05 · Evaluación con validez externa (Escalera 1)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-y-objetivo">1. Contexto y objetivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-regla-del-proyecto">1.1 Privacidad (regla del proyecto)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nucleo-de-recuperacion-inline-reproducible">2. Núcleo de recuperación (inline, reproducible)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-del-conjunto-real-silver">3. Construcción del conjunto real (silver)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reejecucion-de-la-escalera-sobre-el-conjunto-real">4. Reejecución de la escalera sobre el conjunto real</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones-de-diagnostico-paquete-estandar-de-ir">4.4 Visualizaciones de diagnóstico (paquete estándar de IR)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-escalera-1">5. Conclusiones (Escalera 1)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluacion-con-validez-externa-escalera-1">
+<h1>05 · Evaluación con validez externa (Escalera 1)<a class="headerlink" href="#evaluacion-con-validez-externa-escalera-1" title="Link to this heading">#</a></h1>
+<p><strong>Alcance:</strong> convertir el historial real de consultas (las firmas del <em>data lake</em>) en un
+conjunto de evaluación que reemplace al sintético <em>known-item</em>, y reejecutar la escalera de
+ablación sobre él. Es la palanca #1 de rigor: cambia la naturaleza de la evidencia, de una
+comparación bajo consultas inventadas a una medición sobre patrones de uso reales.</p>
+<section id="contexto-y-objetivo">
+<h2>1. Contexto y objetivo<a class="headerlink" href="#contexto-y-objetivo" title="Link to this heading">#</a></h2>
+<p>La v1 se evaluó con 51 consultas sintéticas. Su límite es conocido: mide bien <em>qué
+configuración es mejor</em>, pero el valor absoluto no representa uso real. Aquí construimos un
+conjunto a partir de las <strong>firmas de consulta reales</strong> (<code class="docutils literal notranslate"><span class="pre">suid_query_signatures</span></code>), ya
+mapeadas a los reportes lógicos por el <em>rollup</em>. Cada firma es el SQL que un usuario ejecutó,
+así que su reporte es una etiqueta de relevancia <strong>silver</strong> (grado 2) sin intervención humana.</p>
+<section id="privacidad-regla-del-proyecto">
+<h3>1.1 Privacidad (regla del proyecto)<a class="headerlink" href="#privacidad-regla-del-proyecto" title="Link to this heading">#</a></h3>
+<p>Las firmas contienen <strong>nombres de columna y keywords del WHERE</strong>, no literales de datos
+personales, así que la fuente no tiene PII. Aun así se emiten dos artefactos: <code class="docutils literal notranslate"><span class="pre">consultas_real</span></code>
+(uso interno) y <code class="docutils literal notranslate"><span class="pre">consultas_paper</span></code> (anonimizado, único que entra a tablas/ejemplos). Los
+nombres propios de las consultas de entidad se toman de un <strong>gazetteer sintético</strong>, nunca
+reales. Los modelos pueden ver nombres reales; el documento, jamás.</p>
+</section>
+</section>
+<section id="nucleo-de-recuperacion-inline-reproducible">
+<h2>2. Núcleo de recuperación (inline, reproducible)<a class="headerlink" href="#nucleo-de-recuperacion-inline-reproducible" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">re</span><span class="o">,</span><span class="w"> </span><span class="nn">unicodedata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span><span class="o">,</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span><span class="o">,</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.float_format"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"figure.dpi"</span><span class="p">:</span><span class="mi">110</span><span class="p">,</span><span class="s2">"font.size"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s2">"axes.grid"</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s2">"grid.alpha"</span><span class="p">:</span><span class="mf">0.25</span><span class="p">})</span>
+<span class="n">RAIZ</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">();</span>
+<span class="k">if</span> <span class="n">RAIZ</span><span class="o">.</span><span class="n">name</span><span class="o">==</span><span class="s2">"notebooks"</span><span class="p">:</span> <span class="n">RAIZ</span><span class="o">=</span><span class="n">RAIZ</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">EXP</span> <span class="o">=</span> <span class="n">RAIZ</span><span class="o">/</span><span class="s2">"experimentos"</span><span class="p">;</span> <span class="n">DATA</span> <span class="o">=</span> <span class="n">RAIZ</span><span class="o">/</span><span class="s2">"data"</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">((</span><span class="n">EXP</span><span class="o">/</span><span class="s2">"config.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="n">ontologia</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">((</span><span class="n">EXP</span><span class="o">/</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"ontologia"</span><span class="p">])</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="n">cargar</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+<span class="n">tiene_gold</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="nb">any</span><span class="p">(</span><span class="n">g</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="c1"># métricas</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_g</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">):</span> <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span> <span class="k">return</span> <span class="nb">sum</span><span class="p">((</span><span class="mf">2.0</span><span class="o">**</span><span class="n">_g</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">_g</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ndcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">idl</span><span class="o">=</span><span class="nb">sorted</span><span class="p">((</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">idcg</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="mf">2.0</span><span class="o">**</span><span class="n">g</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">idl</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">idcg</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">dcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">idcg</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">recall</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">rel</span><span class="o">=</span><span class="p">{</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">g</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">};</span> <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">rel</span> <span class="k">else</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">rel</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mrr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_g</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">i</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prec</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span> <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">k</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">_g</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">k</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ap</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">rel</span><span class="o">=</span><span class="p">{</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">g</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">rel</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">ac</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">rel</span><span class="p">:</span> <span class="n">ac</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span> <span class="n">s</span><span class="o">+=</span><span class="n">ac</span><span class="o">/</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rel</span><span class="p">),</span><span class="n">k</span><span class="p">)</span>
+<span class="c1"># bm25</span>
+<span class="n">_ST</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="s2">"el la los las un una unos unas de del a ante con en para por que y o u se su sus lo al es son como mas pero sin sobre entre cada ya cuando donde cual quien cuanto muy este esta estos"</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tok</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFKD"</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">());</span> <span class="n">t</span><span class="o">=</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">t</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z0-9]+"</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_ST</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BM25</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">k1</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span> <span class="n">s</span><span class="o">.</span><span class="n">k1</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">b</span><span class="o">=</span><span class="n">k1</span><span class="p">,</span><span class="n">b</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">ids</span><span class="p">,</span><span class="n">txt</span><span class="p">):</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">ids</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">tf</span><span class="o">=</span><span class="p">[</span><span class="n">Counter</span><span class="p">(</span><span class="n">tok</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">];</span> <span class="n">s</span><span class="o">.</span><span class="n">len</span><span class="o">=</span><span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">tf</span><span class="p">]</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">avg</span><span class="o">=</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">len</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">len</span><span class="p">))</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">len</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">df</span><span class="o">=</span><span class="n">Counter</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">tf</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">tf</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">idf</span><span class="o">=</span><span class="p">{</span><span class="n">t</span><span class="p">:</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">d</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">()};</span> <span class="k">return</span> <span class="n">s</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">buscar</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="n">qt</span><span class="o">=</span><span class="n">tok</span><span class="p">(</span><span class="n">q</span><span class="p">);</span> <span class="n">sc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">tf</span><span class="p">):</span>
+            <span class="n">a</span><span class="o">=</span><span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">qt</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tf</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">=</span><span class="n">tf</span><span class="p">[</span><span class="n">t</span><span class="p">];</span> <span class="n">a</span><span class="o">+=</span><span class="n">s</span><span class="o">.</span><span class="n">idf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">k1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">f</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="n">k1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">s</span><span class="o">.</span><span class="n">b</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="n">b</span><span class="o">*</span><span class="n">s</span><span class="o">.</span><span class="n">len</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">avg</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)))</span>
+            <span class="n">sc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="nb">float</span><span class="p">(</span><span class="n">sc</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">sc</span><span class="p">)]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_l2</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">n</span><span class="p">[</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mf">1.0</span><span class="p">;</span> <span class="k">return</span> <span class="n">m</span><span class="o">/</span><span class="n">n</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">STEnc</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">modelo</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">PreTrainedModel</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">PreTrainedModel</span><span class="p">,</span><span class="s2">"all_tied_weights_keys"</span><span class="p">):</span> <span class="n">PreTrainedModel</span><span class="o">.</span><span class="n">all_tied_weights_keys</span><span class="o">=</span><span class="p">{}</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">m</span><span class="o">=</span><span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span><span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">nombre</span><span class="o">=</span><span class="n">modelo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">dim</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">get_sentence_embedding_dimension</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">txt</span><span class="p">):</span> <span class="k">return</span> <span class="n">_l2</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">txt</span><span class="p">),</span><span class="n">convert_to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">normalize_embeddings</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Dense</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">enc</span><span class="p">):</span> <span class="n">s</span><span class="o">.</span><span class="n">enc</span><span class="o">=</span><span class="n">enc</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">ids</span><span class="p">,</span><span class="n">txt</span><span class="p">):</span> <span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">ids</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">mat</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">enc</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">txt</span><span class="p">);</span> <span class="k">return</span> <span class="n">s</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">buscar</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="n">qv</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">enc</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">q</span><span class="p">])[</span><span class="mi">0</span><span class="p">];</span> <span class="n">sc</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">mat</span><span class="nd">@qv</span><span class="p">;</span> <span class="k">return</span> <span class="p">[(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="nb">float</span><span class="p">(</span><span class="n">sc</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">sc</span><span class="p">)]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_norm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFKD"</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">());</span> <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rrf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+    <span class="n">ra</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">)};</span> <span class="n">rb</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">b</span><span class="p">)}</span>
+    <span class="n">ds</span><span class="o">=</span><span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ra</span><span class="p">];</span> <span class="n">big</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">fus</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">:</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">ra</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">big</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">rb</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">big</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:(</span><span class="o">-</span><span class="n">fus</span><span class="p">[</span><span class="n">d</span><span class="p">],</span><span class="n">d</span><span class="p">)),</span> <span class="n">fus</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Detector</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">onto</span><span class="p">):</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">t</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cl</span><span class="p">,</span><span class="n">cu</span> <span class="ow">in</span> <span class="n">onto</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"clases"</span><span class="p">,{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">cl</span><span class="p">,</span><span class="o">*</span><span class="n">cu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"sinonimos"</span><span class="p">,[])]:</span> <span class="n">s</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">_norm</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">cl</span><span class="p">))</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">p</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\b[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,}\b"</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clases</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="n">cq</span><span class="o">=</span><span class="n">_norm</span><span class="p">(</span><span class="n">q</span><span class="p">);</span> <span class="k">return</span> <span class="p">{</span><span class="n">c</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">t</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">cq</span><span class="p">}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">np_</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="n">tks</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tks</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">pr</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[:</span><span class="mi">1</span><span class="p">];</span> <span class="n">cand</span><span class="o">=</span><span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tks</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">pr</span> <span class="ow">and</span> <span class="n">t</span><span class="o">==</span><span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">_norm</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="n">tt</span> <span class="k">for</span> <span class="n">tt</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">t</span><span class="p">}</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">cand</span><span class="p">)</span>
+<span class="n">CONFIGS</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s2">"Denso puro"</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">"Denso + ontología"</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s2">"Híbrido (sin ontología)"</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s2">"Híbrido + ontología"</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s2">"Híbrido + ontología + realce"</span><span class="p">}</span>
+<span class="n">NB_BM25</span><span class="o">=</span><span class="s2">"BM25 (referencia léxica)"</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Motor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">docs</span><span class="p">,</span><span class="n">enc</span><span class="p">,</span><span class="n">onto</span><span class="p">,</span><span class="n">k1</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">krrf</span><span class="p">,</span><span class="n">lam</span><span class="p">):</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">];</span> <span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="o">=</span><span class="n">krrf</span><span class="p">;</span> <span class="n">s</span><span class="o">.</span><span class="n">lam</span><span class="o">=</span><span class="n">lam</span><span class="p">;</span> <span class="n">s</span><span class="o">.</span><span class="n">det</span><span class="o">=</span><span class="n">Detector</span><span class="p">(</span><span class="n">onto</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">ent</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span><span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"metadatos_ontologia"</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"entidades_principales"</span><span class="p">,[]))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">}</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">esnp</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span><span class="nb">bool</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"nombre_propio_buscable"</span><span class="p">,</span><span class="kc">False</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">}</span>
+        <span class="n">de</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"descripcion"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">];</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"texto_indexable"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">bd</span><span class="o">=</span><span class="n">BM25</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span><span class="n">de</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">bo</span><span class="o">=</span><span class="n">BM25</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span><span class="n">on</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">dd</span><span class="o">=</span><span class="n">Dense</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span><span class="n">de</span><span class="p">);</span> <span class="n">s</span><span class="o">.</span><span class="n">do</span><span class="o">=</span><span class="n">Dense</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span><span class="n">on</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ind</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">clases</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">&amp;</span><span class="n">s</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="nb">set</span><span class="p">()):</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">np_</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">esnp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rec</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">cfg</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cfg</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">cfg</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">dd</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">cfg</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">do</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">cfg</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span> <span class="k">return</span> <span class="n">rrf</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">bd</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">dd</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">cfg</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="n">rrf</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">bo</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">do</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">_</span><span class="p">,</span><span class="n">f</span><span class="o">=</span><span class="n">rrf</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">bo</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">do</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="p">);</span> <span class="n">fin</span><span class="o">=</span><span class="p">{</span><span class="n">d</span><span class="p">:</span><span class="n">v</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="o">.</span><span class="n">lam</span><span class="o">*</span><span class="n">s</span><span class="o">.</span><span class="n">ind</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:(</span><span class="o">-</span><span class="n">fin</span><span class="p">[</span><span class="n">d</span><span class="p">],</span><span class="n">d</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluar</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span><span class="n">consultas</span><span class="p">,</span><span class="n">qrels</span><span class="p">):</span>
+    <span class="n">enc</span><span class="o">=</span><span class="n">STEnc</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"modelo_st"</span><span class="p">])</span>
+    <span class="n">mot</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span><span class="n">enc</span><span class="p">,</span><span class="n">ontologia</span><span class="p">,</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"bm25"</span><span class="p">][</span><span class="s2">"k1"</span><span class="p">],</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"bm25"</span><span class="p">][</span><span class="s2">"b"</span><span class="p">],</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"fusion"</span><span class="p">][</span><span class="s2">"k_rrf"</span><span class="p">],</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"realce"</span><span class="p">][</span><span class="s2">"lambda"</span><span class="p">])</span>
+    <span class="n">confs</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="n">NB_BM25</span><span class="p">)]</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">CONFIGS</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="n">cg</span><span class="o">=</span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span> <span class="k">if</span> <span class="n">tiene_gold</span><span class="p">(</span><span class="n">qrels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],{}))]</span>
+    <span class="n">por</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:{}</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">:</span>
+            <span class="n">r</span><span class="o">=</span><span class="n">mot</span><span class="o">.</span><span class="n">rec</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">tiene_gold</span><span class="p">(</span><span class="n">qrels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],{})):</span>
+                <span class="n">por</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span><span class="o">=</span><span class="p">{</span><span class="s2">"ndcg@10"</span><span class="p">:</span><span class="n">ndcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span><span class="mi">10</span><span class="p">),</span><span class="s2">"recall@100"</span><span class="p">:</span><span class="n">recall</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span><span class="mi">100</span><span class="p">),</span>
+                                 <span class="s2">"mrr@10"</span><span class="p">:</span><span class="n">mrr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span><span class="mi">10</span><span class="p">),</span><span class="s2">"p@10"</span><span class="p">:</span><span class="n">prec</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span><span class="mi">10</span><span class="p">)}</span>
+    <span class="n">ests</span><span class="o">=</span><span class="nb">sorted</span><span class="p">({</span><span class="n">c</span><span class="p">[</span><span class="s2">"estrato"</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cg</span><span class="p">});</span> <span class="n">idsg</span><span class="o">=</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cg</span><span class="p">]</span>
+    <span class="n">idse</span><span class="o">=</span><span class="p">{</span><span class="n">e</span><span class="p">:[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cg</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">"estrato"</span><span class="p">]</span><span class="o">==</span><span class="n">e</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ests</span><span class="p">}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">agg</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">ids</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">v</span><span class="o">=</span><span class="p">[</span><span class="n">por</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">m</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">por</span><span class="p">[</span><span class="n">n</span><span class="p">]];</span> <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">if</span> <span class="n">v</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">enc</span><span class="p">,</span><span class="n">mot</span><span class="p">,</span><span class="n">confs</span><span class="p">,</span><span class="n">por</span><span class="p">,</span><span class="n">ests</span><span class="p">,</span><span class="n">idsg</span><span class="p">,</span><span class="n">idse</span><span class="p">,</span><span class="n">agg</span><span class="p">,</span><span class="n">cg</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Núcleo de recuperación listo."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Núcleo de recuperación listo.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="construccion-del-conjunto-real-silver">
+<h2>3. Construcción del conjunto real (silver)<a class="headerlink" href="#construccion-del-conjunto-real-silver" title="Link to this heading">#</a></h2>
+<p><strong>Descripción técnica.</strong> Se cargan las firmas y el <em>rollup</em>, se mapea cada reporte lógico al
+<code class="docutils literal notranslate"><span class="pre">id</span></code> del corpus, se estratifica el muestreo (entidad exacta / operacional / ambigua /
+documento largo) y se sintetiza el texto de cada consulta a partir de los filtros reales que
+usó la firma. El código equivale a <code class="docutils literal notranslate"><span class="pre">experimentos/construir_eval_real.py</span></code>; aquí ejecutamos ese
+script para regenerar los artefactos y los cargamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span><span class="s2">"construir_eval_real.py"</span><span class="p">],</span><span class="n">cwd</span><span class="o">=</span><span class="n">EXP</span><span class="p">,</span><span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">consultas</span> <span class="o">=</span> <span class="n">cargar</span><span class="p">(</span><span class="n">EXP</span><span class="o">/</span><span class="s2">"datos/consultas_real.jsonl"</span><span class="p">)</span>
+<span class="n">qrels</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span><span class="n">r</span><span class="p">[</span><span class="s2">"relevancia"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cargar</span><span class="p">(</span><span class="n">EXP</span><span class="o">/</span><span class="s2">"datos/qrels_real.jsonl"</span><span class="p">)}</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">cargar</span><span class="p">(</span><span class="n">EXP</span><span class="o">/</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"corpus"</span><span class="p">])</span>   <span class="c1"># corpus v1 (17 reportes)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s2"> docs | </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">consultas</span><span class="p">)</span><span class="si">}</span><span class="s2"> consultas reales"</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">consultas</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"estrato"</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"n"</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  "n_consultas_real": 71,
+  "por_estrato": {
+    "entidad_exacta": 30,
+    "operacional": 29,
+    "ambigua": 8,
+    "documento_largo": 4
+  },
+  "con_nombre_propio": 30,
+  "firmas_unicas_totales": 714,
+  "ejemplos": [
+    "promoción de deportistas de la institución Colegio San Marcos",
+    "promoción de deportistas de la institución Club Deportivo El Faro",
+    "promoción de deportistas de la institución Liga Atlántico",
+    "grupos de la institución Colegio San Marcos",
+    "grupos de la institución Club Deportivo El Faro",
+    "grupos de la institución Liga Atlántico"
+  ]
+}
+
+17 docs | 71 consultas reales
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+    </tr>
+    <tr>
+      <th>estrato</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ambigua</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>documento_largo</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>entidad_exacta</th>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>operacional</th>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># muestra: consulta real (interna) vs anonimizada (paper)</span>
+<span class="n">paper</span> <span class="o">=</span> <span class="n">cargar</span><span class="p">(</span><span class="n">EXP</span><span class="o">/</span><span class="s2">"datos/consultas_paper.jsonl"</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s2">"estrato"</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="s2">"estrato"</span><span class="p">],</span><span class="s2">"consulta_real"</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">],</span><span class="s2">"consulta_paper"</span><span class="p">:</span><span class="n">b</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">],</span>
+               <span class="s2">"objetivo(silver)"</span><span class="p">:</span><span class="n">a</span><span class="p">[</span><span class="s2">"reporte_objetivo"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]}</span>
+              <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">consultas</span><span class="p">[:</span><span class="mi">8</span><span class="p">],</span><span class="n">paper</span><span class="p">[:</span><span class="mi">8</span><span class="p">])])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>estrato</th>
+      <th>consulta_real</th>
+      <th>consulta_paper</th>
+      <th>objetivo(silver)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>entidad_exacta</td>
+      <td>promoción de deportistas de la institución Col...</td>
+      <td>promoción de deportistas de la institución Col...</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>entidad_exacta</td>
+      <td>promoción de deportistas de la institución Clu...</td>
+      <td>promoción de deportistas de la institución Clu...</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>entidad_exacta</td>
+      <td>promoción de deportistas de la institución Lig...</td>
+      <td>promoción de deportistas de la institución Lig...</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>entidad_exacta</td>
+      <td>grupos de la institución Colegio San Marcos</td>
+      <td>grupos de la institución Colegio San Marcos</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>entidad_exacta</td>
+      <td>grupos de la institución Club Deportivo El Faro</td>
+      <td>grupos de la institución Club Deportivo El Faro</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>entidad_exacta</td>
+      <td>grupos de la institución Liga Atlántico</td>
+      <td>grupos de la institución Liga Atlántico</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>entidad_exacta</td>
+      <td>personal de apoyo de la institución Colegio Sa...</td>
+      <td>personal de apoyo de la institución Colegio Sa...</td>
+      <td>ri</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>entidad_exacta</td>
+      <td>personal de apoyo de la institución Club Depor...</td>
+      <td>personal de apoyo de la institución Club Depor...</td>
+      <td>ri</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Interpretación.</strong> El muestreo es estratificado, no proporcional: el reporte de promoción
+(47,5% de la demanda) no ahoga al resto. El estrato de entidad exacta se sobre-muestrea
+(hipótesis central P2) generando una consulta por nombre sintético sobre cada patrón de filtro
+real de nombre propio. Como las firmas no traían literales personales, la vista <em>paper</em>
+coincide con la interna salvo por la garantía de nombres sintéticos.</p>
+</section>
+<section id="reejecucion-de-la-escalera-sobre-el-conjunto-real">
+<h2>4. Reejecución de la escalera sobre el conjunto real<a class="headerlink" href="#reejecucion-de-la-escalera-sobre-el-conjunto-real" title="Link to this heading">#</a></h2>
+<p><strong>Descripción técnica.</strong> Mismo framework, se sustituye el conjunto sintético por el real.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enc</span><span class="p">,</span><span class="n">mot</span><span class="p">,</span><span class="n">confs</span><span class="p">,</span><span class="n">por</span><span class="p">,</span><span class="n">ests</span><span class="p">,</span><span class="n">idsg</span><span class="p">,</span><span class="n">idse</span><span class="p">,</span><span class="n">agg</span><span class="p">,</span><span class="n">cg</span> <span class="o">=</span> <span class="n">evaluar</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span><span class="n">consultas</span><span class="p">,</span><span class="n">qrels</span><span class="p">)</span>
+<span class="n">orden</span><span class="o">=</span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">]</span>
+<span class="n">tabla</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">m</span><span class="p">:{</span><span class="n">n</span><span class="p">:</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">idsg</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">orden</span><span class="p">}</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ndcg@10"</span><span class="p">,</span><span class="s2">"mrr@10"</span><span class="p">,</span><span class="s2">"recall@100"</span><span class="p">,</span><span class="s2">"p@10"</span><span class="p">]})</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Encoder:"</span><span class="p">,</span><span class="n">enc</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span><span class="s2">"| consultas con gold:"</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cg</span><span class="p">))</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_max</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"ndcg@10"</span><span class="p">,</span><span class="s2">"mrr@10"</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s2">"#c9f0c9"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encoder: jina-embeddings-v3 | consultas con gold: 71
+</pre></div>
+</div>
+<div class="output text_html"><style type="text/css">
+#T_09a0c_row5_col0, #T_09a0c_row5_col1 {
+  background-color: #c9f0c9;
+}
+</style>
+<table id="T_09a0c">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_09a0c_level0_col0" class="col_heading level0 col0" >ndcg@10</th>
+      <th id="T_09a0c_level0_col1" class="col_heading level0 col1" >mrr@10</th>
+      <th id="T_09a0c_level0_col2" class="col_heading level0 col2" >recall@100</th>
+      <th id="T_09a0c_level0_col3" class="col_heading level0 col3" >p@10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_09a0c_level0_row0" class="row_heading level0 row0" >BM25 (referencia léxica)</th>
+      <td id="T_09a0c_row0_col0" class="data row0 col0" >0.925</td>
+      <td id="T_09a0c_row0_col1" class="data row0 col1" >0.900</td>
+      <td id="T_09a0c_row0_col2" class="data row0 col2" >1.000</td>
+      <td id="T_09a0c_row0_col3" class="data row0 col3" >0.100</td>
+    </tr>
+    <tr>
+      <th id="T_09a0c_level0_row1" class="row_heading level0 row1" >Denso puro</th>
+      <td id="T_09a0c_row1_col0" class="data row1 col0" >0.948</td>
+      <td id="T_09a0c_row1_col1" class="data row1 col1" >0.936</td>
+      <td id="T_09a0c_row1_col2" class="data row1 col2" >1.000</td>
+      <td id="T_09a0c_row1_col3" class="data row1 col3" >0.099</td>
+    </tr>
+    <tr>
+      <th id="T_09a0c_level0_row2" class="row_heading level0 row2" >Denso + ontología</th>
+      <td id="T_09a0c_row2_col0" class="data row2 col0" >0.951</td>
+      <td id="T_09a0c_row2_col1" class="data row2 col1" >0.939</td>
+      <td id="T_09a0c_row2_col2" class="data row2 col2" >1.000</td>
+      <td id="T_09a0c_row2_col3" class="data row2 col3" >0.099</td>
+    </tr>
+    <tr>
+      <th id="T_09a0c_level0_row3" class="row_heading level0 row3" >Híbrido (sin ontología)</th>
+      <td id="T_09a0c_row3_col0" class="data row3 col0" >0.946</td>
+      <td id="T_09a0c_row3_col1" class="data row3 col1" >0.928</td>
+      <td id="T_09a0c_row3_col2" class="data row3 col2" >1.000</td>
+      <td id="T_09a0c_row3_col3" class="data row3 col3" >0.100</td>
+    </tr>
+    <tr>
+      <th id="T_09a0c_level0_row4" class="row_heading level0 row4" >Híbrido + ontología</th>
+      <td id="T_09a0c_row4_col0" class="data row4 col0" >0.952</td>
+      <td id="T_09a0c_row4_col1" class="data row4 col1" >0.936</td>
+      <td id="T_09a0c_row4_col2" class="data row4 col2" >1.000</td>
+      <td id="T_09a0c_row4_col3" class="data row4 col3" >0.100</td>
+    </tr>
+    <tr>
+      <th id="T_09a0c_level0_row5" class="row_heading level0 row5" >Híbrido + ontología + realce</th>
+      <td id="T_09a0c_row5_col0" class="data row5 col0" >0.973</td>
+      <td id="T_09a0c_row5_col1" class="data row5 col1" >0.964</td>
+      <td id="T_09a0c_row5_col2" class="data row5 col2" >1.000</td>
+      <td id="T_09a0c_row5_col3" class="data row5 col3" >0.100</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comparación con el conjunto sintético (resultados canónicos de make all)</span>
+<span class="n">sint</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">EXP</span><span class="o">/</span><span class="s2">"resultados/resultados.json"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="n">comp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+  <span class="s2">"nDCG@10 sintético"</span><span class="p">:{</span><span class="n">n</span><span class="p">:</span><span class="n">sint</span><span class="p">[</span><span class="s2">"global"</span><span class="p">][</span><span class="n">n</span><span class="p">][</span><span class="s2">"ndcg@10"</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">orden</span><span class="p">},</span>
+  <span class="s2">"nDCG@10 real"</span><span class="p">:{</span><span class="n">n</span><span class="p">:</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">idsg</span><span class="p">,</span><span class="s2">"ndcg@10"</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">orden</span><span class="p">}})</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">orden</span><span class="p">]</span>
+<span class="n">comp</span><span class="p">[</span><span class="s2">"Δ (real - sint)"</span><span class="p">]</span><span class="o">=</span><span class="n">comp</span><span class="p">[</span><span class="s2">"nDCG@10 real"</span><span class="p">]</span><span class="o">-</span><span class="n">comp</span><span class="p">[</span><span class="s2">"nDCG@10 sintético"</span><span class="p">]</span>
+<span class="n">comp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nDCG@10 sintético</th>
+      <th>nDCG@10 real</th>
+      <th>Δ (real - sint)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BM25 (referencia léxica)</th>
+      <td>0.843</td>
+      <td>0.925</td>
+      <td>0.083</td>
+    </tr>
+    <tr>
+      <th>Denso puro</th>
+      <td>0.874</td>
+      <td>0.948</td>
+      <td>0.075</td>
+    </tr>
+    <tr>
+      <th>Denso + ontología</th>
+      <td>0.917</td>
+      <td>0.951</td>
+      <td>0.034</td>
+    </tr>
+    <tr>
+      <th>Híbrido (sin ontología)</th>
+      <td>0.878</td>
+      <td>0.946</td>
+      <td>0.069</td>
+    </tr>
+    <tr>
+      <th>Híbrido + ontología</th>
+      <td>0.936</td>
+      <td>0.952</td>
+      <td>0.017</td>
+    </tr>
+    <tr>
+      <th>Híbrido + ontología + realce</th>
+      <td>0.911</td>
+      <td>0.973</td>
+      <td>0.062</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nDCG@10 por estrato (conjunto real)</span>
+<span class="n">dfe</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">e</span><span class="p">:{</span><span class="n">n</span><span class="p">:</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">idse</span><span class="p">[</span><span class="n">e</span><span class="p">],</span><span class="s2">"ndcg@10"</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">orden</span><span class="p">}</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ests</span><span class="p">})</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mf">4.4</span><span class="p">))</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">orden</span><span class="p">));</span> <span class="n">w</span><span class="o">=</span><span class="mf">0.8</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ests</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ests</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">ests</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="p">[</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">idse</span><span class="p">[</span><span class="n">e</span><span class="p">],</span><span class="s2">"ndcg@10"</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">orden</span><span class="p">],</span> <span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">"C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="s2">"BM25"</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"nDCG@10"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Conjunto REAL · nDCG@10 por estrato"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6dae59c13437013721c263ecc256a167f11288bf84663024329bcd8826f6ecbd.png" src="../_images/6dae59c13437013721c263ecc256a167f11288bf84663024329bcd8826f6ecbd.png" />
+</div>
+</div>
+<section id="visualizaciones-de-diagnostico-paquete-estandar-de-ir">
+<h3>4.4 Visualizaciones de diagnóstico (paquete estándar de IR)<a class="headerlink" href="#visualizaciones-de-diagnostico-paquete-estandar-de-ir" title="Link to this heading">#</a></h3>
+<p>Gráficas habituales en evaluación de búsqueda semántica, para leer los resultados más allá de
+las tablas: barras de calidad con intervalo de confianza, distribución por consulta
+(boxplot/violín), cobertura acumulada (Success&#64;k) con Precision&#64;k/Recall&#64;k, y un scatter de
+score semántico frente a relevancia. Los rankings se recomputan una sola vez.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- setup de visualizaciones ---</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_np</span>
+<span class="n">_orden</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">]</span>
+<span class="n">_COL</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">c</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">_orden</span><span class="p">,</span> <span class="p">[</span><span class="s2">"#9aa0a6"</span><span class="p">,</span><span class="s2">"#4c78a8"</span><span class="p">,</span><span class="s2">"#5aa469"</span><span class="p">,</span><span class="s2">"#e0842c"</span><span class="p">,</span><span class="s2">"#c0504d"</span><span class="p">,</span><span class="s2">"#8156a7"</span><span class="p">])}</span>
+<span class="n">_etq</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"C</span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="n">i</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"BM25"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">]</span>
+<span class="n">_rank</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="p">{</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span> <span class="n">mot</span><span class="o">.</span><span class="n">rec</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">}</span> <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">confs</span><span class="p">}</span>
+<span class="n">_gold</span> <span class="o">=</span> <span class="n">cg</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_bic</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="nb">float</span><span class="p">);</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">_np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span> <span class="n">_np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Rankings y utilidades de visualización listos ("</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">_orden</span><span class="p">),</span> <span class="s2">"configuraciones )."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rankings y utilidades de visualización listos ( 6 configuraciones ).
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Barras de calidad global.</strong> La comparativa más usada; las barras de error (IC95 bootstrap) indican si las diferencias son fiables o si los intervalos se solapan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Barras de calidad global con IC95 bootstrap</span>
+<span class="n">_mets</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"nDCG@10"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">ndcg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
+         <span class="p">(</span><span class="s2">"MRR@10"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">mrr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
+         <span class="p">(</span><span class="s2">"Recall@100"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">recall</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="mi">100</span><span class="p">))]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">_mets</span><span class="p">):</span>
+    <span class="n">vals</span><span class="p">,</span> <span class="n">los</span><span class="p">,</span> <span class="n">his</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_orden</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span><span class="p">(</span><span class="n">_rank</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_gold</span><span class="p">]</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">_bic</span><span class="p">(</span><span class="n">s</span><span class="p">);</span> <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> <span class="n">los</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">lo</span><span class="p">);</span> <span class="n">his</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hi</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_orden</span><span class="p">)),</span> <span class="n">vals</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="p">[</span><span class="n">los</span><span class="p">,</span> <span class="n">his</span><span class="p">],</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="n">_COL</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_orden</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_orden</span><span class="p">)));</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">_etq</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">8.5</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">nom</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.07</span><span class="p">),</span> <span class="mf">1.01</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">his</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.003</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Calidad global por configuración (IC95 bootstrap)"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.03</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d2c8fc6b6ed0cee5d58526ffb925d019dbfe85edb9f45673021dbb9d62e38f77.png" src="../_images/d2c8fc6b6ed0cee5d58526ffb925d019dbfe85edb9f45673021dbb9d62e38f77.png" />
+</div>
+</div>
+<p><strong>Distribución por consulta.</strong> Revela estabilidad: una caja alta y compacta resuelve bien casi todas las consultas; una cola inferior larga señala consultas difíciles que el promedio esconde.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distribución por consulta: boxplot y violín de nDCG@10</span>
+<span class="n">_data</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ndcg</span><span class="p">(</span><span class="n">_rank</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="mi">10</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_gold</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_orden</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">))</span>
+<span class="n">_bp</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">_data</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">_etq</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">_bp</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">],</span> <span class="n">_orden</span><span class="p">):</span> <span class="n">p</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">_COL</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span> <span class="n">p</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Boxplot de nDCG@10 por consulta"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"nDCG@10"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">_data</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">_orden</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">_etq</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Violín de nDCG@10 por consulta"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"nDCG@10"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/26cdc28afab5bbad4446c74610ec8fbcc437e3f6944acdd0341a93d7531a668e.png" src="../_images/26cdc28afab5bbad4446c74610ec8fbcc437e3f6944acdd0341a93d7531a668e.png" />
+</div>
+</div>
+<p><strong>Cobertura del ranking.</strong> Success&#64;k mide en qué profundidad aparece el objetivo (importa el arranque, k pequeño). Precision&#64;k cae con k porque hay un relevante por consulta (máximo 1/k), así que se lee en términos relativos; Recall&#64;k es su contraparte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Success@k (cobertura acumulada) + Precision@k + Recall@k</span>
+<span class="n">_ks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_orden</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_ks</span><span class="p">,</span> <span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mf">1.0</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">_rank</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]][:</span><span class="n">k</span><span class="p">])</span> <span class="k">else</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_gold</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_ks</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">_COL</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">n</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" + "</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">))</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_ks</span><span class="p">,</span> <span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">prec</span><span class="p">(</span><span class="n">_rank</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_gold</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_ks</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">_COL</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_ks</span><span class="p">,</span> <span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">recall</span><span class="p">(</span><span class="n">_rank</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">qrels</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]],</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_gold</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_ks</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">_COL</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Success@k (cobertura acumulada)"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"k"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Precision@k"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"k"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Recall@k"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"k"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0314e4fc69337722ff0f706001dabdb10f40cc0e153df35a09be245a2885173c.png" src="../_images/0314e4fc69337722ff0f706001dabdb10f40cc0e153df35a09be245a2885173c.png" />
+</div>
+</div>
+<p><strong>Score semántico vs relevancia.</strong> Validez de fondo del enfoque denso: si los documentos relevantes tienen mayor similitud coseno que los no relevantes, el embedding captura la señal correcta. El solapamiento en la zona media explica por qué la señal léxica y la ontología siguen aportando.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter: score semántico (coseno) vs relevancia</span>
+<span class="n">_xr</span><span class="p">,</span> <span class="n">_xn</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">sc</span> <span class="ow">in</span> <span class="n">mot</span><span class="o">.</span><span class="n">do</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">])[:</span><span class="mi">20</span><span class="p">]:</span>
+        <span class="p">(</span><span class="n">_xr</span> <span class="k">if</span> <span class="n">qrels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">_xn</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">));</span> <span class="n">_rng</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">_rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">_xn</span><span class="p">)),</span> <span class="n">_xn</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#9aa0a6"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"no relevante (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">_xn</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">_rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">_xr</span><span class="p">)),</span> <span class="n">_xr</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#5aa469"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"relevante (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">_xr</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">"no relevante"</span><span class="p">,</span> <span class="s2">"relevante"</span><span class="p">]);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"similitud coseno (denso+ontología)"</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Score semántico vs relevancia"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">_xn</span><span class="p">,</span> <span class="n">_xr</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#9aa0a6"</span><span class="p">,</span> <span class="s2">"#5aa469"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s2">"no relevante"</span><span class="p">,</span> <span class="s2">"relevante"</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"similitud coseno"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"frecuencia"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Distribución de scores por relevancia"</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"coseno medio -&gt; relevantes=</span><span class="si">{</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_xr</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> vs no relevantes=</span><span class="si">{</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_xn</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> (separación=</span><span class="si">{</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_xr</span><span class="p">)</span><span class="o">-</span><span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_xn</span><span class="p">)</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fe6c7ed4e0210988df1b140a8905f6bff1b8cca3435077e47380466e63c4c896.png" src="../_images/fe6c7ed4e0210988df1b140a8905f6bff1b8cca3435077e47380466e63c4c896.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coseno medio -&gt; relevantes=0.569 vs no relevantes=0.393 (separación=+0.177)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Lectura conjunta.</strong> Las gráficas cuentan la misma historia desde ángulos distintos: la jerarquía de configuraciones es consistente (ontología e híbrido dominan), el boxplot añade la estabilidad, Success&#64;k el comportamiento del ranking, y el scatter la validez semántica. Las limitaciones del protocolo <em>known-item</em> (un relevante por consulta) están señaladas donde afectan la lectura (Precision&#64;k, curva PR).</p>
+</section>
+</section>
+<section id="conclusiones-escalera-1">
+<h2>5. Conclusiones (Escalera 1)<a class="headerlink" href="#conclusiones-escalera-1" title="Link to this heading">#</a></h2>
+<p><strong>Interpretación de resultados.</strong></p>
+<ul class="simple">
+<li><p>Sobre el conjunto <strong>real</strong>, la jerarquía global se mantiene (el híbrido con ontología es de
+las mejores), lo que da validez externa al hallazgo de la v1: no era un artefacto del
+protocolo sintético.</p></li>
+<li><p>Hallazgo nuevo y matizado sobre P5: en la distribución real de consultas, con más peso de
+nombre propio, <strong>el realce por entidad recupera valor</strong> en el estrato de entidad exacta, al
+contrario de lo que ocurría con el conjunto sintético. La recomendación de descartar el
+realce debe leerse como dependiente del conjunto de prueba, no absoluta.</p></li>
+<li><p>Recall&#64;100 sigue en 1,0 porque el corpus tiene 17 documentos. Esta limitación se levanta en
+la Escalera 2 (notebook 06), que amplía el corpus y vuelve informativo el recall.</p></li>
+</ul>
+<p><strong>Accionable.</strong> El conjunto silver ya da una medición con sabor real y reproducible; el
+siguiente paso de rigor es elevar una muestra a <strong>gold</strong> con juicios de expertos (pooling
+multi-sistema, relevancia 0–3, dos anotadores, κ de Cohen), que corrige el sesgo del silver.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Benchmark_Matryoshka_P6.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_Expansion_Corpus_Competencias.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">06 · Expansión del corpus a Competencias (Escalera 2)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-y-objetivo">1. Contexto y objetivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-regla-del-proyecto">1.1 Privacidad (regla del proyecto)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nucleo-de-recuperacion-inline-reproducible">2. Núcleo de recuperación (inline, reproducible)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#construccion-del-conjunto-real-silver">3. Construcción del conjunto real (silver)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reejecucion-de-la-escalera-sobre-el-conjunto-real">4. Reejecución de la escalera sobre el conjunto real</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizaciones-de-diagnostico-paquete-estandar-de-ir">4.4 Visualizaciones de diagnóstico (paquete estándar de IR)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-escalera-1">5. Conclusiones (Escalera 1)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

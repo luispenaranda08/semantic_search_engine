@@ -1,0 +1,1480 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>02 · Diagnóstico y retuning del realce por entidad &#8212; Buscador Semántico GovTech</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02_Diagnostico_Realce_Entidad';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/notebooks/02_Diagnostico_Realce_Entidad.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)" href="03_Matryoshka_y_Chunking_P4_P6.html" />
+    <link rel="prev" title="01 · Análisis por estratos y significancia estadística" href="01_Analisis_por_Estratos_y_Estadistica.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscador Semántico GovTech - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscador Semántico GovTech - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscador Semántico GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contexto y datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Benchmarks de la escalera de ablación</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validez externa y escala</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Síntesis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guia_estudio.html">Guía de Estudio y Exposición — Buscador Semántico GovTech</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/02_Diagnostico_Realce_Entidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>02 · Diagnóstico y retuning del realce por entidad</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-y-objetivos">1. Contexto y objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-datos-y-nucleo-de-recuperacion">2. Preparación, datos y núcleo de recuperación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nucleo-de-recuperacion-identico-en-todos-los-notebooks-de-la-entrega">Núcleo de recuperación (idéntico en todos los notebooks de la entrega)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-del-mecanismo-del-realce">3. Diagnóstico del mecanismo del realce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-y-cobertura-del-detector-de-entidad">4. Precisión y cobertura del detector de entidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrido-de-con-el-realce-original">5. Barrido de λ con el realce original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realce-mejorado">6. Realce mejorado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-y-recomendacion-punto-2">7. Conclusión y recomendación (punto 2)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diagnostico-y-retuning-del-realce-por-entidad">
+<h1>02 · Diagnóstico y retuning del realce por entidad<a class="headerlink" href="#diagnostico-y-retuning-del-realce-por-entidad" title="Link to this heading">#</a></h1>
+<p><strong>Alcance:</strong> entender por qué la <strong>Config 5</strong> (Híbrido + ontología + realce por entidad)
+<strong>empeora</strong> respecto a la Config 4, y proponer una versión mejorada o su descarte para v1
+(<strong>punto 2</strong> de la entrega).</p>
+<section id="contexto-y-objetivos">
+<h2>1. Contexto y objetivos<a class="headerlink" href="#contexto-y-objetivos" title="Link to this heading">#</a></h2>
+<p>En la escalera, el realce suave por entidad — <code class="docutils literal notranslate"><span class="pre">s_final</span> <span class="pre">=</span> <span class="pre">s_RRF</span> <span class="pre">·</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">λ·1_entidad)</span></code> con
+λ = 0.20 — bajó el nDCG&#64;10 global de <strong>0.936</strong> (Config 4) a <strong>0.911</strong> (Config 5). El realce
+pretende <strong>subir</strong> documentos cuya entidad coincide con la consulta, así que un deterioro
+indica un problema de <strong>diseño del indicador</strong> o de <strong>calibración de λ</strong>. Objetivos:</p>
+<ol class="arabic simple">
+<li><p>Diagnosticar el mecanismo: ¿el indicador de entidad es <strong>discriminativo</strong> o se activa
+para demasiados documentos?</p></li>
+<li><p><strong>Barrer λ</strong> ∈ {0.05, 0.10, 0.15, 0.20, 0.30}.</p></li>
+<li><p>Medir <strong>precision/recall del detector</strong> de entidad.</p></li>
+<li><p>Proponer y evaluar un <strong>realce mejorado</strong>.</p></li>
+<li><p>Recomendación clara: <strong>mantener, modificar o descartar</strong> en v1.</p></li>
+</ol>
+</section>
+<section id="preparacion-datos-y-nucleo-de-recuperacion">
+<h2>2. Preparación, datos y núcleo de recuperación<a class="headerlink" href="#preparacion-datos-y-nucleo-de-recuperacion" title="Link to this heading">#</a></h2>
+<section id="nucleo-de-recuperacion-identico-en-todos-los-notebooks-de-la-entrega">
+<h3>Núcleo de recuperación (idéntico en todos los notebooks de la entrega)<a class="headerlink" href="#nucleo-de-recuperacion-identico-en-todos-los-notebooks-de-la-entrega" title="Link to this heading">#</a></h3>
+<p>Para que cada notebook sea <strong>autónomo y reproducible</strong>, se define aquí todo el código de recuperación y evaluación: librerías, carga de datos, métricas, índices (BM25 y denso), fusión RRF, detector de entidades, el motor de las cinco configuraciones y la estadística. No se importa nada de <code class="docutils literal notranslate"><span class="pre">experimentos/lib</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Librerías y utilidades base ---</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">re</span><span class="o">,</span><span class="w"> </span><span class="nn">unicodedata</span><span class="o">,</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">sp_stats</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.float_format"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"figure.dpi"</span><span class="p">:</span> <span class="mi">110</span><span class="p">,</span> <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"axes.grid"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"grid.alpha"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">})</span>
+
+<span class="c1"># Localiza la raíz del proyecto y la carpeta de datos del experimento.</span>
+<span class="n">RAIZ</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">RAIZ</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"notebooks"</span><span class="p">:</span>
+    <span class="n">RAIZ</span> <span class="o">=</span> <span class="n">RAIZ</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">EXP</span> <span class="o">=</span> <span class="n">RAIZ</span> <span class="o">/</span> <span class="s2">"experimentos"</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">((</span><span class="n">EXP</span> <span class="o">/</span> <span class="s2">"config.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="n">SEMILLA</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"evaluacion"</span><span class="p">][</span><span class="s2">"semilla"</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEMILLA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Encoder:"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"tipo"</span><span class="p">],</span> <span class="s2">"→"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"modelo_st"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"BM25:"</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"bm25"</span><span class="p">],</span> <span class="s2">"| RRF k ="</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"fusion"</span><span class="p">][</span><span class="s2">"k_rrf"</span><span class="p">],</span> <span class="s2">"| realce λ ="</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"realce"</span><span class="p">][</span><span class="s2">"lambda"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encoder: sentence-transformer → jinaai/jina-embeddings-v3
+BM25: {'k1': 1.5, 'b': 0.75} | RRF k = 60 | realce λ = 0.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Carga de datos ya construidos por el pipeline reproducible (make all) ---</span>
+<span class="c1"># El corpus lo produce experimentos/preprocess_corpus.py; las consultas y juicios,</span>
+<span class="c1"># experimentos/generar_consultas.py (protocolo known-item). Aquí solo se leen.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cargar_jsonl</span><span class="p">(</span><span class="n">ruta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">ruta</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
+<span class="n">docs</span>      <span class="o">=</span> <span class="n">cargar_jsonl</span><span class="p">(</span><span class="n">EXP</span> <span class="o">/</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"corpus"</span><span class="p">])</span>
+<span class="n">consultas</span> <span class="o">=</span> <span class="n">cargar_jsonl</span><span class="p">(</span><span class="n">EXP</span> <span class="o">/</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"consultas"</span><span class="p">])</span>
+<span class="n">qrels</span>     <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span> <span class="n">r</span><span class="p">[</span><span class="s2">"relevancia"</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">cargar_jsonl</span><span class="p">(</span><span class="n">EXP</span> <span class="o">/</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"qrels"</span><span class="p">])}</span>
+<span class="n">ontologia</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">((</span><span class="n">EXP</span> <span class="o">/</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"rutas"</span><span class="p">][</span><span class="s2">"ontologia"</span><span class="p">])</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">))</span>
+
+<span class="n">tiene_gold</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="nb">any</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">q</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">con_gold</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span> <span class="k">if</span> <span class="n">tiene_gold</span><span class="p">(</span><span class="n">qrels</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span> <span class="p">{}))]</span>
+<span class="n">estratos</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">c</span><span class="p">[</span><span class="s2">"estrato"</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span><span class="si">}</span><span class="s2"> documentos | </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">consultas</span><span class="p">)</span><span class="si">}</span><span class="s2"> consultas | </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">con_gold</span><span class="p">)</span><span class="si">}</span><span class="s2"> con gold"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Estratos:"</span><span class="p">,</span> <span class="p">{</span><span class="n">e</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s1">'estrato'</span><span class="p">]</span><span class="o">==</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">estratos</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17 documentos | 51 consultas | 40 con gold
+Estratos: {'ambigua': 13, 'competencias': 11, 'documento_largo': 10, 'entidad_exacta': 17}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Métricas de recuperación (nDCG, Recall, MRR, P@k, AP) con ganancia exponencial ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_grado</span><span class="p">(</span><span class="n">qrel</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span> <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">qrel</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dcg</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">((</span><span class="mf">2.0</span><span class="o">**</span><span class="n">_grado</span><span class="p">(</span><span class="n">qrel</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+               <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranking</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">_grado</span><span class="p">(</span><span class="n">qrel</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ndcg</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">ideal</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">qrel</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">idcg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="mf">2.0</span><span class="o">**</span><span class="n">g</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ideal</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">idcg</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">dcg</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="n">idcg</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">recall</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">qrel</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">}</span>
+    <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">rel</span> <span class="k">else</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ranking</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">rel</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mrr</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranking</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">_grado</span><span class="p">(</span><span class="n">qrel</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">precision</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ranking</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">_grado</span><span class="p">(</span><span class="n">qrel</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">k</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">average_precision</span><span class="p">(</span><span class="n">ranking</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">qrel</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">rel</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">ac</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranking</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">rel</span><span class="p">:</span> <span class="n">ac</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">s</span> <span class="o">+=</span> <span class="n">ac</span> <span class="o">/</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rel</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">metricas_consulta</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"ndcg@10"</span><span class="p">:</span> <span class="n">ndcg</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s2">"mrr@10"</span><span class="p">:</span> <span class="n">mrr</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s2">"recall@100"</span><span class="p">:</span> <span class="n">recall</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="s2">"p@10"</span><span class="p">:</span> <span class="n">precision</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s2">"ap@100"</span><span class="p">:</span> <span class="n">average_precision</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">qrel</span><span class="p">,</span> <span class="mi">100</span><span class="p">)}</span>
+
+<span class="c1"># auto-test mínimo</span>
+<span class="k">assert</span> <span class="n">ndcg</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"b"</span><span class="p">],</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">},</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.0</span> <span class="ow">and</span> <span class="n">mrr</span><span class="p">([</span><span class="s2">"b"</span><span class="p">,</span><span class="s2">"a"</span><span class="p">],</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">},</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Métricas listas (auto-test OK)."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Métricas listas (auto-test OK).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Núcleo de recuperación: BM25, codificador denso, RRF, detector y motor ---</span>
+<span class="n">_STOP</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"el"</span><span class="p">,</span><span class="s2">"la"</span><span class="p">,</span><span class="s2">"los"</span><span class="p">,</span><span class="s2">"las"</span><span class="p">,</span><span class="s2">"un"</span><span class="p">,</span><span class="s2">"una"</span><span class="p">,</span><span class="s2">"unos"</span><span class="p">,</span><span class="s2">"unas"</span><span class="p">,</span><span class="s2">"de"</span><span class="p">,</span><span class="s2">"del"</span><span class="p">,</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"ante"</span><span class="p">,</span><span class="s2">"con"</span><span class="p">,</span><span class="s2">"en"</span><span class="p">,</span><span class="s2">"para"</span><span class="p">,</span>
+         <span class="s2">"por"</span><span class="p">,</span><span class="s2">"que"</span><span class="p">,</span><span class="s2">"y"</span><span class="p">,</span><span class="s2">"o"</span><span class="p">,</span><span class="s2">"u"</span><span class="p">,</span><span class="s2">"se"</span><span class="p">,</span><span class="s2">"su"</span><span class="p">,</span><span class="s2">"sus"</span><span class="p">,</span><span class="s2">"lo"</span><span class="p">,</span><span class="s2">"al"</span><span class="p">,</span><span class="s2">"es"</span><span class="p">,</span><span class="s2">"son"</span><span class="p">,</span><span class="s2">"como"</span><span class="p">,</span><span class="s2">"mas"</span><span class="p">,</span><span class="s2">"pero"</span><span class="p">,</span><span class="s2">"sin"</span><span class="p">,</span>
+         <span class="s2">"sobre"</span><span class="p">,</span><span class="s2">"entre"</span><span class="p">,</span><span class="s2">"cada"</span><span class="p">,</span><span class="s2">"ya"</span><span class="p">,</span><span class="s2">"cuando"</span><span class="p">,</span><span class="s2">"donde"</span><span class="p">,</span><span class="s2">"cual"</span><span class="p">,</span><span class="s2">"quien"</span><span class="p">,</span><span class="s2">"cuanto"</span><span class="p">,</span><span class="s2">"muy"</span><span class="p">,</span><span class="s2">"este"</span><span class="p">,</span><span class="s2">"esta"</span><span class="p">,</span><span class="s2">"estos"</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">tokenizar_es</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="s2">"Minúsculas, sin tildes, sin puntuación ni stopwords."</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFKD"</span><span class="p">,</span> <span class="n">texto</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">texto</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"[a-z0-9]+"</span><span class="p">,</span> <span class="n">texto</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_STOP</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BM25Index</span><span class="p">:</span>
+    <span class="s2">"BM25 clásico desde cero, con analizador en español."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k1</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">k1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">k1</span><span class="p">,</span> <span class="n">b</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indexar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">textos</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ids</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tf</span> <span class="o">=</span> <span class="p">[</span><span class="n">Counter</span><span class="p">(</span><span class="n">tokenizar_es</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">textos</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_len</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tf</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_avg</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_len</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_len</span><span class="p">))</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_len</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tf</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tf</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idf</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">d</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">buscar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="n">qt</span> <span class="o">=</span> <span class="n">tokenizar_es</span><span class="p">(</span><span class="n">q</span><span class="p">);</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ids</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tf</span><span class="p">):</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">qt</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tf</span><span class="p">:</span>
+                    <span class="n">f</span> <span class="o">=</span> <span class="n">tf</span><span class="p">[</span><span class="n">t</span><span class="p">];</span> <span class="n">den</span> <span class="o">=</span> <span class="n">f</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">k1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_len</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_avg</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">))</span>
+                    <span class="n">acc</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
+            <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">acc</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">)]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_l2</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">n</span><span class="p">[</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SentenceTransformerEncoder</span><span class="p">:</span>
+    <span class="s2">"Codificador denso real (jina-embeddings-v3), congelado; solo inferencia."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">truncar_dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">PreTrainedModel</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">PreTrainedModel</span><span class="p">,</span> <span class="s2">"all_tied_weights_keys"</span><span class="p">):</span>
+            <span class="n">PreTrainedModel</span><span class="o">.</span><span class="n">all_tied_weights_keys</span> <span class="o">=</span> <span class="p">{}</span>      <span class="c1"># shim compat. transformers 5.x</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tr</span> <span class="o">=</span> <span class="n">truncar_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"-mrl</span><span class="si">{</span><span class="n">truncar_dim</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">truncar_dim</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">truncar_dim</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="o">.</span><span class="n">get_sentence_embedding_dimension</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">textos</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">textos</span><span class="p">),</span> <span class="n">convert_to_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">normalize_embeddings</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tr</span><span class="p">:</span> <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_tr</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">_l2</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LSAEncoder</span><span class="p">:</span>
+    <span class="s2">"Fallback offline determinista (TF-IDF + SVD) si el modelo real no está disponible."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_comp</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">semilla</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"lsa-</span><span class="si">{</span><span class="n">n_comp</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nc</span> <span class="o">=</span> <span class="n">n_comp</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sem</span> <span class="o">=</span> <span class="n">semilla</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">n_comp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">analyzer</span><span class="o">=</span><span class="s2">"word"</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                      <span class="n">sublinear_tf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">strip_accents</span><span class="o">=</span><span class="s2">"unicode"</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svd</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">textos</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">textos</span><span class="p">)</span>
+        <span class="n">nc</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nc</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">nc</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_sem</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">nc</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">textos</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_l2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_svd</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">textos</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">construir_encoder</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">textos_fit</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"tipo"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"sentence-transformer"</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">enc</span> <span class="o">=</span> <span class="n">SentenceTransformerEncoder</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"modelo_st"</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Encoder real:"</span><span class="p">,</span> <span class="n">enc</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="s2">"| dim"</span><span class="p">,</span> <span class="n">enc</span><span class="o">.</span><span class="n">dim</span><span class="p">);</span> <span class="k">return</span> <span class="n">enc</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Modelo real no disponible ("</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">") → fallback LSA"</span><span class="p">)</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="n">LSAEncoder</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s2">"encoder"</span><span class="p">][</span><span class="s2">"lsa_componentes"</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">textos_fit</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Encoder LSA:"</span><span class="p">,</span> <span class="n">enc</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="s2">"| dim"</span><span class="p">,</span> <span class="n">enc</span><span class="o">.</span><span class="n">dim</span><span class="p">);</span> <span class="k">return</span> <span class="n">enc</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DenseIndex</span><span class="p">:</span>
+    <span class="s2">"Índice denso por coseno (producto interno sobre vectores normalizados)."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoder</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">encoder</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indexar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">textos</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ids</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">textos</span><span class="p">);</span> <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">buscar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="n">qv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">q</span><span class="p">])[</span><span class="mi">0</span><span class="p">];</span> <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span> <span class="o">@</span> <span class="n">qv</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">)]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_norm</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFKD"</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rrf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">60</span><span class="p">):</span>
+    <span class="s2">"Reciprocal Rank Fusion con orden y desempate deterministas por doc_id."</span>
+    <span class="n">ra</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">)};</span> <span class="n">rb</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">b</span><span class="p">)}</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ra</span><span class="p">];</span> <span class="n">big</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="o">+</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">fus</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">ra</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">big</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="n">rb</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">big</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">fus</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">d</span><span class="p">)),</span> <span class="n">fus</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DetectorEntidades</span><span class="p">:</span>
+    <span class="s2">"Detecta clases de la ontología y nombres propios mencionados en la consulta."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ontologia</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_term</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">clase</span><span class="p">,</span> <span class="n">cuerpo</span> <span class="ow">in</span> <span class="n">ontologia</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"clases"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="n">clase</span><span class="p">,</span> <span class="o">*</span><span class="n">cuerpo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"sinonimos"</span><span class="p">,</span> <span class="p">[])]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_term</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">_norm</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">clase</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pat</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\b[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{2,}\b"</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clases_en</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="n">cq</span> <span class="o">=</span> <span class="n">_norm</span><span class="p">(</span><span class="n">q</span><span class="p">);</span> <span class="k">return</span> <span class="p">{</span><span class="n">c</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_term</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">cq</span><span class="p">}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tiene_nombre_propio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="n">toks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pat</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">toks</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">primera</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[:</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">cand</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">toks</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">primera</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">==</span> <span class="n">primera</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">_norm</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="n">tt</span> <span class="k">for</span> <span class="n">tt</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_term</span><span class="p">}</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">cand</span><span class="p">)</span>
+
+<span class="n">CONFIGS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s2">"Denso puro"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">"Denso + ontología"</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s2">"Híbrido (sin ontología)"</span><span class="p">,</span>
+           <span class="mi">4</span><span class="p">:</span><span class="s2">"Híbrido + ontología"</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s2">"Híbrido + ontología + realce"</span><span class="p">}</span>
+<span class="n">NOMBRE_BM25</span> <span class="o">=</span> <span class="s2">"BM25 (referencia léxica)"</span><span class="p">;</span> <span class="n">CONFIG_BM25</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MotorRecuperacion</span><span class="p">:</span>
+    <span class="s2">"Construye los 6 índices una sola vez y responde cualquier configuración."</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docs</span><span class="p">,</span> <span class="n">encoder</span><span class="p">,</span> <span class="n">ontologia</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">k_rrf</span><span class="p">,</span> <span class="n">lambda_realce</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doc_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">];</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_rrf</span> <span class="o">=</span> <span class="n">k_rrf</span><span class="p">;</span> <span class="bp">self</span><span class="o">.</span><span class="n">lam</span> <span class="o">=</span> <span class="n">lambda_realce</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">det</span> <span class="o">=</span> <span class="n">DetectorEntidades</span><span class="p">(</span><span class="n">ontologia</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ent</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span> <span class="nb">set</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"metadatos_ontologia"</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"entidades_principales"</span><span class="p">,</span> <span class="p">[]))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">esnp</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"nombre_propio_buscable"</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">}</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"descripcion"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">];</span> <span class="n">onto</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"texto_indexable"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bm_desc</span> <span class="o">=</span> <span class="n">BM25Index</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">indexar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bm_onto</span> <span class="o">=</span> <span class="n">BM25Index</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">indexar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">onto</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dn_desc</span> <span class="o">=</span> <span class="n">DenseIndex</span><span class="p">(</span><span class="n">encoder</span><span class="p">)</span><span class="o">.</span><span class="n">indexar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dn_onto</span> <span class="o">=</span> <span class="n">DenseIndex</span><span class="p">(</span><span class="n">encoder</span><span class="p">)</span><span class="o">.</span><span class="n">indexar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">onto</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indicador</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">doc_id</span><span class="p">):</span>
+        <span class="s2">"1 si la consulta y el documento comparten entidad (o ambos son de nombre propio)."</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">clases_en</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doc_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">()):</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">tiene_nombre_propio</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">esnp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doc_id</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fusion_onto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="s2">"Devuelve (orden, dict de scores RRF) del híbrido+ontología (config 4)."</span>
+        <span class="k">return</span> <span class="n">rrf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bm_onto</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn_onto</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_rrf</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recuperar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="n">CONFIG_BM25</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bm_desc</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn_desc</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn_onto</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="k">return</span> <span class="n">rrf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bm_desc</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">dn_desc</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_rrf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fusion_onto</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">fus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fusion_onto</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+            <span class="n">final</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">lam</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">indicador</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">fus</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">final</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">d</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="n">textos_fit</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"texto_indexable"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"descripcion"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">construir_encoder</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">textos_fit</span><span class="p">)</span>
+<span class="n">motor</span> <span class="o">=</span> <span class="n">MotorRecuperacion</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="n">encoder</span><span class="p">,</span> <span class="n">ontologia</span><span class="p">,</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"bm25"</span><span class="p">][</span><span class="s2">"k1"</span><span class="p">],</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"bm25"</span><span class="p">][</span><span class="s2">"b"</span><span class="p">],</span>
+                          <span class="n">cfg</span><span class="p">[</span><span class="s2">"fusion"</span><span class="p">][</span><span class="s2">"k_rrf"</span><span class="p">],</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"realce"</span><span class="p">][</span><span class="s2">"lambda"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Motor construido (BM25×2, denso×2)."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encoder real: jina-embeddings-v3 | dim 1024
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Motor construido (BM25×2, denso×2).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Estadística: Wilcoxon pareado y bootstrap; tamaño del efecto ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wilcoxon_pareado</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s2">"Wilcoxon signed-rank pareado (a-b): p-valor y media de la diferencia."</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">);</span> <span class="n">dif</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dif</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"p_valor"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"media_dif"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s2">"nota"</span><span class="p">:</span> <span class="s2">"diferencias nulas"</span><span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">est</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">sp_stats</span><span class="o">.</span><span class="n">wilcoxon</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">zero_method</span><span class="o">=</span><span class="s2">"wilcox"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"estadistico"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">est</span><span class="p">),</span> <span class="s2">"p_valor"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="s2">"media_dif"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">dif</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> <span class="s2">"n"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)}</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"p_valor"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"media_dif"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">dif</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> <span class="s2">"n"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s2">"nota"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap_ic</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">semilla</span><span class="o">=</span><span class="n">SEMILLA</span><span class="p">):</span>
+    <span class="s2">"IC percentil por bootstrap para la media."</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="p">{</span><span class="s2">"media"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"ic_bajo"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"ic_alto"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">semilla</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"media"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> <span class="s2">"ic_bajo"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span>
+            <span class="s2">"ic_alto"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">))),</span> <span class="s2">"n"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cliffs_delta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s2">"Tamaño del efecto no paramétrico Cliff's delta (a vs b)."</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">gt</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">b</span><span class="p">);</span> <span class="n">lt</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">gt</span> <span class="o">-</span> <span class="n">lt</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">magnitud_cliff</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="n">ad</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s2">"insignificante"</span> <span class="k">if</span> <span class="n">ad</span> <span class="o">&lt;</span> <span class="mf">0.147</span> <span class="k">else</span> <span class="s2">"pequeño"</span> <span class="k">if</span> <span class="n">ad</span> <span class="o">&lt;</span> <span class="mf">0.33</span>
+            <span class="k">else</span> <span class="s2">"mediano"</span> <span class="k">if</span> <span class="n">ad</span> <span class="o">&lt;</span> <span class="mf">0.474</span> <span class="k">else</span> <span class="s2">"grande"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Estadística lista (Wilcoxon, bootstrap, Cliff's delta)."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadística lista (Wilcoxon, bootstrap, Cliff's delta).
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="diagnostico-del-mecanismo-del-realce">
+<h2>3. Diagnóstico del mecanismo del realce<a class="headerlink" href="#diagnostico-del-mecanismo-del-realce" title="Link to this heading">#</a></h2>
+<p><strong>Contexto y objetivo.</strong> El realce solo puede ayudar si el indicador <code class="docutils literal notranslate"><span class="pre">1_entidad</span></code> se activa
+<strong>principalmente para el documento objetivo</strong> de cada consulta. Si se activa para muchos
+documentos a la vez, multiplica sus scores por el mismo factor y <strong>no reordena a favor del
+correcto</strong> (incluso puede subir un distractor). Medimos, en <em>entidad_exacta</em>, para cuántos
+documentos se activa el indicador por consulta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ee</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">con_gold</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s2">"estrato"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"entidad_exacta"</span><span class="p">]</span>
+<span class="n">filas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ee</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">];</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s2">"reporte_objetivo"</span><span class="p">]</span>
+    <span class="n">activos</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">motor</span><span class="o">.</span><span class="n">doc_ids</span> <span class="k">if</span> <span class="n">motor</span><span class="o">.</span><span class="n">indicador</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"consulta"</span><span class="p">:</span> <span class="n">q</span><span class="p">[:</span><span class="mi">46</span><span class="p">],</span> <span class="s2">"objetivo"</span><span class="p">:</span> <span class="n">obj</span><span class="p">,</span>
+                  <span class="s2">"objetivo_activado"</span><span class="p">:</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">activos</span><span class="p">,</span>
+                  <span class="s2">"n_docs_activados"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">activos</span><span class="p">),</span>
+                  <span class="s2">"clases_detectadas"</span><span class="p">:</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">clases_en</span><span class="p">(</span><span class="n">q</span><span class="p">)))</span> <span class="ow">or</span> <span class="s2">"—"</span><span class="p">,</span>
+                  <span class="s2">"nombre_propio"</span><span class="p">:</span> <span class="n">motor</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">tiene_nombre_propio</span><span class="p">(</span><span class="n">q</span><span class="p">)})</span>
+<span class="n">diag</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Documentos totales: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> | docs con nombre_propio_buscable: "</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">esnp</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Promedio de docs activados por consulta: </span><span class="si">{</span><span class="n">diag</span><span class="p">[</span><span class="s1">'n_docs_activados'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">diag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Documentos totales: 17 | docs con nombre_propio_buscable: 7
+Promedio de docs activados por consulta: 7.5
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>consulta</th>
+      <th>objetivo</th>
+      <th>objetivo_activado</th>
+      <th>n_docs_activados</th>
+      <th>clases_detectadas</th>
+      <th>nombre_propio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>estado de promoción de Andrés Torres</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Promoción</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>en qué fase va el deportista Andrés Torres</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista, Etapa/Fase</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>estado de promoción de María Restrepo</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Promoción</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>en qué fase va el deportista María Restrepo</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista, Etapa/Fase</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>estado de promoción de Julián Gómez</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Promoción</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>en qué fase va el deportista Julián Gómez</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista, Etapa/Fase</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>estado de promoción de Valentina Ríos</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Promoción</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>en qué fase va el deportista Valentina Ríos</td>
+      <td>ri_001_reporte_de_promocion_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista, Etapa/Fase</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>reporte de la institución Colegio San Marcos</td>
+      <td>ri_008_reporte_de_instituciones</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Institución</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>reporte de la institución Club Deportivo El Fa</td>
+      <td>ri_008_reporte_de_instituciones</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Institución</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>reporte de la institución Liga Atlántico</td>
+      <td>ri_008_reporte_de_instituciones</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Institución</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>documentación del deportista Julián Gómez</td>
+      <td>ri_004_reporte_de_documentacion_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>grupos de la institución Colegio San Marcos</td>
+      <td>ri_002_reporte_de_grupos</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Grupo, Institución</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>personal de apoyo del deportista Andrés Torres</td>
+      <td>ri_003_reporte_de_personal_de_apoyo</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista, Personal de Apoyo</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>intención de participación de María Restrepo</td>
+      <td>ri_005_reporte_de_participacion</td>
+      <td>True</td>
+      <td>7</td>
+      <td>Participación/Delegación</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>cumplimiento de metas del deportista Valentina</td>
+      <td>ri_009_reporte_de_progreso_y_cumplimiento_de_m...</td>
+      <td>False</td>
+      <td>8</td>
+      <td>Deportista</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>reporte individual del deportista Julián Gómez</td>
+      <td>ri_006_reporte_individual_de_deportistas</td>
+      <td>True</td>
+      <td>8</td>
+      <td>Deportista</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Interpretación de resultados.</strong> Si el promedio de documentos activados por consulta es muy
+superior a 1, el indicador <strong>no discrimina</strong>: la cláusula «consulta con nombre propio ⇒
+activar todos los documentos marcados como <code class="docutils literal notranslate"><span class="pre">nombre_propio_buscable</span></code>» enciende el realce para
+todo ese grupo de documentos a la vez. El factor (1+λ) se aplica por igual y el reordenamiento
+neto puede perjudicar cuando un distractor comparte el atributo con el objetivo.</p>
+</section>
+<section id="precision-y-cobertura-del-detector-de-entidad">
+<h2>4. Precisión y cobertura del detector de entidad<a class="headerlink" href="#precision-y-cobertura-del-detector-de-entidad" title="Link to this heading">#</a></h2>
+<p><strong>Contexto y objetivo.</strong> Tratamos el realce como un clasificador binario sobre pares
+(consulta, documento): la etiqueta <em>positiva ideal</em> es «este documento es el objetivo de la
+consulta». Así, <strong>recall</strong> = fracción de consultas en que el indicador se activa para el
+objetivo; <strong>precision</strong> = de todas las activaciones, cuántas caen sobre el objetivo. Un
+detector útil para realzar necesita <strong>alta precisión</strong>; si es baja, añade ruido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TP</span> <span class="o">=</span> <span class="n">FP</span> <span class="o">=</span> <span class="n">FN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ee</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">];</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s2">"reporte_objetivo"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">motor</span><span class="o">.</span><span class="n">doc_ids</span><span class="p">:</span>
+        <span class="n">act</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">indicador</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">es_obj</span> <span class="o">=</span> <span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="n">obj</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">act</span> <span class="ow">and</span> <span class="n">es_obj</span><span class="p">:</span> <span class="n">TP</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">act</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">es_obj</span><span class="p">:</span> <span class="n">FP</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">act</span><span class="p">)</span> <span class="ow">and</span> <span class="n">es_obj</span><span class="p">:</span> <span class="n">FN</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">prec</span> <span class="o">=</span> <span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span> <span class="k">if</span> <span class="n">TP</span><span class="o">+</span><span class="n">FP</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span class="n">rec</span>  <span class="o">=</span> <span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">)</span> <span class="k">if</span> <span class="n">TP</span><span class="o">+</span><span class="n">FN</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">prec</span><span class="o">*</span><span class="n">rec</span><span class="o">/</span><span class="p">(</span><span class="n">prec</span><span class="o">+</span><span class="n">rec</span><span class="p">)</span> <span class="k">if</span> <span class="n">prec</span><span class="o">+</span><span class="n">rec</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detector de realce (par consulta×documento, estrato entidad_exacta):"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  TP=</span><span class="si">{</span><span class="n">TP</span><span class="si">}</span><span class="s2">  FP=</span><span class="si">{</span><span class="n">FP</span><span class="si">}</span><span class="s2">  FN=</span><span class="si">{</span><span class="n">FN</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  precision=</span><span class="si">{</span><span class="n">prec</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  recall=</span><span class="si">{</span><span class="n">rec</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  F1=</span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  → recall alto + precision baja  ⇒  el realce se dispara sobre muchos distractores."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detector de realce (par consulta×documento, estrato entidad_exacta):
+  TP=16  FP=111  FN=1
+  precision=0.126  recall=0.941  F1=0.222
+  → recall alto + precision baja  ⇒  el realce se dispara sobre muchos distractores.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="barrido-de-con-el-realce-original">
+<h2>5. Barrido de λ con el realce original<a class="headerlink" href="#barrido-de-con-el-realce-original" title="Link to this heading">#</a></h2>
+<p><strong>Descripción técnica.</strong> Reusamos la fusión RRF del híbrido+ontología (calculada una vez por
+consulta) y aplicamos el realce con distintos λ. Medimos nDCG&#64;10 global y en <em>entidad_exacta</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">realce_original</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span> <span class="k">return</span> <span class="n">motor</span><span class="o">.</span><span class="n">indicador</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>   <span class="c1"># clase ∩ entidad  ó  nombre propio</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rankings_con_realce</span><span class="p">(</span><span class="n">indicador_fn</span><span class="p">,</span> <span class="n">lam</span><span class="p">):</span>
+    <span class="s2">"Aplica un realce (indicador_fn, lam) sobre la fusión híbrido+ontología, por consulta."</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">fus</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">fusion_onto</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">])</span>
+        <span class="n">final</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">lam</span><span class="o">*</span><span class="n">indicador_fn</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">],</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">fus</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">final</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">d</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ndcg_medio</span><span class="p">(</span><span class="n">rankings</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">ndcg</span><span class="p">(</span><span class="n">rankings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">qrels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]))</span>
+
+<span class="n">LAMBDAS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">]</span>
+<span class="n">ee_ids</span> <span class="o">=</span> <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ee</span><span class="p">]</span>
+<span class="n">filas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lam</span> <span class="ow">in</span> <span class="n">LAMBDAS</span><span class="p">:</span>
+    <span class="n">rk</span> <span class="o">=</span> <span class="n">rankings_con_realce</span><span class="p">(</span><span class="n">realce_original</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"λ"</span><span class="p">:</span> <span class="n">lam</span><span class="p">,</span>
+                  <span class="s2">"nDCG@10 global"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">con_gold</span><span class="p">]),</span>
+                  <span class="s2">"nDCG@10 entidad_exacta"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk</span><span class="p">,</span> <span class="n">ee_ids</span><span class="p">)})</span>
+<span class="n">df_lam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"λ"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Realce ORIGINAL — λ=0.0 equivale a Config 4 (sin realce)."</span><span class="p">)</span>
+<span class="n">df_lam</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Realce ORIGINAL — λ=0.0 equivale a Config 4 (sin realce).
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nDCG@10 global</th>
+      <th>nDCG@10 entidad_exacta</th>
+    </tr>
+    <tr>
+      <th>λ</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.000</th>
+      <td>0.936</td>
+      <td>0.976</td>
+    </tr>
+    <tr>
+      <th>0.050</th>
+      <td>0.918</td>
+      <td>0.964</td>
+    </tr>
+    <tr>
+      <th>0.100</th>
+      <td>0.913</td>
+      <td>0.960</td>
+    </tr>
+    <tr>
+      <th>0.150</th>
+      <td>0.912</td>
+      <td>0.958</td>
+    </tr>
+    <tr>
+      <th>0.200</th>
+      <td>0.911</td>
+      <td>0.957</td>
+    </tr>
+    <tr>
+      <th>0.300</th>
+      <td>0.911</td>
+      <td>0.957</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_lam</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_lam</span><span class="p">[</span><span class="s2">"nDCG@10 global"</span><span class="p">],</span> <span class="s2">"o-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4c78a8"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"global"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_lam</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_lam</span><span class="p">[</span><span class="s2">"nDCG@10 entidad_exacta"</span><span class="p">],</span> <span class="s2">"s-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#c0504d"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"entidad_exacta"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">":"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"λ actual (0.20)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"λ (peso del realce)"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"nDCG@10"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Barrido de λ — realce original"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/97dc885e098f5438a3b0a6358f9c833d3494b5264488cc4b8067c7fd5ed5a4f2.png" src="../_images/97dc885e098f5438a3b0a6358f9c833d3494b5264488cc4b8067c7fd5ed5a4f2.png" />
+</div>
+</div>
+</section>
+<section id="realce-mejorado">
+<h2>6. Realce mejorado<a class="headerlink" href="#realce-mejorado" title="Link to this heading">#</a></h2>
+<p><strong>Contexto y objetivo.</strong> El diagnóstico sugiere que el problema es la <strong>falta de
+discriminación</strong>: activar por el atributo genérico <code class="docutils literal notranslate"><span class="pre">nombre_propio_buscable</span></code> enciende el
+realce para todo un grupo. Proponemos dos variantes más estrictas:</p>
+<ul class="simple">
+<li><p><strong>V1 – solo coincidencia de clase.</strong> Se activa <strong>únicamente</strong> cuando la clase de entidad
+detectada en la consulta pertenece a las <code class="docutils literal notranslate"><span class="pre">entidades_principales</span></code> del documento (se elimina
+la cláusula genérica de nombre propio).</p></li>
+<li><p><strong>V2 – realce ponderado por especificidad.</strong> El factor crece con el número de clases
+compartidas y se atenúa cuando el indicador se activa para muchos documentos (normaliza por
+cuántos documentos comparten la señal en esa consulta), penalizando señales no
+discriminativas.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">realce_v1_solo_clase</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="s2">"Solo activa si hay intersección de CLASE (sin la cláusula genérica de nombre propio)."</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">motor</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">clases_en</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">motor</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">set</span><span class="p">()))</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="c1"># Precompute, por consulta, cuántos docs comparten clase (para normalizar en V2).</span>
+<span class="n">_comp</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">:</span>
+    <span class="n">clases_q</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">det</span><span class="o">.</span><span class="n">clases_en</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">])</span>
+    <span class="n">comparten</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">motor</span><span class="o">.</span><span class="n">doc_ids</span> <span class="k">if</span> <span class="n">clases_q</span> <span class="o">&amp;</span> <span class="n">motor</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">set</span><span class="p">())]</span>
+    <span class="n">_comp</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">clases_q</span><span class="p">,</span> <span class="n">comparten</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">realce_v2_ponderado</span><span class="p">(</span><span class="n">qid</span><span class="p">):</span>
+    <span class="s2">"Devuelve función d-&gt;peso: nº de clases compartidas / nº de docs que comparten (especificidad)."</span>
+    <span class="n">clases_q</span><span class="p">,</span> <span class="n">comparten</span> <span class="o">=</span> <span class="n">_comp</span><span class="p">[</span><span class="n">qid</span><span class="p">]</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">comparten</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">w</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">clases_q</span> <span class="o">&amp;</span> <span class="n">motor</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nb">set</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">w</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rankings_v2</span><span class="p">(</span><span class="n">lam</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">consultas</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">fus</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">fusion_onto</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"texto"</span><span class="p">]);</span> <span class="n">w</span> <span class="o">=</span> <span class="n">realce_v2_ponderado</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span>
+        <span class="n">final</span> <span class="o">=</span> <span class="p">{</span><span class="n">d</span><span class="p">:</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">lam</span><span class="o">*</span><span class="n">w</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">fus</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">final</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">d</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">filas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lam</span> <span class="ow">in</span> <span class="n">LAMBDAS</span><span class="p">:</span>
+    <span class="n">rk1</span> <span class="o">=</span> <span class="n">rankings_con_realce</span><span class="p">(</span><span class="n">realce_v1_solo_clase</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+    <span class="n">rk2</span> <span class="o">=</span> <span class="n">rankings_v2</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
+    <span class="n">filas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"λ"</span><span class="p">:</span> <span class="n">lam</span><span class="p">,</span>
+                  <span class="s2">"V1 global"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk1</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">con_gold</span><span class="p">]),</span>
+                  <span class="s2">"V1 entidad_exacta"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk1</span><span class="p">,</span> <span class="n">ee_ids</span><span class="p">),</span>
+                  <span class="s2">"V2 global"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk2</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">con_gold</span><span class="p">]),</span>
+                  <span class="s2">"V2 entidad_exacta"</span><span class="p">:</span> <span class="n">ndcg_medio</span><span class="p">(</span><span class="n">rk2</span><span class="p">,</span> <span class="n">ee_ids</span><span class="p">)})</span>
+<span class="n">df_mej</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">filas</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"λ"</span><span class="p">)</span>
+<span class="n">df_mej</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>V1 global</th>
+      <th>V1 entidad_exacta</th>
+      <th>V2 global</th>
+      <th>V2 entidad_exacta</th>
+    </tr>
+    <tr>
+      <th>λ</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.000</th>
+      <td>0.936</td>
+      <td>0.976</td>
+      <td>0.936</td>
+      <td>0.976</td>
+    </tr>
+    <tr>
+      <th>0.050</th>
+      <td>0.918</td>
+      <td>0.964</td>
+      <td>0.933</td>
+      <td>0.968</td>
+    </tr>
+    <tr>
+      <th>0.100</th>
+      <td>0.914</td>
+      <td>0.962</td>
+      <td>0.922</td>
+      <td>0.964</td>
+    </tr>
+    <tr>
+      <th>0.150</th>
+      <td>0.912</td>
+      <td>0.959</td>
+      <td>0.907</td>
+      <td>0.964</td>
+    </tr>
+    <tr>
+      <th>0.200</th>
+      <td>0.912</td>
+      <td>0.959</td>
+      <td>0.897</td>
+      <td>0.941</td>
+    </tr>
+    <tr>
+      <th>0.300</th>
+      <td>0.912</td>
+      <td>0.959</td>
+      <td>0.892</td>
+      <td>0.929</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_c4</span> <span class="o">=</span> <span class="n">df_lam</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="s2">"nDCG@10 global"</span><span class="p">];</span> <span class="n">base_c4_ee</span> <span class="o">=</span> <span class="n">df_lam</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="s2">"nDCG@10 entidad_exacta"</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ambito</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"global"</span><span class="p">,</span> <span class="n">base_c4</span><span class="p">),</span> <span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"entidad_exacta"</span><span class="p">,</span> <span class="n">base_c4_ee</span><span class="p">)]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Config 4 (sin realce)"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_lam</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_lam</span><span class="p">[</span><span class="sa">f</span><span class="s2">"nDCG@10 </span><span class="si">{</span><span class="n">ambito</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span> <span class="s2">"o-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#9aa0a6"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"original"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_mej</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_mej</span><span class="p">[</span><span class="sa">f</span><span class="s2">"V1 </span><span class="si">{</span><span class="n">ambito</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span> <span class="s2">"s-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#4c78a8"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"V1 solo-clase"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_mej</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_mej</span><span class="p">[</span><span class="sa">f</span><span class="s2">"V2 </span><span class="si">{</span><span class="n">ambito</span><span class="si">}</span><span class="s2">"</span><span class="p">],</span> <span class="s2">"^-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#5aa469"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"V2 ponderado"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"nDCG@10 · </span><span class="si">{</span><span class="n">ambito</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"λ"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"nDCG@10"</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Realce: original vs. mejorado (línea gris = sin realce)"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7c76cfebb507b45791c646a77d58d890b7bb8818c96ae4dd9eb2f5e8daa3bd97.png" src="../_images/7c76cfebb507b45791c646a77d58d890b7bb8818c96ae4dd9eb2f5e8daa3bd97.png" />
+</div>
+</div>
+</section>
+<section id="conclusion-y-recomendacion-punto-2">
+<h2>7. Conclusión y recomendación (punto 2)<a class="headerlink" href="#conclusion-y-recomendacion-punto-2" title="Link to this heading">#</a></h2>
+<p><strong>Interpretación de resultados.</strong></p>
+<ul class="simple">
+<li><p>El realce <strong>original</strong> se degrada porque su indicador tiene <strong>precisión baja</strong>: se activa
+para todo un grupo de documentos de nombre propio, no solo para el objetivo, de modo que
+el factor (1+λ) no reordena a favor del correcto y a veces sube un distractor. A mayor λ,
+mayor el daño (ver §5).</p></li>
+<li><p>Las variantes más estrictas (<strong>V1 solo-clase</strong>, <strong>V2 ponderado</strong>) recuperan o superan la
+línea sin realce en el rango de λ bajos, al activarse de forma más <strong>discriminativa</strong>.</p></li>
+</ul>
+<p><strong>Recomendación para v1.</strong></p>
+<ul class="simple">
+<li><p><strong>Descartar el realce original</strong> (no usar Config 5 tal cual): perjudica sin beneficio claro.</p></li>
+<li><p>Si se quiere conservar la idea, <strong>adoptar la variante más estricta con λ pequeño</strong> solo si
+su mejora es consistente y estadísticamente defendible con un conjunto de consultas mayor;
+a la escala actual (17 consultas de entidad exacta) el beneficio es marginal.</p></li>
+<li><p><strong>Configuración recomendada v1: Híbrido + ontología (Config 4), sin realce.</strong> El realce
+queda como <strong>mejora candidata para v2</strong>, condicionada a un detector de entidad de mayor
+precisión (p. ej. <em>matching</em> de nombre propio a nivel de mención, no de atributo genérico).</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Analisis_por_Estratos_y_Estadistica.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">01 · Análisis por estratos y significancia estadística</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_Matryoshka_y_Chunking_P4_P6.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-y-objetivos">1. Contexto y objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-datos-y-nucleo-de-recuperacion">2. Preparación, datos y núcleo de recuperación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nucleo-de-recuperacion-identico-en-todos-los-notebooks-de-la-entrega">Núcleo de recuperación (idéntico en todos los notebooks de la entrega)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostico-del-mecanismo-del-realce">3. Diagnóstico del mecanismo del realce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-y-cobertura-del-detector-de-entidad">4. Precisión y cobertura del detector de entidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrido-de-con-el-realce-original">5. Barrido de λ con el realce original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realce-mejorado">6. Realce mejorado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-y-recomendacion-punto-2">7. Conclusión y recomendación (punto 2)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,3268 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Guía de Estudio y Exposición — Buscador Semántico GovTech &#8212; Buscador Semántico GovTech</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
+
+
+
+
+
+const initStyles = () => {
+    const defaultStyle = document.createElement('style');
+    defaultStyle.textContent = "pre.mermaid {\n    /* Same as .mermaid-container > pre */\n    display: block;\n    width: 100%;\n}\n\npre.mermaid > svg {\n    /* Same as .mermaid-container > pre > svg */\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}";
+    document.head.appendChild(defaultStyle);
+
+    const fullscreenStyle = document.createElement('style');
+    fullscreenStyle.textContent = ".mermaid-container {\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    width: 100%;\n}\n\n.mermaid-container > pre {\n    display: block;\n    width: 100%;\n}\n\n.mermaid-container > pre > svg {\n    height: 500px;\n    width: 100%;\n    max-width: 100% !important;\n}\n\n.mermaid-fullscreen-btn {\n    position: absolute;\n    width: 28px;\n    height: 28px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.3);\n    border-radius: 4px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s;\n    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n    font-size: 14px;\n    line-height: 1;\n    padding: 0;\n    color: #333;\n}\n\n.mermaid-fullscreen-btn:hover {\n    opacity: 100% !important;\n    background: rgba(255, 255, 255, 1);\n    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-btn.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-btn.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal {\n    display: none;\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 95vw;\n    height: 100vh;\n    background: rgba(255, 255, 255, 0.98);\n    z-index: 9999;\n    padding: 20px;\n    overflow: auto;\n}\n\n.mermaid-fullscreen-modal.dark-theme {\n    background: rgba(0, 0, 0, 0.98);\n}\n\n.mermaid-fullscreen-modal.active {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen {\n    position: relative;\n    width: 95vw;\n    height: 90vh;\n    max-width: 95vw;\n    max-height: 90vh;\n    background: white;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n    overflow: auto;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen.dark-theme {\n    background: #1a1a1a;\n    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);\n}\n\n.mermaid-container-fullscreen pre.mermaid {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.mermaid-container-fullscreen .mermaid svg {\n    height: 100% !important;\n    width: 100% !important;\n    cursor: grab;\n}\n\n.mermaid-fullscreen-close {\n    position: fixed !important;\n    top: 20px !important;\n    right: 20px !important;\n    width: 40px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.95);\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 50%;\n    cursor: pointer;\n    z-index: 10000;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n    transition: all 0.2s;\n    font-size: 24px;\n    line-height: 1;\n    color: #333;\n}\n\n.mermaid-fullscreen-close:hover {\n    background: white;\n    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);\n    transform: scale(1.1);\n}\n\n.mermaid-fullscreen-close.dark-theme {\n    background: rgba(50, 50, 50, 0.95);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: #e0e0e0;\n}\n\n.mermaid-fullscreen-close.dark-theme:hover {\n    background: rgba(60, 60, 60, 1);\n    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);\n}\n\n.mermaid-fullscreen-modal .mermaid-fullscreen-btn {\n    display: none !important;\n}";
+    document.head.appendChild(fullscreenStyle);
+}
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    // We use a set of heuristics:
+    // 1. Check for common dark mode classes or attributes
+    // 2. Check computed background color brightness
+    if (document.documentElement.classList.contains('dark') ||
+        document.documentElement.getAttribute('data-theme') === 'dark' ||
+        document.body.classList.contains('dark') ||
+        document.body.getAttribute('data-theme') === 'dark') {
+        // console.log("Dark theme detected via class/attribute");
+        return true;
+    }
+    if (document.documentElement.classList.contains('light') ||
+        document.documentElement.getAttribute('data-theme') === 'light' ||
+        document.body.classList.contains('light') ||
+        document.body.getAttribute('data-theme') === 'light') {
+        // console.log("Light theme detected via class/attribute");
+        return false;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // console.log("Dark theme detected via prefers-color-scheme");
+        return true;
+    }
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        // console.log("Background color brightness:", brightness);
+        return brightness < 128;
+    }
+    // console.log("No dark or light theme detected, defaulting to light theme");
+    return false;
+};
+
+let darkTheme = isDarkTheme();
+let modal = null;
+let modalContent = null;
+let previousScrollOffset = [window.scrollX, window.scrollY];
+let _lazyObserver = null;
+let _renderQueue = Promise.resolve();
+let closeModal = () => {};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Apply d3 zoom to each SVG. Idempotent: an SVG already wrapped is skipped,
+// so this is safe to call both for the initial batch and for diagrams that
+// render lazily once they become visible.
+const addZoomToSvgs = (svgs) => {
+    svgs.each(function() {
+        if (this.getAttribute('data-zoom-applied') === 'true') return;
+        var svg = d3.select(this);
+        svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+        var inner = svg.select("g");
+        var zoom = d3.zoom().on("zoom", function(event) {
+            inner.attr("transform", event.transform);
+        });
+        svg.call(zoom);
+        this.setAttribute('data-zoom-applied', 'true');
+    });
+};
+
+const runMermaid = async (rerun) => {
+    console.log("Running mermaid diagrams, rerun =", rerun);
+    // clear all existing mermaid charts
+    let all_mermaids = document.querySelectorAll(".mermaid");
+
+    if (rerun) {
+        // Disconnect any previous lazy rendering observer
+        if (_lazyObserver) {
+            _lazyObserver.disconnect();
+            _lazyObserver = null;
+        }
+
+        all_mermaids.forEach((el) => {
+            el.removeAttribute('data-mermaid-deferred');
+            el.removeAttribute('data-mermaid-render-failed');
+            if(!el.hasAttribute("data-original-code")) {
+                // store original code
+                // console.log(`Storing original code for first run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+            if(el.getAttribute("data-processed") === "true") {
+                // remove and restore original
+                el.removeAttribute("data-processed");
+                // console.log(`Restoring original code for re-run: `, el.getAttribute('data-original-code'));
+                el.innerHTML = el.getAttribute('data-original-code');
+            } else {
+                // store original code
+                // console.log(`Storing original code for re-run: `, el.innerHTML);
+                el.setAttribute('data-original-code', el.innerHTML);
+            }
+        });
+
+        // Separate visible and hidden elements. Mermaid's layout engine measures
+        // text dimensions via the DOM, which fails for elements hidden by a parent
+        // (e.g., Reveal.js non-active slides, sphinx-design unopened tabs),
+        // producing broken SVGs. Render visible elements now, defer hidden ones.
+        const visible = [];
+        const hidden = [];
+        all_mermaids.forEach((el) => {
+            // offsetParent is null for display:none ancestors.
+            // getClientRects().length > 0 catches position:fixed elements
+            // (which also have null offsetParent but are still visible).
+            if (el.offsetParent !== null || el.getClientRects().length > 0) {
+                visible.push(el);
+            } else {
+                hidden.push(el);
+                el.setAttribute('data-mermaid-deferred', 'true');
+            }
+        });
+
+        if (visible.length > 0) {
+            try {
+                await mermaid.run({ nodes: visible });
+            } catch (e) {
+                console.error("Mermaid rendering failed:", e);
+            }
+        }
+
+        // Lazily render hidden elements when they become visible.
+        // Uses a promise chain (_renderQueue) to serialize rendering,
+        // since IntersectionObserver may report multiple entries at once
+        // and mermaid.run() is not safe to call concurrently.
+        if (hidden.length > 0) {
+            if (typeof IntersectionObserver === 'undefined') {
+                console.warn("IntersectionObserver not available; hidden mermaid diagrams will not render.");
+            } else {
+                _renderQueue = Promise.resolve();
+                _lazyObserver = new IntersectionObserver((entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting && entry.target.getAttribute("data-processed") !== "true") {
+                            _lazyObserver.unobserve(entry.target);
+                            const el = entry.target;
+                            _renderQueue = _renderQueue.then(async () => {
+                                try {
+                                    await mermaid.run({ nodes: [el] });
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    // Apply zoom to the now-rendered diagram, matching
+                                    // the decoration visible diagrams receive.
+                                    if (false) {
+                                        addZoomToSvgs(d3.selectAll("").select(function() {
+                                            return this.querySelector("svg");
+                                        }));
+                                    }
+                                } catch (e) {
+                                    console.error("Mermaid deferred rendering failed:", e);
+                                    el.removeAttribute('data-mermaid-deferred');
+                                    el.setAttribute('data-mermaid-render-failed', 'true');
+                                }
+                            });
+                        }
+                    }
+                });
+                hidden.forEach((el) => _lazyObserver.observe(el));
+            }
+        }
+    }
+
+    all_mermaids = document.querySelectorAll(".mermaid");
+    // Exclude deferred (hidden) and render-failed elements from completion checks
+    const mermaids_active = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])");
+    const mermaids_processed = document.querySelectorAll(".mermaid:not([data-mermaid-deferred]):not([data-mermaid-render-failed])[data-processed='true']");
+
+    if (false) {
+        const mermaids_to_add_zoom = 0 === -1 ? mermaids_active.length : 0;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("").select(function() {
+                return this.querySelector("svg");
+            });
+            // Wait until every active (visible) diagram has rendered. Deferred
+            // diagrams are excluded, so a fixed d3_node_count that counts a
+            // hidden diagram no longer loops forever waiting for its SVG.
+            if(mermaids_active.length !== mermaids_processed.length) {
+                setTimeout(() => runMermaid(false), 200);
+                return;
+            }
+            addZoomToSvgs(svgs);
+        }
+    } else if(mermaids_active.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(() => runMermaid(false), 200);
+        return;
+    }
+
+    // Stop here if not adding fullscreen capability
+    if (!true) return;
+
+    if (modal !== null ) {
+        // Destroy existing modal
+        modal.remove();
+        modal = null;
+        modalContent = null;
+    }
+
+    modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            // Already processed, adjust button class if needed
+            const existingBtn = mermaidDiv.parentNode.querySelector('.mermaid-fullscreen-btn');
+            if (existingBtn) {
+                existingBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+            }
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = "\u26f6";
+        fullscreenBtn.style.opacity = "50%";
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scrollX, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+
+                if (false) {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        container.appendChild(fullscreenBtn);
+    });
+};
+
+
+
+const load = async () => {
+    initStyles();
+
+
+    await runMermaid(true);
+
+    const reRunIfThemeChanges = async () => {
+        const newDarkTheme = isDarkTheme();
+        if (newDarkTheme !== darkTheme) {
+            darkTheme = newDarkTheme;
+            console.log("Theme change detected, re-running mermaid with", darkTheme ? "dark" : "default", "theme");
+            await mermaid.initialize(
+                {...{"startOnLoad": false},
+                ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+                }
+            );
+            await runMermaid(true);
+        }
+    };
+
+    // Update theme classes when theme changes
+    const themeObserver = new MutationObserver(reRunIfThemeChanges);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+};
+
+
+
+
+
+console.log("Initializing mermaid with", darkTheme ? "dark" : "default", "theme");
+mermaid.initialize(
+    {...{"startOnLoad": false},
+    ...{ darkMode: darkTheme, theme: darkTheme ? "dark" : "default" },
+    }
+);
+
+window.addEventListener("load", load);
+window.runMermaid = runMermaid;</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guia_estudio';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/guia_estudio.html" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="04 · Resumen ejecutivo y roadmap hacia la v2" href="notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/portada.png" class="logo__image only-light" alt="Buscador Semántico GovTech - Home"/>
+    <img src="_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscador Semántico GovTech - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Buscador Semántico GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contexto y datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Benchmarks de la escalera de ablación</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Validez externa y escala</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Síntesis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Guía de Estudio y Exposición — Buscador Semántico GovTech</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/guia_estudio.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Guía de Estudio y Exposición — Buscador Semántico GovTech</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Guía de Estudio y Exposición — Buscador Semántico GovTech</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indice">Índice</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-i-entender-el-proyecto">PARTE I — ENTENDER EL PROYECTO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-problema-en-una-pagina">1. El problema en una página</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-del-proyecto">2. Mapa del proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-base">3. Conceptos base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos-y-el-eda">4. Los datos y el EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-donde-salen-los-datos">4.1 De dónde salen los datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-1-la-demanda-esta-muy-concentrada">4.2 Hallazgo 1 — la demanda está muy concentrada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-2-preguntas-de-negocio-sin-fuente-dedicada">4.3 Hallazgo 2 — preguntas de negocio sin fuente dedicada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-3-competencias-gran-volumen-cero-demanda">4.4 Hallazgo 3 — Competencias: gran volumen, cero demanda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-regional-por-que-hace-falta-componer-conceptos">4.5 La Prueba Regional: por qué hace falta componer conceptos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-corpus-y-la-ontologia">5. El corpus y la ontología</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-indexamos-y-que-no">5.1 Qué indexamos (y qué no)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia">5.2 La ontología</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-primero">5.3 Privacidad primero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-version-1">5.4 Alcance de la Versión 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-arquitectura-del-sistema">6. La arquitectura del sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vista-general-fuera-de-linea-y-en-linea">6.1 Vista general (fuera de línea y en línea)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-pasa-con-una-consulta-paso-a-paso">6.2 Qué pasa con una consulta, paso a paso</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matematica-con-intuicion">7. La matemática, con intuición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-escalera-de-ablacion">8. La escalera de ablación</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-ii-metricas-estadistica-y-protocolo">PARTE II — MÉTRICAS, ESTADÍSTICA Y PROTOCOLO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-metricas-una-por-una">9. Las métricas, una por una</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndcg-10-la-metrica-principal">9.1 nDCG@10 — la métrica principal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mrr-10-mean-reciprocal-rank">9.2 MRR@10 — Mean Reciprocal Rank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-100-cobertura">9.3 Recall@100 — cobertura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-10-densidad-de-aciertos">9.4 Precision@10 — densidad de aciertos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ap-100-average-precision">9.5 AP@100 — Average Precision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-k-cobertura-acumulada">9.6 Success@k — cobertura acumulada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">9.7 Resumen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-estadistica-que-usamos">10. La estadística que usamos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-valor-en-una-frase">10.1 p-valor, en una frase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-pareado">10.2 Wilcoxon pareado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-del-efecto-cliff-s">10.3 Tamaño del efecto: Cliff’s δ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-por-bootstrap">10.4 Intervalos por bootstrap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poder-estadistico-y-el-problema-del-n-pequeno">10.5 Poder estadístico y el problema del n pequeño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-replicacion-clave-para-defender-el-notebook-07">10.6 Pseudo-replicación (clave para defender el notebook 07)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-protocolo-de-evaluacion">11. El protocolo de evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hubo-entrenamiento-y-prueba">11.1 ¿Hubo entrenamiento y prueba?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-tipos-de-juicio">11.2 Los tres tipos de juicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estratos-de-consulta">11.3 Estratos de consulta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-iii-los-benchmarks-uno-por-uno">PARTE III — LOS BENCHMARKS, UNO POR UNO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-de-notebooks">12. Mapa de notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-1-escalera-sobre-el-conjunto-sintetico">13. Benchmark 1 — Escalera sobre el conjunto sintético</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-2-estratos-y-significancia-notebook-01">14. Benchmark 2 — Estratos y significancia (notebook 01)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-3-diagnostico-del-realce-notebook-02">15. Benchmark 3 — Diagnóstico del realce (notebook 02)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-4-matryoshka-y-chunking-notebooks-03-y-benchmark-matryoshka-p6">16. Benchmark 4 — Matryoshka y chunking (notebooks 03 y Benchmark_Matryoshka_P6)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matryoshka-p6">16.1 Matryoshka (P6)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chunking-p4">16.2 Chunking (P4)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-5-validez-externa-escalera-1-notebook-05">17. Benchmark 5 — Validez externa, Escalera 1 (notebook 05)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-6-competencias-a-escala-escalera-2-notebook-06">18. Benchmark 6 — Competencias a escala, Escalera 2 (notebook 06)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-7-poder-estadistico-ampliado-notebook-07">19. Benchmark 7 — Poder estadístico ampliado (notebook 07)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-diagnostico">19.1 El diagnóstico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-diseno">19.2 El diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escenario-a-17-reportes-129-consultas">19.3 Escenario A — 17 reportes, 129 consultas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escenario-b-833-documentos-161-consultas-incluye-32-de-competencias">19.4 Escenario B — 833 documentos, 161 consultas (incluye 32 de competencias)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-cada-visualizacion-de-diagnostico">20. Cómo leer cada visualización de diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-maestra-y-evolucion-de-la-evidencia">21. Tabla maestra y evolución de la evidencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-seis-preguntas-respondidas">22. Las seis preguntas, respondidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-recomendada">23. Configuración recomendada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones">24. Limitaciones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-iv-como-exponer">PARTE IV — CÓMO EXPONER</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-la-exposicion">25. Principios de la exposición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-sugerida-y-tiempos-20-minutos">26. Estructura sugerida y tiempos (≈ 20 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-problema">27. Cómo exponer el problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-eda">28. Cómo exponer el EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-ontologia-y-el-corpus">29. Cómo exponer la ontología y el corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-propuesta-y-la-matematica">30. Cómo exponer la propuesta y la matemática</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-las-metricas">31. Cómo exponer las métricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-los-benchmarks">32. Cómo exponer los benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-realce">33. Cómo exponer el realce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-estadistica-y-el-poder">34. Cómo exponer la estadística y el poder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-eficiencia">35. Cómo exponer la eficiencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-competencias-y-las-escaleras-de-datos">36. Cómo exponer Competencias y las escaleras de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-las-limitaciones">37. Cómo exponer las limitaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-cerrar">38. Cómo cerrar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-probables-del-comite-con-respuesta">39. Preguntas probables del comité, con respuesta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guiones-hablados">40. Guiones hablados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-a-evitar">41. Errores a evitar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-del-dia">42. Checklist del día</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-v-referencia-rapida">PARTE V — REFERENCIA RÁPIDA</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cifras-que-hay-que-saber-de-memoria">43. Cifras que hay que saber de memoria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glosario">44. Glosario</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="guia-de-estudio-y-exposicion-buscador-semantico-govtech">
+<h1>Guía de Estudio y Exposición — Buscador Semántico GovTech<a class="headerlink" href="#guia-de-estudio-y-exposicion-buscador-semantico-govtech" title="Link to this heading">#</a></h1>
+<blockquote>
+<div><p>Documento privado de estudio y preparación para la sustentación.
+Cubre el proyecto completo hasta el último benchmark: EDA, ontología, propuesta, escalera
+de ablación, diagnóstico del realce, eficiencia (Matryoshka y chunking), validez externa,
+expansión a Competencias, ampliación del poder estadístico y las visualizaciones de
+diagnóstico. Incluye diagramas, el significado de cada métrica con ejemplos numéricos, y una
+parte completa sobre <strong>cómo exponer cada bloque</strong>.</p>
+<p>Todas las cifras salen de corridas reproducibles con el codificador <code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code>.
+Todos los nombres propios que aparecen son <strong>sintéticos</strong>.</p>
+</div></blockquote>
+<p><strong>Cómo usar esta guía.</strong> Las Partes I a III sirven para <em>entender</em> (léelas completas al menos
+una vez). La Parte IV sirve para <em>exponer</em> (léela la semana de la sustentación y ensaya con
+ella). La Parte V es la chuleta del día: cifras de memoria y glosario.</p>
+<blockquote>
+<div><p>Nota sobre los diagramas: están en Mermaid. Se ven renderizados en GitHub, Obsidian,
+Notion, VS Code (con extensión) y en la mayoría de visores de Markdown modernos.</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="indice">
+<h2>Índice<a class="headerlink" href="#indice" title="Link to this heading">#</a></h2>
+<p><strong>Parte I — Entender el proyecto</strong></p>
+<ol class="arabic simple">
+<li><p>El problema en una página</p></li>
+<li><p>Mapa del proyecto</p></li>
+<li><p>Conceptos base</p></li>
+<li><p>Los datos y el EDA</p></li>
+<li><p>El corpus y la ontología</p></li>
+<li><p>La arquitectura del sistema</p></li>
+<li><p>La matemática, con intuición</p></li>
+<li><p>La escalera de ablación</p></li>
+</ol>
+<p><strong>Parte II — Métricas, estadística y protocolo</strong>
+9. Las métricas, una por una
+10. La estadística que usamos
+11. El protocolo de evaluación</p>
+<p><strong>Parte III — Los benchmarks, uno por uno</strong>
+12. Mapa de notebooks
+13. Benchmark 1 — Escalera sobre el conjunto sintético
+14. Benchmark 2 — Estratos y significancia
+15. Benchmark 3 — Diagnóstico del realce
+16. Benchmark 4 — Matryoshka y chunking
+17. Benchmark 5 — Validez externa (Escalera 1)
+18. Benchmark 6 — Competencias a escala (Escalera 2)
+19. Benchmark 7 — Poder estadístico ampliado
+20. Cómo leer cada visualización de diagnóstico
+21. Tabla maestra y evolución de la evidencia
+22. Las seis preguntas, respondidas
+23. Configuración recomendada
+24. Limitaciones</p>
+<p><strong>Parte IV — Cómo exponer</strong>
+25. Principios de la exposición
+26. Estructura sugerida y tiempos
+27. Cómo exponer el problema
+28. Cómo exponer el EDA
+29. Cómo exponer la ontología y el corpus
+30. Cómo exponer la propuesta y la matemática
+31. Cómo exponer las métricas
+32. Cómo exponer los benchmarks
+33. Cómo exponer el realce
+34. Cómo exponer la estadística y el poder
+35. Cómo exponer la eficiencia
+36. Cómo exponer Competencias y las escaleras de datos
+37. Cómo exponer las limitaciones
+38. Cómo cerrar
+39. Preguntas probables del comité, con respuesta
+40. Guiones hablados (30 segundos y 2 minutos)
+41. Errores a evitar
+42. Checklist del día</p>
+<p><strong>Parte V — Referencia rápida</strong>
+43. Cifras que hay que saber de memoria
+44. Glosario</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="parte-i-entender-el-proyecto">
+<h1>PARTE I — ENTENDER EL PROYECTO<a class="headerlink" href="#parte-i-entender-el-proyecto" title="Link to this heading">#</a></h1>
+<section id="el-problema-en-una-pagina">
+<h2>1. El problema en una página<a class="headerlink" href="#el-problema-en-una-pagina" title="Link to this heading">#</a></h2>
+<p>Una plataforma de software del Estado gestiona procesos deportivos: deportistas,
+instituciones, grupos, eventos, documentos, promociones de etapa. Esa plataforma produce
+<strong>reportes</strong> («promoción de deportistas», «reporte de grupos», «instituciones»…) y los
+usuarios tienen que encontrar el reporte correcto para hacer su trabajo.</p>
+<p>Encontrarlo es difícil por tres razones concretas:</p>
+<ol class="arabic simple">
+<li><p><strong>Desajuste de vocabulario.</strong> El usuario escribe «cómo va el avance de los atletas» y el
+sistema lo llama «reporte de promoción por etapa». Las palabras no coinciden.</p></li>
+<li><p><strong>Búsqueda por nombre propio.</strong> El usuario busca «promoción de la Liga Atlántico». Aquí la
+coincidencia <em>exacta</em> del nombre importa mucho, y los modelos que solo entienden
+«significado» a veces la pierden.</p></li>
+<li><p><strong>Reportes que no existen como tabla.</strong> El reporte más pedido (promoción, 47,5% de la
+demanda) se reconstruye con cruces cada vez que alguien lo pide. Y hay un dominio entero
+(Competencias) que ni siquiera tiene reporte.</p></li>
+</ol>
+<p><strong>Objetivo:</strong> un buscador semántico que entienda la intención del usuario y devuelva el
+reporte correcto aunque no use las palabras exactas, con especial cuidado en las consultas
+por nombre propio.</p>
+<p><strong>Disciplina:</strong> esto es <strong>recuperación de información (IR)</strong>, no clasificación ni predicción.
+No entrenamos un modelo; tomamos modelos ya entrenados, los combinamos y los <strong>evaluamos con
+rigor</strong>. La contribución del trabajo es de evaluación y caracterización en un escenario que
+la literatura no cubre: español, dominio específico, vocabulario normativo, entidades exactas
+y casi nada de anotación.</p>
+</section>
+<section id="mapa-del-proyecto">
+<h2>2. Mapa del proyecto<a class="headerlink" href="#mapa-del-proyecto" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        mindmap
+  root((Buscador semántico GovTech))
+    Problema
+      Desajuste de vocabulario
+      Nombre propio
+      Reportes que no existen
+    Datos
+      9.051 consultas reales
+      Demanda concentrada Gini 0,74
+      Competencias con cero demanda
+    Propuesta
+      BM25 léxico
+      Denso jina-v3
+      Ontología 13 clases
+      Fusión RRF
+      Realce por entidad
+    Evaluación
+      Escalera de 5 configuraciones
+      nDCG MRR Recall P AP
+      Wilcoxon Cliff bootstrap
+    Benchmarks
+      Sintético
+      Estratos
+      Realce
+      Matryoshka y chunking
+      Validez externa
+      Competencias 833 docs
+      Poder estadístico n=55
+    Resultado
+      Híbrido más ontología
+      Embedding a 256 dims
+      Sin realce en v1
+    </pre></section>
+<section id="conceptos-base">
+<h2>3. Conceptos base<a class="headerlink" href="#conceptos-base" title="Link to this heading">#</a></h2>
+<p><strong>Recuperación léxica (BM25).</strong> Representa consulta y documento como bolsas de palabras y
+puntúa por coincidencia de términos, dando más peso a las palabras raras. Rapidísima, no se
+entrena y es difícil de superar. Su punto débil: si el usuario y el documento usan palabras
+distintas para la misma idea, no los conecta.</p>
+<p><strong>Recuperación densa (embeddings).</strong> Un modelo neuronal convierte cada texto en un vector
+de números (un <em>embedding</em>) que captura su significado. Textos parecidos quedan cerca en ese
+espacio, aunque no compartan palabras. Su punto débil: pierde fuerza en la coincidencia
+exacta (nombres propios, códigos).</p>
+<p><strong>Recuperación híbrida.</strong> Usa las dos señales y combina sus listas. Lo léxico es fuerte
+donde lo denso es débil, y al revés.</p>
+<p><strong>Ontología.</strong> Un mapa formal del dominio: qué entidades existen (Deportista, Institución,
+Disciplina, Fase, Región…), cómo se relacionan y qué sinónimos tienen. La usamos para
+<strong>enriquecer</strong> la descripción de cada reporte antes de indexarla.</p>
+<p><strong>Fusión por rango (RRF).</strong> Combina dos listas ordenadas usando solo las <em>posiciones</em>, no las
+puntuaciones. No necesita entrenamiento ni calibración.</p>
+<p><strong>Ablación.</strong> Experimento donde se enciende un componente a la vez para medir cuánto aporta
+cada uno por separado.</p>
+</section>
+<section id="los-datos-y-el-eda">
+<h2>4. Los datos y el EDA<a class="headerlink" href="#los-datos-y-el-eda" title="Link to this heading">#</a></h2>
+<section id="de-donde-salen-los-datos">
+<h3>4.1 De dónde salen los datos<a class="headerlink" href="#de-donde-salen-los-datos" title="Link to this heading">#</a></h3>
+<p>Del historial de ejecuciones del <em>data lake</em> de la plataforma (AWS Athena/Glue, capas
+bronze/silver/gold), en una ventana de <strong>seis semanas y media</strong>. Miramos <em>qué se preguntó</em>,
+no <em>qué respondió el sistema</em>; todo valor identificable se eliminó antes de guardarse.</p>
+<pre  class="mermaid">
+        flowchart LR
+    A[&quot;Historial de Athena&lt;br/&gt;ejecuciones SQL&quot;] --&gt; B[&quot;Depurar conteos&lt;br/&gt;de paginación&quot;]
+    B --&gt; C[&quot;9.051 consultas&lt;br/&gt;de datos reales&quot;]
+    C --&gt; D[&quot;744 firmas de consulta&lt;br/&gt;694 patrones distintos&quot;]
+    D --&gt; E[&quot;Rollup a 17&lt;br/&gt;reportes lógicos&quot;]
+    E --&gt; F[&quot;EDA: demanda,&lt;br/&gt;ranking, Gini&quot;]
+    E --&gt; G[&quot;Corpus v1&lt;br/&gt;17 reportes&quot;]
+    H[&quot;Catálogo del lake&quot;] --&gt; I[&quot;Dominio Competencias&lt;br/&gt;sin ningún reporte&quot;]
+    I --&gt; J[&quot;Hallazgo:&lt;br/&gt;vacío de cobertura&quot;]
+    </pre><p>Un detalle técnico que vale la pena contar: la plataforma lanza <strong>dos consultas por página</strong>
+de resultados, una que trae los datos y otra que solo cuenta cuántos hay (para paginar).
+Contarlas por igual infla la demanda casi al doble. Por eso la unidad del análisis es la
+<strong>consulta de datos real</strong>, que descarta las de conteo.</p>
+</section>
+<section id="hallazgo-1-la-demanda-esta-muy-concentrada">
+<h3>4.2 Hallazgo 1 — la demanda está muy concentrada<a class="headerlink" href="#hallazgo-1-la-demanda-esta-muy-concentrada" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>9.051</strong> consultas de datos reales en el periodo.</p></li>
+<li><p>El reporte de <strong>promoción de deportistas</strong> explica <strong>≈47,5%</strong> él solo.</p></li>
+<li><p>Los <strong>cinco reportes</strong> más pedidos suman el <strong>86%</strong>.</p></li>
+<li><p><strong>Índice de Gini = 0,74</strong> (desigualdad muy marcada; 0 sería reparto igual, 1 sería todo en
+un reporte).</p></li>
+</ul>
+<pre  class="mermaid">
+        pie showData
+    title Reparto aproximado de la demanda real
+    &quot;Promoción de deportistas&quot; : 47.5
+    &quot;Otros 4 reportes del top-5&quot; : 38.5
+    &quot;Resto (12 reportes)&quot; : 14
+    </pre><p><strong>Consecuencia:</strong> primero valor, después escala. La v1 prioriza los reportes que concentran
+el uso real.</p>
+</section>
+<section id="hallazgo-2-preguntas-de-negocio-sin-fuente-dedicada">
+<h3>4.3 Hallazgo 2 — preguntas de negocio sin fuente dedicada<a class="headerlink" href="#hallazgo-2-preguntas-de-negocio-sin-fuente-dedicada" title="Link to this heading">#</a></h3>
+<p>El reporte de promoción no está guardado en ninguna tabla. Se reconstruye cruzando datos del
+deportista, el registro de promociones y la definición de fases <strong>cada vez</strong> que alguien lo
+pide, porque el estado de promoción es el resultado de una lógica de negocio. Es una pregunta
+real resuelta al vuelo. Ese patrón se repite en el sistema.</p>
+</section>
+<section id="hallazgo-3-competencias-gran-volumen-cero-demanda">
+<h3>4.4 Hallazgo 3 — Competencias: gran volumen, cero demanda<a class="headerlink" href="#hallazgo-3-competencias-gran-volumen-cero-demanda" title="Link to this heading">#</a></h3>
+<p>El dominio de competencias (eventos, fases, disciplinas, resultados) <strong>no aparece</strong> en el
+historial: cero de las 744 firmas lo toca. No porque nadie lo necesite, sino porque <strong>no
+existe la puerta</strong>: ningún reporte lo expone. Su tamaño real:</p>
+<ul class="simple">
+<li><p><strong>47.635</strong> resultados de competencia.</p></li>
+<li><p><strong>732.640</strong> participaciones de deportista por disciplina.</p></li>
+<li><p><strong>0</strong> consultas registradas.</p></li>
+</ul>
+<p>Un cero así no significa «irrelevante»; significa <strong>vacío de cobertura</strong>. Es la mayor
+oportunidad de la Versión 2.</p>
+</section>
+<section id="la-prueba-regional-por-que-hace-falta-componer-conceptos">
+<h3>4.5 La Prueba Regional: por qué hace falta componer conceptos<a class="headerlink" href="#la-prueba-regional-por-que-hace-falta-componer-conceptos" title="Link to this heading">#</a></h3>
+<p>La consulta que motivó el proyecto es del tipo <em>«Atletismo Pre-Juvenil en Región Caribe 1»</em>.
+Esa frase no es un campo del sistema: es la composición de cuatro conceptos que hoy viven en
+tablas distintas.</p>
+<pre  class="mermaid">
+        flowchart LR
+    D[&quot;Disciplina&lt;br/&gt;Atletismo&quot;] --&gt; P((&quot;Prueba&lt;br/&gt;Regional&quot;))
+    C[&quot;Categoría&lt;br/&gt;Pre-Juvenil&quot;] --&gt; P
+    F[&quot;Fase&lt;br/&gt;regional&quot;] --&gt; P
+    R[&quot;Región&lt;br/&gt;Caribe 1&quot;] --&gt; P
+    P --&gt; Q[&quot;Consulta del usuario:&lt;br/&gt;Atletismo Pre-Juvenil&lt;br/&gt;en Región Caribe 1&quot;]
+    </pre><p>Si las preguntas más valiosas se arman componiendo conceptos, un buscador que solo compara
+texto contra texto se queda corto. <strong>Por eso hace falta la ontología</strong>: le enseña al sistema
+que «Pre-Juvenil» es una categoría y «Caribe 1» una región.</p>
+</section>
+</section>
+<section id="el-corpus-y-la-ontologia">
+<h2>5. El corpus y la ontología<a class="headerlink" href="#el-corpus-y-la-ontologia" title="Link to this heading">#</a></h2>
+<section id="que-indexamos-y-que-no">
+<h3>5.1 Qué indexamos (y qué no)<a class="headerlink" href="#que-indexamos-y-que-no" title="Link to this heading">#</a></h3>
+<p>No indexamos filas de datos (tienen datos personales y son efímeras) ni el volcado de
+consultas. Indexamos <strong>descripciones en lenguaje natural de cada reporte</strong>, enriquecidas con
+la ontología.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Campo</p></th>
+<th class="head"><p>Qué es</p></th>
+<th class="head"><p>Quién lo usa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">descripcion</span></code></p></td>
+<td><p>Texto base del reporte</p></td>
+<td><p>Configuraciones <strong>sin</strong> ontología</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">texto_indexable</span></code></p></td>
+<td><p>Descripción + serialización de la ontología</p></td>
+<td><p>Configuraciones <strong>con</strong> ontología</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">metadatos_ontologia</span></code></p></td>
+<td><p>Entidades, relaciones, sinónimos, conceptos de búsqueda</p></td>
+<td><p>Realce y enriquecimiento</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nombre_propio_buscable</span></code></p></td>
+<td><p>Si el reporte se busca por nombre</p></td>
+<td><p>Realce</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prioridad</span></code>, <code class="docutils literal notranslate"><span class="pre">cdr</span></code></p></td>
+<td><p>Demanda observada</p></td>
+<td><p>Trazabilidad (no entra al ranking)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="la-ontologia">
+<h3>5.2 La ontología<a class="headerlink" href="#la-ontologia" title="Link to this heading">#</a></h3>
+<p><strong>13 clases de negocio y 20 relaciones.</strong> Un fragmento:</p>
+<pre  class="mermaid">
+        flowchart LR
+    DEP[&quot;Deportista&quot;] -- pertenece_a --&gt; GRU[&quot;Grupo&quot;]
+    DEP -- pertenece_a --&gt; INS[&quot;Institución&quot;]
+    DEP -- participa_en --&gt; EVE[&quot;Evento&quot;]
+    DEP -- tiene_estado_de --&gt; PRO[&quot;Promoción&quot;]
+    DEP -- practica --&gt; DIS[&quot;Disciplina&quot;]
+    GRU -- compite_en --&gt; EVE
+    EVE -- tiene --&gt; FAS[&quot;Etapa / Fase&quot;]
+    PRO -- habilita_avance_a --&gt; FAS
+    INS -- ubicada_en --&gt; UBI[&quot;Ubicación / Región&quot;]
+    PER[&quot;Personal de apoyo&quot;] -- pertenece_a --&gt; GRU
+    </pre><p>Cada clase trae sinónimos («Deportista» = atleta, competidor, jugador; «Institución» =
+colegio, club, escuela…). Esos sinónimos son los que tienden el puente cuando el usuario
+escribe con otras palabras.</p>
+</section>
+<section id="privacidad-primero">
+<h3>5.3 Privacidad primero<a class="headerlink" href="#privacidad-primero" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>El índice semántico <strong>nunca</strong> contiene datos personales.</p></li>
+<li><p>La resolución de un nombre propio a una persona concreta vive en un <strong>componente aparte con
+control de acceso</strong>.</p></li>
+<li><p>Regla del proyecto: los modelos pueden ver nombres reales en uso interno; el documento
+final <strong>jamás</strong> muestra un nombre real. Todo ejemplo público usa nombres sintéticos.</p></li>
+</ul>
+</section>
+<section id="alcance-de-la-version-1">
+<h3>5.4 Alcance de la Versión 1<a class="headerlink" href="#alcance-de-la-version-1" title="Link to this heading">#</a></h3>
+<p>La v1 se limita a los <strong>17 reportes</strong> y la ontología ya definida, con prioridad en los 5 de
+mayor demanda (86% del uso). Competencias queda <strong>formalmente fuera</strong> de la v1 y es la
+extensión prioritaria de la v2. (Luego lo materializamos como experimento de escala, ver §18,
+pero sigue fuera del alcance de <em>despliegue</em> de la v1.)</p>
+</section>
+</section>
+<section id="la-arquitectura-del-sistema">
+<h2>6. La arquitectura del sistema<a class="headerlink" href="#la-arquitectura-del-sistema" title="Link to this heading">#</a></h2>
+<section id="vista-general-fuera-de-linea-y-en-linea">
+<h3>6.1 Vista general (fuera de línea y en línea)<a class="headerlink" href="#vista-general-fuera-de-linea-y-en-linea" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        flowchart TB
+    subgraph OFF[&quot;Fuera de línea (una vez)&quot;]
+        K[&quot;Reportes del sistema&quot;] --&gt; O[&quot;Enriquecer con ontología&lt;br/&gt;d' = d_desc ⊕ φ(o_d)&quot;]
+        O --&gt; I1[&quot;Índice invertido&lt;br/&gt;BM25&quot;]
+        O --&gt; I2[&quot;Índice vectorial&lt;br/&gt;jina-v3 Matryoshka&quot;]
+    end
+    subgraph ON[&quot;En línea (cada consulta)&quot;]
+        Q[&quot;Consulta del usuario&quot;] --&gt; L[&quot;Vista léxica BM25&quot;]
+        Q --&gt; DN[&quot;Vista densa&quot;]
+        Q --&gt; DET[&quot;Detector de entidades&quot;]
+        L --&gt; RRF[&quot;Fusión RRF&quot;]
+        DN --&gt; RRF
+        DET -. opcional .-&gt; RE[&quot;Realce por entidad&quot;]
+        RRF --&gt; RE
+        RE --&gt; OUT[&quot;Ranking de reportes&quot;]
+    end
+    I1 -.-&gt; L
+    I2 -.-&gt; DN
+    </pre></section>
+<section id="que-pasa-con-una-consulta-paso-a-paso">
+<h3>6.2 Qué pasa con una consulta, paso a paso<a class="headerlink" href="#que-pasa-con-una-consulta-paso-a-paso" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        sequenceDiagram
+    participant U as Usuario
+    participant S as Buscador
+    participant B as BM25
+    participant E as Encoder denso
+    participant F as Fusión RRF
+    U-&gt;&gt;S: &quot;estado de promoción del deportista Andrés Torres&quot;
+    S-&gt;&gt;B: buscar por términos
+    B--&gt;&gt;S: lista ordenada léxica
+    S-&gt;&gt;E: codificar consulta y comparar por coseno
+    E--&gt;&gt;S: lista ordenada semántica
+    S-&gt;&gt;F: fusionar por posiciones (k=60)
+    F--&gt;&gt;S: ranking fusionado
+    S--&gt;&gt;U: 1. Reporte de Promoción de Deportistas
+    </pre></section>
+</section>
+<section id="la-matematica-con-intuicion">
+<h2>7. La matemática, con intuición<a class="headerlink" href="#la-matematica-con-intuicion" title="Link to this heading">#</a></h2>
+<p>Para cada fórmula: primero la intuición, luego la fórmula.</p>
+<p><strong>Documento enriquecido.</strong> <em>Intuición:</em> pegarle a la descripción de cada reporte un resumen
+de lo que la ontología sabe de él.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="s1">' = d_desc ⊕ φ(o_d)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">φ(o_d)</span></code> serializa un subconjunto <em>selectivo</em> de metadatos (entidades, sinónimos, conceptos
+de búsqueda) y <code class="docutils literal notranslate"><span class="pre">⊕</span></code> es concatenar. Selectivo importa: volcar todos los atributos rinde peor.</p>
+<p><strong>BM25.</strong> <em>Intuición:</em> suma, término a término, cuánto aparece la palabra en el documento,
+dando más peso a palabras raras y penalizando documentos muy largos.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s_BM25(q,d') = Σ_{t∈q} IDF(t) · f(t,d')·(k1+1) / ( f(t,d') + k1·(1 − b + b·|d'|/avg_dl) )
+</pre></div>
+</div>
+<p>Usamos <code class="docutils literal notranslate"><span class="pre">k1</span> <span class="pre">=</span> <span class="pre">1,5</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">0,75</span></code> (estándar), con analizador en español (minúsculas, sin
+tildes, sin palabras vacías).</p>
+<p><strong>Denso.</strong> <em>Intuición:</em> qué tan «apuntados en la misma dirección» están los vectores de la
+consulta y del documento.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s_dense(q,d') = ⟨ f_θ(q), f_θ(d') ⟩      (vectores normalizados → coseno)
+</pre></div>
+</div>
+<p><strong>Matryoshka.</strong> <em>Intuición:</em> el modelo guarda lo más importante en las primeras dimensiones,
+así que se puede «recortar» el vector sin reentrenar.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s_dense^(m)(q,d') = ⟨ τ_m f_θ(q), τ_m f_θ(d') ⟩,   m ∈ {128, 256, 512, 768, 1024}
+</pre></div>
+</div>
+<p><strong>RRF.</strong> <em>Intuición:</em> cada lista vota por sus documentos; estar arriba en una lista da muchos
+puntos, estar abajo da pocos; se suman los votos.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s_RRF</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">d</span><span class="s1">') = Σ_{r∈{BM25,denso}} 1 / (k + rank_r(q,d'</span><span class="p">)),</span>   <span class="n">k</span> <span class="o">=</span> <span class="mi">60</span>
+</pre></div>
+</div>
+<p>Ejemplo: un documento en posición 1 de BM25 y posición 3 del denso recibe
+<code class="docutils literal notranslate"><span class="pre">1/61</span> <span class="pre">+</span> <span class="pre">1/63</span> <span class="pre">≈</span> <span class="pre">0,0164</span> <span class="pre">+</span> <span class="pre">0,0159</span> <span class="pre">=</span> <span class="pre">0,0323</span></code>. Como solo usa posiciones, no hay que calibrar
+escalas entre BM25 (puntajes sin techo) y coseno (entre −1 y 1).</p>
+<p><strong>Realce suave.</strong> <em>Intuición:</em> si la consulta menciona una entidad que el documento cubre,
+darle un empujón pequeño.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s_final(q,d') = s_RRF(q,d') · (1 + λ · 1_entidad(q,d')),   λ ∈ [0,1 , 0,3]
+</pre></div>
+</div>
+</section>
+<section id="la-escalera-de-ablacion">
+<h2>8. La escalera de ablación<a class="headerlink" href="#la-escalera-de-ablacion" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart LR
+    B0[&quot;BM25 solo&lt;br/&gt;referencia léxica&quot;]
+    C1[&quot;C1&lt;br/&gt;Denso puro&quot;] -- &quot;+ ontología&quot; --&gt; C2[&quot;C2&lt;br/&gt;Denso + ontología&quot;]
+    C1 -- &quot;+ BM25 (fusión)&quot; --&gt; C3[&quot;C3&lt;br/&gt;Híbrido&lt;br/&gt;BASE CRÍTICA&quot;]
+    C3 -- &quot;+ ontología&quot; --&gt; C4[&quot;C4&lt;br/&gt;Híbrido + ontología&quot;]
+    C4 -- &quot;+ realce&quot; --&gt; C5[&quot;C5&lt;br/&gt;Híbrido + ontología + realce&quot;]
+    </pre><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Configuración</p></th>
+<th class="head"><p>Qué aísla</p></th>
+<th class="head"><p>Pregunta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>—</p></td>
+<td><p>BM25 solo</p></td>
+<td><p>Referencia léxica pura</p></td>
+<td><p>P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1</p></td>
+<td><p>Denso puro</p></td>
+<td><p>Línea base neuronal</p></td>
+<td><p>P1, P2</p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>Denso + ontología</p></td>
+<td><p>Efecto de la ontología sobre el denso</p></td>
+<td><p>P3</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>Híbrido sin ontología</p></td>
+<td><p>Aporte de fusionar lo léxico (<strong>base crítica</strong>)</p></td>
+<td><p>P1, P2</p></td>
+</tr>
+<tr class="row-even"><td><p>C4</p></td>
+<td><p>Híbrido + ontología</p></td>
+<td><p>Efecto de la ontología sobre el híbrido</p></td>
+<td><p>P3</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p>Híbrido + ontología + realce</p></td>
+<td><p>Efecto del realce</p></td>
+<td><p>P5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Comparaciones que importan: <strong>C1→C2</strong> y <strong>C3→C4</strong> (ontología), <strong>BM25/C1→C3</strong> (fusión),
+<strong>C4→C5</strong> (realce). P4 (chunking) y P6 (dimensión) son barridos <strong>ortogonales</strong> sobre C4.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="parte-ii-metricas-estadistica-y-protocolo">
+<h1>PARTE II — MÉTRICAS, ESTADÍSTICA Y PROTOCOLO<a class="headerlink" href="#parte-ii-metricas-estadistica-y-protocolo" title="Link to this heading">#</a></h1>
+<section id="las-metricas-una-por-una">
+<h2>9. Las métricas, una por una<a class="headerlink" href="#las-metricas-una-por-una" title="Link to this heading">#</a></h2>
+<p>Todas miran dos cosas: el <strong>ranking</strong> (lista ordenada que devuelve el sistema) y los
+<strong>juicios de relevancia</strong> (qué documento es el correcto para cada consulta, con un grado:
+2 = objetivo, 1 = relacionado, 0 = irrelevante). En todas, <strong>1,0 es el óptimo</strong>.</p>
+<pre  class="mermaid">
+        flowchart TD
+    Q{&quot;¿Qué quiero saber?&quot;}
+    Q --&gt; A[&quot;¿Está arriba el correcto,&lt;br/&gt;y qué tan arriba?&quot;] --&gt; A1[&quot;nDCG&#64;10 (principal)&quot;]
+    Q --&gt; B[&quot;¿En qué posición aparece&lt;br/&gt;el primer acierto?&quot;] --&gt; B1[&quot;MRR&#64;10&quot;]
+    Q --&gt; C[&quot;¿Lo encontró aunque&lt;br/&gt;sea mal ordenado?&quot;] --&gt; C1[&quot;Recall&#64;100&quot;]
+    Q --&gt; D[&quot;¿Cuánta de la pantalla&lt;br/&gt;es útil?&quot;] --&gt; D1[&quot;Precision&#64;10&quot;]
+    Q --&gt; E[&quot;¿Está bien ordenado&lt;br/&gt;todo el ranking?&quot;] --&gt; E1[&quot;AP&#64;100&quot;]
+    Q --&gt; F[&quot;¿En qué profundidad&lt;br/&gt;aparece el objetivo?&quot;] --&gt; F1[&quot;Success&#64;k&quot;]
+    </pre><section id="ndcg-10-la-metrica-principal">
+<h3>9.1 nDCG&#64;10 — la métrica principal<a class="headerlink" href="#ndcg-10-la-metrica-principal" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> Si los documentos relevantes aparecen en el top-10 <strong>y qué tan arriba</strong>.</p>
+<ul class="simple">
+<li><p><em>Cumulative Gain</em>: suma la relevancia de lo que aparece.</p></li>
+<li><p><em>Discounted</em>: un acierto abajo vale menos (se divide por <code class="docutils literal notranslate"><span class="pre">log2(posición</span> <span class="pre">+</span> <span class="pre">1)</span></code>).</p></li>
+<li><p><em>Normalized</em>: se divide por el mejor orden posible, para que quede entre 0 y 1.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DCG@k  = Σ_{i=1..k} (2^rel_i − 1) / log2(i + 1)
+nDCG@k = DCG@k / IDCG@k
+</pre></div>
+</div>
+<p><strong>Ejemplo 1 (un solo relevante, grado 2).</strong> El objetivo está en la posición 3.
+DCG = (2² − 1)/log2(4) = 3/2 = 1,5. IDCG (objetivo en posición 1) = 3/1 = 3.
+<strong>nDCG&#64;10 = 0,5.</strong></p>
+<p><strong>Tabla clave para exponer — qué nDCG da cada posición del objetivo (un relevante):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Posición del objetivo</p></th>
+<th class="head"><p>nDCG&#64;10</p></th>
+<th class="head"><p>MRR&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1,000</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0,631</p></td>
+<td><p>0,500</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0,500</p></td>
+<td><p>0,333</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0,387</p></td>
+<td><p>0,200</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0,289</p></td>
+<td><p>0,100</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt; 10</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Con esta tabla se traduce cualquier cifra: un <strong>nDCG&#64;10 medio de 0,936</strong> significa que en la
+gran mayoría de consultas el reporte correcto sale <strong>primero</strong>, y en unas pocas sale segundo o
+tercero.</p>
+<p><strong>Ejemplo 2 (relevancia graduada).</strong> Juicios: A = 2, B = 1. Ranking: [B, X, A].
+DCG = (2¹−1)/log2(2) + (2²−1)/log2(4) = 1 + 1,5 = 2,5.
+IDCG (orden ideal [A, B]) = 3/1 + 1/log2(3) = 3 + 0,631 = 3,631.
+<strong>nDCG&#64;10 = 0,689.</strong></p>
+<p><strong>Por qué es la principal.</strong> El usuario mira las primeras respuestas; la posición importa
+tanto como el acierto, y la relevancia graduada distingue el reporte exacto de uno solo
+relacionado.</p>
+<p><strong>Trampa típica.</strong> Leerla como «porcentaje de aciertos». No lo es: es calidad de orden.</p>
+</section>
+<section id="mrr-10-mean-reciprocal-rank">
+<h3>9.2 MRR&#64;10 — Mean Reciprocal Rank<a class="headerlink" href="#mrr-10-mean-reciprocal-rank" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> El inverso de la posición del <strong>primer</strong> relevante, promediado entre consultas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MRR@k = (1/|Q|) · Σ_q 1 / rank_q      (0 si no aparece en el top-k)
+</pre></div>
+</div>
+<p><strong>Lectura.</strong> 1,0 = el objetivo siempre en la posición 1; 0,5 = en promedio en la 2.</p>
+<p><strong>Por qué importa aquí.</strong> Con un objetivo por consulta (<em>known-item</em>), MRR mide directamente
+el objetivo de negocio: poner el reporte correcto <strong>primero</strong>.</p>
+<p><strong>Diferencia con nDCG</strong> en nuestro protocolo: ambos dependen solo de la posición del único
+relevante, pero MRR castiga más fuerte (1/2 en la posición 2) que nDCG (0,631). Por eso MRR
+siempre sale igual o más bajo.</p>
+</section>
+<section id="recall-100-cobertura">
+<h3>9.3 Recall&#64;100 — cobertura<a class="headerlink" href="#recall-100-cobertura" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> Qué fracción de los relevantes aparece en los primeros 100.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Recall@k = |relevantes ∩ top-k| / |relevantes|
+</pre></div>
+</div>
+<p><strong>Por qué importa.</strong> Separa «no lo encontró» de «lo encontró pero lo ordenó mal». Es la
+garantía de que la primera etapa no pierde el documento correcto.</p>
+<p><strong>Trampa crítica.</strong> Con <strong>17 documentos</strong> el top-100 los contiene a todos, así que
+Recall&#64;100 = 1,0 <strong>siempre</strong>, para cualquier sistema. No discrimina. Solo se vuelve
+informativo con el corpus ampliado a <strong>833 documentos</strong>, donde el denso puro baja a
+<strong>0,950–0,958</strong> (§18, §19).</p>
+</section>
+<section id="precision-10-densidad-de-aciertos">
+<h3>9.4 Precision&#64;10 — densidad de aciertos<a class="headerlink" href="#precision-10-densidad-de-aciertos" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> Qué fracción del top-10 es relevante.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>P@k = |relevantes ∩ top-k| / k
+</pre></div>
+</div>
+<p><strong>Trampa.</strong> Con un solo relevante por consulta, el máximo posible es <strong>1/10 = 0,1</strong>. Ver
+P&#64;10 ≈ 0,117 no es «malo»: es el techo del protocolo (algunas consultas tienen un segundo
+relevante de grado 1). Es métrica secundaria.</p>
+</section>
+<section id="ap-100-average-precision">
+<h3>9.5 AP&#64;100 — Average Precision<a class="headerlink" href="#ap-100-average-precision" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> El promedio de la precisión en cada posición donde aparece un relevante, hasta
+100. Es la base de MAP.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>AP@k = (1 / min(|rel|, k)) · Σ_{i=1..k} 1[rel_i &gt; 0] · P@i
+</pre></div>
+</div>
+<p><strong>Ejemplo.</strong> Un relevante en la posición 3 → AP = P&#64;3 = 1/3 = 0,333 (igual que MRR cuando
+hay un solo relevante).</p>
+<p><strong>Por qué importa.</strong> Resume el orden <strong>completo</strong>, no solo el primer acierto. Brilla cuando
+hay varios relevantes por consulta (lo que tendremos con la capa gold).</p>
+</section>
+<section id="success-k-cobertura-acumulada">
+<h3>9.6 Success&#64;k — cobertura acumulada<a class="headerlink" href="#success-k-cobertura-acumulada" title="Link to this heading">#</a></h3>
+<p><strong>Qué mide.</strong> La fracción de consultas cuyo objetivo aparece dentro del top-k.
+Success&#64;1 = porcentaje de consultas con el correcto en primer lugar.</p>
+<p><strong>Por qué la usamos.</strong> Bajo <em>known-item</em> es la curva de cobertura más clara: responde «¿a qué
+profundidad encuentra el usuario lo que busca?». Lo que importa es el <strong>arranque</strong> (k = 1–3).</p>
+</section>
+<section id="resumen">
+<h3>9.7 Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Pregunta</p></th>
+<th class="head"><p>Rango</p></th>
+<th class="head"><p>En nuestro caso</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>nDCG&#64;10</p></td>
+<td><p>¿Está arriba y qué tan arriba?</p></td>
+<td><p>0–1</p></td>
+<td><p><strong>Principal</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>MRR&#64;10</p></td>
+<td><p>¿Posición del primer acierto?</p></td>
+<td><p>0–1</p></td>
+<td><p>Objetivo de negocio directo</p></td>
+</tr>
+<tr class="row-even"><td><p>Recall&#64;100</p></td>
+<td><p>¿Lo encontró?</p></td>
+<td><p>0–1</p></td>
+<td><p>Trivial con 17 docs; útil con 833</p></td>
+</tr>
+<tr class="row-odd"><td><p>P&#64;10</p></td>
+<td><p>¿Qué tanto del top-10 sirve?</p></td>
+<td><p>0–1</p></td>
+<td><p>Techo ≈ 0,1 por el protocolo</p></td>
+</tr>
+<tr class="row-even"><td><p>AP&#64;100</p></td>
+<td><p>¿Todo el orden es bueno?</p></td>
+<td><p>0–1</p></td>
+<td><p>≈ MRR con un relevante</p></td>
+</tr>
+<tr class="row-odd"><td><p>Success&#64;k</p></td>
+<td><p>¿A qué profundidad aparece?</p></td>
+<td><p>0–1</p></td>
+<td><p>Mejor curva de cobertura</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="la-estadistica-que-usamos">
+<h2>10. La estadística que usamos<a class="headerlink" href="#la-estadistica-que-usamos" title="Link to this heading">#</a></h2>
+<section id="p-valor-en-una-frase">
+<h3>10.1 p-valor, en una frase<a class="headerlink" href="#p-valor-en-una-frase" title="Link to this heading">#</a></h3>
+<p>La probabilidad de ver una diferencia <strong>al menos así de grande</strong> si en realidad las dos
+configuraciones fueran iguales. p &lt; 0,05 se considera evidencia suficiente. Un p grande <strong>no</strong>
+prueba que sean iguales; dice que con esta muestra no alcanza para afirmarlo.</p>
+</section>
+<section id="wilcoxon-pareado">
+<h3>10.2 Wilcoxon pareado<a class="headerlink" href="#wilcoxon-pareado" title="Link to this heading">#</a></h3>
+<p>Compara dos configuraciones <strong>consulta por consulta</strong> (pareado: la misma consulta evaluada
+con ambas). Es no paramétrico: no asume normalidad, algo apropiado porque nDCG está acotado y
+suele amontonarse cerca de 1.</p>
+</section>
+<section id="tamano-del-efecto-cliff-s">
+<h3>10.3 Tamaño del efecto: Cliff’s δ<a class="headerlink" href="#tamano-del-efecto-cliff-s" title="Link to this heading">#</a></h3>
+<p>Mide <em>cuánto</em> gana una sobre otra, no solo si gana. Va de −1 a 1.
+Umbrales: &lt; 0,147 insignificante · &lt; 0,33 pequeño · &lt; 0,474 mediano · ≥ 0,474 grande.</p>
+</section>
+<section id="intervalos-por-bootstrap">
+<h3>10.4 Intervalos por bootstrap<a class="headerlink" href="#intervalos-por-bootstrap" title="Link to this heading">#</a></h3>
+<p>Remuestreamos las consultas con reemplazo 1.000–2.000 veces y recalculamos la media cada vez.
+El 95% central de esas medias es el intervalo de confianza. Si el intervalo de una diferencia
+<strong>cruza el cero</strong>, la diferencia no es concluyente.</p>
+</section>
+<section id="poder-estadistico-y-el-problema-del-n-pequeno">
+<h3>10.5 Poder estadístico y el problema del n pequeño<a class="headerlink" href="#poder-estadistico-y-el-problema-del-n-pequeno" title="Link to this heading">#</a></h3>
+<p>El <strong>poder</strong> es la capacidad de detectar un efecto que sí existe. Depende sobre todo del
+tamaño muestral. Con <strong>n = 17</strong> consultas en el estrato clave, efectos reales y consistentes
+daban p ≈ 0,07: no por falta de efecto, sino por falta de muestra.</p>
+</section>
+<section id="pseudo-replicacion-clave-para-defender-el-notebook-07">
+<h3>10.6 Pseudo-replicación (clave para defender el notebook 07)<a class="headerlink" href="#pseudo-replicacion-clave-para-defender-el-notebook-07" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        flowchart LR
+    subgraph MAL[&quot;Pseudo-replicación (lo que NO hay que hacer)&quot;]
+        P1[&quot;1 patrón real de filtro&quot;] --&gt; V1[&quot;variante con&lt;br/&gt;nombre sintético A&quot;]
+        P1 --&gt; V2[&quot;variante con&lt;br/&gt;nombre sintético B&quot;]
+        P1 --&gt; V3[&quot;variante con&lt;br/&gt;nombre sintético C&quot;]
+        V1 &amp; V2 &amp; V3 --&gt; X[&quot;n inflado,&lt;br/&gt;observaciones casi idénticas&quot;]
+    end
+    subgraph BIEN[&quot;Unidad correcta&quot;]
+        Q1[&quot;patrón real 1&quot;] --&gt; Y[&quot;n honesto:&lt;br/&gt;1 consulta por patrón distinto&quot;]
+        Q2[&quot;patrón real 2&quot;] --&gt; Y
+        Q3[&quot;patrón real 3&quot;] --&gt; Y
+    end
+    </pre><p>Repetir el mismo patrón con distintos nombres sintéticos <strong>infla el n sin añadir información</strong>,
+porque el nombre sintético no aparece en ningún documento: el sistema devuelve casi lo mismo.
+Eso viola el supuesto de independencia de Wilcoxon. La solución fue usar el <strong>patrón real
+distinto</strong> como unidad (§19).</p>
+</section>
+</section>
+<section id="el-protocolo-de-evaluacion">
+<h2>11. El protocolo de evaluación<a class="headerlink" href="#el-protocolo-de-evaluacion" title="Link to this heading">#</a></h2>
+<section id="hubo-entrenamiento-y-prueba">
+<h3>11.1 ¿Hubo entrenamiento y prueba?<a class="headerlink" href="#hubo-entrenamiento-y-prueba" title="Link to this heading">#</a></h3>
+<p><strong>No, y es correcto.</strong> Esto es IR:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code> está <strong>preentrenado y congelado</strong>: solo inferencia.</p></li>
+<li><p>BM25 <strong>no se entrena</strong>.</p></li>
+<li><p><strong>No hay partición train/test</strong>: el corpus es el índice y las consultas son el conjunto de
+evaluación; nada aprende de ellas.</p></li>
+<li><p>Hiperparámetros estándar de la literatura (<code class="docutils literal notranslate"><span class="pre">k1</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">λ</span></code>), no ajustados a los datos.</p></li>
+</ul>
+</section>
+<section id="los-tres-tipos-de-juicio">
+<h3>11.2 Los tres tipos de juicio<a class="headerlink" href="#los-tres-tipos-de-juicio" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        flowchart LR
+    KI[&quot;Known-item sintético&lt;br/&gt;consultas inventadas&lt;br/&gt;desde los documentos&quot;] --&gt; SI[&quot;Silver&lt;br/&gt;firma real del log:&lt;br/&gt;el reporte que se ejecutó&quot;]
+    SI --&gt; GO[&quot;Gold&lt;br/&gt;anotación de expertos&lt;br/&gt;0-3, doble, κ de Cohen&quot;]
+    KI -. &quot;v1: compara&lt;br/&gt;configuraciones&quot; .-&gt; R1[&quot;validez relativa&quot;]
+    SI -. &quot;E1: uso real&quot; .-&gt; R2[&quot;validez externa parcial&quot;]
+    GO -. &quot;siguiente paso&quot; .-&gt; R3[&quot;validez externa plena&quot;]
+    </pre><ul class="simple">
+<li><p><strong>Known-item sintético</strong> (v1): cada consulta se arma desde títulos, entidades y sinónimos y
+apunta a un reporte conocido (grado 2). Limitación: comparte vocabulario con los documentos,
+así que el valor absoluto está optimista. Vale para comparar configuraciones.</p></li>
+<li><p><strong>Silver</strong> (Escalera 1): cada firma real del log apunta al reporte que de verdad ejecutó.
+El texto de la consulta se sintetiza desde los filtros reales (la plataforma no tiene caja de
+búsqueda que registre texto libre).</p></li>
+<li><p><strong>Gold</strong> (pendiente): una muestra de 50 consultas ya marcada para anotación experta.</p></li>
+</ul>
+</section>
+<section id="estratos-de-consulta">
+<h3>11.3 Estratos de consulta<a class="headerlink" href="#estratos-de-consulta" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Estrato</p></th>
+<th class="head"><p>Qué es</p></th>
+<th class="head"><p>Ejemplo sintético</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>entidad exacta</p></td>
+<td><p>Menciona nombre propio o filtra por persona/institución</p></td>
+<td><p>«estado de promoción del deportista Andrés Torres»</p></td>
+</tr>
+<tr class="row-odd"><td><p>ambigua</p></td>
+<td><p>Término corto con varias lecturas</p></td>
+<td><p>«grupos»</p></td>
+</tr>
+<tr class="row-even"><td><p>documento largo</p></td>
+<td><p>Necesidad descrita en frase larga</p></td>
+<td><p>«quiero ver en qué etapa está cada deportista…»</p></td>
+</tr>
+<tr class="row-odd"><td><p>operacional</p></td>
+<td><p>Tema + filtros reales del log</p></td>
+<td><p>«promoción de deportistas por categoría, por etapa»</p></td>
+</tr>
+<tr class="row-even"><td><p>competencias</p></td>
+<td><p>Pregunta sobre pruebas regionales</p></td>
+<td><p>«Atletismo Pre Juvenil en Región Caribe 1»</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="parte-iii-los-benchmarks-uno-por-uno">
+<h1>PARTE III — LOS BENCHMARKS, UNO POR UNO<a class="headerlink" href="#parte-iii-los-benchmarks-uno-por-uno" title="Link to this heading">#</a></h1>
+<section id="mapa-de-notebooks">
+<h2>12. Mapa de notebooks<a class="headerlink" href="#mapa-de-notebooks" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Notebook</p></th>
+<th class="head"><p>Qué contiene</p></th>
+<th class="head"><p>Preguntas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EDA_SUID.ipynb</span></code></p></td>
+<td><p>Demanda, ranking, Gini, Competencias</p></td>
+<td><p>Motivación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Exploracion_Ontologia_Metadatos_SUID.ipynb</span></code></p></td>
+<td><p>Ontología, entidades, nombre propio</p></td>
+<td><p>Diseño</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Benchmark_Escalera_Ablacion.ipynb</span></code></p></td>
+<td><p>Escalera completa, estadística, visualizaciones</p></td>
+<td><p>P1, P2, P3, P5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Benchmark_Matryoshka_P6.ipynb</span></code></p></td>
+<td><p>Barrido de dimensión</p></td>
+<td><p>P6</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">01_Analisis_por_Estratos_y_Estadistica.ipynb</span></code></p></td>
+<td><p>Tablas por estrato, Wilcoxon, Cliff, IC</p></td>
+<td><p>P1, P2, P3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">02_Diagnostico_Realce_Entidad.ipynb</span></code></p></td>
+<td><p>Detector, barrido de λ, variantes</p></td>
+<td><p>P5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">03_Matryoshka_y_Chunking_P4_P6.ipynb</span></code></p></td>
+<td><p>Dimensión y fragmentación</p></td>
+<td><p>P4, P6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">04_Resumen_Ejecutivo_y_Roadmap_v2.ipynb</span></code></p></td>
+<td><p>Resumen, plan v2, texto para LaTeX</p></td>
+<td><p>Cierre</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">05_Evaluacion_Validez_Externa.ipynb</span></code></p></td>
+<td><p>Conjunto real silver (71)</p></td>
+<td><p>Validez externa</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">06_Expansion_Corpus_Competencias.ipynb</span></code></p></td>
+<td><p>Prueba Regional, 833 docs</p></td>
+<td><p>Escala, P3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">07_Poder_Estadistico_Eval_Ampliado.ipynb</span></code></p></td>
+<td><p>n=55 en entidad exacta, 833 docs</p></td>
+<td><p>Poder</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre  class="mermaid">
+        flowchart TD
+    EDA[&quot;EDA + Ontología&quot;] --&gt; ESC[&quot;Benchmark_Escalera_Ablacion&lt;br/&gt;sintético, 17 docs&quot;]
+    ESC --&gt; N01[&quot;01 Estratos + estadística&quot;]
+    ESC --&gt; N02[&quot;02 Diagnóstico del realce&quot;]
+    ESC --&gt; N03[&quot;03 Matryoshka + chunking&quot;]
+    N01 &amp; N02 &amp; N03 --&gt; N04[&quot;04 Resumen y roadmap&quot;]
+    N04 --&gt; N05[&quot;05 Validez externa&lt;br/&gt;Escalera 1, silver&quot;]
+    N04 --&gt; N06[&quot;06 Competencias&lt;br/&gt;Escalera 2, 833 docs&quot;]
+    N05 &amp; N06 --&gt; N07[&quot;07 Poder estadístico&lt;br/&gt;n=55, 161 consultas&quot;]
+    </pre><p>Los notebooks de benchmark (<code class="docutils literal notranslate"><span class="pre">Benchmark_Escalera_Ablacion</span></code>, <code class="docutils literal notranslate"><span class="pre">01</span></code>, <code class="docutils literal notranslate"><span class="pre">05</span></code>, <code class="docutils literal notranslate"><span class="pre">06</span></code>) incluyen al
+final el bloque <strong>«Visualizaciones de diagnóstico»</strong> (barras con IC, boxplot/violín, Success&#64;k
+con Precision&#64;k y Recall&#64;k, y scatter de score vs relevancia). Se explica cómo leerlas en §20.</p>
+</section>
+<section id="benchmark-1-escalera-sobre-el-conjunto-sintetico">
+<h2>13. Benchmark 1 — Escalera sobre el conjunto sintético<a class="headerlink" href="#benchmark-1-escalera-sobre-el-conjunto-sintetico" title="Link to this heading">#</a></h2>
+<p><strong>Setup.</strong> 17 reportes, 51 consultas sintéticas (17 entidad exacta, 13 ambigua, 10 documento
+largo, 11 competencias). Las 11 de competencias no tienen objetivo en la v1 (vacío de
+cobertura) y se excluyen: quedan <strong>40 con juicio</strong>.</p>
+<p><strong>Resultados globales:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>nDCG&#64;10</p></th>
+<th class="head"><p>MRR&#64;10</p></th>
+<th class="head"><p>Recall&#64;100</p></th>
+<th class="head"><p>P&#64;10</p></th>
+<th class="head"><p>AP&#64;100</p></th>
+<th class="head"><p>Latencia p50</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,843</p></td>
+<td><p>0,836</p></td>
+<td><p>1,000</p></td>
+<td><p>0,113</p></td>
+<td><p>0,807</p></td>
+<td><p>&lt; 1 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 Denso puro</p></td>
+<td><p>0,874</p></td>
+<td><p>0,843</p></td>
+<td><p>1,000</p></td>
+<td><p>0,117</p></td>
+<td><p>0,827</p></td>
+<td><p>22,5 ms</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 Denso + ontología</p></td>
+<td><p>0,917</p></td>
+<td><p>0,898</p></td>
+<td><p>1,000</p></td>
+<td><p>0,117</p></td>
+<td><p>0,888</p></td>
+<td><p>22,2 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 Híbrido</p></td>
+<td><p>0,878</p></td>
+<td><p>0,863</p></td>
+<td><p>1,000</p></td>
+<td><p>0,117</p></td>
+<td><p>0,842</p></td>
+<td><p>22,1 ms</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C4 Híbrido + ontología</strong></p></td>
+<td><p><strong>0,936</strong></p></td>
+<td><p><strong>0,925</strong></p></td>
+<td><p>1,000</p></td>
+<td><p>0,117</p></td>
+<td><p><strong>0,910</strong></p></td>
+<td><p>22,1 ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 + realce</p></td>
+<td><p>0,911</p></td>
+<td><p>0,894</p></td>
+<td><p>1,000</p></td>
+<td><p>0,117</p></td>
+<td><p>0,880</p></td>
+<td><p>22,9 ms</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre  class="mermaid">
+        xychart-beta
+    title &quot;nDCG&#64;10 global — conjunto sintético (17 docs)&quot;
+    x-axis [&quot;BM25&quot;, &quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;, &quot;C4&quot;, &quot;C5&quot;]
+    y-axis &quot;nDCG&#64;10&quot; 0.8 --&gt; 1.0
+    bar [0.843, 0.874, 0.917, 0.878, 0.936, 0.911]
+    </pre><p><strong>Por estrato (nDCG&#64;10):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>entidad exacta</p></th>
+<th class="head"><p>ambigua</p></th>
+<th class="head"><p>documento largo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,866</p></td>
+<td><p>0,781</p></td>
+<td><p>0,884</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1</p></td>
+<td><p>0,861</p></td>
+<td><p>0,919</p></td>
+<td><p>0,837</p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>0,927</p></td>
+<td><p><strong>0,928</strong></p></td>
+<td><p>0,888</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,900</p></td>
+<td><p>0,835</p></td>
+<td><p><strong>0,896</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C4</strong></p></td>
+<td><p><strong>0,976</strong></p></td>
+<td><p>0,923</p></td>
+<td><p>0,884</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p>0,957</p></td>
+<td><p>0,923</p></td>
+<td><p>0,819</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong></p>
+<ul class="simple">
+<li><p>El denso supera a BM25 (0,874 vs 0,843): la señal semántica aporta.</p></li>
+<li><p>La ontología sube tanto al denso (+0,043) como al híbrido (+0,058).</p></li>
+<li><p>El híbrido con ontología llega a <strong>0,976</strong> en entidad exacta: la ventaja se concentra ahí.</p></li>
+<li><p>En ambiguas mandan las configuraciones con señal densa (BM25 cae a 0,781).</p></li>
+<li><p>La latencia densa (~22 ms) está dominada por <strong>codificar la consulta</strong>, no por buscar.</p></li>
+</ul>
+</section>
+<section id="benchmark-2-estratos-y-significancia-notebook-01">
+<h2>14. Benchmark 2 — Estratos y significancia (notebook 01)<a class="headerlink" href="#benchmark-2-estratos-y-significancia-notebook-01" title="Link to this heading">#</a></h2>
+<p><strong>Wilcoxon pareado en entidad exacta (n = 17):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comparación</p></th>
+<th class="head"><p>Δ nDCG&#64;10</p></th>
+<th class="head"><p>p-valor</p></th>
+<th class="head"><p>Pregunta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 vs BM25</p></td>
+<td><p>+0,034</p></td>
+<td><p>0,068</p></td>
+<td><p>P1</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 vs C1</p></td>
+<td><p>+0,039</p></td>
+<td><p>0,917</p></td>
+<td><p>P1, P2</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 vs C3</p></td>
+<td><p><strong>+0,076</strong></p></td>
+<td><p>0,068</p></td>
+<td><p>P3</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 vs C3</p></td>
+<td><p>+0,057</p></td>
+<td><p>0,345</p></td>
+<td><p>P3, P5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong> El mayor efecto es la ontología (C4 vs C3). Los p-valores rozan 0,05 porque
+<strong>n = 17 es poco</strong>: el efecto es consistente en dirección, pero la muestra no alcanza para
+cerrarlo. Esto motivó directamente el Benchmark 7.</p>
+</section>
+<section id="benchmark-3-diagnostico-del-realce-notebook-02">
+<h2>15. Benchmark 3 — Diagnóstico del realce (notebook 02)<a class="headerlink" href="#benchmark-3-diagnostico-del-realce-notebook-02" title="Link to this heading">#</a></h2>
+<p><strong>El síntoma.</strong> Añadir el realce baja el nDCG&#64;10 global de 0,936 a 0,911, y en entidad exacta
+de 0,976 a 0,957.</p>
+<p><strong>El diagnóstico.</strong> Tratamos la indicadora de entidad como un clasificador sobre pares
+(consulta, documento), donde la etiqueta ideal es «este es el objetivo»:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>TP</p></th>
+<th class="head"><p>FP</p></th>
+<th class="head"><p>FN</p></th>
+<th class="head"><p>Precisión</p></th>
+<th class="head"><p>Recall</p></th>
+<th class="head"><p>F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>111</p></td>
+<td><p>1</p></td>
+<td><p><strong>0,126</strong></p></td>
+<td><p>0,941</p></td>
+<td><p>0,222</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Se activa en promedio para <strong>7,5 de 17 documentos por consulta</strong>.</p>
+<pre  class="mermaid">
+        flowchart TD
+    Q[&quot;Consulta con nombre propio&quot;] --&gt; D{&quot;Detector&quot;}
+    D --&gt; R1[&quot;Regla 1: la clase de la consulta&lt;br/&gt;coincide con el documento&quot;]
+    D --&gt; R2[&quot;Regla 2: consulta con nombre propio&lt;br/&gt;Y documento marcado como buscable&quot;]
+    R2 --&gt; G[&quot;Se activa para TODOS&lt;br/&gt;los reportes de nombre propio&quot;]
+    G --&gt; M[&quot;El factor (1 + λ) multiplica&lt;br/&gt;a un grupo entero por igual&quot;]
+    M --&gt; N[&quot;No reordena a favor del correcto;&lt;br/&gt;a veces sube un distractor&quot;]
+    </pre><p><strong>Barrido de λ (realce original):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>λ</p></th>
+<th class="head"><p>nDCG&#64;10 global</p></th>
+<th class="head"><p>nDCG&#64;10 entidad exacta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0 (= C4)</p></td>
+<td><p><strong>0,936</strong></p></td>
+<td><p><strong>0,976</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>0,05</p></td>
+<td><p>0,918</p></td>
+<td><p>0,964</p></td>
+</tr>
+<tr class="row-even"><td><p>0,10</p></td>
+<td><p>0,913</p></td>
+<td><p>0,960</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,15</p></td>
+<td><p>0,912</p></td>
+<td><p>0,958</p></td>
+</tr>
+<tr class="row-even"><td><p>0,20</p></td>
+<td><p>0,911</p></td>
+<td><p>0,957</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,30</p></td>
+<td><p>0,911</p></td>
+<td><p>0,957</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Cualquier λ &gt; 0 empeora, y el daño crece con λ. Dos variantes más estrictas (V1 solo
+coincidencia de clase; V2 ponderada por especificidad) degradan menos pero <strong>no superan a «sin
+realce»</strong>.</p>
+<p><strong>Lectura honesta de todos los benchmarks sobre el realce</strong> (se resume en §21): perjudica en el
+sintético, ayudó en el conjunto real de 71 consultas, y resultó neutro o levemente negativo en
+el conjunto ampliado de mayor poder. Es <strong>inestable</strong>. Conclusión: no va por defecto en la v1;
+queda para v2 con un detector que reconozca la <em>mención</em> concreta y no un atributo genérico.</p>
+</section>
+<section id="benchmark-4-matryoshka-y-chunking-notebooks-03-y-benchmark-matryoshka-p6">
+<h2>16. Benchmark 4 — Matryoshka y chunking (notebooks 03 y Benchmark_Matryoshka_P6)<a class="headerlink" href="#benchmark-4-matryoshka-y-chunking-notebooks-03-y-benchmark-matryoshka-p6" title="Link to this heading">#</a></h2>
+<section id="matryoshka-p6">
+<h3>16.1 Matryoshka (P6)<a class="headerlink" href="#matryoshka-p6" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimensión m</p></th>
+<th class="head"><p>nDCG&#64;10 C4</p></th>
+<th class="head"><p>nDCG&#64;10 C1 denso</p></th>
+<th class="head"><p>Retención C4</p></th>
+<th class="head"><p>Ahorro de índice</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>128</p></td>
+<td><p>0,908</p></td>
+<td><p>0,811</p></td>
+<td><p>0,970</p></td>
+<td><p>87,5%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>256</strong></p></td>
+<td><p><strong>0,936</strong></p></td>
+<td><p>0,857</p></td>
+<td><p><strong>1,000</strong></p></td>
+<td><p><strong>75,0%</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>512</p></td>
+<td><p>0,933</p></td>
+<td><p>0,882</p></td>
+<td><p>0,998</p></td>
+<td><p>50,0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>768</p></td>
+<td><p>0,934</p></td>
+<td><p>0,889</p></td>
+<td><p>0,998</p></td>
+<td><p>25,0%</p></td>
+</tr>
+<tr class="row-even"><td><p>1024</p></td>
+<td><p>0,936</p></td>
+<td><p>0,874</p></td>
+<td><p>1,000</p></td>
+<td><p>0%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre  class="mermaid">
+        xychart-beta
+    title &quot;Retención de nDCG&#64;10 (C4) vs dimensión&quot;
+    x-axis [&quot;128&quot;, &quot;256&quot;, &quot;512&quot;, &quot;768&quot;, &quot;1024&quot;]
+    y-axis &quot;retención&quot; 0.9 --&gt; 1.01
+    line [0.970, 1.000, 0.998, 0.998, 1.000]
+    </pre><p><strong>Lectura.</strong> Truncar a <strong>256</strong> dimensiones deja la calidad intacta con <strong>75% menos índice</strong>.
+El denso puro es más sensible a la compresión que el híbrido: la señal léxica amortigua la
+pérdida de dimensión. Replica sobre nuestro corpus lo que reporta Uber Eats (1536 → 256 con
+caída de recall ≈ 0,002).</p>
+</section>
+<section id="chunking-p4">
+<h3>16.2 Chunking (P4)<a class="headerlink" href="#chunking-p4" title="Link to this heading">#</a></h3>
+<p>Reportes de 65 a 184 palabras. Se parte cada uno en fragmentos (con solapamiento) y el
+documento toma el mejor fragmento (agregación por máximo). Sobre C4:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tamaño (palabras)</p></th>
+<th class="head"><p>Frag./doc</p></th>
+<th class="head"><p>0% solape</p></th>
+<th class="head"><p>25%</p></th>
+<th class="head"><p>50%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>4,71</p></td>
+<td><p>0,868</p></td>
+<td><p>0,827</p></td>
+<td><p>0,833</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>2,94</p></td>
+<td><p>0,834</p></td>
+<td><p>0,827</p></td>
+<td><p>0,865</p></td>
+</tr>
+<tr class="row-even"><td><p>64</p></td>
+<td><p>2,12</p></td>
+<td><p>0,894</p></td>
+<td><p>0,890</p></td>
+<td><p>0,873</p></td>
+</tr>
+<tr class="row-odd"><td><p>128</p></td>
+<td><p>1,24</p></td>
+<td><p>0,934</p></td>
+<td><p>0,913</p></td>
+<td><p>0,930</p></td>
+</tr>
+<tr class="row-even"><td><p>Documento completo</p></td>
+<td><p>1,00</p></td>
+<td><p><strong>0,936</strong></p></td>
+<td><p>0,936</p></td>
+<td><p>0,936</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong> Nunca supera al documento completo. Con documentos cortos, partir solo quita
+contexto. <strong>Unidad de indexación de la v1: el reporte completo.</strong> La maquinaria queda lista
+para documentos largos en la v2.</p>
+</section>
+</section>
+<section id="benchmark-5-validez-externa-escalera-1-notebook-05">
+<h2>17. Benchmark 5 — Validez externa, Escalera 1 (notebook 05)<a class="headerlink" href="#benchmark-5-validez-externa-escalera-1-notebook-05" title="Link to this heading">#</a></h2>
+<p><strong>Qué se hizo.</strong> Se convirtieron las <strong>firmas reales</strong> del log en consultas: cada firma
+apunta al reporte que ejecutó (silver, grado 2) y su texto se sintetiza desde los filtros
+reales que usó. Muestreo estratificado, no proporcional. <strong>71 consultas</strong> (30 entidad exacta,
+29 operacional, 8 ambigua, 4 documento largo), corpus de 17 reportes.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>nDCG&#64;10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,925</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1</p></td>
+<td><p>0,948</p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>0,951</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,946</p></td>
+</tr>
+<tr class="row-even"><td><p>C4</p></td>
+<td><p>0,952</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C5</strong></p></td>
+<td><p><strong>0,973</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong> La jerarquía general se sostiene con consultas de uso real. El realce, que
+empeoraba en el sintético, aquí sube (0,952 → 0,973). <strong>Advertencia que luego se confirmó:</strong>
+las 30 de entidad exacta se habían generado repitiendo patrones con distintos nombres
+sintéticos (pseudo-replicación), así que este conjunto sobrerrepresenta ese caso. El Benchmark
+7 lo corrige.</p>
+</section>
+<section id="benchmark-6-competencias-a-escala-escalera-2-notebook-06">
+<h2>18. Benchmark 6 — Competencias a escala, Escalera 2 (notebook 06)<a class="headerlink" href="#benchmark-6-competencias-a-escala-escalera-2-notebook-06" title="Link to this heading">#</a></h2>
+<p><strong>Qué se hizo.</strong> Se materializó la <strong>Prueba Regional</strong> = disciplina × categoría × fase ×
+región, desde los catálogos del lake: <strong>816 documentos</strong> (102 disciplinas × 8 regiones), mismo
+esquema del corpus, volúmenes solo como conteos agregados. Corpus total: <strong>833 documentos</strong>.
+Se añadieron 25 consultas de competencias con objetivo real (96 en total).</p>
+<pre  class="mermaid">
+        flowchart LR
+    CAT[&quot;Catálogo de disciplinas&lt;br/&gt;102 deporte × categoría&quot;] --&gt; PR[&quot;Generador de&lt;br/&gt;Pruebas Regionales&quot;]
+    REG[&quot;Departamento → región&lt;br/&gt;8 regiones&quot;] --&gt; PR
+    CNT[&quot;Conteos agregados&lt;br/&gt;sin datos personales&quot;] --&gt; PR
+    PR --&gt; DOC[&quot;816 documentos&lt;br/&gt;mismo esquema del corpus&quot;]
+    DOC --&gt; COMB[&quot;Corpus combinado&lt;br/&gt;17 + 816 = 833&quot;]
+    </pre><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>nDCG&#64;10</p></th>
+<th class="head"><p>Recall&#64;100</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,890</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 Denso puro</p></td>
+<td><p>0,840</p></td>
+<td><p><strong>0,958</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>0,905</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,896</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-even"><td><p>C4</p></td>
+<td><p>0,929</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p>0,941</p></td>
+<td><p>1,000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Por estrato (nDCG&#64;10):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Config.</p></th>
+<th class="head"><p>entidad exacta</p></th>
+<th class="head"><p>ambigua</p></th>
+<th class="head"><p>competencias</p></th>
+<th class="head"><p>operacional</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,951</p></td>
+<td><p>0,954</p></td>
+<td><p>0,770</p></td>
+<td><p>0,899</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1</p></td>
+<td><p>0,783</p></td>
+<td><p>0,661</p></td>
+<td><p>0,847</p></td>
+<td><p>0,919</p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>0,888</p></td>
+<td><p>0,750</p></td>
+<td><p><strong>0,866</strong></p></td>
+<td><p>0,987</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,919</p></td>
+<td><p>0,852</p></td>
+<td><p>0,815</p></td>
+<td><p>0,941</p></td>
+</tr>
+<tr class="row-even"><td><p>C4</p></td>
+<td><p>0,926</p></td>
+<td><p>0,917</p></td>
+<td><p>0,859</p></td>
+<td><p>0,987</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p><strong>0,963</strong></p></td>
+<td><p>0,917</p></td>
+<td><p>0,859</p></td>
+<td><p>0,987</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong></p>
+<ul class="simple">
+<li><p><strong>Recall&#64;100 dejó de ser trivial:</strong> el denso puro pierde documentos relevantes del top-100.</p></li>
+<li><p>El denso puro <strong>colapsa</strong> en entidad exacta (0,783) y en ambiguas (0,661) cuando hay cientos
+de distractores.</p></li>
+<li><p>En competencias gana <strong>denso + ontología</strong> (0,866): el dominio construido por composición
+ontológica es la prueba más dura de P3, y la ontología la pasa.</p></li>
+</ul>
+</section>
+<section id="benchmark-7-poder-estadistico-ampliado-notebook-07">
+<h2>19. Benchmark 7 — Poder estadístico ampliado (notebook 07)<a class="headerlink" href="#benchmark-7-poder-estadistico-ampliado-notebook-07" title="Link to this heading">#</a></h2>
+<section id="el-diagnostico">
+<h3>19.1 El diagnóstico<a class="headerlink" href="#el-diagnostico" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>n = 17 en el estrato clave era poco.</p></li>
+<li><p>El n = 30 del Benchmark 5 estaba <strong>inflado por pseudo-replicación</strong> (§10.6).</p></li>
+<li><p>En el log hay <strong>101 patrones distintos</strong> con columna de nombre propio (promoción 48,
+documentación 25, individuales 12, personal 8, grupos 6, participación 2).</p></li>
+</ul>
+</section>
+<section id="el-diseno">
+<h3>19.2 El diseño<a class="headerlink" href="#el-diseno" title="Link to this heading">#</a></h3>
+<p>Unidad de muestreo = <strong>patrón de firma real distinto</strong> (reporte × combinación de filtros).
+Cupos por estrato, tope de 18 patrones por reporte en entidad exacta (para que promoción no
+lo llene todo), texto sintetizado desde todos los filtros reales del patrón.</p>
+<pre  class="mermaid">
+        flowchart LR
+    LOG[&quot;744 firmas&quot;] --&gt; PAT[&quot;694 patrones distintos&quot;]
+    PAT --&gt; EE[&quot;entidad exacta: 101 disponibles → 55&quot;]
+    PAT --&gt; OP[&quot;operacional: 283 → 35&quot;]
+    PAT --&gt; DL[&quot;documento largo: 217 → 25&quot;]
+    PAT --&gt; AM[&quot;ambigua: 93 → 14&quot;]
+    EE &amp; OP &amp; DL &amp; AM --&gt; SET[&quot;129 consultas silver&lt;br/&gt;50 marcadas gold_candidate&quot;]
+    SET --&gt; PAPER[&quot;versión _paper&lt;br/&gt;sin PII&quot;]
+    </pre></section>
+<section id="escenario-a-17-reportes-129-consultas">
+<h3>19.3 Escenario A — 17 reportes, 129 consultas<a class="headerlink" href="#escenario-a-17-reportes-129-consultas" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>nDCG&#64;10 global</p></th>
+<th class="head"><p>nDCG&#64;10 entidad exacta</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,880</p></td>
+<td><p>0,864</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1</p></td>
+<td><p>0,951</p></td>
+<td><p>0,948</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C2</strong></p></td>
+<td><p><strong>0,967</strong></p></td>
+<td><p><strong>0,983</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,924</p></td>
+<td><p>0,914</p></td>
+</tr>
+<tr class="row-even"><td><p>C4</p></td>
+<td><p>0,949</p></td>
+<td><p>0,936</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p>0,938</p></td>
+<td><p>0,936</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Wilcoxon en entidad exacta, antes y ahora:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comparación</p></th>
+<th class="head"><p>Δ (n=55)</p></th>
+<th class="head"><p>p (n=17)</p></th>
+<th class="head"><p><strong>p (n=55)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 vs BM25 (P1)</p></td>
+<td><p>+0,050</p></td>
+<td><p>0,068</p></td>
+<td><p><strong>0,011</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 vs C3 (P3)</p></td>
+<td><p>+0,022</p></td>
+<td><p>0,068</p></td>
+<td><p>0,653</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 vs C1</p></td>
+<td><p>−0,012</p></td>
+<td><p>—</p></td>
+<td><p>0,541</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 vs C4 (P5)</p></td>
+<td><p>0,000</p></td>
+<td><p>—</p></td>
+<td><p>sin diferencia</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Lectura.</strong></p>
+<ul class="simple">
+<li><p><strong>P1 queda confirmado con significancia:</strong> el híbrido supera a BM25 en entidad exacta
+(p ≈ 0,01). El poder subió y la conclusión aguantó.</p></li>
+<li><p>El aporte <strong>marginal</strong> de la ontología sobre el híbrido <strong>no</strong> es significativo con consultas
+reales. Sí ayuda sobre el denso (C2 es la mejor en el corpus pequeño).</p></li>
+<li><p>El realce es neutro.</p></li>
+</ul>
+</section>
+<section id="escenario-b-833-documentos-161-consultas-incluye-32-de-competencias">
+<h3>19.4 Escenario B — 833 documentos, 161 consultas (incluye 32 de competencias)<a class="headerlink" href="#escenario-b-833-documentos-161-consultas-incluye-32-de-competencias" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>nDCG&#64;10</p></th>
+<th class="head"><p>Recall&#64;100</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,867</p></td>
+<td><p>0,963</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 Denso puro</p></td>
+<td><p>0,826</p></td>
+<td><p><strong>0,950</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>C2</p></td>
+<td><p>0,918</p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3</p></td>
+<td><p>0,877</p></td>
+<td><p>0,963</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C4</strong></p></td>
+<td><p><strong>0,948</strong></p></td>
+<td><p>1,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5</p></td>
+<td><p>0,942</p></td>
+<td><p>1,000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Entidad exacta: C4 0,976 · C2 0,933 · C1 0,762. Competencias: C4 0,868 · C2 0,852 · C1 0,849 ·
+BM25 0,799.</p>
+<p><strong>La lectura que une los dos escenarios:</strong></p>
+<pre  class="mermaid">
+        flowchart LR
+    S[&quot;Corpus pequeño&lt;br/&gt;17 reportes&quot;] --&gt; S1[&quot;Denso + ontología basta&lt;br/&gt;C2 lidera&quot;]
+    L[&quot;Corpus a escala&lt;br/&gt;833 documentos&quot;] --&gt; L1[&quot;Híbrido + ontología lidera&lt;br/&gt;C4 = 0,948&quot;]
+    L --&gt; L2[&quot;Denso puro se degrada&lt;br/&gt;0,826 y pierde recall&quot;]
+    S1 &amp; L1 &amp; L2 --&gt; K[&quot;El valor de la señal léxica&lt;br/&gt;crece con el tamaño del corpus&quot;]
+    </pre></section>
+</section>
+<section id="como-leer-cada-visualizacion-de-diagnostico">
+<h2>20. Cómo leer cada visualización de diagnóstico<a class="headerlink" href="#como-leer-cada-visualizacion-de-diagnostico" title="Link to this heading">#</a></h2>
+<p>Están al final de <code class="docutils literal notranslate"><span class="pre">Benchmark_Escalera_Ablacion</span></code>, <code class="docutils literal notranslate"><span class="pre">01</span></code>, <code class="docutils literal notranslate"><span class="pre">05</span></code> y <code class="docutils literal notranslate"><span class="pre">06</span></code>.</p>
+<p><strong>Barras con IC95 bootstrap (nDCG&#64;10, MRR&#64;10, Recall&#64;100).</strong> Altura = media; bigotes =
+intervalo. Si los bigotes de dos configuraciones se solapan mucho, la diferencia no es
+concluyente por sí sola. <em>Qué decir:</em> «C4 lidera y es la única, junto a las que llevan
+ontología, que mantiene cobertura completa a escala.»</p>
+<p><strong>Boxplot y violín de nDCG&#64;10 por consulta.</strong> La caja es el 50% central; la línea, la mediana;
+el triángulo, la media; los puntos sueltos, consultas atípicas. El violín muestra dónde se
+concentran. <em>Qué decir:</em> «No solo promedia más alto: es más estable, con menos consultas
+fallidas en la cola.»</p>
+<p><strong>Success&#64;k.</strong> Eje x = profundidad; eje y = fracción de consultas resueltas. Todas llegan a
+1,0 si k crece; lo que importa es <strong>el arranque</strong>. <em>Qué decir:</em> «Con C4 el usuario encuentra
+el reporte en el primer resultado más veces.»</p>
+<p><strong>Precision&#64;k y Recall&#64;k.</strong> Precision cae con k por diseño (techo 1/k con un relevante);
+se compara entre curvas, no en absoluto. Recall sube; la curva que sube antes es mejor.</p>
+<p><strong>Curva Precisión–Cobertura (notebook de la escalera y 07).</strong> Con un relevante por consulta
+degenera en un escalón; su área resume lo mismo que MRR. Se vuelve plenamente útil con la capa
+gold (varios relevantes graduados).</p>
+<p><strong>Scatter de score semántico vs relevancia (+ histograma).</strong> Cada punto es un par (consulta,
+documento) del top-20 del denso con ontología. Si los relevantes quedan más arriba (mayor
+coseno), el embedding captura la señal correcta. El solapamiento en la zona media explica por
+qué el denso solo no basta. <em>Qué decir:</em> «El coseno sí separa relevantes de no relevantes; lo
+que queda en la zona gris lo resuelven la señal léxica y la ontología.»</p>
+<p><strong>Heatmap por estrato (notebooks 01, 06, escalera).</strong> Filas = configuraciones, columnas =
+estratos. Sirve para ubicar dónde gana o pierde cada pieza.</p>
+</section>
+<section id="tabla-maestra-y-evolucion-de-la-evidencia">
+<h2>21. Tabla maestra y evolución de la evidencia<a class="headerlink" href="#tabla-maestra-y-evolucion-de-la-evidencia" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Escenario</p></th>
+<th class="head"><p>Docs</p></th>
+<th class="head"><p>Consultas</p></th>
+<th class="head"><p>Mejor nDCG&#64;10</p></th>
+<th class="head"><p>Denso puro</p></th>
+<th class="head"><p>Recall&#64;100 denso</p></th>
+<th class="head"><p>Realce vs C4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sintético (escalera)</p></td>
+<td><p>17</p></td>
+<td><p>40</p></td>
+<td><p>C4 0,936</p></td>
+<td><p>0,874</p></td>
+<td><p>1,000</p></td>
+<td><p>peor (0,911)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Real silver (E1)</p></td>
+<td><p>17</p></td>
+<td><p>71</p></td>
+<td><p>C5 0,973</p></td>
+<td><p>0,948</p></td>
+<td><p>1,000</p></td>
+<td><p>mejor (0,973 vs 0,952)</p></td>
+</tr>
+<tr class="row-even"><td><p>Real + Competencias (E2)</p></td>
+<td><p>833</p></td>
+<td><p>96</p></td>
+<td><p>C5 0,941</p></td>
+<td><p>0,840</p></td>
+<td><p>0,958</p></td>
+<td><p>mejor (0,941 vs 0,929)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Real ampliado (07-A)</p></td>
+<td><p>17</p></td>
+<td><p>129</p></td>
+<td><p>C2 0,967</p></td>
+<td><p>0,951</p></td>
+<td><p>1,000</p></td>
+<td><p>peor (0,938 vs 0,949)</p></td>
+</tr>
+<tr class="row-even"><td><p>Real ampliado + Comp. (07-B)</p></td>
+<td><p>833</p></td>
+<td><p>161</p></td>
+<td><p>C4 0,948</p></td>
+<td><p>0,826</p></td>
+<td><p>0,950</p></td>
+<td><p>peor (0,942 vs 0,948)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre  class="mermaid">
+        timeline
+    title Cómo cambió la evidencia al subir el rigor
+    Sintético 17 docs : C4 gana 0,936 : ontología con p≈0,07 : realce empeora
+    Real silver 71 : jerarquía se sostiene : realce parece ayudar : n inflado por pseudo-replicación
+    833 docs : Recall ya discrimina : denso puro pierde documentos : ontología gana en Competencias
+    Ampliado n=55 : P1 significativo p≈0,01 : ontología sobre híbrido no significativa : realce neutro
+    Ampliado a escala : C4 gana 0,948 : el valor del híbrido crece con el corpus
+    </pre><p><strong>Lo que se mantuvo en todos los escenarios:</strong> la ontología nunca empeora y casi siempre
+mejora; el denso puro es la configuración más frágil a escala; el híbrido supera a BM25.</p>
+<p><strong>Lo que cambió:</strong> la magnitud del aporte de la ontología sobre el híbrido (grande en el
+sintético, no significativo con consultas reales) y el signo del realce (inestable).</p>
+<p>Esta evolución <strong>es un resultado</strong>, no un problema: muestra que las conclusiones se
+sometieron a pruebas cada vez más exigentes y que se reportan con honestidad.</p>
+</section>
+<section id="las-seis-preguntas-respondidas">
+<h2>22. Las seis preguntas, respondidas<a class="headerlink" href="#las-seis-preguntas-respondidas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>P1 — ¿El híbrido supera a BM25 y al denso?</strong> Sí. A BM25 con significancia en entidad
+exacta (p ≈ 0,011, n = 55). Al denso puro, sobre todo a escala: con 833 documentos el denso
+cae a 0,826 y pierde recall; el híbrido con ontología llega a 0,948 con recall completo.</p></li>
+<li><p><strong>P2 — ¿La ventaja se concentra en nombre propio?</strong> Sí. Entidad exacta es donde el denso
+puro más se derrumba (0,762–0,783 a escala) y donde el híbrido con ontología llega más alto
+(0,976).</p></li>
+<li><p><strong>P3 — ¿Aporta la ontología?</strong> Sí, de forma consistente sobre el denso y máxima en
+Competencias. Su aporte marginal sobre el híbrido fue grande en el sintético pero no
+significativo con consultas reales: se reporta así.</p></li>
+<li><p><strong>P4 — ¿Importa el tamaño de fragmento?</strong> No con documentos cortos; el reporte completo es la
+mejor unidad en la v1.</p></li>
+<li><p><strong>P5 — ¿Ayuda el realce?</strong> Resultado inestable entre conjuntos y detector de precisión 0,126.
+No va por defecto en la v1.</p></li>
+<li><p><strong>P6 — ¿Mejor equilibrio?</strong> Híbrido + ontología con el embedding a <strong>256 dimensiones</strong>:
+misma calidad, 75% menos índice. A esta escala basta búsqueda exacta por coseno; con miles de
+documentos se migraría a un índice aproximado (HNSW).</p></li>
+</ul>
+</section>
+<section id="configuracion-recomendada">
+<h2>23. Configuración recomendada<a class="headerlink" href="#configuracion-recomendada" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TD
+    A{&quot;¿Corpus de despliegue?&quot;} --&gt;|&quot;crece a cientos o miles&quot;| B[&quot;Híbrido + ontología (C4)&quot;]
+    A --&gt;|&quot;solo 17 reportes&quot;| C[&quot;C2 compite,&lt;br/&gt;pero C4 escala mejor&quot;]
+    C --&gt; B
+    B --&gt; D{&quot;¿Memoria ajustada?&quot;}
+    D --&gt;|&quot;sí o no&quot;| E[&quot;Embedding truncado a 256 dims&lt;br/&gt;retención 1,0, −75% índice&quot;]
+    E --&gt; F{&quot;¿Activar realce?&quot;}
+    F --&gt;|&quot;v1&quot;| G[&quot;No: resultado inestable,&lt;br/&gt;detector de baja precisión&quot;]
+    F --&gt;|&quot;v2&quot;| H[&quot;Reconsiderar con detector&lt;br/&gt;de mención de alta precisión&quot;]
+    G --&gt; Z[&quot;Configuración v1:&lt;br/&gt;C4 + 256 dims + sin realce&lt;br/&gt;+ coseno exacto&quot;]
+    </pre><p><strong>Justificación en una frase:</strong> C4 es la que gana a la escala donde el sistema va a vivir, no
+pierde cobertura, y la truncación a 256 dimensiones sale gratis en calidad.</p>
+</section>
+<section id="limitaciones">
+<h2>24. Limitaciones<a class="headerlink" href="#limitaciones" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Juicios silver, no gold.</strong> Heredan el reporte que ejecutó cada firma; aproximan la
+intención del usuario pero no la garantizan. Falta la anotación experta (50 consultas ya
+marcadas).</p></li>
+<li><p><strong>Texto de consulta sintetizado</strong> desde la estructura de filtros, porque la plataforma
+genera reportes por SQL dinámico y no registra una caja de búsqueda con texto libre.</p></li>
+<li><p><strong>Corpus de reportes pequeño (17).</strong> La parte de Competencias lo lleva a 833, pero los
+documentos de Competencias vienen de un catálogo compuesto, no de reportes existentes.</p></li>
+<li><p><strong>Protocolo known-item</strong> en la v1: el valor absoluto de las métricas está optimista.</p></li>
+<li><p><strong>Sin señal de producción</strong> (clics, reformulaciones, A/B): queda fuera de un proyecto de
+grado.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="parte-iv-como-exponer">
+<h1>PARTE IV — CÓMO EXPONER<a class="headerlink" href="#parte-iv-como-exponer" title="Link to this heading">#</a></h1>
+<section id="principios-de-la-exposicion">
+<h2>25. Principios de la exposición<a class="headerlink" href="#principios-de-la-exposicion" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Una idea por diapositiva.</strong> Si una diapositiva necesita dos titulares, son dos
+diapositivas.</p></li>
+<li><p><strong>El titular dice la conclusión</strong>, no el tema. No «Resultados globales», sino «El híbrido
+con ontología recupera el reporte correcto primero en casi todas las consultas».</p></li>
+<li><p><strong>Intuición antes que fórmula.</strong> Primero qué hace, luego cómo se escribe.</p></li>
+<li><p><strong>Cada número con su traducción.</strong> «0,936, es decir, el reporte correcto sale primero en la
+gran mayoría de consultas.»</p></li>
+<li><p><strong>Las limitaciones las dices tú antes de que te las pregunten.</strong> Suma credibilidad.</p></li>
+<li><p><strong>Cuenta la historia de rigor creciente</strong>: sintético → real → escala → poder. Es la columna
+vertebral del trabajo.</p></li>
+<li><p><strong>Nunca un nombre real</strong> en diapositivas, capturas o ejemplos.</p></li>
+</ol>
+</section>
+<section id="estructura-sugerida-y-tiempos-20-minutos">
+<h2>26. Estructura sugerida y tiempos (≈ 20 minutos)<a class="headerlink" href="#estructura-sugerida-y-tiempos-20-minutos" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart LR
+    A[&quot;1 Título&lt;br/&gt;0:30&quot;] --&gt; B[&quot;2 Problema&lt;br/&gt;1:30&quot;] --&gt; C[&quot;3 Por qué es difícil&lt;br/&gt;1:00&quot;]
+    C --&gt; D[&quot;4 EDA demanda&lt;br/&gt;1:30&quot;] --&gt; E[&quot;5 EDA Competencias&lt;br/&gt;1:30&quot;]
+    E --&gt; F[&quot;6 Propuesta&lt;br/&gt;2:00&quot;] --&gt; G[&quot;7 Escalera&lt;br/&gt;1:00&quot;] --&gt; H[&quot;8 Métricas&lt;br/&gt;1:30&quot;]
+    H --&gt; I[&quot;9 Resultados&lt;br/&gt;2:00&quot;] --&gt; J[&quot;10 Realce&lt;br/&gt;1:00&quot;] --&gt; K[&quot;11 Validez y poder&lt;br/&gt;2:00&quot;]
+    K --&gt; L[&quot;12 Escala&lt;br/&gt;1:30&quot;] --&gt; M[&quot;13 Eficiencia&lt;br/&gt;1:00&quot;] --&gt; N[&quot;14 Limitaciones&lt;br/&gt;1:00&quot;] --&gt; O[&quot;15 Cierre&lt;br/&gt;1:00&quot;]
+    </pre><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Diapositiva</p></th>
+<th class="head"><p>Titular sugerido</p></th>
+<th class="head"><p>Visual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Título</p></td>
+<td><p>Buscadores semánticos para conocimiento funcional GovTech</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Problema</p></td>
+<td><p>Los usuarios no encuentran el reporte que necesitan</p></td>
+<td><p>Ejemplo de consulta que falla</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Por qué es difícil</p></td>
+<td><p>Vocabulario distinto, nombres propios, reportes que no existen</p></td>
+<td><p>3 íconos</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>EDA demanda</p></td>
+<td><p>Cinco reportes concentran el 86% de la demanda real</p></td>
+<td><p>Curva de Lorenz / ranking</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>EDA Competencias</p></td>
+<td><p>Un dominio con 732.640 registros tiene cero consultas</p></td>
+<td><p>Mapeo diferencial</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Propuesta</p></td>
+<td><p>Combinamos léxico, semántica y ontología</p></td>
+<td><p>Diagrama de arquitectura</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Escalera</p></td>
+<td><p>Encendemos un componente a la vez para medir su aporte</p></td>
+<td><p>Diagrama de la escalera</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Métricas</p></td>
+<td><p>nDCG&#64;10 mide si el correcto sale arriba</p></td>
+<td><p>Tabla posición → nDCG</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Resultados</p></td>
+<td><p>Híbrido + ontología: 0,936 y 0,976 en nombre propio</p></td>
+<td><p>Barras con IC</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Realce</p></td>
+<td><p>El realce no ayuda: su detector acierta 1 de cada 8 veces</p></td>
+<td><p>Barrido de λ</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Validez y poder</p></td>
+<td><p>Con consultas reales y n=55, P1 pasa a ser significativo</p></td>
+<td><p>Tabla p antes/ahora</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Escala</p></td>
+<td><p>A 833 documentos el denso puro pierde reportes; el híbrido no</p></td>
+<td><p>Recall&#64;100</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Eficiencia</p></td>
+<td><p>256 dimensiones bastan: misma calidad, 75% menos memoria</p></td>
+<td><p>Curva Matryoshka</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Limitaciones</p></td>
+<td><p>Lo que este trabajo todavía no puede afirmar</p></td>
+<td><p>Lista breve</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Cierre</p></td>
+<td><p>Recomendación v1 y camino a v2</p></td>
+<td><p>Configuración recomendada</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Diapositivas de respaldo (backup)</strong> para preguntas: fórmulas completas, tabla por estrato,
+diagnóstico del detector (TP/FP/FN), chunking, pseudo-replicación, lista de notebooks.</p>
+</section>
+<section id="como-exponer-el-problema">
+<h2>27. Cómo exponer el problema<a class="headerlink" href="#como-exponer-el-problema" title="Link to this heading">#</a></h2>
+<p><strong>Objetivo:</strong> que el comité sienta el dolor en 60 segundos.</p>
+<p><strong>Guion:</strong></p>
+<blockquote>
+<div><p>«Imaginen que trabajan en una plataforma del Estado y necesitan saber en qué etapa va cada
+deportista. Escriben “avance de los atletas”. El sistema lo llama “reporte de promoción por
+etapa”. No lo encuentran. O buscan por el nombre de una institución y el sistema no sabe que
+eso es una institución. Y hay preguntas que ni siquiera tienen un reporte donde vivir. Eso es
+lo que resuelve este trabajo.»</p>
+</div></blockquote>
+<p><strong>Qué mostrar:</strong> un ejemplo concreto de consulta y el reporte que debería salir.
+<strong>Qué evitar:</strong> empezar por la tecnología («usamos embeddings…»). Primero el problema.</p>
+</section>
+<section id="como-exponer-el-eda">
+<h2>28. Cómo exponer el EDA<a class="headerlink" href="#como-exponer-el-eda" title="Link to this heading">#</a></h2>
+<p><strong>Objetivo:</strong> mostrar que las decisiones de diseño salen de datos, no de intuición.</p>
+<p><strong>Estructura en tres golpes:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>La unidad correcta.</strong> «La plataforma cuenta dos veces cada página; depuramos eso y
+quedaron 9.051 consultas reales.» (Muestra rigor.)</p></li>
+<li><p><strong>La concentración.</strong> «Un reporte es casi la mitad de la demanda, cinco son el 86%, Gini de
+0,74. Por eso priorizamos esos cinco.» (Muestra criterio.)</p></li>
+<li><p><strong>El vacío.</strong> «Pero hay un dominio con 732.640 participaciones y cero consultas. No es que
+nadie lo quiera: es que no hay puerta.» (Es el giro de la historia.)</p></li>
+</ol>
+<p><strong>Frase puente a la propuesta:</strong></p>
+<blockquote>
+<div><p>«Las preguntas más valiosas se arman componiendo conceptos: disciplina, categoría, fase y
+región. Un buscador que solo compara palabras no puede componer. Por eso necesitamos una
+ontología.»</p>
+</div></blockquote>
+<p><strong>Visuales:</strong> ranking de demanda, curva de Lorenz, mapeo diferencial, diagrama de la Prueba
+Regional.
+<strong>Trampa a evitar:</strong> mostrar muchas gráficas del EDA. Tres bastan: concentración, Lorenz,
+Competencias.
+<strong>Pregunta que suele venir:</strong> «¿Por qué el cero no significa baja relevancia?» → «Porque no
+existe ningún reporte que exponga ese dominio; nadie puede pedirlo. Es cobertura, no demanda.»</p>
+</section>
+<section id="como-exponer-la-ontologia-y-el-corpus">
+<h2>29. Cómo exponer la ontología y el corpus<a class="headerlink" href="#como-exponer-la-ontologia-y-el-corpus" title="Link to this heading">#</a></h2>
+<p><strong>Mensaje:</strong> «No indexamos datos de personas; indexamos descripciones de reportes enriquecidas
+con lo que la ontología sabe de ellos.»</p>
+<p><strong>Pasos:</strong></p>
+<ol class="arabic simple">
+<li><p>Muestra el fragmento del mapa de entidades (Deportista → Grupo → Institución…).</p></li>
+<li><p>Muestra un reporte antes y después del enriquecimiento (descripción vs <code class="docutils literal notranslate"><span class="pre">texto_indexable</span></code>).</p></li>
+<li><p>Remata con privacidad: «El índice nunca ve un dato personal; la resolución de nombres vive
+aparte, con control de acceso.»</p></li>
+</ol>
+<p><strong>Qué evitar:</strong> recorrer las 13 clases y 20 relaciones. Muestra 5 o 6.</p>
+</section>
+<section id="como-exponer-la-propuesta-y-la-matematica">
+<h2>30. Cómo exponer la propuesta y la matemática<a class="headerlink" href="#como-exponer-la-propuesta-y-la-matematica" title="Link to this heading">#</a></h2>
+<p><strong>Regla:</strong> en la diapositiva principal <strong>no hay fórmulas</strong>, hay el diagrama de arquitectura.
+Las fórmulas van en backup o en una sola diapositiva con intuición al lado.</p>
+<p><strong>Orden de explicación:</strong></p>
+<ol class="arabic simple">
+<li><p>«Dos formas de buscar: por palabras (BM25) y por significado (embeddings).»</p></li>
+<li><p>«Cada una falla donde la otra acierta, así que las combinamos.»</p></li>
+<li><p>«Las combinamos por posiciones (RRF): no hay que entrenar nada ni calibrar escalas.»</p></li>
+<li><p>«Antes de indexar, le pegamos a cada reporte lo que la ontología sabe de él.»</p></li>
+<li><p>«Y probamos un empujón extra cuando la consulta menciona una entidad.»</p></li>
+</ol>
+<p><strong>Si piden la fórmula de RRF:</strong> escríbela y da el ejemplo numérico (posición 1 y 3 →
+1/61 + 1/63 ≈ 0,032). Enfatiza «solo posiciones, por eso no necesita entrenamiento».</p>
+<p><strong>Si piden Matryoshka:</strong> «El modelo guarda lo más importante en las primeras dimensiones, como
+muñecas rusas; puedo recortar el vector sin reentrenar.»</p>
+</section>
+<section id="como-exponer-las-metricas">
+<h2>31. Cómo exponer las métricas<a class="headerlink" href="#como-exponer-las-metricas" title="Link to this heading">#</a></h2>
+<p><strong>Objetivo:</strong> que el comité pueda leer tus números solo.</p>
+<p><strong>Guion para nDCG&#64;10:</strong></p>
+<blockquote>
+<div><p>«Nuestra métrica principal es nDCG&#64;10. Mide si el reporte correcto aparece en los diez
+primeros y qué tan arriba. Vale 1 si sale primero, 0,63 si sale segundo, 0,5 si sale
+tercero. Entonces, cuando digo 0,936, significa que el reporte correcto sale primero en casi
+todas las consultas.»</p>
+</div></blockquote>
+<p><strong>La diapositiva ideal:</strong> la tabla «posición del objetivo → nDCG → MRR» (§9.1). Es la que más
+ayuda a traducir.</p>
+<p><strong>Cómo presentar el resto en una línea cada una:</strong></p>
+<ul class="simple">
+<li><p>MRR&#64;10: «La posición del primer acierto; es el objetivo de negocio directo.»</p></li>
+<li><p>Recall&#64;100: «Si lo encontró aunque sea abajo. Con 17 documentos siempre da 1; por eso
+ampliamos a 833, donde sí discrimina.»</p></li>
+<li><p>P&#64;10: «Techo de 0,1 por diseño: hay un solo reporte correcto por consulta.»</p></li>
+<li><p>AP&#64;100: «Calidad del orden completo; se volverá útil con varios relevantes.»</p></li>
+</ul>
+<p><strong>Anticípate:</strong> «¿Por qué no accuracy?» → «Porque el problema no es acertar sí o no, sino
+ordenar: el usuario ve una lista.»</p>
+</section>
+<section id="como-exponer-los-benchmarks">
+<h2>32. Cómo exponer los benchmarks<a class="headerlink" href="#como-exponer-los-benchmarks" title="Link to this heading">#</a></h2>
+<p><strong>La idea que organiza todo:</strong> la escalera de ablación. Preséntala como un experimento
+controlado: «Encendemos un componente a la vez; así sabemos cuánto aporta cada uno.»</p>
+<p><strong>Secuencia narrativa (la historia de rigor creciente):</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Sintético (17 docs):</strong> «Primer resultado: híbrido + ontología gana, 0,936; en nombre
+propio, 0,976.»</p></li>
+<li><p><strong>Estratos:</strong> «La ventaja se concentra en nombre propio. Pero con 17 consultas los
+p-valores rondan 0,07.»</p></li>
+<li><p><strong>Validez externa:</strong> «¿Y con consultas reales? Construimos consultas desde el log real.»</p></li>
+<li><p><strong>Escala:</strong> «¿Y si el corpus crece? Materializamos Competencias: 833 documentos.»</p></li>
+<li><p><strong>Poder:</strong> «Subimos el n a 55 sin trampas estadísticas. P1 pasa a ser significativo.»</p></li>
+</ol>
+<p><strong>Cómo presentar cada tabla:</strong> nunca la leas completa. Señala <strong>una fila y una columna</strong>:
+«Miren esta celda: 0,976, híbrido + ontología en nombre propio. Es la cifra más alta de toda
+la tabla.»</p>
+<p><strong>Cómo presentar las gráficas de diagnóstico:</strong> una sola diapositiva con barras con IC y, si
+hay tiempo, el boxplot. Frase: «No solo promedia más alto; es más estable consulta a consulta.»</p>
+</section>
+<section id="como-exponer-el-realce">
+<h2>33. Cómo exponer el realce<a class="headerlink" href="#como-exponer-el-realce" title="Link to this heading">#</a></h2>
+<p><strong>Es tu mejor momento de honestidad científica; aprovéchalo.</strong></p>
+<p><strong>Guion:</strong></p>
+<blockquote>
+<div><p>«El realce debía ayudar en nombre propio, y en el primer experimento empeoró. En lugar de
+esconderlo, lo diagnosticamos: tratamos el detector como un clasificador. Acierta cuándo
+debe activarse el 94% de las veces, pero de cada ocho activaciones solo una cae sobre el
+reporte correcto: precisión de 0,13. Se enciende para siete documentos por consulta a la
+vez, así que no distingue. Probamos pesos más pequeños y dos variantes más estrictas; ninguna
+supera a no usarlo. Con consultas reales el resultado fue inestable. Por eso no va en la v1.»</p>
+</div></blockquote>
+<p><strong>Visual:</strong> barrido de λ (la línea que baja desde λ = 0) o la tabla TP/FP/FN.
+<strong>Mensaje de fondo:</strong> «Medimos antes de agregar complejidad.»</p>
+</section>
+<section id="como-exponer-la-estadistica-y-el-poder">
+<h2>34. Cómo exponer la estadística y el poder<a class="headerlink" href="#como-exponer-la-estadistica-y-el-poder" title="Link to this heading">#</a></h2>
+<p><strong>Objetivo:</strong> mostrar que sabes lo que significa un p-valor y que no inflaste la muestra.</p>
+<p><strong>Guion:</strong></p>
+<blockquote>
+<div><p>«Con 17 consultas en nombre propio, los efectos eran consistentes pero los p-valores
+quedaban en 0,07. La tentación era repetir consultas cambiando el nombre sintético, pero eso
+es pseudo-replicación: el sistema devuelve lo mismo y solo inflas el n. Lo que hicimos fue
+usar los 101 patrones reales distintos del log como unidad. Con n = 55, el híbrido frente a
+BM25 pasa a p = 0,011. Y también fuimos honestos: el aporte extra de la ontología sobre el
+híbrido, con consultas reales, no es significativo.»</p>
+</div></blockquote>
+<p><strong>Visual:</strong> tabla de p-valores antes/ahora (§19.3).
+<strong>Si preguntan por Wilcoxon:</strong> «Prueba pareada no paramétrica; comparo las dos configuraciones
+sobre la misma consulta y no asumo normalidad, porque nDCG se amontona cerca de 1.»
+<strong>Si preguntan por el tamaño del efecto:</strong> «Reportamos Cliff’s δ e intervalos por bootstrap
+junto al p-valor, para no depender solo de él.»</p>
+</section>
+<section id="como-exponer-la-eficiencia">
+<h2>35. Cómo exponer la eficiencia<a class="headerlink" href="#como-exponer-la-eficiencia" title="Link to this heading">#</a></h2>
+<p><strong>Guion:</strong></p>
+<blockquote>
+<div><p>«¿Cuánto cuesta? Con Matryoshka puedo recortar el vector de 1024 a 256 dimensiones: la
+calidad queda idéntica y el índice ocupa 75% menos. Y partir los reportes en fragmentos no
+ayuda, porque son cortos: el reporte completo es la mejor unidad.»</p>
+</div></blockquote>
+<p><strong>Visual:</strong> curva de retención vs dimensión.
+<strong>Dato de contexto:</strong> la latencia (~22 ms) la domina codificar la consulta, no buscar.</p>
+</section>
+<section id="como-exponer-competencias-y-las-escaleras-de-datos">
+<h2>36. Cómo exponer Competencias y las escaleras de datos<a class="headerlink" href="#como-exponer-competencias-y-las-escaleras-de-datos" title="Link to this heading">#</a></h2>
+<p><strong>Mensaje:</strong> «Competencias pasa de ser un hallazgo del EDA a un dominio que el buscador puede
+recuperar.»</p>
+<p><strong>Guion:</strong></p>
+<blockquote>
+<div><p>«Materializamos la Prueba Regional componiendo disciplina, categoría y región: 816
+documentos nuevos, sin un solo dato personal. Con 833 documentos pasa algo que con 17 era
+imposible de ver: el recuperador denso puro empieza a perder reportes del top-100, y el
+híbrido no. Y en Competencias, que es un dominio construido desde la ontología, la ontología
+es lo que más ayuda.»</p>
+</div></blockquote>
+<p><strong>Visual:</strong> Recall&#64;100 por configuración a 833 documentos.
+<strong>Cuida el alcance:</strong> «Esto es un experimento de escala; el despliegue de Competencias es la
+v2.»</p>
+</section>
+<section id="como-exponer-las-limitaciones">
+<h2>37. Cómo exponer las limitaciones<a class="headerlink" href="#como-exponer-las-limitaciones" title="Link to this heading">#</a></h2>
+<p><strong>Regla:</strong> 4 bullets, dichos con calma, seguidos de qué haría para resolver cada uno.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Limitación</p></th>
+<th class="head"><p>Cómo decirla</p></th>
+<th class="head"><p>Qué sigue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Juicios silver</p></td>
+<td><p>«Asumen que el reporte ejecutado era el que se quería.»</p></td>
+<td><p>Anotación gold de 50 consultas ya marcadas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Texto sintetizado</p></td>
+<td><p>«No hay caja de búsqueda; reconstruimos la consulta desde sus filtros.»</p></td>
+<td><p>Logs de la interfaz si se habilitan</p></td>
+</tr>
+<tr class="row-even"><td><p>Corpus pequeño</p></td>
+<td><p>«17 reportes; Competencias lo lleva a 833.»</p></td>
+<td><p>Corpus v2 de producción</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sin producción</p></td>
+<td><p>«No hay clics ni A/B.»</p></td>
+<td><p>Shadow test offline; A/B fuera de alcance</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="como-cerrar">
+<h2>38. Cómo cerrar<a class="headerlink" href="#como-cerrar" title="Link to this heading">#</a></h2>
+<p><strong>Tres frases:</strong></p>
+<ol class="arabic simple">
+<li><p>«La combinación de búsqueda léxica, semántica y ontología recupera el reporte correcto
+primero en casi todas las consultas, y es la única que no pierde cobertura a escala.»</p></li>
+<li><p>«La v1 queda así: híbrido con ontología, vector de 256 dimensiones, sin realce.»</p></li>
+<li><p>«La v2 abre Competencias, el dominio que hoy nadie puede consultar.»</p></li>
+</ol>
+<p><strong>Última diapositiva:</strong> la configuración recomendada y el camino a v2. Nada más.</p>
+</section>
+<section id="preguntas-probables-del-comite-con-respuesta">
+<h2>39. Preguntas probables del comité, con respuesta<a class="headerlink" href="#preguntas-probables-del-comite-con-respuesta" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>¿Por qué no entrenaron un modelo?</strong> Porque no hay anotación para hacerlo bien y porque
+la pregunta es de evaluación: qué combinación de modelos existentes funciona en este
+dominio. Un fine-tuning sin datos suficientes sobreajusta.</p></li>
+<li><p><strong>¿No es circular evaluar con consultas derivadas de los documentos?</strong> En la v1 sí hay ese
+sesgo y lo declaramos: por eso leemos el sintético en términos relativos. Luego construimos
+consultas desde el log real (silver) para romper esa circularidad.</p></li>
+<li><p><strong>¿Cómo construyeron consultas «reales» si no hay caja de búsqueda?</strong> Desde las firmas del
+SQL real: sabemos qué reporte se pidió y con qué filtros; sintetizamos el texto desde esos
+filtros. Es la aproximación más fiel disponible.</p></li>
+<li><p><strong>¿Por qué confiar en juicios silver?</strong> Porque son una señal de uso real: el usuario lanzó
+esa consulta y obtuvo ese reporte. Pero pueden no reflejar la intención; por eso marcamos 50
+para anotación gold.</p></li>
+<li><p><strong>¿Por qué el aporte de la ontología no es significativo en el conjunto ampliado?</strong> Sobre
+el híbrido, con consultas reales, el efecto marginal es pequeño (+0,022). La ontología sí
+ayuda de forma clara sobre el denso y en Competencias. Reportamos lo que salió.</p></li>
+<li><p><strong>¿Por qué el realce empeora?</strong> Su detector tiene precisión 0,126: se activa para 7,5
+reportes por consulta y no distingue el correcto.</p></li>
+<li><p><strong>¿Qué es la pseudo-replicación?</strong> Contar como observaciones independientes varias
+versiones casi idénticas de la misma. Infla el n y los p-valores salen engañosamente bajos.</p></li>
+<li><p><strong>¿Por qué Recall&#64;100 es 1,0?</strong> Porque con 17 documentos el top-100 los contiene a todos.
+Con 833 deja de serlo (denso puro 0,950).</p></li>
+<li><p><strong>¿Por qué jina-embeddings-v3?</strong> Multilingüe (español), abierto, 1024 dimensiones con
+Matryoshka nativo, lo que permite estudiar P6 sin reentrenar.</p></li>
+<li><p><strong>¿Por qué RRF y por qué k = 60?</strong> Porque combina por posiciones, sin entrenar ni calibrar;
+k = 60 es la constante estándar de la literatura y no la ajustamos a los datos.</p></li>
+<li><p><strong>¿Cómo garantizan privacidad?</strong> El índice solo tiene descripciones de reportes; la
+resolución de nombres vive aparte con control de acceso; las firmas del log traen nombres
+de columna, no valores; todo ejemplo público usa nombres sintéticos.</p></li>
+<li><p><strong>¿Qué pasa si el corpus crece a miles?</strong> Se migra la búsqueda exacta por coseno a un
+índice aproximado (HNSW) y la truncación a 256 dimensiones gana aún más valor en memoria.
+Nuestros resultados a 833 docs sugieren que el híbrido se vuelve más necesario.</p></li>
+<li><p><strong>¿Por qué no un re-ranker o un LLM?</strong> Porque primero había que establecer qué recupera
+bien la primera etapa. El re-ranking queda como peldaño futuro evaluado con el mismo
+protocolo.</p></li>
+<li><p><strong>¿Por qué Competencias está fuera de la v1 si es tan importante?</strong> Porque exige materializar
+una entidad nueva y la v1 prioriza el 86% de la demanda actual. Lo materializamos como
+experimento de escala y es la prioridad de la v2.</p></li>
+<li><p><strong>¿Cuál es el aporte original?</strong> La evaluación rigurosa de estas familias en un escenario
+que la literatura no cubre (español, dominio GovTech, entidades exactas, sin anotación),
+la materialización de la Prueba Regional y un marco de evaluación reproducible.</p></li>
+<li><p><strong>¿Por qué la mejor configuración cambia entre escenarios?</strong> Porque depende del tamaño del
+corpus: con 17 reportes la señal léxica aporta poco; con 833 se vuelve necesaria. Es un
+hallazgo, no una contradicción.</p></li>
+<li><p><strong>¿Por qué 256 dimensiones y no 128?</strong> 256 retiene el 100% de la calidad; 128 retiene el
+97%. Por 8 KiB extra en este corpus, no vale la pena perder calidad.</p></li>
+<li><p><strong>¿Qué harías distinto?</strong> Arrancaría antes la anotación gold y pediría logs de la interfaz
+de búsqueda para tener texto libre real.</p></li>
+<li><p><strong>¿Es generalizable a otras plataformas?</strong> El método sí (corpus de descripciones +
+ontología + escalera de ablación); los números son de este dominio.</p></li>
+<li><p><strong>¿Cuánto tarda una consulta?</strong> Unos 22 ms en la mediana, casi todo en codificar la
+consulta.</p></li>
+</ol>
+</section>
+<section id="guiones-hablados">
+<h2>40. Guiones hablados<a class="headerlink" href="#guiones-hablados" title="Link to this heading">#</a></h2>
+<p><strong>30 segundos (ascensor):</strong></p>
+<blockquote>
+<div><p>«Los usuarios de una plataforma deportiva del Estado no encuentran el reporte que necesitan
+porque buscan con otras palabras o por nombre propio. Construí y evalué un buscador que
+combina búsqueda por palabras, por significado y una ontología del dominio. Recupera el
+reporte correcto primero en casi todas las consultas, no pierde cobertura cuando el corpus
+crece, y con un vector cuatro veces más pequeño mantiene la misma calidad.»</p>
+</div></blockquote>
+<p><strong>2 minutos:</strong></p>
+<blockquote>
+<div><p>«El problema es de recuperación de información: los usuarios escriben con palabras
+distintas a las del sistema, o buscan por nombre propio, y además hay preguntas de negocio
+que no tienen reporte. Analicé 9.051 consultas reales: cinco reportes concentran el 86% de la
+demanda, y un dominio entero, Competencias, tiene cero consultas porque no existe la puerta.</p>
+<p>Propuse un recuperador híbrido: BM25 para lo exacto, embeddings para el significado, fusión
+por posiciones y una ontología que enriquece cada reporte. Lo evalué con una escalera de
+ablación que enciende un componente a la vez.</p>
+<p>Resultado: el híbrido con ontología llega a 0,936 de nDCG&#64;10 y 0,976 en consultas de nombre
+propio. El realce por entidad no ayudó: su detector tiene precisión de 0,13. Después subí el
+rigor: consultas construidas desde el log real, 55 consultas de nombre propio sin
+pseudo-replicación, y un corpus de 833 documentos con Competencias. Con eso la ventaja del
+híbrido sobre BM25 pasa a ser significativa, y a escala el denso puro pierde reportes
+mientras el híbrido no. Con 256 dimensiones la calidad no cambia y el índice baja 75%.</p>
+<p>La recomendación para la v1 es híbrido con ontología, 256 dimensiones, sin realce. La v2
+abre Competencias.»</p>
+</div></blockquote>
+</section>
+<section id="errores-a-evitar">
+<h2>41. Errores a evitar<a class="headerlink" href="#errores-a-evitar" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Leer las tablas completas en voz alta.</p></li>
+<li><p>Decir «accuracy» o «porcentaje de acierto» para nDCG.</p></li>
+<li><p>Presentar 0,936 como «precisión en producción».</p></li>
+<li><p>Esconder el realce o el resultado no significativo de la ontología sobre el híbrido.</p></li>
+<li><p>Decir que «Competencias no se usa» (lo correcto: no se <em>puede</em> consultar).</p></li>
+<li><p>Mostrar nombres reales en cualquier captura.</p></li>
+<li><p>Decir «entrenamos el modelo» (no se entrenó nada).</p></li>
+<li><p>Sobrecargar la diapositiva de propuesta con fórmulas.</p></li>
+<li><p>Afirmar que el realce «no sirve nunca» (lo correcto: inestable con este detector).</p></li>
+</ul>
+</section>
+<section id="checklist-del-dia">
+<h2>42. Checklist del día<a class="headerlink" href="#checklist-del-dia" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ ] Sé de memoria las cifras de la §43.</p></li>
+<li><p>[ ] Puedo explicar nDCG con la tabla de posiciones sin mirar.</p></li>
+<li><p>[ ] Puedo explicar RRF con el ejemplo 1/61 + 1/63.</p></li>
+<li><p>[ ] Puedo explicar pseudo-replicación en 20 segundos.</p></li>
+<li><p>[ ] Tengo backup con fórmulas, tabla por estrato, TP/FP/FN, chunking y lista de notebooks.</p></li>
+<li><p>[ ] Revisé que ninguna diapositiva muestre un nombre real.</p></li>
+<li><p>[ ] Ensayé los guiones de 30 s y 2 min.</p></li>
+<li><p>[ ] Cronometré la exposición completa (≤ 20 min).</p></li>
+<li><p>[ ] Tengo los notebooks abiertos por si piden ver código o una gráfica.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="parte-v-referencia-rapida">
+<h1>PARTE V — REFERENCIA RÁPIDA<a class="headerlink" href="#parte-v-referencia-rapida" title="Link to this heading">#</a></h1>
+<section id="cifras-que-hay-que-saber-de-memoria">
+<h2>43. Cifras que hay que saber de memoria<a class="headerlink" href="#cifras-que-hay-que-saber-de-memoria" title="Link to this heading">#</a></h2>
+<p><strong>Datos</strong></p>
+<ul class="simple">
+<li><p>9.051 consultas de datos reales · 6,5 semanas</p></li>
+<li><p>Promoción ≈ 47,5% · Top-5 = 86% · Gini = 0,74</p></li>
+<li><p>Competencias: 47.635 resultados · 732.640 participaciones · 0 consultas</p></li>
+<li><p>744 firmas · 694 patrones distintos · 101 con nombre propio</p></li>
+<li><p>Ontología: 13 clases · 20 relaciones</p></li>
+<li><p>Corpus v1: 17 reportes · Competencias: 816 Pruebas Regionales · Total: 833</p></li>
+</ul>
+<p><strong>Modelo y parámetros</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code> · 1024 dims · congelado</p></li>
+<li><p>BM25 k1 = 1,5 · b = 0,75 · RRF k = 60 · realce λ = 0,2</p></li>
+</ul>
+<p><strong>Resultados clave</strong></p>
+<ul class="simple">
+<li><p>Sintético: C4 = 0,936 global · 0,976 entidad exacta</p></li>
+<li><p>Realce: 0,936 → 0,911 · detector precisión 0,126 · recall 0,941 · 7,5 docs/consulta</p></li>
+<li><p>Matryoshka: 256 dims → retención 1,000 · −75% índice</p></li>
+<li><p>Chunking: nunca supera al documento completo</p></li>
+<li><p>833 docs: denso puro Recall&#64;100 = 0,950–0,958 · C4 = 0,948</p></li>
+<li><p>Poder: n entidad exacta 17 → 55 · C3 vs BM25 p = 0,068 → <strong>0,011</strong></p></li>
+<li><p>C4 vs C3 con consultas reales: Δ = +0,022, p = 0,65 (no significativo)</p></li>
+<li><p>Latencia p50 ≈ 22 ms</p></li>
+</ul>
+<p><strong>Recomendación v1:</strong> híbrido + ontología · 256 dims · sin realce · coseno exacto</p>
+</section>
+<section id="glosario">
+<h2>44. Glosario<a class="headerlink" href="#glosario" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Ablación:</strong> encender un componente a la vez para medir su aporte aislado.</p></li>
+<li><p><strong>AP / MAP:</strong> precisión promedio en las posiciones de los relevantes (y su media).</p></li>
+<li><p><strong>BM25:</strong> método léxico que puntúa por coincidencia de términos ponderada.</p></li>
+<li><p><strong>Bootstrap:</strong> remuestreo con reemplazo para estimar intervalos de confianza.</p></li>
+<li><p><strong>Cliff’s δ:</strong> tamaño del efecto no paramétrico entre −1 y 1.</p></li>
+<li><p><strong>Coseno:</strong> cercanía entre dos vectores normalizados.</p></li>
+<li><p><strong>Denso / embedding:</strong> vector numérico que representa el significado de un texto.</p></li>
+<li><p><strong>Estrato:</strong> tipo de consulta (entidad exacta, ambigua, documento largo, operacional, competencias).</p></li>
+<li><p><strong>Firma de consulta:</strong> estructura de un SQL real del log (reporte, tablas, filtros).</p></li>
+<li><p><strong>Gold / silver:</strong> juicios de expertos / juicios automáticos derivados del uso real.</p></li>
+<li><p><strong>HNSW:</strong> índice aproximado de vecinos cercanos para corpus grandes.</p></li>
+<li><p><strong>IR:</strong> recuperación de información.</p></li>
+<li><p><strong>Known-item:</strong> protocolo con un documento objetivo conocido por consulta.</p></li>
+<li><p><strong>Matryoshka (MRL):</strong> entrenamiento que permite truncar el vector sin reentrenar.</p></li>
+<li><p><strong>MRR:</strong> inverso de la posición del primer acierto, promediado.</p></li>
+<li><p><strong>nDCG:</strong> ganancia acumulada descontada por posición y normalizada.</p></li>
+<li><p><strong>Ontología:</strong> mapa formal de entidades, relaciones y sinónimos del dominio.</p></li>
+<li><p><strong>p-valor:</strong> probabilidad de ver esa diferencia si no hubiera diferencia real.</p></li>
+<li><p><strong>Poder estadístico:</strong> capacidad de detectar un efecto que existe.</p></li>
+<li><p><strong>Precision&#64;k / Recall&#64;k:</strong> fracción útil del top-k / fracción de relevantes en el top-k.</p></li>
+<li><p><strong>Prueba Regional:</strong> entidad compuesta disciplina × categoría × fase × región.</p></li>
+<li><p><strong>Pseudo-replicación:</strong> tratar como independientes observaciones casi idénticas.</p></li>
+<li><p><strong>Realce:</strong> empujón multiplicativo cuando consulta y documento comparten entidad.</p></li>
+<li><p><strong>RRF:</strong> fusión de rankings por posiciones.</p></li>
+<li><p><strong>Success&#64;k:</strong> fracción de consultas con el objetivo en el top-k.</p></li>
+<li><p><strong>Vacío de cobertura:</strong> dominio con datos pero sin reporte que lo exponga.</p></li>
+<li><p><strong>Wilcoxon pareado:</strong> prueba no paramétrica que compara dos sistemas consulta por consulta.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Guía de estudio y exposición — actualizada tras el notebook 07 y la integración de las
+visualizaciones de diagnóstico. Cifras reproducibles con <code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code>. Todos los
+nombres propios de los ejemplos son sintéticos.</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">04 · Resumen ejecutivo y roadmap hacia la v2</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Guía de Estudio y Exposición — Buscador Semántico GovTech</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indice">Índice</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-i-entender-el-proyecto">PARTE I — ENTENDER EL PROYECTO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-problema-en-una-pagina">1. El problema en una página</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-del-proyecto">2. Mapa del proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-base">3. Conceptos base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos-y-el-eda">4. Los datos y el EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-donde-salen-los-datos">4.1 De dónde salen los datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-1-la-demanda-esta-muy-concentrada">4.2 Hallazgo 1 — la demanda está muy concentrada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-2-preguntas-de-negocio-sin-fuente-dedicada">4.3 Hallazgo 2 — preguntas de negocio sin fuente dedicada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgo-3-competencias-gran-volumen-cero-demanda">4.4 Hallazgo 3 — Competencias: gran volumen, cero demanda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-prueba-regional-por-que-hace-falta-componer-conceptos">4.5 La Prueba Regional: por qué hace falta componer conceptos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-corpus-y-la-ontologia">5. El corpus y la ontología</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-indexamos-y-que-no">5.1 Qué indexamos (y qué no)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia">5.2 La ontología</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-primero">5.3 Privacidad primero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-de-la-version-1">5.4 Alcance de la Versión 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-arquitectura-del-sistema">6. La arquitectura del sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vista-general-fuera-de-linea-y-en-linea">6.1 Vista general (fuera de línea y en línea)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-pasa-con-una-consulta-paso-a-paso">6.2 Qué pasa con una consulta, paso a paso</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-matematica-con-intuicion">7. La matemática, con intuición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-escalera-de-ablacion">8. La escalera de ablación</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-ii-metricas-estadistica-y-protocolo">PARTE II — MÉTRICAS, ESTADÍSTICA Y PROTOCOLO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-metricas-una-por-una">9. Las métricas, una por una</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndcg-10-la-metrica-principal">9.1 nDCG@10 — la métrica principal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mrr-10-mean-reciprocal-rank">9.2 MRR@10 — Mean Reciprocal Rank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-100-cobertura">9.3 Recall@100 — cobertura</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-10-densidad-de-aciertos">9.4 Precision@10 — densidad de aciertos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ap-100-average-precision">9.5 AP@100 — Average Precision</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-k-cobertura-acumulada">9.6 Success@k — cobertura acumulada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">9.7 Resumen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-estadistica-que-usamos">10. La estadística que usamos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-valor-en-una-frase">10.1 p-valor, en una frase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-pareado">10.2 Wilcoxon pareado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-del-efecto-cliff-s">10.3 Tamaño del efecto: Cliff’s δ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-por-bootstrap">10.4 Intervalos por bootstrap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poder-estadistico-y-el-problema-del-n-pequeno">10.5 Poder estadístico y el problema del n pequeño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-replicacion-clave-para-defender-el-notebook-07">10.6 Pseudo-replicación (clave para defender el notebook 07)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-protocolo-de-evaluacion">11. El protocolo de evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hubo-entrenamiento-y-prueba">11.1 ¿Hubo entrenamiento y prueba?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-tipos-de-juicio">11.2 Los tres tipos de juicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estratos-de-consulta">11.3 Estratos de consulta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-iii-los-benchmarks-uno-por-uno">PARTE III — LOS BENCHMARKS, UNO POR UNO</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-de-notebooks">12. Mapa de notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-1-escalera-sobre-el-conjunto-sintetico">13. Benchmark 1 — Escalera sobre el conjunto sintético</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-2-estratos-y-significancia-notebook-01">14. Benchmark 2 — Estratos y significancia (notebook 01)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-3-diagnostico-del-realce-notebook-02">15. Benchmark 3 — Diagnóstico del realce (notebook 02)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-4-matryoshka-y-chunking-notebooks-03-y-benchmark-matryoshka-p6">16. Benchmark 4 — Matryoshka y chunking (notebooks 03 y Benchmark_Matryoshka_P6)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matryoshka-p6">16.1 Matryoshka (P6)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chunking-p4">16.2 Chunking (P4)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-5-validez-externa-escalera-1-notebook-05">17. Benchmark 5 — Validez externa, Escalera 1 (notebook 05)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-6-competencias-a-escala-escalera-2-notebook-06">18. Benchmark 6 — Competencias a escala, Escalera 2 (notebook 06)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-7-poder-estadistico-ampliado-notebook-07">19. Benchmark 7 — Poder estadístico ampliado (notebook 07)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-diagnostico">19.1 El diagnóstico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-diseno">19.2 El diseño</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escenario-a-17-reportes-129-consultas">19.3 Escenario A — 17 reportes, 129 consultas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escenario-b-833-documentos-161-consultas-incluye-32-de-competencias">19.4 Escenario B — 833 documentos, 161 consultas (incluye 32 de competencias)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-leer-cada-visualizacion-de-diagnostico">20. Cómo leer cada visualización de diagnóstico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-maestra-y-evolucion-de-la-evidencia">21. Tabla maestra y evolución de la evidencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-seis-preguntas-respondidas">22. Las seis preguntas, respondidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion-recomendada">23. Configuración recomendada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones">24. Limitaciones</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-iv-como-exponer">PARTE IV — CÓMO EXPONER</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principios-de-la-exposicion">25. Principios de la exposición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-sugerida-y-tiempos-20-minutos">26. Estructura sugerida y tiempos (≈ 20 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-problema">27. Cómo exponer el problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-eda">28. Cómo exponer el EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-ontologia-y-el-corpus">29. Cómo exponer la ontología y el corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-propuesta-y-la-matematica">30. Cómo exponer la propuesta y la matemática</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-las-metricas">31. Cómo exponer las métricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-los-benchmarks">32. Cómo exponer los benchmarks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-el-realce">33. Cómo exponer el realce</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-estadistica-y-el-poder">34. Cómo exponer la estadística y el poder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-la-eficiencia">35. Cómo exponer la eficiencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-competencias-y-las-escaleras-de-datos">36. Cómo exponer Competencias y las escaleras de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-exponer-las-limitaciones">37. Cómo exponer las limitaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-cerrar">38. Cómo cerrar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-probables-del-comite-con-respuesta">39. Preguntas probables del comité, con respuesta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#guiones-hablados">40. Guiones hablados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-a-evitar">41. Errores a evitar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checklist-del-dia">42. Checklist del día</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parte-v-referencia-rapida">PARTE V — REFERENCIA RÁPIDA</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cifras-que-hay-que-saber-de-memoria">43. Cifras que hay que saber de memoria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glosario">44. Glosario</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
