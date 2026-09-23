@@ -1,0 +1,23 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Contexto y datos
+    chapters:
+      - file: notebooks/EDA_SUID
+      - file: notebooks/Exploracion_Ontologia_Metadatos_SUID
+  - caption: Benchmarks de la escalera de ablación
+    chapters:
+      - file: notebooks/Benchmark_Escalera_Ablacion
+      - file: notebooks/01_Analisis_por_Estratos_y_Estadistica
+      - file: notebooks/02_Diagnostico_Realce_Entidad
+      - file: notebooks/03_Matryoshka_y_Chunking_P4_P6
+      - file: notebooks/Benchmark_Matryoshka_P6
+  - caption: Validez externa y escala
+    chapters:
+      - file: notebooks/05_Evaluacion_Validez_Externa
+      - file: notebooks/06_Expansion_Corpus_Competencias
+      - file: notebooks/07_Poder_Estadistico_Eval_Ampliado
+  - caption: Síntesis
+    chapters:
+      - file: notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2
+      - file: guia_estudio
