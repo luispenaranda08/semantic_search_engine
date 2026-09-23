@@ -1,7 +1,7 @@
 # Buscador Semántico GovTech
 
 Proyecto de grado · Pregrado en Ciencia de Datos · Universidad del Norte
-**Autor:** Luis David Peñaranda · **Asesor:** Carlos de Oro
+**Autor:** Luis David Peñaranda · **Asesor:** [Carlos de Oro Aguado](https://www.linkedin.com/in/cdeoroaguado/)
 
 📖 **Libro publicado:** https://luispenaranda08.github.io/semantic_search_engine/
 

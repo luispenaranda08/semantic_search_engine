@@ -1,6 +1,6 @@
 # Buscador Semántico GovTech
 
-**Autor:** Luis David Peñaranda · **Asesor:** Carlos de Oro
+**Autor:** Luis David Peñaranda · **Asesor:** [Carlos de Oro Aguado](https://www.linkedin.com/in/cdeoroaguado/)
 
 **Pregrado en Ciencia de Datos · Universidad del Norte**
 
