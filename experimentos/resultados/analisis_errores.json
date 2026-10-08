@@ -1,0 +1,2588 @@
+{
+  "sintetico": {
+    "n": 40,
+    "acc1": {
+      "BM25": 0.65,
+      "C1": 0.725,
+      "C2": 0.825,
+      "C3": 0.75,
+      "C4": 0.875
+    },
+    "por_reporte_acc1": {
+      "BM25": {
+        "individual_deportistas": [
+          1,
+          1
+        ],
+        "grupos": [
+          2,
+          3
+        ],
+        "personal_apoyo": [
+          2,
+          3
+        ],
+        "documentacion_deportistas": [
+          2,
+          4
+        ],
+        "participacion": [
+          1,
+          3
+        ],
+        "sobre_resumen_del_tablero_co": [
+          2,
+          2
+        ],
+        "promocion_deportistas": [
+          5,
+          13
+        ],
+        "instituciones": [
+          4,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          2
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          1
+        ],
+        "delegaciones_participacion": [
+          1,
+          1
+        ]
+      },
+      "C1": {
+        "individual_deportistas": [
+          1,
+          1
+        ],
+        "grupos": [
+          2,
+          3
+        ],
+        "personal_apoyo": [
+          2,
+          3
+        ],
+        "documentacion_deportistas": [
+          3,
+          4
+        ],
+        "participacion": [
+          1,
+          3
+        ],
+        "sobre_resumen_del_tablero_co": [
+          2,
+          2
+        ],
+        "promocion_deportistas": [
+          7,
+          13
+        ],
+        "instituciones": [
+          4,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          2
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          1
+        ],
+        "delegaciones_participacion": [
+          1,
+          1
+        ]
+      },
+      "C2": {
+        "individual_deportistas": [
+          1,
+          1
+        ],
+        "grupos": [
+          2,
+          3
+        ],
+        "personal_apoyo": [
+          3,
+          3
+        ],
+        "documentacion_deportistas": [
+          3,
+          4
+        ],
+        "participacion": [
+          1,
+          3
+        ],
+        "sobre_resumen_del_tablero_co": [
+          2,
+          2
+        ],
+        "promocion_deportistas": [
+          10,
+          13
+        ],
+        "instituciones": [
+          4,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          2
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          1
+        ],
+        "delegaciones_participacion": [
+          1,
+          1
+        ]
+      },
+      "C3": {
+        "individual_deportistas": [
+          1,
+          1
+        ],
+        "grupos": [
+          2,
+          3
+        ],
+        "personal_apoyo": [
+          2,
+          3
+        ],
+        "documentacion_deportistas": [
+          2,
+          4
+        ],
+        "participacion": [
+          1,
+          3
+        ],
+        "sobre_resumen_del_tablero_co": [
+          2,
+          2
+        ],
+        "promocion_deportistas": [
+          9,
+          13
+        ],
+        "instituciones": [
+          4,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          2
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          1
+        ],
+        "delegaciones_participacion": [
+          1,
+          1
+        ]
+      },
+      "C4": {
+        "individual_deportistas": [
+          1,
+          1
+        ],
+        "grupos": [
+          3,
+          3
+        ],
+        "personal_apoyo": [
+          3,
+          3
+        ],
+        "documentacion_deportistas": [
+          3,
+          4
+        ],
+        "participacion": [
+          1,
+          3
+        ],
+        "sobre_resumen_del_tablero_co": [
+          2,
+          2
+        ],
+        "promocion_deportistas": [
+          11,
+          13
+        ],
+        "instituciones": [
+          4,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          2
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          1
+        ],
+        "delegaciones_participacion": [
+          1,
+          1
+        ]
+      }
+    },
+    "confusiones": {
+      "BM25": [
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 4
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        }
+      ],
+      "C1": [
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 4
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "progreso_y_cumplimiento_meta",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 1
+        },
+        {
+          "objetivo": "personal_apoyo",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "delegaciones_participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "delegaciones_participacion",
+          "veces": 1
+        }
+      ],
+      "C2": [
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "progreso_y_cumplimiento_meta",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "delegaciones_participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "promocion_deportistas",
+          "veces": 1
+        }
+      ],
+      "C3": [
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "progreso_y_cumplimiento_meta",
+          "veces": 1
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "delegaciones_participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        }
+      ],
+      "C4": [
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 1
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "promocion_deportistas",
+          "veces": 1
+        }
+      ]
+    },
+    "fallos": [
+      {
+        "id": "q002",
+        "texto": "en qué fase va el deportista Andrés Torres",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "q004",
+        "texto": "en qué fase va el deportista María Restrepo",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "progreso_y_cumplimiento_meta",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "q015",
+        "texto": "intención de participación de María Restrepo",
+        "objetivo": "participacion",
+        "C2_top1": "cambios_en_la_intencion_part",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "cambios_en_la_intencion_part",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "q027",
+        "texto": "etapas",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "sobre_pruebas_caidas_todas_l",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "q033",
+        "texto": "cómo saber qué grupos o delegaciones tiene registrada cada institución y su personal de apoyo",
+        "objetivo": "grupos",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "q034",
+        "texto": "resumen de cuántos deportistas han sido promovidos, rechazados o siguen pendientes en el evento",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "promocion_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "q036",
+        "texto": "quiénes manifestaron intención de participar y cómo se distribuyen por delegación",
+        "objetivo": "participacion",
+        "C2_top1": "delegaciones_participacion",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "cambios_en_la_intencion_part",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "q040",
+        "texto": "estado de la documentación y los soportes cargados por cada deportista para habilitar su promoción",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "promocion_deportistas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 2
+      }
+    ]
+  },
+  "ampliado": {
+    "n": 127,
+    "acc1": {
+      "BM25": 0.7480314960629921,
+      "C1": 0.8818897637795275,
+      "C2": 0.8661417322834646,
+      "C3": 0.8740157480314961,
+      "C4": 0.9212598425196851
+    },
+    "por_reporte_acc1": {
+      "BM25": {
+        "individual_deportistas": [
+          25,
+          30
+        ],
+        "grupos": [
+          10,
+          12
+        ],
+        "personal_apoyo": [
+          12,
+          12
+        ],
+        "documentacion_deportistas": [
+          14,
+          24
+        ],
+        "participacion": [
+          3,
+          9
+        ],
+        "sobre_resumen_del_tablero_co": [
+          6,
+          6
+        ],
+        "promocion_deportistas": [
+          9,
+          13
+        ],
+        "instituciones": [
+          2,
+          3
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          3
+        ],
+        "sobre_metricas_por_federacio": [
+          2,
+          2
+        ],
+        "sobre_pruebas_caidas_todas_l": [
+          0,
+          3
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          3
+        ],
+        "delegaciones_participacion": [
+          3,
+          3
+        ],
+        "sobre_pruebas_caidas": [
+          0,
+          1
+        ]
+      },
+      "C1": {
+        "individual_deportistas": [
+          27,
+          30
+        ],
+        "grupos": [
+          11,
+          12
+        ],
+        "personal_apoyo": [
+          11,
+          12
+        ],
+        "documentacion_deportistas": [
+          20,
+          24
+        ],
+        "participacion": [
+          8,
+          9
+        ],
+        "sobre_resumen_del_tablero_co": [
+          6,
+          6
+        ],
+        "promocion_deportistas": [
+          10,
+          13
+        ],
+        "instituciones": [
+          3,
+          3
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          3
+        ],
+        "sobre_metricas_por_federacio": [
+          2,
+          2
+        ],
+        "sobre_pruebas_caidas_todas_l": [
+          1,
+          3
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          3
+        ],
+        "delegaciones_participacion": [
+          3,
+          3
+        ],
+        "sobre_pruebas_caidas": [
+          1,
+          1
+        ]
+      },
+      "C2": {
+        "individual_deportistas": [
+          24,
+          30
+        ],
+        "grupos": [
+          11,
+          12
+        ],
+        "personal_apoyo": [
+          12,
+          12
+        ],
+        "documentacion_deportistas": [
+          20,
+          24
+        ],
+        "participacion": [
+          8,
+          9
+        ],
+        "sobre_resumen_del_tablero_co": [
+          6,
+          6
+        ],
+        "promocion_deportistas": [
+          10,
+          13
+        ],
+        "instituciones": [
+          3,
+          3
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          3
+        ],
+        "sobre_metricas_por_federacio": [
+          2,
+          2
+        ],
+        "sobre_pruebas_caidas_todas_l": [
+          1,
+          3
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          3
+        ],
+        "delegaciones_participacion": [
+          3,
+          3
+        ],
+        "sobre_pruebas_caidas": [
+          1,
+          1
+        ]
+      },
+      "C3": {
+        "individual_deportistas": [
+          28,
+          30
+        ],
+        "grupos": [
+          10,
+          12
+        ],
+        "personal_apoyo": [
+          12,
+          12
+        ],
+        "documentacion_deportistas": [
+          18,
+          24
+        ],
+        "participacion": [
+          8,
+          9
+        ],
+        "sobre_resumen_del_tablero_co": [
+          6,
+          6
+        ],
+        "promocion_deportistas": [
+          11,
+          13
+        ],
+        "instituciones": [
+          3,
+          3
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          3
+        ],
+        "sobre_metricas_por_federacio": [
+          2,
+          2
+        ],
+        "sobre_pruebas_caidas_todas_l": [
+          0,
+          3
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          3
+        ],
+        "delegaciones_participacion": [
+          3,
+          3
+        ],
+        "sobre_pruebas_caidas": [
+          1,
+          1
+        ]
+      },
+      "C4": {
+        "individual_deportistas": [
+          27,
+          30
+        ],
+        "grupos": [
+          11,
+          12
+        ],
+        "personal_apoyo": [
+          12,
+          12
+        ],
+        "documentacion_deportistas": [
+          24,
+          24
+        ],
+        "participacion": [
+          9,
+          9
+        ],
+        "sobre_resumen_del_tablero_co": [
+          6,
+          6
+        ],
+        "promocion_deportistas": [
+          11,
+          13
+        ],
+        "instituciones": [
+          2,
+          3
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          3
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          3
+        ],
+        "sobre_metricas_por_federacio": [
+          2,
+          2
+        ],
+        "sobre_pruebas_caidas_todas_l": [
+          0,
+          3
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          3
+        ],
+        "delegaciones_participacion": [
+          3,
+          3
+        ],
+        "sobre_pruebas_caidas": [
+          1,
+          1
+        ]
+      }
+    },
+    "confusiones": {
+      "BM25": [
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 7
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "individual_deportistas",
+          "veces": 5
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "instituciones",
+          "veces": 4
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "sobre_pruebas_caidas_todas_l",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "instituciones",
+          "veces": 2
+        }
+      ],
+      "C1": [
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_pruebas_caidas_todas_l",
+          "devuelto": "sobre_pruebas_caidas",
+          "veces": 2
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "sobre_resumen_pruebas_caidas",
+          "veces": 1
+        }
+      ],
+      "C2": [
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 2
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_pruebas_caidas_todas_l",
+          "devuelto": "sobre_pruebas_caidas",
+          "veces": 2
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 1
+        }
+      ],
+      "C3": [
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 3
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "sobre_pruebas_caidas_todas_l",
+          "devuelto": "sobre_pruebas_caidas",
+          "veces": 3
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "sobre_resumen_pruebas_caidas",
+          "veces": 1
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 1
+        }
+      ],
+      "C4": [
+        {
+          "objetivo": "sobre_pruebas_caidas_todas_l",
+          "devuelto": "sobre_pruebas_caidas",
+          "veces": 3
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "promocion_deportistas",
+          "veces": 2
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_resumen_pruebas_caidas",
+          "veces": 1
+        },
+        {
+          "objetivo": "instituciones",
+          "devuelto": "grupos",
+          "veces": 1
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_resumen_del_tablero_co",
+          "veces": 1
+        }
+      ]
+    },
+    "fallos": [
+      {
+        "id": "r005",
+        "texto": "grupo del deportista Camilo Duarte por categoría, por etapa, por disciplina",
+        "objetivo": "grupos",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "r008",
+        "texto": "intención de participación de Andrés Torres por categoría, por etapa, de un evento",
+        "objetivo": "participacion",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r009",
+        "texto": "reporte individual del deportista María Restrepo por categoría, por etapa, de un evento",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "sobre_resumen_pruebas_caidas",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r011",
+        "texto": "documentación del deportista Valentina Ríos por categoría, por etapa, por fecha",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r016",
+        "texto": "reporte individual del deportista Andrés Torres por categoría, por etapa, por fecha",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "r018",
+        "texto": "reporte individual del deportista Julián Gómez por categoría, por etapa, por fecha",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "documentacion_deportistas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "r023",
+        "texto": "documentación del deportista Andrés Torres por categoría, por etapa, por fecha",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r026",
+        "texto": "reporte individual del deportista Camilo Duarte por disciplina",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "documentacion_deportistas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r030",
+        "texto": "reporte individual del deportista María Restrepo por grupo, de refuerzo",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "personal_apoyo",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r042",
+        "texto": "documentación de deportistas de la institución Liga Atlántico por categoría, por etapa, por fecha",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r045",
+        "texto": "documentación del deportista Laura Ospina por categoría, por etapa, por fecha",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "r064",
+        "texto": "reporte del sistema",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_resumen_pruebas_caidas",
+        "C2_rango_objetivo": 16,
+        "C4_top1": "sobre_resumen_pruebas_caidas",
+        "C4_rango_objetivo": 17
+      },
+      {
+        "id": "r073",
+        "texto": "pruebas de caídas",
+        "objetivo": "sobre_pruebas_caidas_todas_l",
+        "C2_top1": "sobre_pruebas_caidas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "sobre_pruebas_caidas",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "r077",
+        "texto": "instituciones de un evento",
+        "objetivo": "instituciones",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 4
+      },
+      {
+        "id": "r104",
+        "texto": "pruebas de caídas por categoría",
+        "objetivo": "sobre_pruebas_caidas_todas_l",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "sobre_pruebas_caidas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "r108",
+        "texto": "pruebas de caídas por categoría, por disciplina",
+        "objetivo": "sobre_pruebas_caidas_todas_l",
+        "C2_top1": "sobre_pruebas_caidas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "sobre_pruebas_caidas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "r113",
+        "texto": "reporte del sistema por estado",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 14,
+        "C4_top1": "sobre_resumen_del_tablero_co",
+        "C4_rango_objetivo": 5
+      },
+      {
+        "id": "r116",
+        "texto": "reporte",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "sobre_resumen_pruebas_caidas",
+        "C2_rango_objetivo": 11,
+        "C4_top1": "sobre_pruebas_caidas",
+        "C4_rango_objetivo": 4
+      },
+      {
+        "id": "r121",
+        "texto": "fases",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 5,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      }
+    ]
+  },
+  "dificil": {
+    "n": 52,
+    "acc1": {
+      "BM25": 0.1346153846153846,
+      "C1": 0.40384615384615385,
+      "C2": 0.6538461538461539,
+      "C3": 0.4423076923076923,
+      "C4": 0.6153846153846154
+    },
+    "por_reporte_acc1": {
+      "BM25": {
+        "individual_deportistas": [
+          1,
+          4
+        ],
+        "grupos": [
+          0,
+          4
+        ],
+        "personal_apoyo": [
+          0,
+          4
+        ],
+        "documentacion_deportistas": [
+          0,
+          4
+        ],
+        "participacion": [
+          0,
+          4
+        ],
+        "sobre_resumen_del_tablero_co": [
+          0,
+          4
+        ],
+        "promocion_deportistas": [
+          0,
+          4
+        ],
+        "instituciones": [
+          0,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          1,
+          4
+        ],
+        "sobre_distribucion_usuarios": [
+          0,
+          4
+        ],
+        "sobre_metricas_por_federacio": [
+          3,
+          4
+        ],
+        "cambios_en_la_intencion_part": [
+          1,
+          4
+        ],
+        "delegaciones_participacion": [
+          1,
+          4
+        ]
+      },
+      "C1": {
+        "individual_deportistas": [
+          2,
+          4
+        ],
+        "grupos": [
+          1,
+          4
+        ],
+        "personal_apoyo": [
+          1,
+          4
+        ],
+        "documentacion_deportistas": [
+          2,
+          4
+        ],
+        "participacion": [
+          0,
+          4
+        ],
+        "sobre_resumen_del_tablero_co": [
+          0,
+          4
+        ],
+        "promocion_deportistas": [
+          2,
+          4
+        ],
+        "instituciones": [
+          3,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          4
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          4
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          4
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          4
+        ],
+        "delegaciones_participacion": [
+          1,
+          4
+        ]
+      },
+      "C2": {
+        "individual_deportistas": [
+          4,
+          4
+        ],
+        "grupos": [
+          2,
+          4
+        ],
+        "personal_apoyo": [
+          4,
+          4
+        ],
+        "documentacion_deportistas": [
+          4,
+          4
+        ],
+        "participacion": [
+          2,
+          4
+        ],
+        "sobre_resumen_del_tablero_co": [
+          1,
+          4
+        ],
+        "promocion_deportistas": [
+          2,
+          4
+        ],
+        "instituciones": [
+          3,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          4,
+          4
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          4
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          4
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          4
+        ],
+        "delegaciones_participacion": [
+          1,
+          4
+        ]
+      },
+      "C3": {
+        "individual_deportistas": [
+          1,
+          4
+        ],
+        "grupos": [
+          1,
+          4
+        ],
+        "personal_apoyo": [
+          1,
+          4
+        ],
+        "documentacion_deportistas": [
+          2,
+          4
+        ],
+        "participacion": [
+          0,
+          4
+        ],
+        "sobre_resumen_del_tablero_co": [
+          0,
+          4
+        ],
+        "promocion_deportistas": [
+          2,
+          4
+        ],
+        "instituciones": [
+          3,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          4
+        ],
+        "sobre_distribucion_usuarios": [
+          3,
+          4
+        ],
+        "sobre_metricas_por_federacio": [
+          3,
+          4
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          4
+        ],
+        "delegaciones_participacion": [
+          1,
+          4
+        ]
+      },
+      "C4": {
+        "individual_deportistas": [
+          2,
+          4
+        ],
+        "grupos": [
+          3,
+          4
+        ],
+        "personal_apoyo": [
+          4,
+          4
+        ],
+        "documentacion_deportistas": [
+          3,
+          4
+        ],
+        "participacion": [
+          3,
+          4
+        ],
+        "sobre_resumen_del_tablero_co": [
+          3,
+          4
+        ],
+        "promocion_deportistas": [
+          2,
+          4
+        ],
+        "instituciones": [
+          2,
+          4
+        ],
+        "progreso_y_cumplimiento_meta": [
+          3,
+          4
+        ],
+        "sobre_distribucion_usuarios": [
+          2,
+          4
+        ],
+        "sobre_metricas_por_federacio": [
+          1,
+          4
+        ],
+        "cambios_en_la_intencion_part": [
+          3,
+          4
+        ],
+        "delegaciones_participacion": [
+          1,
+          4
+        ]
+      }
+    },
+    "confusiones": {
+      "BM25": [
+        {
+          "objetivo": "personal_apoyo",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "progreso_y_cumplimiento_meta",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "cambios_en_la_intencion_part",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 2
+        }
+      ],
+      "C1": [
+        {
+          "objetivo": "sobre_metricas_por_federacio",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "delegaciones_participacion",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "delegaciones_participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "participacion",
+          "veces": 1
+        }
+      ],
+      "C2": [
+        {
+          "objetivo": "sobre_metricas_por_federacio",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_resumen_del_tablero_co",
+          "devuelto": "progreso_y_cumplimiento_meta",
+          "veces": 2
+        },
+        {
+          "objetivo": "delegaciones_participacion",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_resumen_del_tablero_co",
+          "devuelto": "sobre_resumen_pruebas_caidas",
+          "veces": 1
+        }
+      ],
+      "C3": [
+        {
+          "objetivo": "grupos",
+          "devuelto": "delegaciones_participacion",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_resumen_del_tablero_co",
+          "devuelto": "promocion_deportistas",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "sobre_distribucion_usuarios",
+          "veces": 1
+        }
+      ],
+      "C4": [
+        {
+          "objetivo": "sobre_metricas_por_federacio",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "delegaciones_participacion",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "sobre_distribucion_usuarios",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "personal_apoyo",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 1
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "participacion",
+          "veces": 1
+        }
+      ]
+    },
+    "fallos": [
+      {
+        "id": "d003",
+        "texto": "relación completa de inscritos con sus datos básicos",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "sobre_distribucion_usuarios",
+        "C4_rango_objetivo": 8
+      },
+      {
+        "id": "d004",
+        "texto": "ficha con la información de cada muchacho que juega",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "personal_apoyo",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d005",
+        "texto": "equipos de cada colegio por deporte",
+        "objetivo": "grupos",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "d007",
+        "texto": "cómo están conformados los conjuntos que representan a cada centro educativo",
+        "objetivo": "grupos",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d015",
+        "texto": "papeles que faltan por subir de cada participante",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "documentacion_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "d017",
+        "texto": "inscripción de la institución en la competencia",
+        "objetivo": "participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "d020",
+        "texto": "colegios que ya confirmaron que van a competir",
+        "objetivo": "participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "d021",
+        "texto": "estado global de la competencia por zona",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "progreso_y_cumplimiento_meta",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "sobre_resumen_del_tablero_co",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "d022",
+        "texto": "panorama de cómo va todo",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "sobre_resumen_pruebas_caidas",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "sobre_pruebas_caidas_todas_l",
+        "C4_rango_objetivo": 7
+      },
+      {
+        "id": "d024",
+        "texto": "indicadores generales del torneo por región",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "progreso_y_cumplimiento_meta",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "sobre_resumen_del_tablero_co",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "d026",
+        "texto": "clasificación a la siguiente fase de un jugador",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "promocion_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d027",
+        "texto": "quién pasó a la etapa que sigue",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "sobre_pruebas_caidas_todas_l",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "d028",
+        "texto": "avance de los muchachos hacia la final",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "grupos",
+        "C2_rango_objetivo": 5,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "d031",
+        "texto": "directorio de planteles participantes",
+        "objetivo": "instituciones",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 10
+      },
+      {
+        "id": "d032",
+        "texto": "dónde queda cada centro y a qué ciudad pertenece",
+        "objetivo": "instituciones",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d036",
+        "texto": "avance frente a lo propuesto territorio por territorio",
+        "objetivo": "progreso_y_cumplimiento_meta",
+        "C2_top1": "progreso_y_cumplimiento_meta",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d038",
+        "texto": "reparto de cuentas por tipo de perfil",
+        "objetivo": "sobre_distribucion_usuarios",
+        "C2_top1": "sobre_distribucion_usuarios",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "sobre_resumen_del_tablero_co",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "d039",
+        "texto": "cuántos entrenadores, deportistas y administradores hay en la plataforma",
+        "objetivo": "sobre_distribucion_usuarios",
+        "C2_top1": "personal_apoyo",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "personal_apoyo",
+        "C4_rango_objetivo": 7
+      },
+      {
+        "id": "d041",
+        "texto": "desempeño por organización nacional de cada disciplina",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 9
+      },
+      {
+        "id": "d043",
+        "texto": "comparación entre ligas y organismos rectores del deporte",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 6
+      },
+      {
+        "id": "d044",
+        "texto": "balance de cada ente que dirige un deporte",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 4
+      },
+      {
+        "id": "d046",
+        "texto": "arrepentimientos de colegios que antes iban a competir",
+        "objetivo": "cambios_en_la_intencion_part",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 6
+      },
+      {
+        "id": "d049",
+        "texto": "comitivas que viajarán por institución",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 8
+      },
+      {
+        "id": "d051",
+        "texto": "conjunto de personas que representa a una escuela en el evento",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "grupos",
+        "C2_rango_objetivo": 5,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 8
+      },
+      {
+        "id": "d052",
+        "texto": "grupos oficiales enviados por cada entidad",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "grupos",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 7
+      }
+    ]
+  },
+  "dificil_b": {
+    "n": 78,
+    "acc1": {
+      "BM25": 0.3717948717948718,
+      "C1": 0.5769230769230769,
+      "C2": 0.6410256410256411,
+      "C3": 0.6153846153846154,
+      "C4": 0.6410256410256411
+    },
+    "por_reporte_acc1": {
+      "BM25": {
+        "individual_deportistas": [
+          4,
+          6
+        ],
+        "grupos": [
+          0,
+          6
+        ],
+        "personal_apoyo": [
+          2,
+          6
+        ],
+        "documentacion_deportistas": [
+          1,
+          6
+        ],
+        "participacion": [
+          2,
+          6
+        ],
+        "sobre_resumen_del_tablero_co": [
+          1,
+          6
+        ],
+        "promocion_deportistas": [
+          1,
+          6
+        ],
+        "instituciones": [
+          0,
+          6
+        ],
+        "progreso_y_cumplimiento_meta": [
+          4,
+          6
+        ],
+        "sobre_distribucion_usuarios": [
+          4,
+          6
+        ],
+        "sobre_metricas_por_federacio": [
+          6,
+          6
+        ],
+        "cambios_en_la_intencion_part": [
+          2,
+          6
+        ],
+        "delegaciones_participacion": [
+          2,
+          6
+        ]
+      },
+      "C1": {
+        "individual_deportistas": [
+          4,
+          6
+        ],
+        "grupos": [
+          3,
+          6
+        ],
+        "personal_apoyo": [
+          3,
+          6
+        ],
+        "documentacion_deportistas": [
+          3,
+          6
+        ],
+        "participacion": [
+          1,
+          6
+        ],
+        "sobre_resumen_del_tablero_co": [
+          3,
+          6
+        ],
+        "promocion_deportistas": [
+          1,
+          6
+        ],
+        "instituciones": [
+          4,
+          6
+        ],
+        "progreso_y_cumplimiento_meta": [
+          6,
+          6
+        ],
+        "sobre_distribucion_usuarios": [
+          4,
+          6
+        ],
+        "sobre_metricas_por_federacio": [
+          3,
+          6
+        ],
+        "cambios_en_la_intencion_part": [
+          6,
+          6
+        ],
+        "delegaciones_participacion": [
+          4,
+          6
+        ]
+      },
+      "C2": {
+        "individual_deportistas": [
+          3,
+          6
+        ],
+        "grupos": [
+          3,
+          6
+        ],
+        "personal_apoyo": [
+          5,
+          6
+        ],
+        "documentacion_deportistas": [
+          3,
+          6
+        ],
+        "participacion": [
+          2,
+          6
+        ],
+        "sobre_resumen_del_tablero_co": [
+          3,
+          6
+        ],
+        "promocion_deportistas": [
+          3,
+          6
+        ],
+        "instituciones": [
+          5,
+          6
+        ],
+        "progreso_y_cumplimiento_meta": [
+          6,
+          6
+        ],
+        "sobre_distribucion_usuarios": [
+          4,
+          6
+        ],
+        "sobre_metricas_por_federacio": [
+          3,
+          6
+        ],
+        "cambios_en_la_intencion_part": [
+          6,
+          6
+        ],
+        "delegaciones_participacion": [
+          4,
+          6
+        ]
+      },
+      "C3": {
+        "individual_deportistas": [
+          4,
+          6
+        ],
+        "grupos": [
+          3,
+          6
+        ],
+        "personal_apoyo": [
+          3,
+          6
+        ],
+        "documentacion_deportistas": [
+          3,
+          6
+        ],
+        "participacion": [
+          2,
+          6
+        ],
+        "sobre_resumen_del_tablero_co": [
+          1,
+          6
+        ],
+        "promocion_deportistas": [
+          3,
+          6
+        ],
+        "instituciones": [
+          5,
+          6
+        ],
+        "progreso_y_cumplimiento_meta": [
+          6,
+          6
+        ],
+        "sobre_distribucion_usuarios": [
+          4,
+          6
+        ],
+        "sobre_metricas_por_federacio": [
+          5,
+          6
+        ],
+        "cambios_en_la_intencion_part": [
+          5,
+          6
+        ],
+        "delegaciones_participacion": [
+          4,
+          6
+        ]
+      },
+      "C4": {
+        "individual_deportistas": [
+          3,
+          6
+        ],
+        "grupos": [
+          4,
+          6
+        ],
+        "personal_apoyo": [
+          4,
+          6
+        ],
+        "documentacion_deportistas": [
+          4,
+          6
+        ],
+        "participacion": [
+          3,
+          6
+        ],
+        "sobre_resumen_del_tablero_co": [
+          3,
+          6
+        ],
+        "promocion_deportistas": [
+          5,
+          6
+        ],
+        "instituciones": [
+          3,
+          6
+        ],
+        "progreso_y_cumplimiento_meta": [
+          6,
+          6
+        ],
+        "sobre_distribucion_usuarios": [
+          4,
+          6
+        ],
+        "sobre_metricas_por_federacio": [
+          4,
+          6
+        ],
+        "cambios_en_la_intencion_part": [
+          4,
+          6
+        ],
+        "delegaciones_participacion": [
+          3,
+          6
+        ]
+      }
+    },
+    "confusiones": {
+      "BM25": [
+        {
+          "objetivo": "grupos",
+          "devuelto": "individual_deportistas",
+          "veces": 4
+        },
+        {
+          "objetivo": "instituciones",
+          "devuelto": "individual_deportistas",
+          "veces": 4
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "cambios_en_la_intencion_part",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        },
+        {
+          "objetivo": "delegaciones_participacion",
+          "devuelto": "individual_deportistas",
+          "veces": 3
+        }
+      ],
+      "C1": [
+        {
+          "objetivo": "sobre_metricas_por_federacio",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "personal_apoyo",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_resumen_del_tablero_co",
+          "devuelto": "sobre_resumen_pruebas_caidas",
+          "veces": 2
+        }
+      ],
+      "C2": [
+        {
+          "objetivo": "sobre_metricas_por_federacio",
+          "devuelto": "instituciones",
+          "veces": 3
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "participacion",
+          "veces": 2
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "personal_apoyo",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "cambios_en_la_intencion_part",
+          "veces": 2
+        }
+      ],
+      "C3": [
+        {
+          "objetivo": "documentacion_deportistas",
+          "devuelto": "personal_apoyo",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "promocion_deportistas",
+          "devuelto": "sobre_pruebas_caidas_todas_l",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "participacion",
+          "veces": 1
+        },
+        {
+          "objetivo": "grupos",
+          "devuelto": "documentacion_deportistas",
+          "veces": 1
+        }
+      ],
+      "C4": [
+        {
+          "objetivo": "personal_apoyo",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "participacion",
+          "devuelto": "instituciones",
+          "veces": 2
+        },
+        {
+          "objetivo": "sobre_resumen_del_tablero_co",
+          "devuelto": "participacion",
+          "veces": 2
+        },
+        {
+          "objetivo": "instituciones",
+          "devuelto": "grupos",
+          "veces": 2
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "documentacion_deportistas",
+          "veces": 1
+        },
+        {
+          "objetivo": "individual_deportistas",
+          "devuelto": "personal_apoyo",
+          "veces": 1
+        }
+      ]
+    },
+    "fallos": [
+      {
+        "id": "e001",
+        "texto": "¿quiénes están inscritos en natación categoría juvenil?",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e002",
+        "texto": "datos de contacto y documento de un jugador",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "documentacion_deportistas",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e004",
+        "texto": "necesito ubicar a una muchacha que compite en atletismo",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "personal_apoyo",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "e006",
+        "texto": "lista de participantes por deporte y categoría",
+        "objetivo": "individual_deportistas",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e007",
+        "texto": "¿qué equipos tiene registrados este colegio?",
+        "objetivo": "grupos",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e008",
+        "texto": "conformación de la delegación por disciplina y fase",
+        "objetivo": "grupos",
+        "C2_top1": "delegaciones_participacion",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e011",
+        "texto": "listado de agrupaciones deportivas por institución",
+        "objetivo": "grupos",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e016",
+        "texto": "relación de profesores que viajan con cada grupo",
+        "objetivo": "personal_apoyo",
+        "C2_top1": "grupos",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "e018",
+        "texto": "staff de apoyo por equipo y por torneo",
+        "objetivo": "personal_apoyo",
+        "C2_top1": "personal_apoyo",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e019",
+        "texto": "¿a quién le falta algún soporte por subir?",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "personal_apoyo",
+        "C2_rango_objetivo": 6,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e021",
+        "texto": "estado de los certificados de los participantes",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "e024",
+        "texto": "seguimiento de la entrega de soportes por jugador",
+        "objetivo": "documentacion_deportistas",
+        "C2_top1": "personal_apoyo",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e026",
+        "texto": "instituciones inscritas para competir este año",
+        "objetivo": "participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "e027",
+        "texto": "quién manifestó interés en participar",
+        "objetivo": "participacion",
+        "C2_top1": "cambios_en_la_intencion_part",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e029",
+        "texto": "relación de planteles que van a asistir",
+        "objetivo": "participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e030",
+        "texto": "intención de asistencia de una escuela",
+        "objetivo": "participacion",
+        "C2_top1": "cambios_en_la_intencion_part",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "cambios_en_la_intencion_part",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e031",
+        "texto": "¿cómo va el evento en general?",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "sobre_resumen_del_tablero_co",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e034",
+        "texto": "cifras globales por región y disciplina",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "progreso_y_cumplimiento_meta",
+        "C2_rango_objetivo": 11,
+        "C4_top1": "progreso_y_cumplimiento_meta",
+        "C4_rango_objetivo": 4
+      },
+      {
+        "id": "e035",
+        "texto": "visión de conjunto de lo que ha pasado en el certamen",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "sobre_resumen_pruebas_caidas",
+        "C2_rango_objetivo": 4,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 7
+      },
+      {
+        "id": "e036",
+        "texto": "panel con los totales del evento",
+        "objetivo": "sobre_resumen_del_tablero_co",
+        "C2_top1": "sobre_resumen_del_tablero_co",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e037",
+        "texto": "¿en qué ronda va este atleta?",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "documentacion_deportistas",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 3
+      },
+      {
+        "id": "e040",
+        "texto": "jugadores que pasaron de etapa y quiénes no",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e042",
+        "texto": "seguimiento del paso de cada atleta a la ronda siguiente",
+        "objetivo": "promocion_deportistas",
+        "C2_top1": "sobre_pruebas_caidas_todas_l",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "promocion_deportistas",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e043",
+        "texto": "¿qué colegios hay en el Atlántico?",
+        "objetivo": "instituciones",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e044",
+        "texto": "buscar una escuela por su nombre",
+        "objetivo": "instituciones",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e045",
+        "texto": "entidades participantes por municipio",
+        "objetivo": "instituciones",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e057",
+        "texto": "cantidad de personas registradas por rol",
+        "objetivo": "sobre_distribucion_usuarios",
+        "C2_top1": "participacion",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "documentacion_deportistas",
+        "C4_rango_objetivo": 5
+      },
+      {
+        "id": "e060",
+        "texto": "número de administradores, entrenadores y deportistas con cuenta",
+        "objetivo": "sobre_distribucion_usuarios",
+        "C2_top1": "individual_deportistas",
+        "C2_rango_objetivo": 8,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 10
+      },
+      {
+        "id": "e061",
+        "texto": "¿cómo le va a cada federación?",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e062",
+        "texto": "indicadores por organismo rector de cada deporte",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "individual_deportistas",
+        "C4_rango_objetivo": 5
+      },
+      {
+        "id": "e063",
+        "texto": "balance de resultados por ente federativo",
+        "objetivo": "sobre_metricas_por_federacio",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "sobre_metricas_por_federacio",
+        "C4_rango_objetivo": 1
+      },
+      {
+        "id": "e067",
+        "texto": "¿quién se retractó de participar?",
+        "objetivo": "cambios_en_la_intencion_part",
+        "C2_top1": "cambios_en_la_intencion_part",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e068",
+        "texto": "modificaciones recientes a la inscripción de un colegio",
+        "objetivo": "cambios_en_la_intencion_part",
+        "C2_top1": "cambios_en_la_intencion_part",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 6
+      },
+      {
+        "id": "e074",
+        "texto": "comitivas inscritas por entidad",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "instituciones",
+        "C2_rango_objetivo": 2,
+        "C4_top1": "instituciones",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e075",
+        "texto": "delegaciones oficiales que viajan al evento",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "delegaciones_participacion",
+        "C2_rango_objetivo": 1,
+        "C4_top1": "participacion",
+        "C4_rango_objetivo": 2
+      },
+      {
+        "id": "e077",
+        "texto": "grupos de representantes de cada escuela en la competencia",
+        "objetivo": "delegaciones_participacion",
+        "C2_top1": "grupos",
+        "C2_rango_objetivo": 3,
+        "C4_top1": "grupos",
+        "C4_rango_objetivo": 5
+      }
+    ]
+  }
+}

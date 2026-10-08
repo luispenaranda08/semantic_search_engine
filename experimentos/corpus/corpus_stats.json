@@ -1,0 +1,17 @@
+{
+  "n_documentos": 17,
+  "tokens_totales_indexables": 1756,
+  "tokens_promedio": 103.3,
+  "documentos_por_prioridad": {
+    "Alta": 5,
+    "Media": 4,
+    "Baja": 8
+  },
+  "documentos_con_nombre_propio": 7,
+  "cdr_total": 6620,
+  "pct_demanda_top5": 83.4,
+  "auditoria_pii": {
+    "hallazgos_pii": 0,
+    "limpio": true
+  }
+}

@@ -1,0 +1,335 @@
+% === TABLA_GLOBAL ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 global de las seis configuraciones en los tres conjuntos de evaluación (corpus de diecisiete reportes, \texttt{jina-embeddings-v3} con tareas de recuperación). En negrita, el mejor de cada conjunto. El conjunto difícil B es una réplica con consultas nuevas.}
+\label{tab:global}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{sintético} ($n{=}40$) & \textbf{ampliado} ($n{=}127$) & \textbf{difícil A} ($n{=}52$) & \textbf{difícil B} ($n{=}78$) \\
+\midrule
+BM25 (referencia) & $0{,}819$ & $0{,}887$ & $0{,}186$ & $0{,}422$ \\
+C1 · Denso puro & $0{,}866$ & $0{,}932$ & $0{,}712$ & $0{,}783$ \\
+C2 · Denso $+$ ontología & $0{,}931$ & $0{,}928$ & {\boldmath\bfseries $0{,}835$} & {\boldmath\bfseries $0{,}837$} \\
+C3 · Híbrido (sin ontología) & $0{,}893$ & $0{,}943$ & $0{,}686$ & $0{,}778$ \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}948$} & {\boldmath\bfseries $0{,}960$} & $0{,}788$ & $0{,}835$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}924$ & $0{,}944$ & $0{,}739$ & $0{,}773$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ESTADISTICA ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Diferencia media de nDCG@10 (primera configuración menos segunda) y, entre paréntesis, el mayor de los dos $p$-valores ajustados por Holm (Wilcoxon y permutación pareadas). En negrita, las comparaciones \emph{robustas}: ambas pruebas rechazan con $\alpha=0{,}05$ tras la corrección.}
+\label{tab:estadistica}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Comparación} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} & \textbf{A+B} \\
+\midrule
+C3 frente a BM25 (P1) & {\boldmath\bfseries $+0{,}073$ ($0{,}021$)} & {\boldmath\bfseries $+0{,}056$ ($0{,}009$)} & {\boldmath\bfseries $+0{,}500$ ($<\!0{,}001$)} & {\boldmath\bfseries $+0{,}356$ ($<\!0{,}001$)} & {\boldmath\bfseries $+0{,}413$ ($<\!0{,}001$)} \\
+C3 frente a C1 (P1) & $+0{,}026$ ($0{,}820$) & $+0{,}011$ ($0{,}672$) & $-0{,}026$ ($0{,}214$) & $-0{,}005$ ($0{,}814$) & $-0{,}013$ ($0{,}356$) \\
+C2 frente a C1 (P3, denso) & {\boldmath\bfseries $+0{,}065$ ($0{,}027$)} & $-0{,}004$ ($0{,}672$) & {\boldmath\bfseries $+0{,}122$ ($0{,}002$)} & {\boldmath\bfseries $+0{,}054$ ($0{,}006$)} & {\boldmath\bfseries $+0{,}081$ ($<\!0{,}001$)} \\
+C4 frente a C3 (P3, híbrido) & {\boldmath\bfseries $+0{,}056$ ($0{,}043$)} & $+0{,}016$ ($0{,}406$) & $+0{,}102$ ($0{,}072$) & $+0{,}058$ ($0{,}157$) & {\boldmath\bfseries $+0{,}075$ ($0{,}011$)} \\
+C5 frente a C4 (P5) & $-0{,}024$ ($0{,}820$) & $-0{,}016$ ($0{,}250$) & {\boldmath\bfseries $-0{,}049$ ($0{,}035$)} & {\boldmath\bfseries $-0{,}063$ ($0{,}023$)} & {\boldmath\bfseries $-0{,}057$ ($0{,}001$)} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_PARES ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Pares de consultas con diferencia no nula frente al total de consultas de cada comparación. Este número, y no el total, determina el poder efectivo de la prueba.}
+\label{tab:pares}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Comparación} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} & \textbf{A+B} \\
+\midrule
+C3 frente a BM25 (P1) & $11/40$ & $31/127$ & $45/52$ & $45/78$ & $90/130$ \\
+C3 frente a C1 (P1) & $11/40$ & $16/127$ & $19/52$ & $23/78$ & $42/130$ \\
+C2 frente a C1 (P3, denso) & $10/40$ & $11/127$ & $21/52$ & $21/78$ & $42/130$ \\
+C4 frente a C3 (P3, híbrido) & $10/40$ & $13/127$ & $34/52$ & $30/78$ & $64/130$ \\
+C5 frente a C4 (P5) & $3/40$ & $5/127$ & $8/52$ & $15/78$ & $23/130$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ESTRATOS_AMPLIADO ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 por estrato en el conjunto ampliado. En negrita, el mejor de cada estrato.}
+\label{tab:estratos-ampliado}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{entidad exacta} ($n{=}55$) & \textbf{operacional} ($n{=}35$) & \textbf{doc. largo} ($n{=}25$) & \textbf{ambigua} ($n{=}12$) \\
+\midrule
+BM25 (referencia) & $0{,}862$ & $0{,}893$ & $0{,}910$ & $0{,}938$ \\
+C1 · Denso puro & $0{,}925$ & {\boldmath\bfseries $0{,}961$} & $0{,}945$ & $0{,}854$ \\
+C2 · Denso $+$ ontología & $0{,}913$ & {\boldmath\bfseries $0{,}961$} & $0{,}945$ & $0{,}866$ \\
+C3 · Híbrido (sin ontología) & $0{,}926$ & $0{,}957$ & {\boldmath\bfseries $0{,}950$} & {\boldmath\bfseries $0{,}969$} \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}980$} & $0{,}941$ & $0{,}946$ & $0{,}953$ \\
+C5 · Híbrido $+$ ont. $+$ realce & {\boldmath\bfseries $0{,}980$} & $0{,}930$ & $0{,}880$ & $0{,}953$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ESTRATOS_SINTETICO ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 por estrato en el conjunto sintético. En negrita, el mejor de cada estrato.}
+\label{tab:estratos-sintetico}
+\begin{tabularx}{\textwidth}{@{}Y c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{entidad exacta} ($n{=}17$) & \textbf{ambigua} ($n{=}13$) & \textbf{doc. largo} ($n{=}10$) \\
+\midrule
+BM25 (referencia) & $0{,}883$ & $0{,}846$ & $0{,}677$ \\
+C1 · Denso puro & $0{,}875$ & $0{,}894$ & $0{,}815$ \\
+C2 · Denso $+$ ontología & $0{,}931$ & $0{,}956$ & {\boldmath\bfseries $0{,}900$} \\
+C3 · Híbrido (sin ontología) & $0{,}972$ & $0{,}920$ & $0{,}721$ \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}976$} & {\boldmath\bfseries $0{,}962$} & $0{,}884$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}957$ & {\boldmath\bfseries $0{,}962$} & $0{,}819$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_CONTROL ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Control sin nombre propio en el estrato de entidad exacta ($n=55$): nDCG@10 con la consulta original y con el nombre propio borrado. Si el nombre contribuyera a la recuperación, la columna ``sin nombre'' debería ser menor.}
+\label{tab:control}
+\begin{tabularx}{\textwidth}{@{}Y c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{con nombre} & \textbf{sin nombre} & \textbf{diferencia} \\
+\midrule
+BM25 (referencia) & $0{,}862$ & $0{,}854$ & $-0{,}008$ \\
+C1 · Denso puro & $0{,}925$ & $0{,}966$ & $+0{,}041$ \\
+C2 · Denso $+$ ontología & $0{,}913$ & $1{,}000$ & $+0{,}087$ \\
+C3 · Híbrido (sin ontología) & $0{,}926$ & $0{,}953$ & $+0{,}027$ \\
+C4 · Híbrido $+$ ontología & $0{,}980$ & $1{,}000$ & $+0{,}020$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}980$ & $1{,}000$ & $+0{,}020$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_DIFICIL ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 en los conjuntos difíciles unidos (A y B, $n=130$) por nivel de solape léxico (calculado, no asignado a mano). En los niveles A y B la consulta no comparte raíces con la descripción del documento, de modo que BM25 sobre la descripción no puede recuperar el objetivo por construcción.}
+\label{tab:dificil}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{A: puente de ontología} ($n{=}52$) & \textbf{B: sin puente} ($n{=}21$) & \textbf{C: con solape} ($n{=}57$) & \textbf{global} ($n{=}130$) \\
+\midrule
+BM25 (referencia) & $0{,}000$ & $0{,}000$ & $0{,}747$ & $0{,}328$ \\
+C1 · Denso puro & $0{,}689$ & $0{,}766$ & $0{,}810$ & $0{,}754$ \\
+C2 · Denso $+$ ontología & $0{,}819$ & $0{,}801$ & $0{,}864$ & $0{,}836$ \\
+C3 · Híbrido (sin ontología) & $0{,}636$ & $0{,}744$ & $0{,}836$ & $0{,}741$ \\
+C4 · Híbrido $+$ ontología & $0{,}870$ & $0{,}658$ & $0{,}826$ & $0{,}816$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}810$ & $0{,}655$ & $0{,}752$ & $0{,}759$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_COBERTURA ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Análisis exploratorio: efecto de la ontología según el reporte objetivo tenga o no bloque de ontología (9 de los 17 reportes lo tienen). Sin corrección de Holm; debe leerse como generador de hipótesis.}
+\label{tab:cobertura}
+\begin{tabularx}{\textwidth}{@{}l l l c c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{Grupo} & \textbf{Comparación} & $\boldsymbol{\Delta}$ & \textbf{pares $\neq 0$} & \textbf{$p$ Wilcoxon} & \textbf{$p$ permut.} \\
+\midrule
+difícil & objetivo enriquecido ($n{=}36$) & C2 $-$ C1 & $+0{,}180$ & $16$ & $<\!0{,}001$ & $<\!0{,}001$ \\
+difícil & objetivo enriquecido ($n{=}36$) & C4 $-$ C3 & $+0{,}219$ & $26$ & $<\!0{,}001$ & $<\!0{,}001$ \\
+difícil & objetivo sin enriquecer ($n{=}16$) & C2 $-$ C1 & $-0{,}006$ & $5$ & $0{,}684$ & $0{,}875$ \\
+difícil & objetivo sin enriquecer ($n{=}16$) & C4 $-$ C3 & $-0{,}161$ & $8$ & $0{,}012$ & $0{,}008$ \\
+ampliado & objetivo enriquecido ($n{=}112$) & C2 $-$ C1 & $-0{,}005$ & $11$ & $0{,}655$ & $0{,}555$ \\
+ampliado & objetivo enriquecido ($n{=}112$) & C4 $-$ C3 & $+0{,}019$ & $13$ & $0{,}126$ & $0{,}135$ \\
+ampliado & objetivo sin enriquecer ($n{=}15$) & C2 $-$ C1 & $+0{,}000$ & $0$ & n/d & n/d \\
+ampliado & objetivo sin enriquecer ($n{=}15$) & C4 $-$ C3 & $+0{,}000$ & $0$ & n/d & n/d \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_SENSIBILIDAD ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Sensibilidad de los hiperparámetros fijados sin ajuste (nDCG@10). Filas de $k$: C3 / C4. Filas de $\lambda$: C5 y, entre paréntesis, su diferencia con C4. Filas de $k_1$ y $b$: BM25 solo / C4; los valores de referencia son $k=60$, $\lambda=0{,}2$, $k_1=1{,}5$ y $b=0{,}75$.}
+\label{tab:sensibilidad}
+\begin{tabularx}{\textwidth}{@{}Y c c@{}}
+\toprule
+\textbf{Parámetro} & \textbf{sintético} & \textbf{ampliado} \\
+\midrule
+$k=1$ & $0{,}856$ / $0{,}943$ & $0{,}947$ / $0{,}958$ \\
+$k=10$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}961$ \\
+$k=30$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=60$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=100$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=200$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$\lambda=0{,}0$ (C5) & $0{,}948$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) \\
+$\lambda=0{,}05$ (C5) & $0{,}929$ ($-0{,}019$) & $0{,}949$ ($-0{,}011$) \\
+$\lambda=0{,}1$ (C5) & $0{,}926$ ($-0{,}022$) & $0{,}945$ ($-0{,}015$) \\
+$\lambda=0{,}2$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$\lambda=0{,}3$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$\lambda=0{,}5$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$k_1=0{,}9,\ b=0{,}5$ (BM25 / C4) & $0{,}815$ / $0{,}950$ & $0{,}878$ / $0{,}961$ \\
+$k_1=0{,}9,\ b=0{,}9$ (BM25 / C4) & $0{,}819$ / $0{,}948$ & $0{,}863$ / $0{,}963$ \\
+$k_1=1{,}5,\ b=0{,}5$ (BM25 / C4) & $0{,}819$ / $0{,}951$ & $0{,}902$ / $0{,}961$ \\
+$k_1=1{,}5,\ b=0{,}9$ (BM25 / C4) & $0{,}828$ / $0{,}948$ & $0{,}849$ / $0{,}961$ \\
+$k_1=2{,}0,\ b=0{,}5$ (BM25 / C4) & $0{,}819$ / $0{,}952$ & $0{,}905$ / $0{,}967$ \\
+$k_1=2{,}0,\ b=0{,}9$ (BM25 / C4) & $0{,}828$ / $0{,}949$ & $0{,}855$ / $0{,}961$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_MATRYOSHKA ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Barrido de la dimensión Matryoshka $m$ sobre C4: nDCG@10 y, entre paréntesis, la diferencia con $m=1.024$ y si el intervalo de confianza del $95\%$ de esa diferencia permite declarar equivalencia (límite inferior mayor que $-0{,}01$). ``eq.'' = equivalente, ``no eq.'' = no concluyente.}
+\label{tab:matryoshka}
+\begin{tabularx}{\textwidth}{@{}c c c c@{}}
+\toprule
+$\boldsymbol{m}$ & \textbf{sintético} & \textbf{ampliado} & \textbf{ahorro de índice} \\
+\midrule
+$1024$ & $0{,}948$ ($+0{,}000$; eq.) & $0{,}960$ ($+0{,}000$; eq.) & $0.0\%$ \\
+$768$ & $0{,}948$ ($+0{,}000$; eq.) & $0{,}960$ ($+0{,}000$; eq.) & $25.0\%$ \\
+$512$ & $0{,}931$ ($-0{,}018$; no eq.) & $0{,}963$ ($+0{,}003$; eq.) & $50.0\%$ \\
+$256$ & $0{,}940$ ($-0{,}008$; no eq.) & $0{,}963$ ($+0{,}003$; eq.) & $75.0\%$ \\
+$128$ & $0{,}944$ ($-0{,}004$; no eq.) & $0{,}944$ ($-0{,}016$; no eq.) & $87.5\%$ \\
+$64$ & $0{,}949$ ($+0{,}001$; no eq.) & $0{,}923$ ($-0{,}037$; no eq.) & $93.8\%$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_CHUNKING ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Fragmentación de los documentos (nDCG@10 de C4 y, entre paréntesis, la diferencia con el documento completo) para solapamiento de $0\%$ y de $25\%$.}
+\label{tab:chunking}
+\begin{tabularx}{\textwidth}{@{}l c c c c c@{}}
+\toprule
+\textbf{Tamaño} & \textbf{sint., 0\%} & \textbf{sint., 25\%} & \textbf{amp., 0\%} & \textbf{amp., 25\%} & \textbf{frag./doc.} \\
+\midrule
+documento completo & $0{,}948$ ($+0{,}000$) & $0{,}948$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) & $1{,}00$ \\
+128 palabras & $0{,}939$ ($-0{,}009$) & $0{,}952$ ($+0{,}004$) & $0{,}951$ ($-0{,}009$) & $0{,}953$ ($-0{,}007$) & $1{,}24$ \\
+64 palabras & $0{,}935$ ($-0{,}014$) & $0{,}943$ ($-0{,}005$) & $0{,}908$ ($-0{,}051$) & $0{,}934$ ($-0{,}026$) & $2{,}12$ \\
+40 palabras & $0{,}913$ ($-0{,}036$) & $0{,}909$ ($-0{,}039$) & $0{,}933$ ($-0{,}027$) & $0{,}928$ ($-0{,}032$) & $2{,}94$ \\
+24 palabras & $0{,}896$ ($-0{,}052$) & $0{,}925$ ($-0{,}023$) & $0{,}897$ ($-0{,}063$) & $0{,}912$ ($-0{,}048$) & $4{,}65$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_FUSION ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Alternativas de fusión frente a RRF (nDCG@10 y, entre paréntesis, la diferencia con RRF $k=60$). El parámetro de cada variante se elige con los otros tres conjuntos (\textit{leave-one-set-out}) y se aplica sin retocar. Ninguna diferencia es robusta.}
+\label{tab:fusion}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Variante (base enriquecida)} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} \\
+\midrule
+BM25 solo & $0{,}920$ & $0{,}906$ & $0{,}545$ & $0{,}730$ \\
+Denso puro (C2) & $0{,}931$ & $0{,}928$ & $0{,}835$ & $0{,}837$ \\
+RRF $k=60$ (C4) & $0{,}948$ & $0{,}960$ & $0{,}788$ & $0{,}835$ \\
+Convexa min--max (LOSO) & $0{,}958$ ($+0{,}010$) & $0{,}959$ ($-0{,}000$) & $0{,}802$ ($+0{,}014$) & $0{,}875$ ($+0{,}039$) \\
+Convexa $z$-score (LOSO) & $0{,}949$ ($+0{,}001$) & $0{,}959$ ($-0{,}001$) & $0{,}804$ ($+0{,}017$) & $0{,}870$ ($+0{,}034$) \\
+RRF ponderado (LOSO) & $0{,}952$ ($+0{,}004$) & $0{,}959$ ($-0{,}001$) & $0{,}784$ ($-0{,}004$) & $0{,}854$ ($+0{,}019$) \\
+RRF con compuerta (LOSO) & $0{,}942$ ($-0{,}006$) & $0{,}960$ ($+0{,}000$) & $0{,}850$ ($+0{,}062$) & $0{,}847$ ($+0{,}011$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ONTO_COMPLETA ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Ontología sin / parcial (9 de 17) / ampliada (14 de 17) reportes: nDCG@10 del denso y del híbrido. La última columna es la diferencia del híbrido (ampliada menos parcial) en las consultas cuyo objetivo no tenía bloque de ontología.}
+\label{tab:onto-completa}
+\begin{tabularx}{\textwidth}{@{}l c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{denso} (sin / parcial / ampl.) & \textbf{híbrido} (sin / parcial / ampl.) & \textbf{objetivo antes sin bloque} \\
+\midrule
+sintético & $0{,}866$ / $0{,}931$ / $0{,}904$ & $0{,}893$ / $0{,}948$ / $0{,}937$ & --- \\
+ampliado & $0{,}932$ / $0{,}928$ / $0{,}921$ & $0{,}943$ / $0{,}960$ / $0{,}960$ & $+0{,}009$ ($n{=}15$) \\
+difícil A & $0{,}712$ / $0{,}835$ / $0{,}819$ & $0{,}686$ / $0{,}788$ / $0{,}801$ & $+0{,}071$ ($n{=}16$) \\
+difícil B & $0{,}783$ / $0{,}837$ / $0{,}833$ & $0{,}778$ / $0{,}835$ / $0{,}839$ & $+0{,}066$ ($n{=}24$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ERRORES ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Exactitud en la primera posición (el reporte objetivo queda primero) por sistema y conjunto.}
+\label{tab:errores}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{BM25} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{C4} \\
+\midrule
+sintético ($n{=}40$) & $0{,}650$ & $0{,}725$ & $0{,}825$ & $0{,}750$ & $0{,}875$ \\
+ampliado ($n{=}127$) & $0{,}748$ & $0{,}882$ & $0{,}866$ & $0{,}874$ & $0{,}921$ \\
+difícil A ($n{=}52$) & $0{,}135$ & $0{,}404$ & $0{,}654$ & $0{,}442$ & $0{,}615$ \\
+difícil B ($n{=}78$) & $0{,}372$ & $0{,}577$ & $0{,}641$ & $0{,}615$ & $0{,}641$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% === TABLA_ESCALAMIENTO ===
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Búsqueda exacta por fuerza bruta con vectores aleatorios: memoria del índice (MiB) y latencia mediana (ms) según el número de documentos $N$ y la dimensión $m$. No mide calidad ni la codificación de la consulta ($\approx 349$ ms). Medido en un equipo personal con otras tareas activas.}
+\label{tab:escalamiento}
+\begin{tabularx}{\textwidth}{@{}r c c c @{}}
+\toprule
+$\boldsymbol{N}$ & \textbf{$m=64$} & \textbf{$m=256$} & \textbf{$m=1024$} \\
+\midrule
+$1.000$ & $0{,}2$ / $0{,}02$ & $1{,}0$ / $0{,}02$ & $3{,}9$ / $0{,}03$ \\
+$10.000$ & $2{,}4$ / $0{,}11$ & $9{,}8$ / $0{,}14$ & $39{,}1$ / $0{,}98$ \\
+$100.000$ & $24{,}4$ / $1{,}46$ & $97{,}7$ / $3{,}09$ & $390{,}6$ / $8{,}10$ \\
+$200.000$ & $48{,}8$ / $2{,}98$ & $195{,}3$ / $6{,}63$ & $781{,}2$ / $17{,}73$ \\
+\bottomrule
+\end{tabularx}
+\end{table}

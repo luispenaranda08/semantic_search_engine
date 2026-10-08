@@ -1,0 +1,51 @@
+{"id": "q001", "texto": "estado de promoción de Andrés Torres", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q002", "texto": "en qué fase va el deportista Andrés Torres", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q003", "texto": "estado de promoción de María Restrepo", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q004", "texto": "en qué fase va el deportista María Restrepo", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q005", "texto": "estado de promoción de Julián Gómez", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q006", "texto": "en qué fase va el deportista Julián Gómez", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q007", "texto": "estado de promoción de Valentina Ríos", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q008", "texto": "en qué fase va el deportista Valentina Ríos", "estrato": "entidad_exacta", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q009", "texto": "reporte de la institución Colegio San Marcos", "estrato": "entidad_exacta", "reporte_objetivo": "ri_008_reporte_de_instituciones", "menciona_nombre_propio": true}
+{"id": "q010", "texto": "reporte de la institución Club Deportivo El Faro", "estrato": "entidad_exacta", "reporte_objetivo": "ri_008_reporte_de_instituciones", "menciona_nombre_propio": true}
+{"id": "q011", "texto": "reporte de la institución Liga Atlántico", "estrato": "entidad_exacta", "reporte_objetivo": "ri_008_reporte_de_instituciones", "menciona_nombre_propio": true}
+{"id": "q012", "texto": "documentación del deportista Julián Gómez", "estrato": "entidad_exacta", "reporte_objetivo": "ri_004_reporte_de_documentacion_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q013", "texto": "grupos de la institución Colegio San Marcos", "estrato": "entidad_exacta", "reporte_objetivo": "ri_002_reporte_de_grupos", "menciona_nombre_propio": true}
+{"id": "q014", "texto": "personal de apoyo del deportista Andrés Torres", "estrato": "entidad_exacta", "reporte_objetivo": "ri_003_reporte_de_personal_de_apoyo", "menciona_nombre_propio": true}
+{"id": "q015", "texto": "intención de participación de María Restrepo", "estrato": "entidad_exacta", "reporte_objetivo": "ri_005_reporte_de_participacion", "menciona_nombre_propio": true}
+{"id": "q016", "texto": "cumplimiento de metas del deportista Valentina Ríos", "estrato": "entidad_exacta", "reporte_objetivo": "ri_009_reporte_de_progreso_y_cumplimiento_de_metas", "menciona_nombre_propio": true}
+{"id": "q017", "texto": "reporte individual del deportista Julián Gómez", "estrato": "entidad_exacta", "reporte_objetivo": "ri_001_reporte_individual_de_deportistas", "menciona_nombre_propio": true}
+{"id": "q018", "texto": "grupos", "estrato": "ambigua", "reporte_objetivo": "ri_002_reporte_de_grupos", "menciona_nombre_propio": false}
+{"id": "q019", "texto": "avance", "estrato": "ambigua", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q020", "texto": "documentos", "estrato": "ambigua", "reporte_objetivo": "ri_004_reporte_de_documentacion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q021", "texto": "participación", "estrato": "ambigua", "reporte_objetivo": "ri_005_reporte_de_participacion", "menciona_nombre_propio": false}
+{"id": "q022", "texto": "personal", "estrato": "ambigua", "reporte_objetivo": "ri_003_reporte_de_personal_de_apoyo", "menciona_nombre_propio": false}
+{"id": "q023", "texto": "metas", "estrato": "ambigua", "reporte_objetivo": "ri_009_reporte_de_progreso_y_cumplimiento_de_metas", "menciona_nombre_propio": false}
+{"id": "q024", "texto": "instituciones", "estrato": "ambigua", "reporte_objetivo": "ri_008_reporte_de_instituciones", "menciona_nombre_propio": false}
+{"id": "q025", "texto": "promoción", "estrato": "ambigua", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q026", "texto": "tablero", "estrato": "ambigua", "reporte_objetivo": "ri_006_reporte_sobre_resumen_del_tablero_de_control", "menciona_nombre_propio": false}
+{"id": "q027", "texto": "etapas", "estrato": "ambigua", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q028", "texto": "delegaciones", "estrato": "ambigua", "reporte_objetivo": "ri_014_reporte_de_delegaciones_de_participacion", "menciona_nombre_propio": false}
+{"id": "q029", "texto": "federaciones", "estrato": "ambigua", "reporte_objetivo": "ri_011_reporte_sobre_metricas_por_federacion_deportiva", "menciona_nombre_propio": false}
+{"id": "q030", "texto": "distribución", "estrato": "ambigua", "reporte_objetivo": "ri_010_reporte_sobre_distribucion_de_usuarios", "menciona_nombre_propio": false}
+{"id": "q031", "texto": "quiero ver en qué etapa está cada deportista y si ya cumplió los requisitos para pasar a la siguiente fase de la competencia", "estrato": "documento_largo", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q032", "texto": "necesito el listado de deportistas de una institución con el estado de su documentación al día", "estrato": "documento_largo", "reporte_objetivo": "ri_004_reporte_de_documentacion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q033", "texto": "cómo saber qué grupos o delegaciones tiene registrada cada institución y su personal de apoyo", "estrato": "documento_largo", "reporte_objetivo": "ri_002_reporte_de_grupos", "menciona_nombre_propio": false}
+{"id": "q034", "texto": "resumen de cuántos deportistas han sido promovidos, rechazados o siguen pendientes en el evento", "estrato": "documento_largo", "reporte_objetivo": "ri_007_reporte_de_promocion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q035", "texto": "reporte con las metas de cada federación y su nivel de cumplimiento por región", "estrato": "documento_largo", "reporte_objetivo": "ri_009_reporte_de_progreso_y_cumplimiento_de_metas", "menciona_nombre_propio": false}
+{"id": "q036", "texto": "quiénes manifestaron intención de participar y cómo se distribuyen por delegación", "estrato": "documento_largo", "reporte_objetivo": "ri_005_reporte_de_participacion", "menciona_nombre_propio": false}
+{"id": "q037", "texto": "panorama general del tablero de control con los indicadores de la plataforma", "estrato": "documento_largo", "reporte_objetivo": "ri_006_reporte_sobre_resumen_del_tablero_de_control", "menciona_nombre_propio": false}
+{"id": "q038", "texto": "necesito el personal de apoyo, entrenadores y acompañantes asignados a cada grupo", "estrato": "documento_largo", "reporte_objetivo": "ri_003_reporte_de_personal_de_apoyo", "menciona_nombre_propio": false}
+{"id": "q039", "texto": "cómo va la distribución de usuarios registrados en el sistema", "estrato": "documento_largo", "reporte_objetivo": "ri_010_reporte_sobre_distribucion_de_usuarios", "menciona_nombre_propio": false}
+{"id": "q040", "texto": "estado de la documentación y los soportes cargados por cada deportista para habilitar su promoción", "estrato": "documento_largo", "reporte_objetivo": "ri_004_reporte_de_documentacion_de_deportistas", "menciona_nombre_propio": false}
+{"id": "q041", "texto": "Atletismo Pre-Juvenil en Región Caribe 1", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q042", "texto": "resultados de natación en fase regional", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q043", "texto": "disciplinas de la categoría juvenil en los juegos nacionales", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q044", "texto": "qué pruebas hay de atletismo en la región pacífico", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q045", "texto": "resultados de la competencia de la fase departamental", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q046", "texto": "ranking de la prueba de ciclismo en la región centro", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q047", "texto": "eventos deportivos y sus fases de competencia", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q048", "texto": "clasificados de la disciplina de baloncesto por región", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q049", "texto": "marcas y resultados de la final nacional de atletismo", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q050", "texto": "competencias de para-deporte por clasificación funcional", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}
+{"id": "q051", "texto": "cuántos participantes hay por disciplina en cada región", "estrato": "competencias", "reporte_objetivo": null, "menciona_nombre_propio": false}

@@ -1,0 +1,430 @@
+{
+  "encoder": "jina-embeddings-v3",
+  "n_consultas_total": 51,
+  "n_consultas_con_gold": 40,
+  "n_consultas_sin_cobertura_v1": 11,
+  "estratos_sin_cobertura": [
+    "competencias"
+  ],
+  "global": {
+    "BM25 (referencia léxica)": {
+      "ndcg@10": 0.8194379395073514,
+      "recall@100": 0.95,
+      "mrr@10": 0.7898214285714286,
+      "p@10": 0.1125,
+      "ap@100": 0.7752380952380952
+    },
+    "Denso puro": {
+      "ndcg@10": 0.8661972507962734,
+      "recall@100": 1.0,
+      "mrr@10": 0.8320833333333333,
+      "p@10": 0.11749999999999998,
+      "ap@100": 0.8225
+    },
+    "Denso + ontología": {
+      "ndcg@10": 0.9312917934334622,
+      "recall@100": 1.0,
+      "mrr@10": 0.91875,
+      "p@10": 0.11749999999999998,
+      "ap@100": 0.9029166666666665
+    },
+    "Híbrido (sin ontología)": {
+      "ndcg@10": 0.8925045781158847,
+      "recall@100": 1.0,
+      "mrr@10": 0.8669047619047617,
+      "p@10": 0.11749999999999998,
+      "ap@100": 0.8531547619047618
+    },
+    "Híbrido + ontología": {
+      "ndcg@10": 0.9482823977831577,
+      "recall@100": 1.0,
+      "mrr@10": 0.9416666666666667,
+      "p@10": 0.11749999999999998,
+      "ap@100": 0.9270833333333333
+    },
+    "Híbrido + ontología + realce": {
+      "ndcg@10": 0.9239400835131715,
+      "recall@100": 1.0,
+      "mrr@10": 0.9111111111111111,
+      "p@10": 0.11749999999999998,
+      "ap@100": 0.8965277777777778
+    }
+  },
+  "por_estrato": {
+    "ambigua": {
+      "BM25 (referencia léxica)": {
+        "ndcg@10": 0.8461538461538461,
+        "recall@100": 0.8461538461538461,
+        "mrr@10": 0.8461538461538461,
+        "p@10": 0.08461538461538462,
+        "ap@100": 0.8461538461538461
+      },
+      "Denso puro": {
+        "ndcg@10": 0.8936974380193029,
+        "recall@100": 1.0,
+        "mrr@10": 0.8589743589743589,
+        "p@10": 0.10000000000000002,
+        "ap@100": 0.8589743589743589
+      },
+      "Denso + ontología": {
+        "ndcg@10": 0.9562058890825688,
+        "recall@100": 1.0,
+        "mrr@10": 0.9423076923076923,
+        "p@10": 0.10000000000000002,
+        "ap@100": 0.9423076923076923
+      },
+      "Híbrido (sin ontología)": {
+        "ndcg@10": 0.920327929761907,
+        "recall@100": 1.0,
+        "mrr@10": 0.8956043956043955,
+        "p@10": 0.10000000000000002,
+        "ap@100": 0.8956043956043955
+      },
+      "Híbrido + ontología": {
+        "ndcg@10": 0.9615384615384616,
+        "recall@100": 1.0,
+        "mrr@10": 0.9487179487179488,
+        "p@10": 0.10000000000000002,
+        "ap@100": 0.9487179487179488
+      },
+      "Híbrido + ontología + realce": {
+        "ndcg@10": 0.9615384615384616,
+        "recall@100": 1.0,
+        "mrr@10": 0.9487179487179488,
+        "p@10": 0.10000000000000002,
+        "ap@100": 0.9487179487179488
+      }
+    },
+    "documento_largo": {
+      "BM25 (referencia léxica)": {
+        "ndcg@10": 0.6767107079170164,
+        "recall@100": 1.0,
+        "mrr@10": 0.6092857142857142,
+        "p@10": 0.13,
+        "ap@100": 0.6176190476190475
+      },
+      "Denso puro": {
+        "ndcg@10": 0.8148069405530466,
+        "recall@100": 1.0,
+        "mrr@10": 0.7866666666666666,
+        "p@10": 0.13,
+        "ap@100": 0.7649999999999999
+      },
+      "Denso + ontología": {
+        "ndcg@10": 0.9000325051917422,
+        "recall@100": 1.0,
+        "mrr@10": 0.9,
+        "p@10": 0.13,
+        "ap@100": 0.8699999999999999
+      },
+      "Híbrido (sin ontología)": {
+        "ndcg@10": 0.721316898420918,
+        "recall@100": 1.0,
+        "mrr@10": 0.6533333333333333,
+        "p@10": 0.13,
+        "ap@100": 0.6483333333333332
+      },
+      "Híbrido + ontología": {
+        "ndcg@10": 0.8836425724438204,
+        "recall@100": 1.0,
+        "mrr@10": 0.8833333333333332,
+        "p@10": 0.13,
+        "ap@100": 0.8416666666666666
+      },
+      "Híbrido + ontología + realce": {
+        "ndcg@10": 0.8192632911546225,
+        "recall@100": 1.0,
+        "mrr@10": 0.8,
+        "p@10": 0.13,
+        "ap@100": 0.7583333333333334
+      }
+    },
+    "entidad_exacta": {
+      "BM25 (referencia léxica)": {
+        "ndcg@10": 0.8829653235955235,
+        "recall@100": 1.0,
+        "mrr@10": 0.8529411764705882,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.8137254901960783
+      },
+      "Denso puro": {
+        "ndcg@10": 0.8753972901217368,
+        "recall@100": 1.0,
+        "mrr@10": 0.8382352941176471,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.8284313725490197
+      },
+      "Denso + ontología": {
+        "ndcg@10": 0.9306276545498635,
+        "recall@100": 1.0,
+        "mrr@10": 0.9117647058823529,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.892156862745098
+      },
+      "Híbrido (sin ontología)": {
+        "ndcg@10": 0.9719265325600834,
+        "recall@100": 1.0,
+        "mrr@10": 0.9705882352941176,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.9411764705882353
+      },
+      "Híbrido + ontología": {
+        "ndcg@10": 0.9761688345228299,
+        "recall@100": 1.0,
+        "mrr@10": 0.9705882352941176,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.9607843137254901
+      },
+      "Híbrido + ontología + realce": {
+        "ndcg@10": 0.9567629664106254,
+        "recall@100": 1.0,
+        "mrr@10": 0.9477124183006536,
+        "p@10": 0.12352941176470589,
+        "ap@100": 0.9379084967320261
+      }
+    }
+  },
+  "eficiencia": {
+    "BM25 (referencia léxica)": {
+      "latencia_p50_ms": 0.0681670026096981,
+      "latencia_p95_ms": 0.6326045022433391
+    },
+    "Denso puro": {
+      "latencia_p50_ms": 345.3790420026053,
+      "latencia_p95_ms": 408.1717920016672
+    },
+    "Denso + ontología": {
+      "latencia_p50_ms": 342.25045899802353,
+      "latencia_p95_ms": 380.21754150031484
+    },
+    "Híbrido (sin ontología)": {
+      "latencia_p50_ms": 339.8804169992218,
+      "latencia_p95_ms": 355.10441700171214
+    },
+    "Híbrido + ontología": {
+      "latencia_p50_ms": 344.33487500064075,
+      "latencia_p95_ms": 398.4951039983571
+    },
+    "Híbrido + ontología + realce": {
+      "latencia_p50_ms": 341.5191669992055,
+      "latencia_p95_ms": 372.12006249865226
+    }
+  },
+  "indice": {
+    "n_documentos": 17,
+    "dimension_densa": 1024,
+    "bytes_aprox_matriz_densa": 69632
+  },
+  "estadistica_global": {
+    "C3_vs_BM25 (P1)": {
+      "estadistico": 1.0,
+      "p_valor": 0.004245648288725709,
+      "media_dif": 0.07306663860853309,
+      "n": 40,
+      "n_pares_no_nulos": 11,
+      "rank_biserial": 0.9696969696969697,
+      "p_permutacion": 0.001953125,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.029608054653822855,
+        0.12391054775657856
+      ],
+      "p_holm": 0.021228241443628542,
+      "p_holm_permutacion": 0.009765625,
+      "robusto": true
+    },
+    "C3_vs_C1 (P1,P2)": {
+      "estadistico": 25.0,
+      "p_valor": 0.47581455261653727,
+      "media_dif": 0.026307327319611495,
+      "n": 40,
+      "n_pares_no_nulos": 11,
+      "rank_biserial": 0.24242424242424243,
+      "p_permutacion": 0.41015625,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        -0.029825468852528982,
+        0.08542794784762676
+      ],
+      "p_holm": 0.5700988148052255,
+      "p_holm_permutacion": 0.8203125,
+      "robusto": false
+    },
+    "C2_vs_C1 (P3 denso)": {
+      "estadistico": 1.0,
+      "p_valor": 0.006837743568509189,
+      "media_dif": 0.06509454263718911,
+      "n": 40,
+      "n_pares_no_nulos": 10,
+      "rank_biserial": 0.9636363636363636,
+      "p_permutacion": 0.00390625,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.02019872296774198,
+        0.11579125156114342
+      ],
+      "p_holm": 0.027350974274036755,
+      "p_holm_permutacion": 0.015625,
+      "robusto": true
+    },
+    "C4_vs_C3 (P3 híbrido)": {
+      "estadistico": 3.5,
+      "p_valor": 0.014242591156109539,
+      "media_dif": 0.05577781966727315,
+      "n": 40,
+      "n_pares_no_nulos": 10,
+      "rank_biserial": 0.8727272727272727,
+      "p_permutacion": 0.01171875,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.016845632993396992,
+        0.1024371198068307
+      ],
+      "p_holm": 0.042727773468328616,
+      "p_holm_permutacion": 0.03515625,
+      "robusto": true
+    },
+    "C5_vs_C4 (P5)": {
+      "estadistico": 1.0,
+      "p_valor": 0.28504940740261275,
+      "media_dif": -0.02434231426998635,
+      "n": 40,
+      "n_pares_no_nulos": 3,
+      "rank_biserial": -0.6666666666666666,
+      "p_permutacion": 0.5,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        -0.07404069076763824,
+        0.01845351232142713
+      ],
+      "p_holm": 0.5700988148052255,
+      "p_holm_permutacion": 0.8203125,
+      "robusto": false
+    }
+  },
+  "estadistica_entidad_exacta": {
+    "C3_vs_BM25 (P1)": {
+      "estadistico": 0.0,
+      "p_valor": 0.033894853524689274,
+      "media_dif": 0.08896120896455983,
+      "n": 17,
+      "n_pares_no_nulos": 5,
+      "rank_biserial": 1.0,
+      "p_permutacion": 0.0625,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.023778136702635632,
+        0.17368011596637298
+      ],
+      "p_holm": 0.16947426762344636,
+      "p_holm_permutacion": 0.3125,
+      "robusto": false
+    },
+    "C3_vs_C1 (P1,P2)": {
+      "estadistico": 3.0,
+      "p_valor": 0.2228009911811345,
+      "media_dif": 0.09652924243834654,
+      "n": 17,
+      "n_pares_no_nulos": 5,
+      "rank_biserial": 0.6,
+      "p_permutacion": 0.25,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        -5.302877453433045e-05,
+        0.21817238652275706
+      ],
+      "p_holm": 0.5765081392640613,
+      "p_holm_permutacion": 1.0,
+      "robusto": false
+    },
+    "C2_vs_C1 (P3 denso)": {
+      "estadistico": 1.0,
+      "p_valor": 0.14412703481601533,
+      "media_dif": 0.055230364428126635,
+      "n": 17,
+      "n_pares_no_nulos": 4,
+      "rank_biserial": 0.8,
+      "p_permutacion": 0.25,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.0,
+        0.1339584569239075
+      ],
+      "p_holm": 0.5765081392640613,
+      "p_holm_permutacion": 1.0,
+      "robusto": false
+    },
+    "C4_vs_C3 (P3 híbrido)": {
+      "estadistico": 0.0,
+      "p_valor": 0.15729920705028505,
+      "media_dif": 0.004242301962746677,
+      "n": 17,
+      "n_pares_no_nulos": 2,
+      "rank_biserial": 1.0,
+      "p_permutacion": 0.5,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        0.0,
+        0.010605754906866693
+      ],
+      "p_holm": 0.5765081392640613,
+      "p_holm_permutacion": 1.0,
+      "robusto": false
+    },
+    "C5_vs_C4 (P5)": {
+      "estadistico": 1.0,
+      "p_valor": 0.6547208460185769,
+      "media_dif": -0.01940586811220448,
+      "n": 17,
+      "n_pares_no_nulos": 2,
+      "rank_biserial": -0.3333333333333333,
+      "p_permutacion": 1.0,
+      "metodo_permutacion": "exacto",
+      "ic95_dif": [
+        -0.12334764782400331,
+        0.06513004348738986
+      ],
+      "p_holm": 0.6547208460185769,
+      "p_holm_permutacion": 1.0,
+      "robusto": false
+    }
+  },
+  "ic_bootstrap_ndcg10_global": {
+    "BM25 (referencia léxica)": {
+      "media": 0.8194379395073514,
+      "ic_bajo": 0.729969530524488,
+      "ic_alto": 0.902126235733146,
+      "n": 40
+    },
+    "Denso puro": {
+      "media": 0.8661972507962734,
+      "ic_bajo": 0.793593923187797,
+      "ic_alto": 0.9353700337090759,
+      "n": 40
+    },
+    "Denso + ontología": {
+      "media": 0.9312917934334622,
+      "ic_bajo": 0.8805555028399904,
+      "ic_alto": 0.9713767506901377,
+      "n": 40
+    },
+    "Híbrido (sin ontología)": {
+      "media": 0.8925045781158847,
+      "ic_bajo": 0.8335863313962714,
+      "ic_alto": 0.9486264021107413,
+      "n": 40
+    },
+    "Híbrido + ontología": {
+      "media": 0.9482823977831577,
+      "ic_bajo": 0.9044201711505389,
+      "ic_alto": 0.9866899752520251,
+      "n": 40
+    },
+    "Híbrido + ontología + realce": {
+      "media": 0.9239400835131715,
+      "ic_bajo": 0.8700046668047688,
+      "ic_alto": 0.9722990776823285,
+      "n": 40
+    }
+  }
+}

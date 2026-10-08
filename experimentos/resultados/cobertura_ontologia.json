@@ -1,0 +1,70 @@
+{
+  "documentos_enriquecidos": 9,
+  "documentos": 17,
+  "conjuntos": {
+    "dificil": {
+      "objetivo_enriquecido": {
+        "n": 36,
+        "C2_vs_C1": {
+          "delta": 0.17952502893844433,
+          "pares_no_nulos": 16,
+          "p_wilcoxon": 0.0004177621421192512,
+          "p_permutacion": 3.0517578125e-05
+        },
+        "C4_vs_C3": {
+          "delta": 0.2189883413501155,
+          "pares_no_nulos": 26,
+          "p_wilcoxon": 0.0005318203212723596,
+          "p_permutacion": 0.00039998000099995
+        }
+      },
+      "objetivo_sin_enriquecer": {
+        "n": 16,
+        "C2_vs_C1": {
+          "delta": -0.005815153513277285,
+          "pares_no_nulos": 5,
+          "p_wilcoxon": 0.6844698210251553,
+          "p_permutacion": 0.875
+        },
+        "C4_vs_C3": {
+          "delta": -0.16149367842875217,
+          "pares_no_nulos": 8,
+          "p_wilcoxon": 0.011718685599768632,
+          "p_permutacion": 0.0078125
+        }
+      }
+    },
+    "ampliado": {
+      "objetivo_enriquecido": {
+        "n": 112,
+        "C2_vs_C1": {
+          "delta": -0.004726390209274863,
+          "pares_no_nulos": 11,
+          "p_wilcoxon": 0.6548821673281318,
+          "p_permutacion": 0.5546875
+        },
+        "C4_vs_C3": {
+          "delta": 0.018692474602893222,
+          "pares_no_nulos": 13,
+          "p_wilcoxon": 0.126168424964516,
+          "p_permutacion": 0.13525390625
+        }
+      },
+      "objetivo_sin_enriquecer": {
+        "n": 15,
+        "C2_vs_C1": {
+          "delta": 0.0,
+          "pares_no_nulos": 0,
+          "p_wilcoxon": null,
+          "p_permutacion": null
+        },
+        "C4_vs_C3": {
+          "delta": 0.0,
+          "pares_no_nulos": 0,
+          "p_wilcoxon": null,
+          "p_permutacion": null
+        }
+      }
+    }
+  }
+}

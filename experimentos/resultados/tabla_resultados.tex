@@ -1,0 +1,17 @@
+% Tabla de resultados (global). Requiere booktabs.
+\begin{table}[htbp]\centering\footnotesize
+\caption{Escalera de ablación, resultados globales (encoder: jina-embeddings-v3).}
+\label{tab:resultados}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Configuración} & \textbf{nDCG@10} & \textbf{Recall@100} & \textbf{MRR@10} & \textbf{P@10} \\
+\midrule
+BM25 (referencia léxica) & 0.819 & 0.950 & 0.790 & 0.113 \\
+Denso puro & 0.866 & 1.000 & 0.832 & 0.117 \\
+Denso + ontología & 0.931 & 1.000 & 0.919 & 0.117 \\
+Híbrido (sin ontología) & 0.893 & 1.000 & 0.867 & 0.117 \\
+Híbrido + ontología & 0.948 & 1.000 & 0.942 & 0.117 \\
+Híbrido + ontología + realce & 0.924 & 1.000 & 0.911 & 0.117 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,1426 @@
+%% =====================================================================
+%% Monografía de grado — plantilla PRIME (arXiv style)
+%% Buscadores semánticos para la recuperación de conocimiento funcional
+%% en plataformas de software GovTech.
+%%
+%% Bibliografía embebida (thebibliography + paquete cite): compila sin
+%% BibTeX y evita las referencias [?]. Requiere PRIMEarxiv.sty en el
+%% proyecto de Overleaf, junto con las figuras referenciadas más abajo.
+%% =====================================================================
+\documentclass{article}
+
+\usepackage{PRIMEarxiv}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{lmodern}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cite}                 % comprime rangos de citas numéricas [1-3]
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+
+% Buscar figuras en las carpetas del proyecto (Overleaf compila desde la raíz).
+\graphicspath{{data/athena_suid/}{data/ontologia_suid/}{data/ontologia_suid/diagramas/}{media/}}
+
+% Entornos formales para la sección metodológica.
+\newtheorem{definition}{Definición}[section]
+\newtheorem{proposition}[definition]{Proposición}
+\numberwithin{equation}{section}
+
+% Colores para el diagrama de flujo.
+\definecolor{cajalex}{RGB}{227,239,252}
+\definecolor{cajadensa}{RGB}{230,245,233}
+\definecolor{cajafusion}{RGB}{252,243,224}
+\definecolor{cajaidx}{RGB}{238,238,238}
+\definecolor{cajaonto}{RGB}{242,235,250}
+
+% Columna X con texto en bandera para tabularx.
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+%% ---------------- Título y autoría ----------------
+\title{Buscadores semánticos para la recuperación de conocimiento funcional en plataformas de software GovTech
+\thanks{Proyecto de grado, Pregrado en Ciencia de Datos, Universidad del Norte. Asesor: Carlos de Oro Aguado.}}
+
+\author{
+  Luis Peñaranda \\
+  Pregrado en Ciencia de Datos \\
+  Universidad del Norte \\
+  División de Ciencias Básicas \\
+}
+
+\begin{document}
+\maketitle
+
+%% ---------------- Resumen (sin citas) ----------------
+\begin{abstract}
+Las plataformas de software del sector público concentran su conocimiento operativo en módulos, procesos y materiales de formación, y sus usuarios tardan en encontrar la funcionalidad o el procedimiento que necesitan. Ese retraso es un problema de recuperación de información que encarece el soporte y frena la adopción. Este trabajo estudia cómo resolverlo con un buscador semántico en español sobre el conocimiento funcional de una plataforma GovTech, y se apoya en tres fuentes de evidencia. La primera es una revisión comparativa de modelos de recuperación neuronal y de sistemas de búsqueda desplegados en producción. La segunda es un análisis del historial real de consultas de una plataforma deportiva del sector público durante seis semanas y media: la demanda está muy concentrada (cinco reportes explican el 83\% de las 6.620 consultas reales de datos) y el dominio de competencias, con gran volumen de datos, carece de punto de entrada. La tercera es un experimento propio: un recuperador híbrido que combina BM25 y un codificador denso multilingüe con representación Matryoshka, fusionados por rango, con inyección de metadatos de una ontología y un realce suave por entidad, evaluado con una escalera de ablación de cinco configuraciones sobre cuatro conjuntos de consultas, con pruebas pareadas, corrección por comparaciones múltiples y controles de validez. El híbrido supera de forma robusta a la búsqueda léxica sola en los cuatro conjuntos, réplica incluida, pero no se demuestra superior al denso puro, y ninguna fusión alternativa supera a RRF. La ontología mejora la recuperación donde la consulta se aparta del vocabulario del documento, y el realce por entidad nunca mejora el orden y se descarta. Un control con el nombre propio borrado mostró que el estrato de entidad exacta mide el tema del reporte y no la entidad, lo que impide contrastar la hipótesis central con este corpus. Truncar el \textit{embedding} a 256 dimensiones conserva la calidad con una cuarta parte del índice. La contribución es de evaluación y caracterización sobre un escenario que la literatura no cubre, con una lectura explícita de las limitaciones del protocolo y del tamaño del corpus.
+\end{abstract}
+
+\keywords{recuperación de información \and búsqueda semántica \and recuperación híbrida \and recuperación densa \and Matryoshka \and ontología \and ablación \and nDCG \and GovTech}
+
+%% =====================================================================
+\section{Introducción}
+%% =====================================================================
+Las plataformas de software del sector público acumulan un conocimiento funcional extenso: módulos, roles, procesos, pantallas, guías de uso, tutoriales y preguntas frecuentes. A medida que la plataforma crece, los usuarios que la operan tienen dificultad para localizar la funcionalidad o el procedimiento que necesitan, y cada búsqueda fallida termina en una llamada a soporte o en una tarea que no se completa. Ayudar a esos usuarios a encontrar el conocimiento correcto es una tarea de recuperación de información. Durante décadas el campo estuvo dominado por métodos léxicos como TF-IDF y BM25, que representan la consulta y el contenido como vectores dispersos sobre el vocabulario y puntúan por coincidencia de términos \cite{robertson2009bm25,karpukhin2020dpr}. Son eficientes y difíciles de superar, pero sufren el desajuste de vocabulario: el usuario escribe ``cómo cargo el presupuesto'' mientras el contenido dice ``módulo de ejecución'' o ``acta de verificación'', y el resultado pertinente queda fuera \cite{karpukhin2020dpr}.
+
+La búsqueda semántica ataca esa limitación representando el significado del texto y no su forma superficial. El enfoque dominante proyecta consultas y documentos a un espacio vectorial donde la cercanía geométrica aproxima la cercanía de significado \cite{karpukhin2020dpr,khattab2020colbert}, y las panorámicas recientes organizan el área en cinco familias, léxica, densa, dispersa neuronal, interacción tardía y reordenamiento, que la práctica combina en lugar de reemplazar \cite{zhao2022densesurvey,farivar2025semantic}.
+
+El caso de estudio es una plataforma GovTech de gestión de procesos del sector público. No se trata de un repositorio estático de documentos, sino de un sistema operativo de procesos: el buscador no recupera ``documentos sueltos'', sino cómo usar un módulo, qué hace una funcionalidad o cómo se resuelve un trámite. El escenario reúne cuatro condiciones que la literatura rara vez evalúa a la vez: dominio específico, idioma español, vocabulario normativo y de software con entidades exactas (nombres de módulos, roles, códigos, nombres propios de personas e instituciones), y muy pocos pares consulta--contenido etiquetados. En estos términos el problema es de usabilidad y adopción, y la Ciencia de Datos entra como el diseño y la evaluación del recuperador que hace accesible ese conocimiento.
+
+Este documento aporta cuatro cosas encadenadas. Primero, una revisión comparativa con peso numérico de los modelos y sistemas más pertinentes. Segundo, un análisis del uso real de una plataforma del dominio, que fundamenta qué conviene indexar y en qué orden. Tercero, una propuesta metodológica formalizada. Y cuarto, un experimento que la pone a prueba con resultados medidos, no solo un diseño. Todo el trabajo se ordena alrededor de seis preguntas de investigación, que son el hilo conductor de principio a fin.
+
+\paragraph{Preguntas de investigación.}
+\begin{description}[leftmargin=2.6em,style=nextline,itemsep=1pt]
+  \item[\textbf{P1.}] ¿En qué magnitud ($\Delta$nDCG@10, $\Delta$Recall@100) supera un recuperador híbrido a BM25 y al denso puro sobre el corpus GovTech en español, y es esa diferencia estadísticamente significativa?
+  \item[\textbf{P2.}] ¿La ventaja del híbrido sobre el denso se concentra en las consultas de entidad exacta y nombre propio (Deportista, Institución, código), frente a las ambiguas y las de documento largo?
+  \item[\textbf{P3.}] ¿La inyección de metadatos de una ontología del dominio en el documento mejora la recuperación, tanto sobre el recuperador denso como sobre el híbrido?
+  \item[\textbf{P4.}] ¿Cómo varían Recall@100 y nDCG@10 con el tamaño y el solapamiento del fragmento, manteniendo fijo el recuperador?
+  \item[\textbf{P5.}] ¿El realce suave por entidad detectada mejora el orden del top-$k$, en especial sobre las consultas de nombre propio, y a qué costo?
+  \item[\textbf{P6.}] ¿Qué configuración, y qué dimensión de \textit{embedding} Matryoshka, ofrece el mejor equilibrio entre efectividad, latencia y memoria para un despliegue local?
+\end{description}
+
+%% =====================================================================
+\section{Estado del arte}
+\label{sec:estado-arte}
+
+Este capítulo organiza la literatura según las decisiones de diseño que enfrenta quien construye un buscador para un dominio específico en español: cómo representar el texto, cómo combinar señales, cómo reducir el costo del índice, cómo incorporar conocimiento del dominio y cómo evaluar sin juicios abundantes. Cada apartado termina con lo que esa línea de trabajo aporta al diseño y con lo que deja sin resolver, porque el segundo punto es el que fija la brecha de la Sección~\ref{sec:brecha}. La organización por densidad de la representación y por nivel de supervisión sigue la idea de marco conceptual de Lin \cite{lin2021representational}.
+
+\subsection{Recuperación léxica: la línea base que no desaparece}
+\label{sec:ea-lexica}
+La recuperación léxica puntúa un documento por los términos que comparte con la consulta, ponderados por su rareza en la colección y saturados en frecuencia. BM25 es su forma canónica dentro del marco probabilístico de relevancia \cite{robertson2009bm25}, heredera de los pesos del sistema Okapi \cite{robertson1995okapi}. Su persistencia tiene una causa empírica: en el \textit{benchmark} heterogéneo BEIR, que reúne 18 colecciones y 9 tareas, los modelos densos entrenados en un dominio no superan de forma consistente a BM25 cuando se evalúan en otro \cite{thakur2021beir}. Para el español el analizador importa tanto como la fórmula, porque la flexión (``deportista'', ``deportistas'') y las tildes fragmentan el vocabulario. La reducción a raíces con algoritmos de tipo Snowball \cite{porter2001snowball} es la práctica habitual.
+
+\emph{Lo que aporta al diseño:} una señal exacta y barata, sin entrenamiento, que no falla con identificadores, siglas y nombres. \emph{Lo que deja sin resolver:} el desajuste de vocabulario, es decir, que el usuario escriba ``jugador'' donde el contenido dice ``deportista'' \cite{karpukhin2020dpr}.
+
+\subsection{Recuperación densa y representaciones eficientes}
+\label{sec:ea-densa}
+La recuperación densa sustituye la coincidencia de términos por la cercanía en un espacio vectorial aprendido. Un \textit{bi-encoder} codifica consulta y documento por separado, de modo que los vectores de documento se precomputan y la búsqueda se reduce a un producto interno \cite{karpukhin2020dpr,reimers2019sbert}. La selección de negativos difíciles durante el entrenamiento es un factor determinante de su calidad \cite{xiong2021ance}, y la recuperación densa es además el componente de recuperación de los sistemas de generación aumentada por recuperación \cite{lewis2020rag}. La familia ha crecido en varias direcciones relevantes para este trabajo.
+
+\paragraph{Entrenamiento sin anotación.} El aprendizaje contrastivo no supervisado iguala o supera a BM25 en \textit{Recall}@100 en la mayoría de las colecciones de BEIR \cite{izacard2022contriever}, lo que importa porque el caso de estudio carece de pares consulta--documento. Los modelos de propósito general se comparan en \textit{benchmarks} multitarea como MTEB \cite{muennighoff2023mteb}, aunque su cobertura del español de dominio específico es limitada.
+
+\paragraph{Multilingüismo y contexto largo.} M3-Embedding unifica más de cien lenguas, admite entradas de hasta 8.192 \textit{tokens} y produce, desde un mismo codificador, señales densa, dispersa y multivectorial \cite{chen2024m3}. La serie \texttt{jina-embeddings-v3} adopta un enfoque cercano: un codificador multilingüe de contexto largo con adaptadores de bajo rango (LoRA) específicos por tarea, entre ellos uno para consulta y otro para pasaje en recuperación, y soporte nativo de la representación Matryoshka \cite{sturua2024jinav3}. Que el adaptador dependa de una tarea declarada tiene una consecuencia práctica: omitirla degrada el modelo sin producir ningún error, y por eso el montaje experimental la fija de manera explícita.
+
+\paragraph{Representaciones truncables.} La \textit{Matryoshka Representation Learning} entrena el vector de modo que sus primeras $m$ dimensiones ya constituyan una representación utilizable, y permite elegir $m$ en el despliegue sin reentrenar \cite{kusupati2022matryoshka}. En producción, Uber Eats reporta que truncar de 1.536 a 256 dimensiones reduce el \textit{recall} solo 0{,}002 y el índice a cerca de una sexta parte \cite{ling2026ubereats}. Es el compromiso que la pregunta P6 mide sobre el corpus propio.
+
+\paragraph{Modelos abiertos de propósito general.} E5 preentrena con supervisión débil a gran escala y reporta que un codificador denso puede superar a BM25 en BEIR sin datos etiquetados \cite{wang2022e5}, y su versión multilingüe amplía la cobertura de lenguas \cite{wang2024multilinguale5}. La familia BGE documenta su receta de entrenamiento en C-Pack, un trabajo centrado en chino \cite{xiao2024cpack}, y Qwen3 Embedding parte de modelos de lenguaje de gran tamaño para producir \textit{embeddings} y reordenadores \cite{zhang2025qwen3embedding}. La evaluación multilingüe de \textit{embeddings} se ha ampliado con MMTEB \cite{enevoldsen2025mmteb}. Cuando existen datos de entrenamiento abundantes, como los de MS MARCO \cite{bajaj2016msmarco}, los modelos neuronales superan con claridad a los métodos tradicionales en el \textit{TREC Deep Learning Track} \cite{craswell2020trec19dl}; esa ventaja no está garantizada cuando tales datos faltan.
+
+\paragraph{Recursos para el español.} Los recursos de evaluación en español son menos abundantes que en inglés. MIRACL incluye el español entre 18 idiomas, con juicios de hablantes nativos \cite{zhang2023miracl}; mMARCO traduce MS MARCO a 13 idiomas, entre ellos el español \cite{bonifacio2021mmarco}; y MessIRve aporta un conjunto de recuperación específico en español construido con consultas de autocompletado de países hispanohablantes y documentos de Wikipedia \cite{valentini2025messirve}. Los tres son de dominio abierto, de modo que no responden a la pregunta sobre conocimiento funcional institucional.
+
+\emph{Lo que aporta:} cobertura semántica y flexibilidad de despliegue sin entrenar. \emph{Lo que deja sin resolver:} los resultados se reportan sobre colecciones de dominio abierto o con volúmenes de interacción que un caso institucional no tiene.
+
+\subsection{Representaciones dispersas aprendidas e interacción tardía}
+\label{sec:ea-dispersa}
+SPLADE aprende pesos de término sobre el vocabulario y conserva el índice invertido, con lo que mitiga el desajuste de vocabulario por expansión \cite{formal2021splade}. ColBERT puntúa con la suma de los máximos de similitud entre vectores por \textit{token}, y ColBERTv2 comprime el índice de 154 a entre 16 y 25 GiB \cite{khattab2020colbert,santhanam2022colbertv2}. Ambas líneas elevan la calidad a costa de infraestructura y de datos de entrenamiento con negativos difíciles. El reordenamiento con un \textit{cross-encoder}, que procesa consulta y documento juntos, tiene su antecedente en el uso de BERT como reordenador de pasajes \cite{nogueira2019passage} y en reordenadores de secuencia a secuencia \cite{nogueira2020monot5}; queda fuera de la escalera por decisión de diseño y se deja como trabajo futuro. Se mencionan aquí porque delimitan el alcance: no se evalúan en este trabajo, y la razón es de proporción entre el tamaño del corpus (decenas a cientos de documentos) y el costo de operarlas.
+
+\subsection{Combinación de señales: búsqueda híbrida y fusión por rango}
+\label{sec:ea-hibrida}
+Combinar una señal léxica y una densa es la respuesta práctica a que cada una falle donde la otra acierta \cite{chen2024m3,zhao2022densesurvey}. La dificultad técnica está en la fusión, porque las puntuaciones de BM25 y de coseno viven en escalas distintas y ponderarlas exige un peso calibrado, es decir, etiquetas. \textit{Reciprocal Rank Fusion} evita el problema operando sobre posiciones: suma $1/(k+\text{rank})$ por lista y, con $k=60$, superó a la fusión por aprendizaje de rangos en los experimentos que la introdujeron \cite{cormack2009rrf}. Su costo es que descarta la magnitud de las diferencias, de modo que dos documentos con posiciones $(1,3)$ y $(2,2)$ empatan. Flipkart añade un argumento aplicado a favor de tratar por separado lo exacto y lo semántico: su ventaja crece a medida que la consulta es más rara \cite{kothari2026flipkart}. Hay evidencia de que las representaciones densas de dimensión fija tienen límites frente a las dispersas, que los modelos híbridos compensan \cite{luan2021sparse}; de que los recuperadores densos basados en BERT necesitan interpolarse con BM25 para ser efectivos en recuperación de pasajes \cite{wang2021interpolation}; y de que los modelos híbridos generalizan mejor fuera de dominio que los léxicos o los densos por separado \cite{chen2022hybrid}. Sobre la fusión misma, Bruch et al. comparan funciones de fusión y hallan que la combinación convexa de puntuaciones supera a RRF, que además depende de sus parámetros \cite{bruch2024fusion}. Es un contrapunto relevante: la combinación convexa necesita un peso calibrado con juicios de relevancia, y RRF se elige aquí precisamente por no requerir entrenamiento. Por esa razón la sensibilidad a $k$ se mide de forma explícita (Sección~\ref{sec:res-sensibilidad}).
+
+\emph{Lo que aporta:} una fusión sin entrenamiento, coherente con la baja anotación. \emph{Lo que deja sin resolver:} cuánto aporta la fusión sobre el denso puro cuando el corpus es pequeño. Con pocos documentos, el denso por sí solo ya recupera casi todo en las primeras posiciones y la diferencia se vuelve difícil de detectar.
+
+\subsection{Conocimiento del dominio: ontologías y metadatos como puente semántico}
+\label{sec:ea-ontologia}
+Una ontología es una especificación explícita de los conceptos de un dominio y de sus relaciones \cite{gruber1993ontologia}. El término ``búsqueda semántica'' se acuñó en el contexto de las tecnologías de la Web Semántica \cite{guha2003semantic}, y la expansión de consultas con ontologías cuenta con revisiones específicas \cite{bhogal2007ontology}. En recuperación se la usa de tres maneras: expansión de la consulta con sinónimos, razonamiento sobre un grafo de conocimiento, o enriquecimiento del texto indexado. Este trabajo adopta la tercera, la más ligera. Su antecedente directo es ECLASS, donde la inyección de metadatos estructurados en la descripción de productos elevó el Hit@5 de 31{,}4\% (BM25) a 94{,}3\% sin ajuste fino, y donde inyectar un subconjunto seleccionado de metadatos rindió más que inyectarlos todos \cite{baumgart2026eclass}.
+
+\emph{Lo que aporta:} una vía de bajo costo para cerrar la brecha de vocabulario del lado del contenido. \emph{Lo que deja sin resolver:} la evidencia viene de un catálogo técnico de productos, no de conocimiento funcional de software, y no se sabe cómo depende el beneficio de cuánto se parece la consulta al vocabulario del documento.
+
+\subsection{Búsqueda y asistentes en gobierno digital}
+\label{sec:ea-govtech}
+La aplicación a gobierno digital se ha estudiado sobre todo en forma de asistentes conversacionales. Cantador et al. implementan y evalúan un \textit{chatbot} para buscar y explorar datos abiertos de gobierno \cite{cantador2021chatbot}, y una revisión posterior sintetiza las tendencias y los retos de los \textit{chatbots} de e-gobierno para explorar datos abiertos y contenidos de participación ciudadana \cite{cortescediel2023chatbots}. Estos trabajos fijan el contexto de aplicación; el presente trabajo se ocupa de otra cuestión, la comparación controlada de los componentes de recuperación sobre el conocimiento funcional de una plataforma.
+
+\subsection{Sistemas desplegados en producción}
+\label{sec:ea-produccion}
+Cuatro sistemas recientes documentan decisiones de ingeniería que un trabajo de pregrado puede contrastar a escala propia. LinkedIn destila un juez basado en modelos de lenguaje en un modelo pequeño para obtener etiquetas de relevancia, con un aumento de 75 veces en el \textit{throughput} a latencia fija \cite{borisyuk2026linkedin}. Flipkart combina un codificador dual con una estrategia para consultas raras \cite{kothari2026flipkart}. ECLASS aporta el puente por metadatos \cite{baumgart2026eclass}. Uber Eats combina un modelo de dos torres con representación Matryoshka para búsqueda multilingüe, incluido el español \cite{ling2026ubereats}. Los cuatro dependen de volúmenes de interacción de usuarios de otro orden de magnitud que el disponible aquí, lo que acota qué parte de su método es reproducible.
+
+\subsection{Evaluación con pocos juicios de relevancia}
+\label{sec:ea-evaluacion}
+La evaluación en recuperación se apoya en colecciones de prueba con juicios de relevancia (\textit{qrels}). Cuando los juicios son escasos, la literatura ofrece tres recursos relevantes. Primero, métricas con relevancia graduada y descuento por posición, como el nDCG \cite{jarvelin2002ndcg}. Segundo, protocolos de objetivo conocido (\textit{known-item}), donde cada consulta tiene un documento destino; son baratos y no fabrican juicios humanos, pero heredan el vocabulario del documento y sobrestiman el nivel absoluto de las métricas. Azzopardi, de Rijke y Balog estudian cómo construir consultas simuladas para estos protocolos y analizan su validez en seis idiomas europeos \cite{azzopardi2007simulated}. Los juicios de relevancia varían entre jueces, aunque el orden relativo de los sistemas se mantiene estable \cite{voorhees2000variations}, y el acuerdo entre anotadores se resume con el $\kappa$ de Cohen \cite{cohen1960kappa}. Para suplir la falta de anotación, InPars y Promptagator generan consultas sintéticas con modelos de lenguaje \cite{bonifacio2022inpars,dai2023promptagator}, una vía que este trabajo no emplea y que queda como extensión posible del conjunto de evaluación. Tercero, contrastes estadísticos pareados sobre el conjunto de consultas. Zobel mostró que las conclusiones sobre sistemas pueden cambiar con el tamaño y la composición de la colección \cite{zobel1998reliable}, y Smucker, Allan y Carterette compararon varias pruebas de significancia sobre colecciones de prueba y hallaron que la prueba $t$ pareada, el \textit{bootstrap} y la prueba de permutación concuerdan entre sí, mientras que la prueba de rangos con signo de Wilcoxon y la de signos se apartan de ellas \cite{smucker2007significance}. Por esa razón este trabajo contrasta con Wilcoxon \cite{wilcoxon1945}, que no supone normalidad y es la práctica común, pero la acompaña de un intervalo \textit{bootstrap} y de una prueba de permutación pareada como control de robustez. Cuando se contrasta una familia de configuraciones, el riesgo de falsos positivos exige corregir por comparaciones múltiples, por ejemplo con el procedimiento de Holm \cite{holm1979}, y el tamaño del efecto debe acompañar al $p$-valor; para pares emparejados la correlación biserial por rangos es la medida coherente con el test \cite{kerby2014}. Carterette trata el problema de las comparaciones múltiples en experimentos de recuperación \cite{carterette2012multiple}, Urbano, Lima y Hanjalic comparan de forma empírica las tasas de error de varias pruebas de significancia \cite{urbano2019significance}, y Sakai aboga por reportar tamaños del efecto junto con los $p$-valores \cite{sakai2014reform}.
+
+\emph{Lo que aporta:} un conjunto de prácticas aplicable con anotación escasa. \emph{Lo que deja sin resolver:} los protocolos \textit{known-item} sintetizados desde los propios documentos no distinguen entre medir el tema de un documento y medir la capacidad de encontrar una entidad en él, distinción que este trabajo tuvo que abordar con un control explícito (Sección~\ref{sec:validez}).
+
+\subsection{Evidencia cuantitativa de los modelos y los sistemas}
+\label{sec:ea-cuantitativa}
+Esta subsección reúne las cifras verificables que sostienen las decisiones de diseño de los apartados anteriores.
+
+La Tabla~\ref{tab:familias} sintetiza las ocho familias con una cifra verificable de cada una, para fijar el punto de partida sin recorrer artículo por artículo.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Síntesis técnica de los ocho modelos de recuperación, con una cifra verificable de cada uno. Las cifras corresponden a las condiciones de cada artículo y no son directamente comparables entre sí.}
+\label{tab:familias}
+\begin{tabularx}{\textwidth}{@{}l l Y@{}}
+\toprule
+\textbf{Modelo} & \textbf{Familia} & \textbf{Resultado verificable} \\
+\midrule
+BM25 \cite{robertson2009bm25} & Léxica (dispersa) & Línea base persistente; difícil de superar en \textit{zero-shot} \\
+DPR \cite{karpukhin2020dpr} & Densa (\textit{bi-encoder}) & \textit{Top}-20 en \textit{Natural Questions}: $78{,}4\%$ frente a $59{,}1\%$ de BM25 \\
+ColBERT \cite{khattab2020colbert} & Interacción tardía & MRR@10 de $34{,}9$ en \textit{MS MARCO}, con $>{\times}170$ de aceleración \\
+SPLADE \cite{formal2021splade} & Dispersa neuronal & MRR@10 de $0{,}322$ frente a $0{,}184$ de BM25; conserva índice invertido \\
+Contriever \cite{izacard2022contriever} & Densa no supervisada & Iguala o supera a BM25 en \textit{Recall}@100 en 11 de 15 colecciones \\
+ColBERTv2 \cite{santhanam2022colbertv2} & Interacción tardía & Índice de $154$ a $16$--$25$ GiB; mejor calidad fuera de dominio en 22 de 28 \\
+M3-Embedding \cite{chen2024m3} & Híbrida (integrada) & Hasta $8.192$ tokens, más de cien lenguas; fusiona densa y léxica \\
+BEIR \cite{thakur2021beir} & Evaluación \textit{zero-shot} & 18 colecciones, 9 tareas; el desempeño intra-dominio no predice el \textit{zero-shot} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+En lugar de recorrer artículo por artículo, conviene mirar las cifras que reportan, porque son las que sostienen cada decisión de diseño. Sobre \textit{Natural Questions}, un recuperador denso alcanza $78{,}4\%$ en \textit{top}-20 frente al $59{,}1\%$ de BM25 y ya lo supera con mil ejemplos de entrenamiento, aunque construir su índice sobre 21 millones de pasajes toma unas $8{,}5$ horas contra los $30$ minutos del índice invertido \cite{karpukhin2020dpr}. La interacción tardía logra un MRR@10 de $34{,}9$ en \textit{MS MARCO} con más de $170\times$ de aceleración por consulta \cite{khattab2020colbert}, y su versión comprimida reduce el índice de $154$ a $16$--$25$ GiB conservando la mejor calidad fuera de dominio en 22 de 28 pruebas \cite{santhanam2022colbertv2}. La representación dispersa aprendida sube el MRR@10 de $0{,}184$ a $0{,}322$ y el \textit{Recall}@1000 de $0{,}853$ a $0{,}955$ respecto de BM25 \cite{formal2021splade}. El entrenamiento contrastivo no supervisado iguala o supera a BM25 en \textit{Recall}@100 en 11 de 15 colecciones de un \textit{benchmark} heterogéneo \cite{izacard2022contriever}, y un modelo multilingüe unificado procesa hasta $8.192$ tokens en más de cien lenguas \cite{chen2024m3}. El resultado transversal que ordena todo lo demás es que el desempeño dentro del dominio de entrenamiento no anticipa la generalización fuera de él, y que BM25 es difícil de superar en \textit{zero-shot} \cite{thakur2021beir}. De ahí que una comparación empírica propia sobre el corpus objetivo sea necesaria, no opcional.
+
+Los sistemas ya desplegados en producción añaden la mirada aplicada y las cifras más pertinentes para un despliegue institucional. La Tabla~\ref{tab:produccion} resume sus resultados y los conecta con las preguntas de investigación.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Cifras de referencia de cuatro sistemas de búsqueda semántica en producción, y su relación con las preguntas de investigación de este trabajo.}
+\label{tab:produccion}
+\begin{tabularx}{\textwidth}{@{}l Y Y c@{}}
+\toprule
+\textbf{Sistema} & \textbf{Resultado reportado} & \textbf{Idea aplicable} & \textbf{Pregunta} \\
+\midrule
+LinkedIn \cite{borisyuk2026linkedin} &
+$\times 75$ de \textit{throughput} a latencia fija; en producción $+7{,}73\%$ de NDCG@10 y $-46{,}88\%$ de coincidencias pobres en búsqueda de empleo &
+Juez basado en un modelo de lenguaje para generar etiquetas y destilarlas &
+P3 \\
+Flipkart \cite{kothari2026flipkart} &
+$+5{,}57$ de MAP@8 sobre el sistema base, y hasta $+8{,}54$ en consultas raras (una sola aparición); A/B con $+2{,}62\%$ de órdenes &
+Tratar por separado lo exacto y lo semántico; la ventaja crece con la rareza de la consulta &
+P2, P5 \\
+ECLASS \cite{baumgart2026eclass} &
+Hit@5 de $94{,}3\%$ frente a $31{,}4\%$ de BM25, sin \textit{fine-tuning}; inyectar metadatos selectivos rinde más que inyectar todos &
+Metadatos estructurados como puente semántico &
+P3 \\
+Uber Eats \cite{ling2026ubereats} &
+$+31\%$ de Recall@200; truncar de 1536 a 256 dimensiones baja el \textit{recall} solo $0{,}002$ y el índice a ${\sim}16\%$; en español Recall@200 ${\sim}0{,}72$ y $-69{,}1\%$ de consultas sin resultados &
+Representación Matryoshka para ajustar tamaño a la latencia, sin reentrenar &
+P6 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Estas cuatro columnas de evidencia son las que justifican la forma de la propuesta. La ganancia de Flipkart en consultas raras y su manejo explícito de lo exacto sostienen las hipótesis de P2 y P5. El puente por metadatos de ECLASS, con su salto de $31{,}4$ a $94{,}3$ puntos y su hallazgo de que conviene inyectar metadatos selectivos, es la base de P3. La representación Matryoshka de Uber Eats, que recorta el índice a una sexta parte con una caída de \textit{recall} casi nula, resuelve el compromiso de P6 sin entrenar un modelo grande. Al mismo tiempo, los cuatro sistemas se apoyan en cientos de millones de interacciones de usuarios que el caso no tiene \cite{ling2026ubereats,borisyuk2026linkedin}, lo que fija el límite de lo que se puede reproducir aquí.
+
+\subsection{Síntesis comparativa}
+\label{sec:ea-sintesis}
+La Tabla~\ref{tab:sintesis-ea} resume las líneas anteriores según los criterios que condicionan una decisión de diseño en este caso: si requieren datos etiquetados, qué costo de infraestructura imponen, cómo tratan lo exacto y lo semántico, y si fueron evaluadas en español o en dominio específico. La columna final indica el tratamiento que se les da en el experimento.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Síntesis cualitativa de las líneas de trabajo revisadas respecto de las restricciones del caso de estudio. ``Cobertura es--dominio'' indica si la evidencia primaria incluye español o un dominio específico.}
+\label{tab:sintesis-ea}
+\begin{tabularx}{\textwidth}{@{}l c c Y c@{}}
+\toprule
+\textbf{Línea} & \textbf{Requiere etiquetas} & \textbf{Costo de índice} & \textbf{Exacto / semántico} & \textbf{Cobertura es--dominio} \\
+\midrule
+Léxica (BM25)                       & no            & bajo      & fuerte en exacto, débil en semántico & parcial \\
+Densa preentrenada                  & no (\textit{zero-shot}) & medio & fuerte en semántico, débil en identificadores & parcial \\
+Dispersa aprendida (SPLADE)         & sí            & medio     & expansión léxica & no \\
+Interacción tardía (ColBERT)        & sí            & alto      & fina, a nivel de \textit{token} & no \\
+Híbrida con fusión por rango        & no            & medio     & ambas señales & parcial \\
+Metadatos de ontología (ECLASS)     & no            & bajo      & puente de vocabulario & dominio técnico \\
+Matryoshka (truncación)             & no            & ajustable & efecto menor en la calidad & español (Uber Eats) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Las filas marcadas con ``no'' en etiquetas son las compatibles con el régimen de anotación escasa, y de ellas el experimento combina cuatro: léxica, densa preentrenada, fusión por rango y metadatos de ontología, con la truncación Matryoshka como parámetro de despliegue. Las líneas que requieren entrenamiento supervisado se excluyen por diseño, no por desconocimiento.
+
+%% =====================================================================
+\section{Brecha de investigación, objetivos e hipótesis}
+\label{sec:brecha}
+
+\subsection{Brecha de investigación}
+Los trabajos revisados en el Capítulo~\ref{sec:estado-arte} comparten tres rasgos que no coinciden con el caso de estudio: se evalúan en inglés o en colecciones multilingües de dominio abierto, parten de volúmenes de anotación o de interacción que una organización pública mediana no tiene, y miden la calidad de recuperación sin separar si el sistema encuentra una \emph{entidad} o solo el \emph{tema} de un documento. Los recursos disponibles para el español (MIRACL, mMARCO, MessIRve) son de dominio abierto \cite{zhang2023miracl,bonifacio2021mmarco,valentini2025messirve}. BEIR muestra además que el desempeño dentro del dominio de entrenamiento no predice el desempeño fuera de él \cite{thakur2021beir}, de modo que la pregunta no se resuelve con la literatura publicada.
+
+La brecha se formula así: \emph{no existe evidencia sobre cómo se comportan, combinadas y sobre un mismo corpus, la recuperación léxica, la densa preentrenada, la fusión por rango y la inyección de metadatos de una ontología, cuando el corpus es conocimiento funcional de una plataforma GovTech en español, con entidades exactas y con anotación escasa}. Esa evidencia importa por dos razones prácticas: determina qué componentes justifican su costo antes de construir el sistema, y establece qué protocolo de evaluación es válido cuando no hay juicios de expertos.
+
+\subsection{Objetivos}
+\paragraph{Objetivo general.} Caracterizar empíricamente el aporte de cada componente de un recuperador híbrido preentrenado, enriquecido con una ontología del dominio, sobre el conocimiento funcional de una plataforma GovTech en español, bajo anotación escasa.
+
+\paragraph{Objetivos específicos.}
+\begin{enumerate}[leftmargin=2.2em,itemsep=1pt]
+  \item Describir el uso real de la plataforma a partir de su historial de consultas, para fundamentar qué conviene indexar y en qué orden.
+  \item Construir una ontología del dominio y un corpus enriquecido que respete una separación estricta de datos personales.
+  \item Implementar una escalera de ablación de cinco configuraciones que aísle el efecto de la señal léxica, la ontología y el realce por entidad.
+  \item Evaluar las configuraciones con un protocolo reproducible que incluya controles de validez, contrastes pareados y corrección por comparaciones múltiples.
+  \item Medir el compromiso entre efectividad, latencia y memoria mediante la truncación Matryoshka y la fragmentación del documento.
+  \item Formular recomendaciones de despliegue y una agenda de validación externa con juicios de expertos.
+\end{enumerate}
+
+\subsection{Hipótesis}
+\label{sec:hipotesis}
+Cada pregunta de investigación se traduce en una hipótesis nula y una alternativa contrastables. Sea $\Delta_{A,B}$ la media, sobre las consultas del conjunto, de la diferencia $\mathrm{nDCG@10}_A(q)-\mathrm{nDCG@10}_B(q)$, con $A$ y $B$ configuraciones de la escalera (Tabla~\ref{tab:escalera}). Todas las comparaciones son pareadas, con las mismas consultas en ambos brazos.
+
+\begin{description}[leftmargin=2.6em,style=nextline,itemsep=3pt]
+  \item[\textbf{H1} (P1).] $H_0\!:\ \Delta_{\text{C3},\text{BM25}}\le 0$ \quad frente a \quad $H_1\!:\ \Delta_{\text{C3},\text{BM25}}>0$. El híbrido sin ontología supera a la recuperación léxica sola. Se contrasta de forma análoga $\Delta_{\text{C3},\text{C1}}$, es decir, frente al denso puro.
+
+  \item[\textbf{H2} (P2).] $H_0\!:$ la diferencia $\Delta_{\text{C3},\text{C1}}$ no varía entre estratos de consulta \quad frente a \quad $H_1\!:$ $\Delta_{\text{C3},\text{C1}}$ es mayor en el estrato de entidad exacta. Esta hipótesis solo es contrastable si en el estrato de entidad exacta la entidad figura en el documento objetivo; la Sección~\ref{sec:validez} explica por qué es una condición de validez y no un detalle.
+
+  \item[\textbf{H3a} (P3, denso).] $H_0\!:\ \Delta_{\text{C2},\text{C1}}\le 0$ \quad frente a \quad $H_1\!:\ \Delta_{\text{C2},\text{C1}}>0$. Inyectar metadatos de ontología mejora al denso.
+
+  \item[\textbf{H3b} (P3, híbrido).] $H_0\!:\ \Delta_{\text{C4},\text{C3}}\le 0$ \quad frente a \quad $H_1\!:\ \Delta_{\text{C4},\text{C3}}>0$. Inyectar metadatos de ontología mejora al híbrido.
+
+  \item[\textbf{H4} (P4).] $H_0\!:$ el nDCG@10 de C4 no cambia con el tamaño ni el solapamiento del fragmento \quad frente a \quad $H_1\!:$ existe una configuración de fragmento con nDCG@10 mayor que la del documento completo. Se espera que la hipótesis alternativa se sostenga solo cuando los documentos superen la ventana efectiva del codificador.
+
+  \item[\textbf{H5} (P5).] $H_0\!:\ \Delta_{\text{C5},\text{C4}}\le 0$ \quad frente a \quad $H_1\!:\ \Delta_{\text{C5},\text{C4}}>0$. El realce suave por entidad mejora el orden del top-$k$.
+
+  \item[\textbf{H6} (P6).] $H_0\!:$ truncar a $m<1.024$ dimensiones reduce el nDCG@10 de C4 en más de un margen de equivalencia $\varepsilon$ \quad frente a \quad $H_1\!:$ la reducción es menor o igual que $\varepsilon$. Se adopta $\varepsilon=0{,}01$ de nDCG@10 como margen práctico, definido antes de observar los resultados, y se evalúa con el intervalo de confianza de la diferencia en lugar de un $p$-valor.
+  \item[\textbf{H7} (exploratoria).] $H_0\!:$ ninguna variante de fusión (convexa, RRF ponderado o con compuerta), con el parámetro elegido sin fuga, supera a RRF \quad frente a \quad $H_1\!:$ al menos una lo supera. Se contrasta con la misma familia de pruebas y Holm entre variantes.
+\end{description}
+
+Las hipótesis H1, H3a, H3b y H5 son unilaterales porque la teoría y la literatura predicen una dirección. Se reporta, no obstante, el contraste bilateral cuando la dirección observada contradice la predicha, para no ocultar efectos adversos como el del realce.
+
+\subsection{Plan de análisis}
+\label{sec:plan-analisis}
+El plan se fija antes de observar los resultados definitivos, para evitar decisiones guiadas por los datos.
+\begin{itemize}[leftmargin=1.6em,itemsep=1pt]
+  \item \textbf{Métrica primaria:} nDCG@10 con relevancia graduada. \textbf{Secundarias:} MRR@10, Recall@100, P@10 y AP@100.
+  \item \textbf{Contraste:} prueba de rangos con signo de Wilcoxon sobre las diferencias por consulta, con $\alpha=0{,}05$ \cite{wilcoxon1945}. Como Smucker et al. documentan que Wilcoxon puede discrepar de la prueba $t$, el \textit{bootstrap} y la permutación \cite{smucker2007significance}, cada comparación se verifica con una prueba de permutación pareada (aleatorización de signos); solo se declara robusto el efecto en el que ambas pruebas coinciden.
+  \item \textbf{Familia de comparaciones:} las cinco de la escalera (C3--BM25, C3--C1, C2--C1, C4--C3, C5--C4). Los $p$-valores se ajustan con el procedimiento de Holm dentro de cada familia, que controla la probabilidad de al menos un falso positivo \cite{holm1979}.
+  \item \textbf{Tamaño del efecto:} correlación biserial por rangos de pares emparejados \cite{kerby2014}, junto con la diferencia media y su intervalo de confianza del 95\% por \textit{bootstrap} percentil de las diferencias \cite{efron1979bootstrap}.
+  \item \textbf{Poder efectivo:} se reporta el número de pares con diferencia no nula, porque la prueba de Wilcoxon descarta los empates y el poder real depende de ese número y no del total de consultas.
+  \item \textbf{Unidad de análisis:} la consulta. Para no inflar el tamaño muestral por pseudo-replicación, las consultas que solo difieren en un valor sustituible (por ejemplo el nombre propio) se cuentan como una sola.
+  \item \textbf{Lectura de resultados no significativos:} se interpretan como evidencia insuficiente, no como ausencia de efecto, con la diferencia media y su intervalo como base de la discusión.
+\end{itemize}
+
+%% =====================================================================
+\section{Datos y análisis exploratorio}
+\label{sec:datos}
+%% =====================================================================
+La evidencia empírica proviene del historial de solicitudes de reportes de una plataforma de gestión deportiva del sector público, en una ventana de seis semanas y media. El análisis no toca información de ninguna persona: examina qué se preguntó, no qué respondió el sistema, y todo valor que pudiera identificar a alguien se eliminó antes de guardarse, con una auditoría automática que confirmó que no queda rastro de esos valores. Los nombres técnicos internos se mencionan una sola vez entre paréntesis; de ahí en adelante se usa el nombre en lenguaje natural.
+
+\subsection{Concentración de la demanda y un patrón recurrente}
+La plataforma ejecuta dos instrucciones por cada página de resultados que ve el usuario: una que trae los datos y otra que solo cuenta cuántos hay, para paginar. Contar ambas por igual infla la demanda casi al doble. Por eso la unidad de este análisis es la \emph{consulta de datos real}, que descarta las verificaciones de conteo y las consultas que solo alimentan los filtros de la interfaz. Sobre esa unidad, las $6.620$ consultas reales del periodo (el $45\%$ de las ejecuciones brutas) se reparten de forma muy desigual. El reporte más solicitado, el Reporte Individual de Deportistas, explica por sí solo el $40{,}4\%$ de las consultas reales; los cinco reportes de mayor demanda suman el $83\%$. El índice de Gini de la distribución es $0{,}70$ (intervalo de confianza del $95\%$ por \textit{bootstrap} por día: $0{,}65$ a $0{,}75$), una desigualdad marcada que da el argumento cuantitativo de la prioridad de indexación: no tiene sentido invertir el mismo esfuerzo en un reporte que casi nadie pide que en uno que se pide cientos de veces por semana. La Figura~\ref{fig:ranking} muestra el orden ya ajustado y la Figura~\ref{fig:lorenz} la curva de concentración. Una versión preliminar del análisis atribuía al reporte de promoción cerca de la mitad de la demanda; la cifra era un artefacto de clasificación, porque se contaba como promoción cualquier consulta al reporte individual que mencionara columnas como categoría o etapa, que son atributos de ese mismo reporte. Con la regla corregida, que exige usar el registro de promociones o calcular un estado de promoción, el reporte de promoción pasa al séptimo lugar con el $4{,}2\%$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{Images/output_001.png}
+\caption{Reportes ordenados por demanda real (consultas de datos, descontadas las verificaciones de paginación) en la ventana de seis semanas y media. El Reporte Individual de Deportistas encabeza la demanda con el $40{,}4\%$.}
+\label{fig:ranking}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Images/output_002.png}
+\caption{Curva de Lorenz de la demanda entre reportes. El área entre la curva y la diagonal resume un índice de Gini de $0{,}70$: cinco reportes concentran el $83\%$ de las consultas reales.}
+\label{fig:lorenz}
+\end{figure}
+
+El reporte de promoción no existe como una fuente de datos ya calculada: se reconstruye en cada solicitud con un cruce al vuelo entre los datos del deportista, el registro de promociones y la definición de fases del evento, porque el estado de promoción es el resultado de una lógica de negocio, no un dato guardado. Cada vez que alguien lo pide, el sistema repite el mismo cálculo aunque nada haya cambiado. Este patrón, una pregunta de negocio real que se arma con un cruce en el momento y sin una fuente dedicada que la resuelva, no es exclusivo de ese reporte. Reaparece, con más fuerza, en un dominio que el historial ni siquiera registra.
+
+\subsection{El dominio de Competencias: gran volumen, cero demanda}
+\label{sec:competencias}
+Los diecisiete reportes analizados no son todo el sistema. Una revisión directa del catálogo de datos muestra que el dominio de competencias (eventos, fases, disciplinas, resultados) no tiene punto de entrada en el historial: las tablas que definen la competencia en sí, eventos, resultados (configuraciones y posiciones) y sedes, no aparecen en ninguna solicitud de la ventana, y las de grupos y participantes figuran solo como apoyo de otros reportes. La razón no es la baja demanda sino la ausencia de un reporte que exponga el dominio: la capa intermedia de eventos está vacía y ninguna de las tablas ya resueltas lo cubre. Su volumen real, en cambio, es varias veces mayor que el de cualquier reporte actual: $47.635$ resultados de competencia y $732.640$ participaciones de deportista por disciplina. La Figura~\ref{fig:diferencial} pone lado a lado las dos lecturas.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{Images/output_008.png}
+\caption{Mapeo diferencial. A la izquierda, la demanda observada: los diecisiete reportes concentran las consultas reales y las tablas que definen la competencia no se consultan nunca. A la derecha, el tamaño real del dominio de competencias, que ningún reporte expone. El cero de demanda es un vacío de cobertura, no evidencia de poca relevancia.}
+\label{fig:diferencial}
+\end{figure}
+
+El punto no es anecdótico, y conviene detenerse en él porque es la pieza que da sentido a toda la propuesta. La lectura ingenua de un cero en el historial sería ``nadie lo necesita''; la lectura correcta es ``nadie puede pedirlo, porque no existe la puerta''. Es exactamente el mismo patrón del reporte de promoción, llevado al extremo: una pregunta de negocio real que no tiene una fuente de datos que la resuelva, solo que aquí la brecha se mide en cientos de miles de registros que nunca se pudieron consultar. Dicho de otro modo, competencias es la evidencia más pura del patrón ``pregunta de negocio sin reporte dedicado'', y por eso es el mejor candidato para la segunda versión: es donde el buscador, una vez que exista el punto de entrada, entrega más valor por unidad de esfuerzo.
+
+La consulta que motivó la investigación lo ilustra. Un usuario querría escribir algo como ``Atletismo Pre-Juvenil en Región Caribe 1'', pero esa frase no corresponde a ningún campo del sistema: es la intersección de tres conceptos reales, verificados contra los datos, que hoy viven en tablas distintas, una disciplina con su categoría, una fase de competencia y una región deportiva. La entidad de negocio es una \emph{Prueba Regional}, que no está materializada en ninguna parte y se arma componiendo conceptos. La Figura~\ref{fig:construccion} muestra esa composición.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\textwidth]{Images/im_010.png}
+\caption{Construcción de la entidad sintética Prueba Regional a partir de disciplina, categoría, fase y región. La consulta ``Atletismo Pre-Juvenil en Región Caribe 1'' no es un campo, es una composición de cuatro conceptos que hoy viven en tablas separadas.}
+\label{fig:construccion}
+\end{figure}
+
+Aquí está el argumento empírico que sostiene toda la propuesta metodológica. Si las preguntas de negocio más valiosas se arman componiendo conceptos (disciplina más categoría más región más fase, o deportista más evento más estado de promoción), entonces un recuperador que solo compare texto plano contra texto plano se queda corto: necesita conocer esos conceptos y cómo se relacionan. Una ontología del dominio, que nombra las entidades y sus relaciones, es la que permite que el sistema entienda que ``Pre-Juvenil'' es una categoría, que ``Caribe 1'' es una región y que la combinación tiene sentido. El hallazgo de competencias no es solo un dato sobre cobertura: es la justificación de por qué la capacidad de componer conceptos, y no solo de emparejar palabras, es necesaria en este dominio, y motiva la hipótesis de que la ontología aporte más en este dominio que en los reportes, que la evaluación debe contrastar.
+
+\subsection{Consecuencia para el corpus: por qué hace falta una ontología}
+El corpus a indexar no son las filas de datos personales ni el volcado bruto de consultas, sino descripciones en lenguaje natural de cada reporte, enriquecidas con metadatos de una ontología del dominio. Esa ontología reúne 13 clases de negocio y 20 relaciones (Figura~\ref{fig:relaciones}) y marca de forma explícita qué propiedades son buscables por nombre propio, que es lo que el caso quiere explotar. La búsqueda por nombre propio de una persona o una institución se resuelve en un componente aparte, con control de acceso, coherente con que los nombres de participante ya viajan cifrados a nivel de columna en la capa base; el índice semántico nunca contiene datos personales.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{Images/im_011.png}
+\caption{Mapa de entidades y relaciones de la ontología del dominio (13 clases, 20 relaciones). Es la fuente de los metadatos que se inyectan en el corpus y de las entidades que activan el realce por coincidencia exacta, y lo que hace posible componer conceptos como la Prueba Regional.}
+\label{fig:relaciones}
+\end{figure}
+
+\subsection{Alcance de la Versión 1 del buscador}
+\label{sec:alcance}
+El análisis anterior acota la primera versión de forma inequívoca. La Versión 1 se construye exclusivamente sobre los diecisiete reportes ya identificados y la ontología ya definida, con prioridad fuerte en los cinco reportes de mayor demanda, que concentran el $83\%$ de las consultas reales. El conjunto de evaluación se centra en consultas sobre esos reportes. Incluye un estrato de entidad exacta, con consultas de nombre propio de Deportista e Institución, que son las que el caso más quiere resolver; como se explica en la Sección~\ref{sec:validez-constructo}, ese estrato mide en esta versión el tema del reporte y no la búsqueda por entidad, porque las entidades no figuran en el documento indexado.
+
+El dominio de competencias queda formalmente fuera de la Versión 1. No por falta de valor, sino al contrario: por su tamaño y por el hecho de que hoy carece de cualquier punto de entrada, exponerlo bien exige materializar la entidad Prueba Regional y un trabajo de modelado que merece su propia iteración. Se marca, por tanto, como la extensión prioritaria de la Versión 2, y la ontología ya lo contempla con la fórmula de composición de la Prueba Regional, de modo que la Versión 2 reutiliza la misma tubería sin rediseñarla. Esta decisión se justifica por dos principios. El primero es la concentración de la demanda: entregar valor medible primero donde está el $83\%$ del uso real. El segundo es de método: un alcance acotado permite construir un conjunto de evaluación creíble y medir mejoras con rigor, antes de abrir un dominio nuevo cuya demanda todavía no existe porque nunca se pudo expresar. En una frase, la Versión 1 se compromete con lo que se puede medir bien hoy, y la Versión 2 con lo que más valor tiene mañana.
+
+%% =====================================================================
+\section{Propuesta metodológica}
+\label{sec:propuesta}
+%% =====================================================================
+La propuesta es de evaluación y caracterización, no de modelado: no se entrena un modelo grande desde cero. Todas las configuraciones parten de modelos preentrenados públicos en modo \textit{zero-shot}, y a lo sumo se ajusta un peso de fusión o un umbral sobre un pequeño conjunto de desarrollo. Esta sección formaliza el recuperador, y las dos siguientes definen el experimento que lo pone a prueba y reportan sus resultados.
+
+\subsection{Notación y representación del documento}
+Sea $q$ una consulta y $\mathcal{D}=\{d_1,\dots,d_N\}$ el conjunto de reportes indexables. Cada reporte $d$ tiene dos componentes: su \emph{descripción} en lenguaje natural, $d_{\text{desc}}$, y sus \emph{metadatos de ontología}, $o_d$, que reúnen las entidades que cubre, sus sinónimos y las preguntas de negocio que responde. La primera decisión de diseño, siguiendo la lección de ECLASS de que los metadatos estructurados actúan de puente semántico \cite{baumgart2026eclass}, es no indexar la descripción cruda sino una representación enriquecida.
+
+\begin{definition}[Documento enriquecido]
+\label{def:enriquecido}
+Sea $\phi(o_d)$ la serialización textual de un subconjunto selectivo de los metadatos de ontología del reporte $d$ (entidades principales, sinónimos y preguntas de negocio), y sea $\oplus$ la concatenación. El documento enriquecido es
+\begin{equation}
+d' \;=\; d_{\text{desc}} \,\oplus\, \phi(o_d).
+\label{eq:enriquecido}
+\end{equation}
+La selección es deliberada: inyectar metadatos escogidos rinde más que volcar todos los atributos \cite{baumgart2026eclass}. Cuando una configuración no usa ontología, se toma $d'=d_{\text{desc}}$.
+\end{definition}
+
+\subsection{Recuperadores léxico y denso con Matryoshka}
+La \emph{vista léxica} puntúa por coincidencia de términos entre la consulta y el documento enriquecido con BM25:
+\begin{equation}
+s_{\text{BM25}}(q, d') \;=\; \sum_{t \in q} \mathrm{IDF}(t)\,
+\frac{f(t,d')\,(k_1+1)}{f(t,d') + k_1\!\left(1 - b + b\,\dfrac{|d'|}{\overline{|d'|}}\right)},
+\label{eq:bm25}
+\end{equation}
+donde $f(t,d')$ es la frecuencia del término $t$ en $d'$, $|d'|$ su longitud, $\overline{|d'|}$ la longitud media del corpus, $\mathrm{IDF}(t)$ la frecuencia inversa de documento, y $k_1$ y $b$ los parámetros de saturación y de normalización por longitud \cite{robertson2009bm25}. En el experimento se usan los valores estándar $k_1=1{,}5$ y $b=0{,}75$, y un analizador en español que normaliza a minúsculas, elimina tildes, descarta palabras vacías y reduce cada palabra a su raíz con el algoritmo Snowball \cite{porter2001snowball}. Solo se puntúan los documentos que comparten al menos un término con la consulta; los demás no entran en la lista léxica.
+
+La \emph{vista densa} usa un codificador \textit{bi-encoder} multilingüe preentrenado $f_\theta$ que proyecta un texto a un vector, y puntúa por producto interno:
+\begin{equation}
+s_{\text{dense}}(q, d') \;=\; \big\langle f_\theta(q),\, f_\theta(d') \big\rangle .
+\label{eq:dense}
+\end{equation}
+Los vectores se normalizan en norma dos, de modo que el producto interno coincide con la similitud coseno. El codificador se entrena con \textit{Matryoshka Representation Learning}, que ordena las dimensiones del \textit{embedding} por importancia y permite truncar a las primeras $m$ sin reentrenar. Con el operador de truncación y renormalización $\tau_m$,
+\begin{equation}
+s^{(m)}_{\text{dense}}(q, d') \;=\; \big\langle \tau_m f_\theta(q),\, \tau_m f_\theta(d') \big\rangle,
+\qquad m \in \{64, 128, 256, 512, 768, 1024\},
+\label{eq:mrl}
+\end{equation}
+lo que convierte a $m$ en una perilla de despliegue. En el sistema de Uber Eats, truncar de $1536$ a $256$ dimensiones bajó el \textit{recall} solo $0{,}002$ puntos y el índice a cerca de una sexta parte \cite{ling2026ubereats}, que es justo el compromiso de P6.
+
+\subsection{Fusión por rango y realce por entidad}
+Las dos vistas se combinan por \textit{Reciprocal Rank Fusion} (RRF), que opera sobre los rangos y no sobre las puntuaciones, de modo que no requiere calibrar escalas ni entrenar la fusión.
+
+\begin{definition}[Fusión por rango]
+\label{def:rrf}
+Sea $\text{rank}_r(q,d')$ la posición del documento $d'$ en la lista ordenada por el recuperador $r$. La puntuación fusionada es
+\begin{equation}
+s_{\text{RRF}}(q, d') \;=\; \sum_{r \in \{\text{BM25},\,\text{dense}\}} \frac{1}{k + \text{rank}_r(q, d')},
+\label{eq:rrf}
+\end{equation}
+con la constante habitual $k=60$.
+\end{definition}
+
+\begin{proposition}[La fusión no requiere entrenamiento]
+La Ecuación~\eqref{eq:rrf} depende solo de los rangos y de la constante $k$, no de las magnitudes de $s_{\text{BM25}}$ y $s_{\text{dense}}$. Es por tanto invariante a transformaciones monótonas de cada puntuación y no necesita un conjunto de entrenamiento para calibrar pesos entre vistas, condición que el régimen de baja anotación impone.
+\end{proposition}
+
+La última pieza atiende las consultas de entidad exacta y nombre propio, frecuentes en el uso de software y donde el denso puro pierde coincidencia. Un detector de entidades identifica las clases mencionadas en la consulta (por expresiones regulares y por coincidencia con el gazetteer de clases de la ontología), y cada documento tiene un conjunto de entidades que cubre. La indicadora $\mathbb{1}_{\text{entidad}}(q, d')$ vale $1$ cuando la consulta menciona al menos una entidad que el documento cubre y $0$ en otro caso.
+
+\begin{definition}[Realce suave por entidad]
+\label{def:realce}
+La puntuación final aplica un factor multiplicativo pequeño cuando hay coincidencia de entidad:
+\begin{equation}
+s_{\text{final}}(q, d') \;=\; s_{\text{RRF}}(q, d') \,\cdot\, \big(1 + \lambda\,\mathbb{1}_{\text{entidad}}(q, d')\big),
+\qquad \lambda \in [0{,}1,\,0{,}3].
+\label{eq:final}
+\end{equation}
+El realce es \emph{suave} porque $\lambda$ es pequeño: pretende reordenar candidatos cercanos y acercar los que tienen coincidencia exacta, sin anular la señal semántica de la fusión. El resultado del sistema es la lista $\mathrm{Rank}_k(q)$ de los $k$ documentos de mayor puntuación. Como se verá en la Sección~\ref{sec:resultados}, este componente es el único de la escalera que no cumple lo que promete en la práctica.
+\end{definition}
+
+\subsection{Las cinco configuraciones de la escalera de ablación}
+\label{sec:escalera-def}
+El recuperador se descompone en cinco configuraciones anidadas que encienden un mecanismo a la vez. Formalmente, dada una consulta $q$, cada configuración define una función de puntuación distinta sobre $\mathcal{D}$ a partir de las Ecuaciones~\eqref{eq:enriquecido}--\eqref{eq:final}:
+\begin{align}
+\text{C1 (Denso puro):}\quad & s_{\text{dense}}(q, d_{\text{desc}}) \label{eq:c1}\\
+\text{C2 (Denso + ontología):}\quad & s_{\text{dense}}(q, d') \label{eq:c2}\\
+\text{C3 (Híbrido sin ontología):}\quad & s_{\text{RRF}}\big(\text{BM25},\text{dense}\,;\,d_{\text{desc}}\big) \label{eq:c3}\\
+\text{C4 (Híbrido + ontología):}\quad & s_{\text{RRF}}\big(\text{BM25},\text{dense}\,;\,d'\big) \label{eq:c4}\\
+\text{C5 (Híbrido + ontología + realce):}\quad & s_{\text{final}}(q, d') \label{eq:c5}
+\end{align}
+Como referencia adicional se reporta BM25 solo sobre $d_{\text{desc}}$, la línea base léxica clásica. La configuración~C3, el híbrido sin ontología, es la \emph{línea base crítica}: es lo que hay que superar para justificar la inyección de metadatos (C4) y el realce (C5). La Figura~\ref{fig:flujo} resume el flujo en línea y fuera de línea, y la Figura~\ref{fig:arquitectura} detalla la arquitectura con su separación de privacidad.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  font=\scriptsize,
+  box/.style={draw, rounded corners, align=center, inner sep=3pt, minimum height=8mm},
+]
+\node[box, fill=cajaidx, text width=22mm] (kn) at (0,3.0) {Conocimiento funcional (guías, reportes, procesos)};
+\node[box, fill=cajaonto, text width=17mm] (on) at (3.1,3.0) {Enriquecido con ontología};
+\node[box, fill=cajaidx, text width=38mm] (idx) at (6.8,3.0) {Índices: invertido (BM25) $+$ vectorial denso con Matryoshka};
+\draw[->] (kn) -- (on); \draw[->] (on) -- (idx);
+\node[anchor=west, font=\scriptsize\itshape] at (-1.2,3.9) {Fuera de línea};
+
+\node[box, text width=16mm] (q) at (0,0) {Consulta del usuario};
+\node[box, fill=cajalex, text width=20mm] (bm) at (3.2,0.95) {Vista léxica (BM25)};
+\node[box, fill=cajadensa, text width=20mm] (dn) at (3.2,-0.95) {Vista densa (Matryoshka)};
+\node[box, fill=cajafusion, text width=15mm] (rrf) at (6.3,0) {Fusión RRF $+$ realce};
+\node[box, fill=cajadensa, text width=18mm] (res) at (9.2,0) {Módulo o proceso correcto};
+\node[anchor=west, font=\scriptsize\itshape] at (-1.2,1.6) {En línea};
+\draw[->] (q) -- (bm); \draw[->] (q) -- (dn);
+\draw[->] (bm) -- (rrf); \draw[->] (dn) -- (rrf); \draw[->] (rrf) -- (res);
+\draw[->, dashed] (idx.south) -- (bm.north);
+\draw[->, dashed] (idx.south) to[out=270,in=30] (dn.east);
+\end{tikzpicture}
+\caption{Flujo del recuperador híbrido. Fuera de línea, el conocimiento se enriquece con la ontología (Ec.~\ref{eq:enriquecido}) y se indexa por dos vías. En línea, la consulta se resuelve en paralelo con BM25 y el codificador denso, y sus listas se fusionan por rango con el realce suave (Ec.~\ref{eq:rrf} y \ref{eq:final}).}
+\label{fig:flujo}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,height=0.46\textheight,keepaspectratio]{Images/im_009.png}
+\caption{Arquitectura del sistema con su separación de privacidad. El corpus semántico no contiene datos personales; la resolución de un nombre propio a una identidad concreta vive en un componente aparte con control de acceso, y de ahí sale el realce que prioriza el reporte correspondiente en la fusión.}
+\label{fig:arquitectura}
+\end{figure}
+
+\paragraph{Candidatos de modelo.} Los candidatos, todos con implementación pública y multilingüe apta para el español, son: BM25 sobre índice invertido con analizador en español para la vista léxica; un codificador denso multilingüe con Matryoshka para la vista densa; y, como alternativa integrada, un modelo que fusiona señal densa y léxica en un mismo codificador y admite contexto largo hasta $8.192$ tokens \cite{chen2024m3}. La evaluación de esta versión se realizó con \texttt{jina-embeddings-v3} como codificador denso, de $1024$ dimensiones, con soporte Matryoshka nativo y con los adaptadores específicos de recuperación para consulta (\texttt{retrieval.query}) y para pasaje (\texttt{retrieval.passage}) \cite{sturua2024jinav3}. Se descartan de forma explícita las opciones que exigen anotación masiva o entrenamiento a gran escala \cite{karpukhin2020dpr,ling2026ubereats,borisyuk2026linkedin}.
+
+%% =====================================================================
+\section{Diseño experimental y protocolo de evaluación}
+\label{sec:experimento}
+%% =====================================================================
+El experimento aísla el efecto de cada mecanismo con la escalera de ablación de la Sección~\ref{sec:escalera-def}. Comparar dos configuraciones consecutivas mide el aporte del componente que las separa y nada más. La Tabla~\ref{tab:escalera} recoge la escalera y la comparación que aísla cada componente.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+\caption{Escalera de ablación de cinco configuraciones. Cada peldaño añade un mecanismo; comparar peldaños aísla su efecto. Como referencia adicional se reporta BM25 solo, la línea base léxica clásica.}
+\label{tab:escalera}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.6cm} >{\raggedright\arraybackslash}p{3.6cm} Y c@{}}
+\toprule
+\textbf{\#} & \textbf{Configuración} & \textbf{Puntuación} & \textbf{Aísla} \\
+\midrule
+1 & Denso puro & $s_{\text{dense}}(q, d_{\text{desc}})$, Ec.~\eqref{eq:c1} & línea base neuronal \\
+2 & Denso $+$ ontología & $s_{\text{dense}}(q, d')$, Ec.~\eqref{eq:c2} & efecto de $\phi(o_d)$ en el denso (P3) \\
+3 & Híbrido (sin ontología) & $s_{\text{RRF}}$ con $d_{\text{desc}}$, Ec.~\eqref{eq:c3} & aporte de la señal léxica (P1, P2) \\
+4 & Híbrido $+$ ontología & $s_{\text{RRF}}$ con $d'$, Ec.~\eqref{eq:c4} & efecto de $\phi(o_d)$ en el híbrido (P3) \\
+5 & Híbrido $+$ ontología $+$ realce & $s_{\text{final}}$, Ec.~\eqref{eq:c5} & efecto del realce $\lambda$ (P5) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Protocolo por documento conocido}
+\label{sec:protocolo}
+La evaluación de la Versión 1 usa un protocolo por documento conocido (\textit{known-item}). Cada consulta se construye a partir de artefactos reales (títulos de reporte, entidades y sinónimos de la ontología, mapeo de competencias) y apunta a un reporte objetivo conocido, que recibe grado de relevancia $2$; algunas consultas añaden reportes secundarios con grado $1$. Es un protocolo de recuperación estándar y no fabrica juicios humanos. Los nombres propios empleados son \emph{sintéticos}: no corresponden a ninguna persona real y solo dan forma realista a las consultas de nombre propio, cuyo objetivo es el reporte, no la persona.
+
+El conjunto tiene $51$ consultas estratificadas en cuatro tipos: \emph{entidad exacta} ($17$ consultas), \emph{ambigua} ($13$), \emph{documento largo} ($10$) y \emph{competencias} ($11$). Las de competencias no tienen documento relevante en la Versión 1 por diseño: su qrel está vacío y miden el vacío de cobertura de la Sección~\ref{sec:competencias}, de modo que se excluyen de las métricas de calidad y se reportan aparte. Quedan así $40$ consultas con juicio para las métricas.
+
+\paragraph{Naturaleza de la evaluación.} Es importante ser preciso sobre lo que este protocolo mide y lo que no. No hay entrenamiento supervisado: el codificador denso está congelado y solo se usa en inferencia, BM25 no se entrena, y no existe partición entrenamiento/prueba porque nada aprende de las consultas; el corpus es el índice y las consultas son el conjunto de evaluación. Los hiperparámetros ($k_1$, $b$, $k$, $\lambda$) son valores estándar de la literatura, no ajustados sobre este conjunto. La contrapartida honesta es que, al derivarse las consultas de los propios documentos y su ontología, comparten vocabulario con ellos, por lo que el valor absoluto de las métricas no debe leerse como precisión de producción. La evidencia válida es la \emph{comparación relativa} entre configuraciones bajo idéntico protocolo, que es exactamente lo que una ablación está diseñada para medir. El conjunto con juicios de expertos que se describe como trabajo futuro es el instrumento de validez externa de la Versión 2.
+
+\subsection{Conjuntos de evaluación adicionales y controles}
+\label{sec:conjuntos}
+El conjunto de $51$ consultas tiene dos limitaciones de origen: se escribió a mano a partir de los propios documentos y es pequeño. Para acotar su efecto se construyeron tres conjuntos complementarios, todos sobre el mismo corpus de diecisiete reportes y con el mismo protocolo de objetivo conocido.
+
+\paragraph{Conjunto derivado del historial real (127 consultas).} Cada consulta parte de una \emph{firma} del historial de ejecuciones, es decir, la estructura de una solicitud real (reporte ejecutado, columnas y filtros usados) sin los valores buscados. El reporte que se ejecutó recibe grado $2$ (juicio \textit{silver}, automático) y el texto de la consulta se sintetiza a partir de los filtros reales. La unidad de muestreo es el \emph{patrón distinto} de firma y no cada combinación con un nombre propio sustituible; así se evita la pseudo-replicación, que repetiría casi la misma consulta con distintos nombres sintéticos e inflaría el tamaño muestral sin añadir información. Además se eliminan los textos duplicados entre estratos. Resultan $127$ consultas en cuatro estratos: entidad exacta ($55$), operacional ($35$), documento largo ($25$) y ambigua ($12$). Cincuenta quedan marcadas como candidatas a anotación por expertos.
+
+\paragraph{Control sin nombre propio.} Cada consulta del estrato de entidad exacta se repite con el nombre propio borrado. Si el nombre contribuyera a la recuperación, el desempeño debería bajar al quitarlo. El resultado de este control (Sección~\ref{sec:res-control}) determina qué mide realmente el estrato.
+
+\paragraph{Conjunto difícil (52 consultas).} En los conjuntos anteriores la mayoría de las consultas ya queda en la primera posición para todas las configuraciones, lo que limita el poder estadístico. Este conjunto contiene paráfrasis y expresiones coloquiales del propósito de $13$ reportes, redactadas para no compartir vocabulario con la descripción del documento. Los reportes de pruebas de caídas se excluyen porque su significado de negocio no está confirmado. El nivel de dificultad no se asigna a mano sino que se calcula con el solape de raíces (algoritmo Snowball) entre la consulta y el documento: en el nivel \emph{A} la consulta no comparte raíces con la descripción pero sí con el bloque de ontología que se inyecta, de modo que la ontología \emph{puede} ayudar; en el nivel \emph{B} no comparte raíces con ninguno de los dos, de modo que solo la semántica densa puede ayudar y sirve de control contra el sesgo de haber redactado consultas con sinónimos de la ontología; en el nivel \emph{C} comparte al menos una raíz con la descripción. Un hecho que condiciona la lectura: ocho de los diecisiete documentos no tienen bloque de ontología, por lo que para ellos el documento enriquecido coincide con la descripción y la ontología no puede cambiar nada. Las consultas de este conjunto fueron redactadas por el autor y deben someterse a revisión de expertos.
+
+\paragraph{Réplica con consultas nuevas (difícil B, 78 consultas).} Los hallazgos formulados al mirar el conjunto difícil A se ponen a prueba con $78$ consultas nuevas ($6$ por reporte, en cuatro registros: pregunta, telegráfico, coloquial y administrativo), con el mismo cálculo automático del nivel. Se redactaron \emph{después} de conocer los resultados de A, sin ajustarlas a ningún sistema ni descartar ninguna por su resultado; es por tanto una réplica y no una prueba ciega. Para la estadística se usa también la unión de A y B ($130$ consultas).
+
+\paragraph{Anotación por expertos (preparada).} Se dispone del procedimiento para convertir los juicios \textit{silver} en \textit{gold}: reunión de documentos candidatos de las seis configuraciones (\textit{pooling}), hojas ciegas con orden aleatorio distinto para dos anotadores, escala $0/1/2$, cálculo del $\kappa$ de Cohen ponderado y adjudicación de los desacuerdos. La anotación no se ha realizado.
+
+\subsection{Métricas de evaluación}
+\label{sec:metricas}
+Todas las métricas operan sobre el \emph{ranking} devuelto por el recuperador, la lista ordenada de documentos, y sobre los juicios de relevancia graduada. Se reportan cinco, con la convención de que $1{,}0$ es el óptimo en todas ellas.
+
+\paragraph{nDCG@10 (Normalized Discounted Cumulative Gain en el corte 10).} Es la métrica primaria. Suma la relevancia de los documentos del top-10 descontada por la posición, y normaliza por el mejor orden posible:
+\begin{equation}
+\mathrm{nDCG@}k \;=\; \frac{\mathrm{DCG@}k}{\mathrm{IDCG@}k},
+\qquad
+\mathrm{DCG@}k \;=\; \sum_{i=1}^{k} \frac{2^{\mathrm{rel}_i}-1}{\log_2(i+1)},
+\label{eq:ndcg}
+\end{equation}
+donde $\mathrm{rel}_i$ es la relevancia graduada del resultado en la posición $i$ e $\mathrm{IDCG@}k$ es el valor del orden ideal. \emph{Qué mide:} si los documentos relevantes aparecen y qué tan arriba, premiando colocar lo más relevante en las primeras posiciones. \emph{Por qué es relevante aquí:} el usuario mira las primeras respuestas, así que la posición importa tanto como el acierto; la relevancia graduada permite distinguir el reporte exacto de uno solo relacionado. \emph{Rango:} entre $0$ y $1$; vale $1{,}0$ cuando el orden coincide con el ideal y baja a medida que los relevantes caen a posiciones más profundas.
+
+\paragraph{MRR@10 (Mean Reciprocal Rank en el corte 10).} Promedia, sobre las consultas, el inverso de la posición del primer documento relevante dentro del top-10:
+\begin{equation}
+\mathrm{MRR@}k \;=\; \frac{1}{|Q|}\sum_{q \in Q} \frac{1}{\mathrm{rank}_q},
+\label{eq:mrr}
+\end{equation}
+donde $\mathrm{rank}_q$ es la posición del primer resultado relevante (o el término se anula si no hay ninguno en el corte). \emph{Qué mide:} qué tan rápido encuentra el usuario un resultado útil. \emph{Por qué es relevante aquí:} en un protocolo por documento conocido, con un objetivo por consulta, MRR captura de forma directa el objetivo de negocio, llevar el reporte correcto a la posición uno. \emph{Rango:} entre $0$ y $1$; vale $1{,}0$ cuando el objetivo está siempre en la primera posición, $0{,}5$ si en promedio está en la segunda, y así sucesivamente.
+
+\paragraph{Recall@100.} Fracción de los documentos relevantes de la consulta que aparecen en el top-100:
+\begin{equation}
+\mathrm{Recall@}k \;=\; \frac{|\{\text{relevantes}\} \cap \{\text{top-}k\}|}{|\{\text{relevantes}\}|}.
+\label{eq:recall}
+\end{equation}
+\emph{Qué mide:} la cobertura, si el sistema logra traer los relevantes dentro de una ventana amplia, sin atender el orden fino. \emph{Por qué es relevante aquí:} es la métrica que separa ``no lo encontró'' de ``lo encontró pero lo ordenó mal''; es la garantía de que la primera etapa de recuperación no pierde el documento correcto. \emph{Rango:} entre $0$ y $1$; vale $1{,}0$ cuando todos los relevantes están en el top-100. En este corpus de diecisiete documentos el top-100 los contiene a todos, así que Recall@100 es trivialmente $1{,}0$ y no discrimina; se reporta por trazabilidad y se volverá informativo cuando el corpus crezca.
+
+\paragraph{Precisión@10 (P@10).} Fracción del top-10 que es relevante:
+\begin{equation}
+\mathrm{P@}k \;=\; \frac{|\{\text{relevantes}\} \cap \{\text{top-}k\}|}{k}.
+\label{eq:prec}
+\end{equation}
+\emph{Qué mide:} la densidad de aciertos en las primeras posiciones. \emph{Por qué es relevante aquí:} indica cuánta parte de la pantalla de resultados es útil. \emph{Rango:} entre $0$ y $1$; vale $1{,}0$ si los diez primeros son relevantes. Como el protocolo por documento conocido tiene un único relevante por consulta, el máximo alcanzable de P@10 es $0{,}1$; por eso se lee como métrica secundaria y su techo bajo es esperado, no un defecto del sistema.
+
+\paragraph{AP@100 (Average Precision en el corte 100).} Promedia la precisión evaluada en cada posición donde aparece un documento relevante, hasta el corte 100:
+\begin{equation}
+\mathrm{AP@}k \;=\; \frac{1}{\min(|\{\text{relevantes}\}|,\,k)} \sum_{i=1}^{k} \mathbb{1}[\text{rel}_i>0]\,\cdot\,\mathrm{P@}i.
+\label{eq:ap}
+\end{equation}
+\emph{Qué mide:} la calidad del orden completo, no solo del primer acierto; es la base de la media MAP. \emph{Por qué es relevante aquí:} resume en un número si todos los relevantes están bien colocados a lo largo del ranking. \emph{Rango:} entre $0$ y $1$; vale $1{,}0$ cuando todos los relevantes preceden a los irrelevantes.
+
+\paragraph{Análisis estadístico.} Las comparaciones entre configuraciones siguen el plan de la Sección~\ref{sec:plan-analisis}: prueba de Wilcoxon pareada sobre las diferencias por consulta, prueba de permutación pareada (aleatorización de signos, exacta cuando hay veinte o menos diferencias no nulas) como control de robustez, corrección de Holm dentro de cada familia de cinco comparaciones, correlación biserial por rangos como tamaño del efecto e intervalo de confianza del $95\%$ por \textit{bootstrap} percentil de la diferencia media. Una comparación se declara \emph{robusta} solo si ambas pruebas rechazan tras la corrección de Holm. En todas las tablas se informa el número de pares con diferencia no nula, porque ese número y no el total de consultas es el que determina el poder de la prueba. La eficiencia se reporta junto a la calidad, no de forma aislada: latencia de búsqueda y de codificación de la consulta (percentiles p50 y p95), tamaño del índice denso y memoria.
+
+\subsection{Barridos ortogonales y mapa de preguntas}
+Tres barridos corren de forma ortogonal a la escalera, sobre un peldaño fijo. El primero es un análisis de sensibilidad de los hiperparámetros que se fijaron en valores estándar sin ajustar ($k$ de RRF, $\lambda$ del realce, $k_1$ y $b$ de BM25), cuyo fin no es reajustarlos sino mostrar si las conclusiones dependen de esa elección. Los otros dos son los de P4 y P6. Dos análisis adicionales examinan decisiones de diseño: la sustitución de RRF por una combinación convexa, un RRF ponderado y un RRF con compuerta de cobertura léxica, con el parámetro elegido sin fuga por \textit{leave-one-set-out}; y la ampliación mecánica de la ontología a los reportes que admiten un mapeo desde las columnas observadas en el historial. Se añade una medida de escalamiento de la búsqueda exacta con vectores aleatorios. Para P4 se varía el tamaño de fragmento y el solapamiento sobre el peldaño desplegable (C4), agregando la puntuación de fragmento al documento por máximo. Para P6 se recorre la dimensión Matryoshka $m$ de la Ecuación~\eqref{eq:mrl} y se reporta, para cada valor, la efectividad junto al tamaño del índice y la latencia. La Tabla~\ref{tab:preguntas} conecta cada pregunta con la comparación exacta que la responde.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{De cada pregunta de investigación a su comparación en la escalera de ablación y a su métrica.}
+\label{tab:preguntas}
+\begin{tabularx}{\textwidth}{@{}l Y Y@{}}
+\toprule
+\textbf{Pregunta} & \textbf{Comparación} & \textbf{Métrica} \\
+\midrule
+P1 & C3 frente a BM25 solo y frente a C1 & $\Delta$nDCG@10, $\Delta$Recall@100, Wilcoxon \\
+P2 & C3 frente a C1 por estrato de consulta & interacción sistema $\times$ tipo \\
+P3 & C2 frente a C1, y C4 frente a C3 & $\Delta$nDCG@10 (global y en entidad exacta) \\
+P4 & barrido de tamaño y solapamiento de fragmento & Recall@100, nDCG@10 \\
+P5 & C5 frente a C4 & $\Delta$nDCG@10, diagnóstico del detector \\
+P6 & todas, y barrido de la dimensión $m$ & efectividad frente a latencia y memoria \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%% =====================================================================
+\section{Resultados}
+\label{sec:resultados}
+%% =====================================================================
+Todos los resultados provienen de una misma ejecución reproducible sobre el corpus de diecisiete reportes de la Versión~1, con el codificador \texttt{jina-embeddings-v3} de $1.024$ dimensiones y sus tareas de recuperación de consulta y de pasaje activadas. Se evalúan los conjuntos de consultas descritos en las Secciones~\ref{sec:protocolo} y~\ref{sec:conjuntos}: el sintético ($40$ consultas con juicio), el derivado del historial real ($127$), el control sin nombre propio, el conjunto difícil A ($52$) y su réplica con consultas nuevas, el difícil B ($78$); para la estadística se usa también su unión ($130$). Las cifras del corpus definitivo, centrado en competencias, no están disponibles todavía y no se mezclan con estas; ese corpus es el paso que permite contrastar las preguntas que aquí quedan abiertas.
+
+\subsection{Resultados globales y el aporte de la señal léxica (P1)}
+\label{sec:res-global}
+La Tabla~\ref{tab:global} reúne el nDCG@10 global de las seis configuraciones. La configuración híbrida con ontología (C4) es la mejor en el conjunto sintético ($0{,}948$) y en el ampliado ($0{,}960$). En los dos conjuntos difíciles el orden cambia: gana el denso con ontología (C2, $0{,}835$ en A y $0{,}837$ en B) y el híbrido queda igual o por debajo (C4 de $0{,}788$ en A y $0{,}835$ en B), un resultado que se discute en las Secciones~\ref{sec:res-ontologia} y~\ref{sec:res-fusion}. BM25 es la configuración de menor desempeño en los tres conjuntos. En el sintético su Recall@100 es $0{,}950$ y no $1{,}000$: BM25 solo devuelve los documentos que comparten algún término con la consulta, de modo que cuando no hay coincidencia el objetivo no aparece. En el conjunto difícil el nDCG@10 de BM25 ($0{,}186$) es bajo por construcción, porque en los niveles A y B la consulta no comparte raíces con la descripción del documento.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 global de las seis configuraciones en los tres conjuntos de evaluación (corpus de diecisiete reportes, \texttt{jina-embeddings-v3} con tareas de recuperación). En negrita, el mejor de cada conjunto. El conjunto difícil B es una réplica con consultas nuevas.}
+\label{tab:global}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{sintético} ($n{=}40$) & \textbf{ampliado} ($n{=}127$) & \textbf{difícil A} ($n{=}52$) & \textbf{difícil B} ($n{=}78$) \\
+\midrule
+BM25 (referencia) & $0{,}819$ & $0{,}887$ & $0{,}186$ & $0{,}422$ \\
+C1 · Denso puro & $0{,}866$ & $0{,}932$ & $0{,}712$ & $0{,}783$ \\
+C2 · Denso $+$ ontología & $0{,}931$ & $0{,}928$ & {\boldmath\bfseries $0{,}835$} & {\boldmath\bfseries $0{,}837$} \\
+C3 · Híbrido (sin ontología) & $0{,}893$ & $0{,}943$ & $0{,}686$ & $0{,}778$ \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}948$} & {\boldmath\bfseries $0{,}960$} & $0{,}788$ & $0{,}835$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}924$ & $0{,}944$ & $0{,}739$ & $0{,}773$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+La Tabla~\ref{tab:estadistica} resume las cinco comparaciones de la escalera y la Tabla~\ref{tab:pares} el número de pares con diferencia no nula. El resultado más estable de todo el trabajo es que el híbrido sin ontología supera a BM25 solo (C3 frente a BM25): la diferencia es positiva y robusta, es decir, significativa con Wilcoxon y con permutación tras la corrección de Holm, en los cuatro conjuntos ($+0{,}073$, $+0{,}056$, $+0{,}500$ y $+0{,}356$ respectivamente), incluida la réplica B. La hipótesis H1 se sostiene en su primera parte. La segunda, que el híbrido supere también al denso puro, no se sostiene: la diferencia entre C3 y C1 es pequeña y de signo cambiante ($+0{,}026$, $+0{,}011$, $-0{,}026$ y $-0{,}005$), sin significancia en ninguno de los conjuntos ni en la unión de los difíciles ($-0{,}013$).
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Diferencia media de nDCG@10 (primera configuración menos segunda) y, entre paréntesis, el mayor de los dos $p$-valores ajustados por Holm (Wilcoxon y permutación pareadas). En negrita, las comparaciones \emph{robustas}: ambas pruebas rechazan con $\alpha=0{,}05$ tras la corrección.}
+\label{tab:estadistica}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Comparación} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} & \textbf{A+B} \\
+\midrule
+C3 frente a BM25 (P1) & {\boldmath\bfseries $+0{,}073$ ($0{,}021$)} & {\boldmath\bfseries $+0{,}056$ ($0{,}009$)} & {\boldmath\bfseries $+0{,}500$ ($<\!0{,}001$)} & {\boldmath\bfseries $+0{,}356$ ($<\!0{,}001$)} & {\boldmath\bfseries $+0{,}413$ ($<\!0{,}001$)} \\
+C3 frente a C1 (P1) & $+0{,}026$ ($0{,}820$) & $+0{,}011$ ($0{,}672$) & $-0{,}026$ ($0{,}214$) & $-0{,}005$ ($0{,}814$) & $-0{,}013$ ($0{,}356$) \\
+C2 frente a C1 (P3, denso) & {\boldmath\bfseries $+0{,}065$ ($0{,}027$)} & $-0{,}004$ ($0{,}672$) & {\boldmath\bfseries $+0{,}122$ ($0{,}002$)} & {\boldmath\bfseries $+0{,}054$ ($0{,}006$)} & {\boldmath\bfseries $+0{,}081$ ($<\!0{,}001$)} \\
+C4 frente a C3 (P3, híbrido) & {\boldmath\bfseries $+0{,}056$ ($0{,}043$)} & $+0{,}016$ ($0{,}406$) & $+0{,}102$ ($0{,}072$) & $+0{,}058$ ($0{,}157$) & {\boldmath\bfseries $+0{,}075$ ($0{,}011$)} \\
+C5 frente a C4 (P5) & $-0{,}024$ ($0{,}820$) & $-0{,}016$ ($0{,}250$) & {\boldmath\bfseries $-0{,}049$ ($0{,}035$)} & {\boldmath\bfseries $-0{,}063$ ($0{,}023$)} & {\boldmath\bfseries $-0{,}057$ ($0{,}001$)} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Pares de consultas con diferencia no nula frente al total de consultas de cada comparación. Este número, y no el total, determina el poder efectivo de la prueba.}
+\label{tab:pares}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Comparación} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} & \textbf{A+B} \\
+\midrule
+C3 frente a BM25 (P1) & $11/40$ & $31/127$ & $45/52$ & $45/78$ & $90/130$ \\
+C3 frente a C1 (P1) & $11/40$ & $16/127$ & $19/52$ & $23/78$ & $42/130$ \\
+C2 frente a C1 (P3, denso) & $10/40$ & $11/127$ & $21/52$ & $21/78$ & $42/130$ \\
+C4 frente a C3 (P3, híbrido) & $10/40$ & $13/127$ & $34/52$ & $30/78$ & $64/130$ \\
+C5 frente a C4 (P5) & $3/40$ & $5/127$ & $8/52$ & $15/78$ & $23/130$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Estas tablas muestran también por qué ampliar el número de consultas no basta. En el conjunto ampliado, la comparación C4 frente a C3 se apoya en $13$ pares con diferencia no nula entre $127$, porque en la mayoría de las consultas todas las configuraciones ya colocan el objetivo en la primera posición. Los conjuntos difíciles existen para corregir eso: en su unión las diferencias no nulas son $64$ de $130$ para esa misma comparación, y con ese poder C4 frente a C3 sí resulta robusta ($+0{,}075$).
+
+\subsection{Resultados por estrato (P2)}
+\label{sec:res-estratos}
+La Tabla~\ref{tab:estratos-ampliado} desglosa el conjunto ampliado y la Tabla~\ref{tab:estratos-sintetico} el sintético. En el estrato de entidad exacta del conjunto ampliado, C4 alcanza $0{,}980$ frente a $0{,}926$ de C3, $0{,}925$ del denso puro y $0{,}862$ de BM25. El híbrido sin ontología (C3) no mejora al denso puro en ese estrato ($\Delta=+0{,}001$, $p$ de Holm igual a $1{,}000$), de modo que la ventaja del estrato aparece solo cuando se añade la ontología, y la comparación C4 frente a C3 en él ($\Delta=+0{,}054$) tampoco es robusta tras la corrección ($p$ de Holm de $0{,}069$ con Wilcoxon y $0{,}054$ con permutación). En el conjunto sintético, C3 supera al denso puro en el estrato ($0{,}972$ frente a $0{,}875$) pero la diferencia no es significativa con $17$ consultas ($p$ de Holm $0{,}577$).
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 por estrato en el conjunto ampliado. En negrita, el mejor de cada estrato.}
+\label{tab:estratos-ampliado}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{entidad exacta} ($n{=}55$) & \textbf{operacional} ($n{=}35$) & \textbf{doc. largo} ($n{=}25$) & \textbf{ambigua} ($n{=}12$) \\
+\midrule
+BM25 (referencia) & $0{,}862$ & $0{,}893$ & $0{,}910$ & $0{,}938$ \\
+C1 · Denso puro & $0{,}925$ & {\boldmath\bfseries $0{,}961$} & $0{,}945$ & $0{,}854$ \\
+C2 · Denso $+$ ontología & $0{,}913$ & {\boldmath\bfseries $0{,}961$} & $0{,}945$ & $0{,}866$ \\
+C3 · Híbrido (sin ontología) & $0{,}926$ & $0{,}957$ & {\boldmath\bfseries $0{,}950$} & {\boldmath\bfseries $0{,}969$} \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}980$} & $0{,}941$ & $0{,}946$ & $0{,}953$ \\
+C5 · Híbrido $+$ ont. $+$ realce & {\boldmath\bfseries $0{,}980$} & $0{,}930$ & $0{,}880$ & $0{,}953$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 por estrato en el conjunto sintético. En negrita, el mejor de cada estrato.}
+\label{tab:estratos-sintetico}
+\begin{tabularx}{\textwidth}{@{}Y c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{entidad exacta} ($n{=}17$) & \textbf{ambigua} ($n{=}13$) & \textbf{doc. largo} ($n{=}10$) \\
+\midrule
+BM25 (referencia) & $0{,}883$ & $0{,}846$ & $0{,}677$ \\
+C1 · Denso puro & $0{,}875$ & $0{,}894$ & $0{,}815$ \\
+C2 · Denso $+$ ontología & $0{,}931$ & $0{,}956$ & {\boldmath\bfseries $0{,}900$} \\
+C3 · Híbrido (sin ontología) & $0{,}972$ & $0{,}920$ & $0{,}721$ \\
+C4 · Híbrido $+$ ontología & {\boldmath\bfseries $0{,}976$} & {\boldmath\bfseries $0{,}962$} & $0{,}884$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}957$ & {\boldmath\bfseries $0{,}962$} & $0{,}819$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Control sin nombre propio: qué mide el estrato de entidad exacta}
+\label{sec:res-control}
+La Tabla~\ref{tab:control} responde la pregunta que condiciona la lectura de la sección anterior. Al borrar el nombre propio de las $55$ consultas del estrato, el desempeño no baja: sube en cinco de las seis configuraciones. C4 pasa de $0{,}980$ a $1{,}000$, C2 de $0{,}913$ a $1{,}000$ y el denso puro de $0{,}925$ a $0{,}966$; solo BM25 baja marginalmente, de $0{,}862$ a $0{,}854$. El nombre propio, que no figura en ningún documento del corpus, actúa como ruido y no como señal. Por tanto el estrato mide cuánto describe la consulta el tema de un reporte y no la capacidad de localizar una entidad, y la hipótesis H2 no es contrastable con este diseño. Es un resultado sobre el instrumento de medida, no sobre el recuperador, y su consecuencia es metodológica: un estrato de entidad exacta solo es válido si la entidad objetivo figura en el documento indexado.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Control sin nombre propio en el estrato de entidad exacta ($n=55$): nDCG@10 con la consulta original y con el nombre propio borrado. Si el nombre contribuyera a la recuperación, la columna ``sin nombre'' debería ser menor.}
+\label{tab:control}
+\begin{tabularx}{\textwidth}{@{}Y c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{con nombre} & \textbf{sin nombre} & \textbf{diferencia} \\
+\midrule
+BM25 (referencia) & $0{,}862$ & $0{,}854$ & $-0{,}008$ \\
+C1 · Denso puro & $0{,}925$ & $0{,}966$ & $+0{,}041$ \\
+C2 · Denso $+$ ontología & $0{,}913$ & $1{,}000$ & $+0{,}087$ \\
+C3 · Híbrido (sin ontología) & $0{,}926$ & $0{,}953$ & $+0{,}027$ \\
+C4 · Híbrido $+$ ontología & $0{,}980$ & $1{,}000$ & $+0{,}020$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}980$ & $1{,}000$ & $+0{,}020$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{La ontología: un efecto que depende de la consulta y de la cobertura (P3)}
+\label{sec:res-ontologia}
+El efecto de la ontología cambia con el conjunto de evaluación (Tabla~\ref{tab:estadistica}). Sobre el denso (C2 frente a C1) es robusto en el sintético ($+0{,}065$), en el difícil A ($+0{,}122$) y en su réplica B ($+0{,}054$), y nulo en el ampliado ($-0{,}004$). Sobre el híbrido (C4 frente a C3) es robusto en el sintético ($+0{,}056$) y en la unión de los difíciles ($+0{,}075$), y no lo es en el ampliado ($+0{,}016$) ni en A ($+0{,}102$, $p$ de Holm de $0{,}072$) o B ($+0{,}058$) por separado, donde el signo y la magnitud coinciden y solo falta poder. La lectura coherente con el mecanismo es que la ontología ayuda donde la consulta se aparta del vocabulario del documento: el conjunto difícil, redactado con paráfrasis, es donde más aporta, y el ampliado, sintetizado a partir de los filtros del propio reporte, es donde no hay brecha que cerrar.
+
+La Tabla~\ref{tab:dificil} refuerza esa lectura por nivel sobre la unión de los difíciles. En el nivel A, donde la consulta comparte raíces con el bloque de ontología pero no con la descripción, el denso con ontología alcanza $0{,}819$ frente a $0{,}689$ del denso puro, y el híbrido con ontología $0{,}870$ frente a $0{,}636$ del híbrido sin ella. En el nivel B, donde ninguna de las dos cosas ocurre, el denso puro llega a $0{,}766$ y la ontología aporta poco ($0{,}801$): sin puente léxico, el mérito es del modelo denso.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{nDCG@10 en los conjuntos difíciles unidos (A y B, $n=130$) por nivel de solape léxico (calculado, no asignado a mano). En los niveles A y B la consulta no comparte raíces con la descripción del documento, de modo que BM25 sobre la descripción no puede recuperar el objetivo por construcción.}
+\label{tab:dificil}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Configuración} & \textbf{A: puente de ontología} ($n{=}52$) & \textbf{B: sin puente} ($n{=}21$) & \textbf{C: con solape} ($n{=}57$) & \textbf{global} ($n{=}130$) \\
+\midrule
+BM25 (referencia) & $0{,}000$ & $0{,}000$ & $0{,}747$ & $0{,}328$ \\
+C1 · Denso puro & $0{,}689$ & $0{,}766$ & $0{,}810$ & $0{,}754$ \\
+C2 · Denso $+$ ontología & $0{,}819$ & $0{,}801$ & $0{,}864$ & $0{,}836$ \\
+C3 · Híbrido (sin ontología) & $0{,}636$ & $0{,}744$ & $0{,}836$ & $0{,}741$ \\
+C4 · Híbrido $+$ ontología & $0{,}870$ & $0{,}658$ & $0{,}826$ & $0{,}816$ \\
+C5 · Híbrido $+$ ont. $+$ realce & $0{,}810$ & $0{,}655$ & $0{,}752$ & $0{,}759$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Un hallazgo no previsto afecta a la lectura de todo lo anterior: solo $9$ de los $17$ reportes tienen bloque de ontología, de modo que para los otros $8$ el documento enriquecido coincide con la descripción. Enriquecer solo una parte del corpus crea una asimetría. La Tabla~\ref{tab:cobertura} separa las consultas según el reporte objetivo esté enriquecido o no. Cuando lo está, la ontología aporta mucho en el conjunto difícil ($+0{,}180$ en el denso y $+0{,}219$ en el híbrido); cuando no lo está, el híbrido con ontología \emph{empeora} ($\Delta=-0{,}161$, $p<0{,}02$ con ambas pruebas), porque los documentos enriquecidos, más largos y con más términos, compiten con ventaja frente a los que no lo están. En el conjunto ampliado no se observa porque sus consultas son fáciles. Es un análisis exploratorio, sin corrección de comparaciones múltiples, y se lee como una hipótesis, que la subsección siguiente pone a prueba.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Análisis exploratorio: efecto de la ontología según el reporte objetivo tenga o no bloque de ontología (9 de los 17 reportes lo tienen). Sin corrección de Holm; debe leerse como generador de hipótesis.}
+\label{tab:cobertura}
+\begin{tabularx}{\textwidth}{@{}l l l c c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{Grupo} & \textbf{Comparación} & $\boldsymbol{\Delta}$ & \textbf{pares $\neq 0$} & \textbf{$p$ Wilcoxon} & \textbf{$p$ permut.} \\
+\midrule
+difícil & objetivo enriquecido ($n{=}36$) & C2 $-$ C1 & $+0{,}180$ & $16$ & $<\!0{,}001$ & $<\!0{,}001$ \\
+difícil & objetivo enriquecido ($n{=}36$) & C4 $-$ C3 & $+0{,}219$ & $26$ & $<\!0{,}001$ & $<\!0{,}001$ \\
+difícil & objetivo sin enriquecer ($n{=}16$) & C2 $-$ C1 & $-0{,}006$ & $5$ & $0{,}684$ & $0{,}875$ \\
+difícil & objetivo sin enriquecer ($n{=}16$) & C4 $-$ C3 & $-0{,}161$ & $8$ & $0{,}012$ & $0{,}008$ \\
+ampliado & objetivo enriquecido ($n{=}112$) & C2 $-$ C1 & $-0{,}005$ & $11$ & $0{,}655$ & $0{,}555$ \\
+ampliado & objetivo enriquecido ($n{=}112$) & C4 $-$ C3 & $+0{,}019$ & $13$ & $0{,}126$ & $0{,}135$ \\
+ampliado & objetivo sin enriquecer ($n{=}15$) & C2 $-$ C1 & $+0{,}000$ & $0$ & n/d & n/d \\
+ampliado & objetivo sin enriquecer ($n{=}15$) & C4 $-$ C3 & $+0{,}000$ & $0$ & n/d & n/d \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Ontología ampliada: ¿basta cubrir más reportes? (hipótesis ``todo o nada'')}
+\label{sec:res-onto-completa}
+Para contrastar esa hipótesis se enriquecieron también los reportes restantes que admiten un mapeo, sin redactar texto libre ni mirar las consultas: las entidades de cada reporte se derivaron de las columnas y filtros reales de sus firmas en el historial, cruzados con las propiedades de datos de cada clase de la ontología, y se descartó la clase \emph{Promoción} salvo que la firma use el registro de promociones. Con esa regla la cobertura pasa de $9$ a $14$ de los $17$ reportes; tres quedan sin enriquecer porque sus columnas no se asocian a ninguna clase. Es un enriquecimiento deliberadamente pobre (solo entidades y sinónimos, sin las preguntas de negocio que tienen los nueve originales).
+
+La Tabla~\ref{tab:onto-completa} muestra que ampliar la cobertura \emph{no mejora} el desempeño global: el híbrido pasa de $0{,}948$ a $0{,}937$ en el sintético, se mantiene en $0{,}960$ en el ampliado y cambia $+0{,}013$ y $+0{,}004$ en los difíciles A y B, todo dentro del ruido. Lo que sí se observa es una recuperación en los reportes antes perjudicados: en las consultas cuyo objetivo no tenía bloque, el híbrido sube $+0{,}071$ en A y $+0{,}066$ en B respecto de la cobertura parcial ($p$ de Wilcoxon de $0{,}46$ y $0{,}06$ con $16$ y $24$ consultas). La dirección coincide en las dos muestras independientes, pero ninguna es significativa, de modo que la hipótesis queda \emph{apoyada de forma sugerente y no confirmada}. Y conviene no sobrelectura: un enriquecimiento mecánico y pobre no es un sustituto del trabajo de modelado que representa la ontología original.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Ontología sin / parcial (9 de 17) / ampliada (14 de 17) reportes: nDCG@10 del denso y del híbrido. La última columna es la diferencia del híbrido (ampliada menos parcial) en las consultas cuyo objetivo no tenía bloque de ontología.}
+\label{tab:onto-completa}
+\begin{tabularx}{\textwidth}{@{}l c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{denso} (sin / parcial / ampl.) & \textbf{híbrido} (sin / parcial / ampl.) & \textbf{objetivo antes sin bloque} \\
+\midrule
+sintético & $0{,}866$ / $0{,}931$ / $0{,}904$ & $0{,}893$ / $0{,}948$ / $0{,}937$ & --- \\
+ampliado & $0{,}932$ / $0{,}928$ / $0{,}921$ & $0{,}943$ / $0{,}960$ / $0{,}960$ & $+0{,}009$ ($n{=}15$) \\
+difícil A & $0{,}712$ / $0{,}835$ / $0{,}819$ & $0{,}686$ / $0{,}788$ / $0{,}801$ & $+0{,}071$ ($n{=}16$) \\
+difícil B & $0{,}783$ / $0{,}837$ / $0{,}833$ & $0{,}778$ / $0{,}835$ / $0{,}839$ & $+0{,}066$ ($n{=}24$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{El realce por entidad no aporta y se descarta (P5)}
+\label{sec:res-realce}
+El realce suave es el único componente de la escalera que nunca mejora el orden. C5 frente a C4 da $-0{,}024$ en el sintético, $-0{,}016$ en el ampliado, $-0{,}049$ en el difícil A y $-0{,}063$ en el B, donde la diferencia es robusta en ambos ($-0{,}057$ en la unión). En el ampliado, $5$ consultas empeoran y ninguna mejora. El barrido de $\lambda$ (Tabla~\ref{tab:sensibilidad}) confirma que no depende del valor elegido: cualquier $\lambda>0$ iguala o empeora a $\lambda=0$, y a partir de $\lambda=0{,}2$ el resultado deja de cambiar, probablemente porque el factor ya basta para que los documentos activados superen a los no activados.
+
+El diagnóstico del detector con su versión corregida explica la causa. Tratado como un clasificador de pares consulta--documento, cuya etiqueta ideal es que el documento sea el objetivo, el detector tiene precisión de $0{,}17$, $0{,}13$ y $0{,}10$ en los tres conjuntos y \textit{recall} de $0{,}70$, $0{,}74$ y $0{,}38$ (el conjunto difícil B no se incluyó en este diagnóstico), y activa en promedio entre $4{,}0$ y $5{,}7$ de los diecisiete documentos por consulta. Una activación al azar tendría una precisión cercana a $0{,}06$, de modo que el detector solo es dos o tres veces mejor que el azar. El factor multiplicativo se aplica así a un grupo de documentos y no reordena a favor del correcto. La conclusión es la de la versión anterior del análisis: \textbf{el realce se descarta en la Versión~1}, y solo tendría sentido con un detector que resuelva la mención concreta contra un diccionario de entidades.
+
+\subsection{¿Es RRF la mejor fusión? Alternativas con el parámetro elegido sin fuga}
+\label{sec:res-fusion}
+La literatura sugiere que una combinación convexa de puntuaciones supera a RRF \cite{bruch2024fusion} y los resultados anteriores muestran que el híbrido no supera al denso, de modo que conviene medir qué se pierde al usar RRF. Se compararon cuatro familias sobre las puntuaciones crudas de BM25 y del denso: combinación convexa con normalización min--max o $z$, RRF ponderado a favor del denso y RRF con compuerta, que descarta la señal léxica cuando cubre menos de cierta fracción de la consulta. Para evitar la fuga que supondría ajustar el parámetro en el mismo conjunto en que se evalúa, cada parámetro se elige con los otros tres conjuntos (\textit{leave-one-set-out}) y se aplica sin retocar. Una comprobación de sanidad confirma que el RRF de este código reproduce exactamente C1 a C4.
+
+La Tabla~\ref{tab:fusion} muestra que ninguna alternativa supera a RRF de forma robusta. La combinación convexa es mejor en dirección en los conjuntos difíciles ($+0{,}014$ en A y $+0{,}039$ en B) y en el sintético ($+0{,}010$), pero no en el ampliado ($0{,}000$), y ninguna diferencia sobrevive a Holm. La compuerta mejora el difícil A ($+0{,}062$, $p$ de Holm de $0{,}026$ con Wilcoxon y $0{,}054$ con permutación) pero solo $+0{,}011$ en la réplica, de modo que no se confirma. Un hecho relacionado: el híbrido tampoco \emph{lastra} al denso de manera consistente. C4 queda por debajo de C2 en el difícil A ($-0{,}047$, no significativo), igual en la réplica B ($-0{,}002$) y por encima en el ampliado, donde el denso con ontología es peor que RRF en $0{,}032$ ($p$ de $0{,}019$ con Wilcoxon y $0{,}012$ con permutación, sin corregir). La lectura honesta es que el signo de la ventaja del híbrido sobre el denso depende del conjunto, y que con estos datos no se puede afirmar ni que ayude ni que perjudique.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Alternativas de fusión frente a RRF (nDCG@10 y, entre paréntesis, la diferencia con RRF $k=60$). El parámetro de cada variante se elige con los otros tres conjuntos (\textit{leave-one-set-out}) y se aplica sin retocar. Ninguna diferencia es robusta.}
+\label{tab:fusion}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
+\toprule
+\textbf{Variante (base enriquecida)} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} \\
+\midrule
+BM25 solo & $0{,}920$ & $0{,}906$ & $0{,}545$ & $0{,}730$ \\
+Denso puro (C2) & $0{,}931$ & $0{,}928$ & $0{,}835$ & $0{,}837$ \\
+RRF $k=60$ (C4) & $0{,}948$ & $0{,}960$ & $0{,}788$ & $0{,}835$ \\
+Convexa min--max (LOSO) & $0{,}958$ ($+0{,}010$) & $0{,}959$ ($-0{,}000$) & $0{,}802$ ($+0{,}014$) & $0{,}875$ ($+0{,}039$) \\
+Convexa $z$-score (LOSO) & $0{,}949$ ($+0{,}001$) & $0{,}959$ ($-0{,}001$) & $0{,}804$ ($+0{,}017$) & $0{,}870$ ($+0{,}034$) \\
+RRF ponderado (LOSO) & $0{,}952$ ($+0{,}004$) & $0{,}959$ ($-0{,}001$) & $0{,}784$ ($-0{,}004$) & $0{,}854$ ($+0{,}019$) \\
+RRF con compuerta (LOSO) & $0{,}942$ ($-0{,}006$) & $0{,}960$ ($+0{,}000$) & $0{,}850$ ($+0{,}062$) & $0{,}847$ ($+0{,}011$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Sensibilidad a los hiperparámetros fijados}
+\label{sec:res-sensibilidad}
+Los hiperparámetros ($k=60$, $\lambda=0{,}2$, $k_1=1{,}5$, $b=0{,}75$) se tomaron de la literatura sin ajustarlos. La Tabla~\ref{tab:sensibilidad} muestra que las conclusiones no dependen de esa elección. Para $k\ge 30$ los resultados de C3 y C4 son idénticos a los de $k=60$ en ambos conjuntos, y con $k=10$ cambia a lo sumo una consulta; solo $k=1$ altera el orden de unas pocas ($5$ de C3 y $2$ de C4 en el sintético, $9$ y $5$ en el ampliado). Esa insensibilidad es en parte consecuencia del tamaño del corpus: con diecisiete documentos los rangos van de $1$ a $17$ y la constante $k$ apenas altera el orden relativo de las sumas, por lo que no debe extrapolarse a corpus grandes. Variar $k_1$ y $b$ mueve a BM25 solo entre $0{,}815$ y $0{,}828$ en el sintético y entre $0{,}849$ y $0{,}905$ en el ampliado, mientras C4 se mantiene entre $0{,}948$ y $0{,}952$ y entre $0{,}960$ y $0{,}967$: el híbrido supera a BM25 en toda la rejilla.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Sensibilidad de los hiperparámetros fijados sin ajuste (nDCG@10). Filas de $k$: C3 / C4. Filas de $\lambda$: C5 y, entre paréntesis, su diferencia con C4. Filas de $k_1$ y $b$: BM25 solo / C4; los valores de referencia son $k=60$, $\lambda=0{,}2$, $k_1=1{,}5$ y $b=0{,}75$.}
+\label{tab:sensibilidad}
+\begin{tabularx}{\textwidth}{@{}Y c c@{}}
+\toprule
+\textbf{Parámetro} & \textbf{sintético} & \textbf{ampliado} \\
+\midrule
+$k=1$ & $0{,}856$ / $0{,}943$ & $0{,}947$ / $0{,}958$ \\
+$k=10$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}961$ \\
+$k=30$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=60$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=100$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$k=200$ & $0{,}893$ / $0{,}948$ & $0{,}943$ / $0{,}960$ \\
+$\lambda=0{,}0$ (C5) & $0{,}948$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) \\
+$\lambda=0{,}05$ (C5) & $0{,}929$ ($-0{,}019$) & $0{,}949$ ($-0{,}011$) \\
+$\lambda=0{,}1$ (C5) & $0{,}926$ ($-0{,}022$) & $0{,}945$ ($-0{,}015$) \\
+$\lambda=0{,}2$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$\lambda=0{,}3$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$\lambda=0{,}5$ (C5) & $0{,}924$ ($-0{,}024$) & $0{,}944$ ($-0{,}016$) \\
+$k_1=0{,}9,\ b=0{,}5$ (BM25 / C4) & $0{,}815$ / $0{,}950$ & $0{,}878$ / $0{,}961$ \\
+$k_1=0{,}9,\ b=0{,}9$ (BM25 / C4) & $0{,}819$ / $0{,}948$ & $0{,}863$ / $0{,}963$ \\
+$k_1=1{,}5,\ b=0{,}5$ (BM25 / C4) & $0{,}819$ / $0{,}951$ & $0{,}902$ / $0{,}961$ \\
+$k_1=1{,}5,\ b=0{,}9$ (BM25 / C4) & $0{,}828$ / $0{,}948$ & $0{,}849$ / $0{,}961$ \\
+$k_1=2{,}0,\ b=0{,}5$ (BM25 / C4) & $0{,}819$ / $0{,}952$ & $0{,}905$ / $0{,}967$ \\
+$k_1=2{,}0,\ b=0{,}9$ (BM25 / C4) & $0{,}828$ / $0{,}949$ & $0{,}855$ / $0{,}961$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Eficiencia: dimensión Matryoshka (P6) y fragmentación (P4)}
+\label{sec:res-eficiencia}
+La Tabla~\ref{tab:matryoshka} recorre la dimensión del \textit{embedding} sobre C4. En el conjunto ampliado, truncar a $256$ dimensiones es equivalente a la dimensión nativa con el margen de $0{,}01$ ($\Delta=+0{,}003$, intervalo de $0{,}000$ a $+0{,}009$) y reduce el índice denso en un $75\%$; también lo es a $512$ y $768$. A $128$ dimensiones la pérdida es pequeña pero detectable ($-0{,}016$, permutación $p=0{,}029$) y a $64$ es clara ($-0{,}037$). En el conjunto sintético, con solo $40$ consultas, el intervalo de confianza es demasiado ancho para declarar equivalencia por debajo de $768$, aunque las diferencias puntuales son pequeñas; es un límite de poder, no evidencia de pérdida. La latencia confirma lo previsto: la búsqueda sobre los vectores toma unos $0{,}1$ ms, y la codificación de la consulta, $349$ ms en la mediana (p95 de $357$ ms), domina el tiempo de respuesta. Truncar reduce la memoria, no la latencia. La dimensión recomendada es $256$.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Barrido de la dimensión Matryoshka $m$ sobre C4: nDCG@10 y, entre paréntesis, la diferencia con $m=1.024$ y si el intervalo de confianza del $95\%$ de esa diferencia permite declarar equivalencia (límite inferior mayor que $-0{,}01$). ``eq.'' = equivalente, ``no eq.'' = no concluyente.}
+\label{tab:matryoshka}
+\begin{tabularx}{\textwidth}{@{}c c c c@{}}
+\toprule
+$\boldsymbol{m}$ & \textbf{sintético} & \textbf{ampliado} & \textbf{ahorro de índice} \\
+\midrule
+$1024$ & $0{,}948$ ($+0{,}000$; eq.) & $0{,}960$ ($+0{,}000$; eq.) & $0.0\%$ \\
+$768$ & $0{,}948$ ($+0{,}000$; eq.) & $0{,}960$ ($+0{,}000$; eq.) & $25.0\%$ \\
+$512$ & $0{,}931$ ($-0{,}018$; no eq.) & $0{,}963$ ($+0{,}003$; eq.) & $50.0\%$ \\
+$256$ & $0{,}940$ ($-0{,}008$; no eq.) & $0{,}963$ ($+0{,}003$; eq.) & $75.0\%$ \\
+$128$ & $0{,}944$ ($-0{,}004$; no eq.) & $0{,}944$ ($-0{,}016$; no eq.) & $87.5\%$ \\
+$64$ & $0{,}949$ ($+0{,}001$; no eq.) & $0{,}923$ ($-0{,}037$; no eq.) & $93.8\%$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+La Tabla~\ref{tab:chunking} confirma lo que la longitud de los reportes anticipaba. Los reportes tienen entre $64$ y $184$ palabras (media de $103$). Fragmentarlos y agregar por máximo al documento nunca supera al documento completo de forma apreciable: la única ganancia es de $+0{,}004$ en el sintético con fragmentos de $128$ palabras y solapamiento de $25\%$, dentro del ruido, y los fragmentos pequeños empeoran hasta $0{,}063$. La unidad de indexación de la Versión~1 es el reporte completo, y la maquinaria queda medida para cuando el corpus incorpore documentos largos.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Fragmentación de los documentos (nDCG@10 de C4 y, entre paréntesis, la diferencia con el documento completo) para solapamiento de $0\%$ y de $25\%$.}
+\label{tab:chunking}
+\begin{tabularx}{\textwidth}{@{}l c c c c c@{}}
+\toprule
+\textbf{Tamaño} & \textbf{sint., 0\%} & \textbf{sint., 25\%} & \textbf{amp., 0\%} & \textbf{amp., 25\%} & \textbf{frag./doc.} \\
+\midrule
+documento completo & $0{,}948$ ($+0{,}000$) & $0{,}948$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) & $0{,}960$ ($+0{,}000$) & $1{,}00$ \\
+128 palabras & $0{,}939$ ($-0{,}009$) & $0{,}952$ ($+0{,}004$) & $0{,}951$ ($-0{,}009$) & $0{,}953$ ($-0{,}007$) & $1{,}24$ \\
+64 palabras & $0{,}935$ ($-0{,}014$) & $0{,}943$ ($-0{,}005$) & $0{,}908$ ($-0{,}051$) & $0{,}934$ ($-0{,}026$) & $2{,}12$ \\
+40 palabras & $0{,}913$ ($-0{,}036$) & $0{,}909$ ($-0{,}039$) & $0{,}933$ ($-0{,}027$) & $0{,}928$ ($-0{,}032$) & $2{,}94$ \\
+24 palabras & $0{,}896$ ($-0{,}052$) & $0{,}925$ ($-0{,}023$) & $0{,}897$ ($-0{,}063$) & $0{,}912$ ($-0{,}048$) & $4{,}65$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+La Tabla~\ref{tab:escalamiento} acota qué ocurre al crecer el corpus. Con vectores aleatorios de la forma real de los \textit{embeddings}, la búsqueda exacta por fuerza bruta toma entre $0{,}1$ y $1$ ms con diez mil documentos y entre $3$ y $18$ ms con doscientos mil según la dimensión, mientras que la memoria del índice pasa de $39$ MiB a $781$ MiB con $m=1.024$ y a $195$ MiB con $m=256$. Es decir, hasta cientos de miles de documentos la búsqueda exacta sigue siendo despreciable frente a los $349$ ms de codificar la consulta, y la truncación Matryoshka aporta sobre todo memoria. Es una medida dependiente del equipo y no dice nada sobre calidad; justifica no introducir un índice aproximado en esta etapa.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Búsqueda exacta por fuerza bruta con vectores aleatorios: memoria del índice (MiB) y latencia mediana (ms) según el número de documentos $N$ y la dimensión $m$. No mide calidad ni la codificación de la consulta ($\approx 349$ ms). Medido en un equipo personal con otras tareas activas.}
+\label{tab:escalamiento}
+\begin{tabularx}{\textwidth}{@{}r c c c @{}}
+\toprule
+$\boldsymbol{N}$ & \textbf{$m=64$} & \textbf{$m=256$} & \textbf{$m=1024$} \\
+\midrule
+$1.000$ & $0{,}2$ / $0{,}02$ & $1{,}0$ / $0{,}02$ & $3{,}9$ / $0{,}03$ \\
+$10.000$ & $2{,}4$ / $0{,}11$ & $9{,}8$ / $0{,}14$ & $39{,}1$ / $0{,}98$ \\
+$100.000$ & $24{,}4$ / $1{,}46$ & $97{,}7$ / $3{,}09$ & $390{,}6$ / $8{,}10$ \\
+$200.000$ & $48{,}8$ / $2{,}98$ & $195{,}3$ / $6{,}63$ & $781{,}2$ / $17{,}73$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Análisis de errores}
+\label{sec:res-errores}
+La Tabla~\ref{tab:errores} reporta la exactitud en la primera posición. En los conjuntos difíciles solo el $65\%$ (A) y el $64\%$ (B) de las consultas deja el reporte objetivo en primer lugar con el mejor sistema, frente al $92\%$ en el ampliado. Las confusiones más frecuentes son entre reportes que describen entidades vecinas, por ejemplo las métricas por federación devueltas como reporte individual de deportistas, o el personal de apoyo devuelto como grupos; en muchos de esos casos la consulta es genuinamente ambigua entre dos reportes, un límite del protocolo de objetivo único que los juicios de expertos con grados intermedios corregirían.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\caption{Exactitud en la primera posición (el reporte objetivo queda primero) por sistema y conjunto.}
+\label{tab:errores}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
+\toprule
+\textbf{Conjunto} & \textbf{BM25} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{C4} \\
+\midrule
+sintético ($n{=}40$) & $0{,}650$ & $0{,}725$ & $0{,}825$ & $0{,}750$ & $0{,}875$ \\
+ampliado ($n{=}127$) & $0{,}748$ & $0{,}882$ & $0{,}866$ & $0{,}874$ & $0{,}921$ \\
+difícil A ($n{=}52$) & $0{,}135$ & $0{,}404$ & $0{,}654$ & $0{,}442$ & $0{,}615$ \\
+difícil B ($n{=}78$) & $0{,}372$ & $0{,}577$ & $0{,}641$ & $0{,}615$ & $0{,}641$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Síntesis por pregunta de investigación}
+\label{sec:res-sintesis}
+\begin{description}[leftmargin=2.6em,style=nextline,itemsep=2pt]
+  \item[\textbf{P1.}] El híbrido supera a BM25 de forma robusta en los cuatro conjuntos, réplica incluida. Su ventaja sobre el denso puro no se demuestra, y ninguna fusión alternativa supera a RRF de forma robusta.
+  \item[\textbf{P2.}] No es contrastable con este diseño: el control sin nombre muestra que el estrato mide el tema del reporte. Requiere un corpus en el que la entidad figure en el documento.
+  \item[\textbf{P3.}] Depende del conjunto y de la cobertura. Robusta sobre el denso en el sintético y en los dos difíciles (réplica incluida), no significativa en el ampliado; con una asimetría adversa para los reportes sin enriquecer que ampliar la cobertura corrige solo en dirección.
+  \item[\textbf{P4.}] La fragmentación no aporta con documentos de entre $64$ y $184$ palabras.
+  \item[\textbf{P5.}] El realce nunca mejora y es robustamente adverso en los dos conjuntos difíciles. Se descarta.
+  \item[\textbf{P6.}] Truncar a $256$ dimensiones es equivalente a la dimensión nativa en el conjunto ampliado y ahorra el $75\%$ del índice; la latencia no mejora porque la domina la codificación de la consulta.
+\end{description}
+
+
+%% =====================================================================
+
+%% =====================================================================
+\section{Amenazas a la validez}
+\label{sec:validez}
+%% =====================================================================
+Esta sección sigue la clasificación habitual de amenazas (de constructo, internas, estadísticas y externas) y, para cada una, indica qué se hizo para mitigarla y qué riesgo queda.
+
+\subsection{Validez de constructo: qué mide realmente cada estrato}
+\label{sec:validez-constructo}
+El estrato de \emph{entidad exacta} pretende medir la capacidad de encontrar una entidad con nombre propio. Un control diseñado para ese fin mostró que no lo hace en el diseño actual. Cada consulta del estrato se repitió con el nombre propio borrado. Si el nombre contribuyera a la recuperación, el desempeño debería bajar; en cambio, subió o se mantuvo. La explicación es estructural: los nombres propios de las consultas son sintéticos y no figuran en ningún documento del corpus, que describe reportes y no personas. Para la señal léxica son términos sin coincidencia, y para la densa son un elemento de distracción. El estrato mide entonces cuánto describe el texto el \emph{tema} del reporte, no la búsqueda por entidad.
+
+Esto tiene dos consecuencias. La primera es que la hipótesis H2 (la ventaja del híbrido se concentra en la entidad exacta) no es contrastable con este diseño, y los resultados del estrato no deben leerse como confirmación ni como refutación de ella. La segunda es una condición de diseño para el trabajo futuro: un protocolo de búsqueda por entidad es válido solo si la entidad objetivo figura, de forma privada y controlada, en el documento que se indexa. El corpus de competencias lo permite, porque el nombre de cada Prueba Regional (deporte, categoría, región) es parte del documento.
+
+\subsection{Validez interna}
+\paragraph{Vocabulario compartido.} Las consultas se derivan de los documentos, de la ontología o de las firmas de consulta, y comparten vocabulario con ellos. El nivel absoluto de las métricas sobreestima el de producción; por eso las conclusiones se formulan como comparaciones entre configuraciones bajo un mismo protocolo.
+
+\paragraph{Juicios \textit{silver}.} En el conjunto derivado del historial, el reporte que se ejecutó se toma como relevante. Ese juicio es automático y puede no coincidir con la mejor respuesta a la necesidad del usuario. Un subconjunto estratificado queda marcado como candidato a anotación por expertos, con acuerdo entre anotadores como paso posterior.
+
+\paragraph{Réplica no ciega y enriquecimiento mecánico.} El conjunto difícil B se redactó después de conocer los resultados del A, y el enriquecimiento ampliado de la ontología, aunque derivado de las firmas reales sin mirar las consultas, es deliberadamente pobre. Ninguno de los dos es una prueba ciega; ambos se reportan como réplica y como evidencia sugerente.
+
+\paragraph{Fuga entre consultas y documentos.} Una auditoría encontró que un nombre propio sintético utilizado en las consultas figuraba también en los metadatos de un documento. Se eliminó, y el control sin nombre descrito arriba verifica que el nombre ya no influye.
+
+\paragraph{Pseudo-replicación.} Repetir un patrón de filtro con distintos nombres sintéticos produce consultas casi idénticas que no aportan información independiente. El conjunto ampliado usa como unidad el patrón distinto de la firma y elimina textos duplicados entre estratos.
+
+\paragraph{Errores de implementación.} La auditoría corrigió un empate espurio en BM25 que favorecía al primer documento del índice, el uso de un codificador sin la tarea de recuperación declarada, el tamaño de dimensión Matryoshka mayor que la nativa del modelo y un detector de entidades por subcadena. Las cifras anteriores a la corrección se descartaron y se conservan aparte únicamente para trazabilidad.
+
+\subsection{Validez estadística}
+El \textit{known-item} impone un techo: con un solo documento relevante por consulta, buena parte de las consultas queda en la primera posición para todas las configuraciones, de modo que las diferencias entre sistemas se concentran en pocas consultas. Por eso el poder efectivo de la prueba lo da el número de pares con diferencia no nula y no el tamaño total de la muestra, y crecer en consultas fáciles no aumenta el poder. Las comparaciones se corrigen por Holm dentro de cada familia de cinco, pero no existe una corrección global entre conjuntos de evaluación ni entre estratos; los contrastes por estrato deben leerse como exploratorios. Los estratos pequeños, como el de consultas ambiguas, no admiten conclusiones.
+
+\subsection{Validez externa}
+La evidencia procede de una sola plataforma, de una ventana de observación de seis semanas y media y, en la versión inicial, de diecisiete documentos. Con ese tamaño, Recall@100 es trivialmente $1{,}0$ y la ventaja de la señal léxica sobre el denso es difícil de detectar. Los resultados no se extrapolan a otras plataformas ni a otros idiomas. La extensión al corpus de competencias, con cientos de documentos reales, es el paso que somete la conclusión a una escala en la que Recall@100 discrimina.
+
+%% =====================================================================
+\section{Discusión}
+\label{sec:discusion}
+%% =====================================================================
+\paragraph{Sobre la señal léxica y la fusión.} El resultado más estable de la escalera es que el híbrido supera a la recuperación léxica sola: la diferencia es positiva y robusta en los cuatro conjuntos, réplica incluida, y el híbrido se mantiene por encima de BM25 en toda la rejilla de $k_1$ y $b$. La ventaja del híbrido sobre el denso puro, en cambio, no se demuestra, y su signo depende del conjunto: favorable en el ampliado, desfavorable en el difícil A y nula en la réplica B. Una hipótesis inicial era que RRF arrastra al denso cuando la consulta no comparte vocabulario, porque la lista léxica es vacía o ruidosa; la réplica no la confirma con claridad. Tampoco una combinación convexa, un RRF ponderado ni una compuerta de cobertura léxica superan a RRF de forma robusta una vez elegido su parámetro sin fuga, aunque la combinación convexa es mejor en dirección en los conjuntos difíciles, coherente con lo que reportan Bruch et al. \cite{bruch2024fusion}. La conclusión prudente es que RRF es una elección razonable cuando no hay etiquetas, que su costo respecto de una fusión calibrada es pequeño y no demostrado, y que la comparación debe repetirse con juicios de expertos y con un corpus mayor, donde la literatura de BEIR sugiere que el valor de la señal léxica crece \cite{thakur2021beir}. Con diecisiete documentos un codificador multilingüe de calidad ya coloca el objetivo en las primeras posiciones y el techo de la métrica deja pocas consultas en las que los sistemas difieren.
+
+\paragraph{Sobre la ontología.} La inyección de metadatos mejora la recuperación donde la consulta se aparta del vocabulario del documento y se diluye donde lo comparte. Es el patrón del conjunto difícil, con una ganancia robusta de $+0{,}122$ sobre el denso, frente al conjunto ampliado, sintetizado a partir de los filtros del propio reporte, donde no hay efecto. Esa lectura es coherente con el mecanismo, porque la ontología agrega sinónimos y preguntas de negocio, y concuerda con ECLASS, donde el puente de metadatos rinde en consultas que no comparten términos con la descripción del producto \cite{baumgart2026eclass}. Dos matices limitan la conclusión. Primero, el beneficio depende de la distribución real de las consultas de los usuarios, que solo puede conocerse con consultas recogidas en producción. Segundo, enriquecer solo nueve de diecisiete reportes introduce una asimetría que perjudica a los no enriquecidos (Tabla~\ref{tab:cobertura}). Ampliar la cobertura a catorce con un enriquecimiento mecánico no mejora el desempeño global y recupera en dirección, pero sin significancia, a los reportes antes perjudicados (Tabla~\ref{tab:onto-completa}); la hipótesis de que la ontología debe cubrir todo el corpus queda apoyada de forma sugerente y no confirmada, y su prueba definitiva exige un enriquecimiento redactado con el mismo cuidado que el de los nueve originales.
+
+\paragraph{Sobre el realce por entidad.} El realce no mejora el orden en ningún conjunto ni para ningún $\lambda$. El mecanismo es identificable: el indicador de entidad se activa para cuatro a seis documentos por consulta con una precisión de $0{,}10$ a $0{,}17$, porque casi todos los reportes cubren las mismas clases del dominio (deportista, grupo, institución), y el factor multiplicativo no discrimina entre ellos. Un realce solo tiene sentido si el detector resuelve la \emph{mención} concreta contra un diccionario de entidades y activa un único documento. Ese diccionario es justamente el componente que el diseño de privacidad separa del índice, lo que sugiere que el realce y la protección de datos personales son decisiones de arquitectura acopladas.
+
+\paragraph{Sobre la eficiencia.} A esta escala la memoria del índice es del orden de decenas de kilobytes y la latencia está dominada por la codificación de la consulta, no por la búsqueda. Por eso el ahorro de la truncación Matryoshka es un resultado de calibración y no una demostración de ahorro en producción: confirma que $256$ dimensiones bastan sin pérdida detectable en el conjunto ampliado, y fija la configuración para cuando el corpus crezca. El conjunto sintético, con $40$ consultas, no tiene poder para demostrar equivalencia, lo que ilustra que la afirmación de equivalencia exige más datos que la de diferencia. Que la fragmentación no aporte es esperable con documentos de entre $64$ y $184$ palabras, por debajo de la ventana efectiva de cualquier codificador actual.
+
+\paragraph{Sobre la metodología.} La contribución más transferible es el conjunto de controles. El control sin nombre detectó que un estrato estaba mal rotulado, la deduplicación por patrón evitó una inflación del tamaño muestral que habría hecho parecer significativos efectos que no lo son, y la corrección de Holm cambió la conclusión de varias comparaciones. Una evaluación que no incorpora esos controles habría dado una imagen más favorable y menos cierta.
+
+%% =====================================================================
+\section{Ética, privacidad y gobernanza de datos}
+\label{sec:etica}
+%% =====================================================================
+El caso de estudio involucra datos de deportistas, muchos de ellos menores de edad, y de instituciones. El diseño aplica minimización de datos desde el origen.
+\begin{itemize}[leftmargin=1.6em,itemsep=1pt]
+  \item \textbf{El análisis usa estructura, no contenido.} Las firmas de consulta contienen tablas, columnas y palabras clave de filtro, no los valores buscados. Los literales se eliminaron antes de guardar el historial y una auditoría automática confirmó que no queda rastro.
+  \item \textbf{El índice no contiene datos personales.} Los documentos son descripciones de reportes. Una verificación anterior a la escritura del corpus busca correos electrónicos y secuencias numéricas largas y aborta la construcción si encuentra alguno.
+  \item \textbf{Los nombres propios de evaluación son sintéticos.} No corresponden a ninguna persona real.
+  \item \textbf{La resolución de nombres reales queda fuera del índice.} Un componente aparte con control de acceso asocia una mención con una identidad. Esta separación es coherente con la evidencia de que los nombres de participante ya se almacenan cifrados por columna en la capa base de datos.
+  \item \textbf{Alcance del permiso.} La extracción de agregados se limita a conteos por combinación y no recupera filas individuales; la ejecución sobre el almacén de datos de producción la realiza el responsable de datos con su propio acceso autorizado.
+  \item \textbf{Anonimato de la organización.} El documento se refiere a la entidad como ``la organización'' o ``el caso de estudio''.
+\end{itemize}
+Queda un riesgo residual: un buscador que resuelva nombres propios podría facilitar la localización de personas. Por eso la recomendación de arquitectura es que el gazetteer exija autenticación y registro de auditoría, y que el sistema devuelva el reporte pertinente y no los datos de la persona.
+
+%% =====================================================================
+\section{Reproducibilidad}
+\label{sec:reproducibilidad}
+%% =====================================================================
+Todos los resultados se reconstruyen con una sola orden desde la carpeta de experimentos: \texttt{make all} encadena la construcción del corpus, la generación de consultas, la escalera de ablación y los reportes. Otros objetivos construyen el conjunto ampliado y el control sin nombre (\texttt{make eval\_real}, \texttt{make control}), el conjunto difícil (\texttt{make dificil}), los barridos de sensibilidad, Matryoshka y fragmentación (\texttt{make barridos}), el análisis de cobertura de la ontología y el diagnóstico del detector (\texttt{make cobertura}, \texttt{make diagnostico}), las tablas de este documento (\texttt{make tablas}) y las hojas de anotación para expertos (\texttt{make anotacion}). Las tablas de la sección de resultados se generan desde los archivos de resultados, sin transcripción manual. Una única fuente de configuración (\texttt{config.yaml}) fija las rutas y los hiperparámetros.
+
+\paragraph{Parámetros fijos.} $k_1=1{,}5$, $b=0{,}75$, constante de fusión $k=60$, realce $\lambda=0{,}2$, semilla $42$, $1.000$ remuestreos \textit{bootstrap}, dimensión nativa del codificador $1.024$, tareas de recuperación de consulta y de pasaje del codificador activadas. Ninguno se ajustó sobre los conjuntos de evaluación.
+
+\paragraph{Determinismo.} Los empates se resuelven por identificador de documento y el orden de iteración es estable, de modo que las métricas son idénticas entre procesos independientemente de la aleatorización de \textit{hash} del intérprete. Solo las latencias, que miden tiempo de reloj, varían entre ejecuciones.
+
+\paragraph{Verificación.} Las métricas y las funciones estadísticas tienen pruebas automáticas (\texttt{make test}), y una ejecución de humo con un codificador offline determinista (\texttt{make smoke}) valida la tubería sin descargar modelos.
+
+\paragraph{Dependencias.} Python con \texttt{numpy}, \texttt{scipy}, \texttt{scikit-learn}, \texttt{pyyaml}, \texttt{snowballstemmer}, \texttt{sentence-transformers} y \texttt{einops}. El codificador \texttt{jina-embeddings-v3} se carga con código remoto y, con la versión actual de la librería \texttt{transformers}, requiere un ajuste de compatibilidad no invasivo que se documenta en el código.
+
+\paragraph{Trazabilidad de la corrección.} Los resultados previos a la auditoría se conservan en una carpeta separada de archivos obsoletos, y no se citan en el documento.
+
+%% =====================================================================
+\section{Conclusiones y trabajo futuro}
+%% =====================================================================
+La revisión de la literatura deja una conclusión metodológica: existen alternativas maduras a la recuperación léxica, cada una con un balance distinto entre efectividad, memoria y latencia, pero el desempeño fuera del dominio de entrenamiento no se infiere del desempeño dentro de él \cite{thakur2021beir}, así que qué familia gana sobre el corpus objetivo es una pregunta empírica. El análisis del uso real fundamenta las decisiones de alcance: la demanda está muy concentrada (Gini de $0{,}70$; cinco reportes explican el $83\%$) y encabeza el Reporte Individual de Deportistas con el $40{,}4\%$. El dominio de competencias, con un volumen muy superior al de cualquier reporte, carece de punto de entrada en el historial, un vacío de cobertura que motiva la capacidad de componer conceptos y no solo emparejar palabras.
+
+El experimento responde las seis preguntas con matices que importan. El híbrido supera de forma robusta a la búsqueda léxica sola en los cuatro conjuntos de evaluación, réplica incluida (P1), pero su ventaja sobre el denso puro no se demuestra y su signo depende del conjunto; ninguna fusión alternativa supera a RRF de forma robusta. La pregunta sobre la entidad exacta (P2) no pudo contrastarse: un control con el nombre propio borrado mostró que el estrato mide el tema del reporte y no la entidad, porque la entidad no figura en el documento indexado. La ontología (P3) ayuda donde hay brecha de vocabulario, con ganancias robustas sobre el denso de $+0{,}122$ en el conjunto difícil y $+0{,}054$ en su réplica, y no tiene efecto donde la consulta ya usa el vocabulario del reporte; además, enriquecer solo una parte del corpus parece perjudicar a los reportes no enriquecidos, y ampliar la cobertura los recupera en dirección sin confirmarse. La fragmentación no aporta con documentos cortos (P4). El realce suave por entidad nunca mejora el orden y es robustamente adverso en los dos conjuntos difíciles (P5); se descarta. La truncación Matryoshka a $256$ dimensiones es equivalente a la dimensión nativa y ahorra el $75\%$ del índice (P6). Los hiperparámetros fijados sin ajuste no condicionan estas conclusiones. La configuración recomendada para la Versión~1 es el híbrido con ontología, sin realce, con el \textit{embedding} truncado a $256$ dimensiones y un índice denso por coseno exacto, con la salvedad de que la ontología debe cubrir todos los reportes.
+
+El aporte del proyecto no es un modelo nuevo, sino la caracterización de estas familias sobre un escenario que la literatura no cubre, con un marco experimental reproducible, controles de validez que detectaron y corrigieron errores propios, y una lectura honesta de sus límites. El trabajo futuro sigue pasos ordenados por impacto. Primero, extender el corpus al dominio de competencias materializando la entidad Prueba Regional, cuyo nombre sí figura en el documento y permite contrastar P2 de verdad y evaluar la ventaja del híbrido en un corpus donde Recall@100 discrimina. Segundo, someter el conjunto difícil y las consultas candidatas a anotación por expertos, para sustituir los juicios \textit{silver} por \textit{gold} con acuerdo entre anotadores medido. Tercero, completar la cobertura de la ontología con el mismo cuidado que los nueve reportes originales y reconsiderar el realce con un detector que resuelva la mención contra un diccionario de entidades. Cuarto, comparar otros codificadores y un reordenador ligero, y repetir la comparación de fusiones con juicios de expertos, siempre con el mismo protocolo.
+
+%% =====================================================================
+%% Bibliografía embebida (numérica, sin BibTeX). Coincide con referencias.bib.
+%% =====================================================================
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{Referencias}
+
+\bibitem{robertson2009bm25}
+S.~Robertson y H.~Zaragoza,
+\textit{The probabilistic relevance framework: BM25 and beyond},
+Foundations and Trends in Information Retrieval \textbf{3} (2009), n.º~4, 333--389.
+
+\bibitem{reimers2019sbert}
+N.~Reimers y I.~Gurevych,
+\textit{Sentence-BERT: Sentence embeddings using Siamese BERT-networks},
+Proceedings of EMNLP, 2019.
+
+\bibitem{karpukhin2020dpr}
+V.~Karpukhin, B.~O{\u{g}}uz, S.~Min, P.~Lewis, L.~Wu, S.~Edunov, D.~Chen y W.~Yih,
+\textit{Dense passage retrieval for open-domain question answering},
+Proceedings of EMNLP, 2020, 6769--6781.
+
+\bibitem{khattab2020colbert}
+O.~Khattab y M.~Zaharia,
+\textit{ColBERT: Efficient and effective passage search via contextualized late interaction over BERT},
+Proceedings of SIGIR, 2020, 39--48.
+
+\bibitem{lewis2020rag}
+P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal, H.~K{\"u}ttler, M.~Lewis, W.~Yih, T.~Rockt{\"a}schel, S.~Riedel y D.~Kiela,
+\textit{Retrieval-augmented generation for knowledge-intensive NLP tasks},
+Advances in Neural Information Processing Systems 33 (NeurIPS), 2020, 9459--9474.
+
+\bibitem{nogueira2020monot5}
+R.~Nogueira, Z.~Jiang, R.~Pradeep y J.~Lin,
+\textit{Document ranking with a pretrained sequence-to-sequence model},
+Findings of ACL: EMNLP, 2020, 708--718.
+
+\bibitem{xiong2021ance}
+L.~Xiong, C.~Xiong, Y.~Li, K.~Tang, J.~Liu, P.~N. Bennett, J.~Ahmed y A.~Overwijk,
+\textit{Approximate nearest neighbor negative contrastive learning for dense text retrieval},
+International Conference on Learning Representations (ICLR), 2021.
+
+\bibitem{formal2021splade}
+T.~Formal, B.~Piwowarski y S.~Clinchant,
+\textit{SPLADE: Sparse lexical and expansion model for first stage ranking},
+Proceedings of SIGIR, 2021, 2288--2292.
+
+\bibitem{thakur2021beir}
+N.~Thakur, N.~Reimers, A.~R{\"u}ckl{\'e}, A.~Srivastava e I.~Gurevych,
+\textit{BEIR: A heterogeneous benchmark for zero-shot evaluation of information retrieval models},
+NeurIPS Datasets and Benchmarks Track, 2021.
+
+\bibitem{izacard2022contriever}
+G.~Izacard, M.~Caron, L.~Hosseini, S.~Riedel, P.~Bojanowski, A.~Joulin y E.~Grave,
+\textit{Unsupervised dense information retrieval with contrastive learning},
+Transactions on Machine Learning Research, 2022.
+
+\bibitem{santhanam2022colbertv2}
+K.~Santhanam, O.~Khattab, J.~Saad-Falcon, C.~Potts y M.~Zaharia,
+\textit{ColBERTv2: Effective and efficient retrieval via lightweight late interaction},
+Proceedings of NAACL-HLT, 2022, 3715--3734.
+
+\bibitem{zhao2022densesurvey}
+W.~X. Zhao, J.~Liu, R.~Ren y J.~Wen,
+\textit{Dense text retrieval based on pretrained language models: A survey},
+ACM Transactions on Information Systems \textbf{42} (2024), n.º~4.
+
+\bibitem{chen2024m3}
+J.~Chen, S.~Xiao, P.~Zhang, K.~Luo, D.~Lian y Z.~Liu,
+\textit{M3-Embedding: Multi-linguality, multi-functionality, multi-granularity text embeddings through self-knowledge distillation},
+Findings of ACL, 2024, 2318--2335.
+
+\bibitem{farivar2025semantic}
+K.~Farivar,
+\textit{Semantic search for information retrieval},
+arXiv preprint arXiv:2508.17694, 2025.
+
+\bibitem{borisyuk2026linkedin}
+F.~Borisyuk, S.~Vasudevan, M.~Wu, G.~Li, B.~Le y otros,
+\textit{Semantic search at LinkedIn},
+arXiv preprint arXiv:2602.07309, 2026.
+
+\bibitem{kothari2026flipkart}
+N.~Kothari, S.~Samdani, R.~Mallick, P.~Gupta, A.~Vijay y S.~Kumar,
+\textit{Semantic retrieval for product search in e-commerce},
+arXiv preprint arXiv:2606.01504, 2026.
+
+\bibitem{baumgart2026eclass}
+N.~Baumgart, M.~Lange-Hegermann y J.~Henze,
+\textit{ECLASS-augmented semantic product search for electronic components},
+arXiv preprint arXiv:2604.19664, 2026.
+
+\bibitem{ling2026ubereats}
+B.~Ling, Z.~Liu, H.~Chen, D.~Nagar, L.~Yang y M.~Parsana,
+\textit{Scaling multilingual semantic search in Uber Eats delivery},
+arXiv preprint arXiv:2603.06586, 2026.
+
+\bibitem{cormack2009rrf}
+G.~V. Cormack, C.~L.~A. Clarke y S.~Buettcher,
+\textit{Reciprocal rank fusion outperforms Condorcet and individual rank learning methods},
+Proceedings of SIGIR, 2009, 758--759.
+
+\bibitem{kusupati2022matryoshka}
+A.~Kusupati, G.~Bhatt, A.~Rege, M.~Wallingford, A.~Sinha, V.~Ramanujan, W.~Howard-Snyder, K.~Chen, S.~Kakade, P.~Jain y A.~Farhadi,
+\textit{Matryoshka representation learning},
+Advances in Neural Information Processing Systems 35 (NeurIPS), 2022.
+
+\bibitem{sturua2024jinav3}
+S.~Sturua, I.~Mohr, M.~K. Akram, M.~G{\"u}nther, B.~Wang, M.~Krimmel, F.~Wang, G.~Mastrapas, A.~Koukounas, N.~Wang y H.~Xiao,
+\textit{jina-embeddings-v3: Multilingual embeddings with task LoRA},
+arXiv preprint arXiv:2409.10173, 2024.
+
+\bibitem{muennighoff2023mteb}
+N.~Muennighoff, N.~Tazi, L.~Magne y N.~Reimers,
+\textit{MTEB: Massive text embedding benchmark},
+Proceedings of EACL, 2023.
+
+\bibitem{jarvelin2002ndcg}
+K.~J{\"a}rvelin y J.~Kek{\"a}l{\"a}inen,
+\textit{Cumulated gain-based evaluation of IR techniques},
+ACM Transactions on Information Systems \textbf{20} (2002), n.º~4, 422--446.
+
+\bibitem{zobel1998reliable}
+J.~Zobel,
+\textit{How reliable are the results of large-scale information retrieval experiments?},
+Proceedings of SIGIR, 1998, 307--314.
+
+\bibitem{smucker2007significance}
+M.~D. Smucker, J.~Allan y B.~Carterette,
+\textit{A comparison of statistical significance tests for information retrieval evaluation},
+Proceedings of CIKM, 2007, 623--632.
+
+\bibitem{wilcoxon1945}
+F.~Wilcoxon,
+\textit{Individual comparisons by ranking methods},
+Biometrics Bulletin \textbf{1} (1945), n.º~6, 80--83.
+
+\bibitem{holm1979}
+S.~Holm,
+\textit{A simple sequentially rejective multiple test procedure},
+Scandinavian Journal of Statistics \textbf{6} (1979), n.º~2, 65--70.
+
+\bibitem{kerby2014}
+D.~S. Kerby,
+\textit{The simple difference formula: An approach to teaching nonparametric correlation},
+Comprehensive Psychology \textbf{3} (2014), art.~11.
+
+\bibitem{efron1979bootstrap}
+B.~Efron,
+\textit{Bootstrap methods: Another look at the jackknife},
+The Annals of Statistics \textbf{7} (1979), n.º~1, 1--26.
+
+\bibitem{gruber1993ontologia}
+T.~R. Gruber,
+\textit{A translation approach to portable ontology specifications},
+Knowledge Acquisition \textbf{5} (1993), n.º~2, 199--220.
+
+\bibitem{porter2001snowball}
+M.~F. Porter,
+\textit{Snowball: A language for stemming algorithms},
+2001, \url{http://snowball.tartarus.org/texts/introduction.html}.
+
+% VERIFICADA: https://doi.org/10.1145/3596512 (Crossref: ACM TOIS 42(1), 1-35, en linea ago-2023, impreso ene-2024; DBLP key journals/tois/BruchGI24) ; https://arxiv.org/abs/2210.11934
+\bibitem{bruch2024fusion}
+S.~Bruch, S.~Gai y A.~Ingber,
+\textit{An analysis of fusion functions for hybrid retrieval},
+ACM Transactions on Information Systems, 42(1), pp.~1--35, 2024.
+
+% VERIFICADA: https://aclanthology.org/2021.tacl-1.20/ (bib oficial: TACL vol. 9, pp. 329--345, 2021) ; DOI 10.1162/tacl_a_00369
+\bibitem{luan2021sparse}
+Y.~Luan, J.~Eisenstein, K.~Toutanova y M.~Collins,
+\textit{Sparse, dense, and attentional representations for text retrieval},
+Transactions of the Association for Computational Linguistics, 9, pp.~329--345, 2021.
+
+% VERIFICADA: https://doi.org/10.1145/3471158.3472233 (Crossref: ICTIR 2021, pp. 317-324)
+\bibitem{wang2021interpolation}
+S.~Wang, S.~Zhuang y G.~Zuccon,
+\textit{{BERT}-based dense retrievers require interpolation with {BM25} for effective passage retrieval},
+Proceedings of the 2021 ACM SIGIR International Conference on Theory of Information Retrieval (ICTIR), pp.~317--324, 2021.
+
+% VERIFICADA: https://doi.org/10.1007/978-3-030-99736-6_7 (Crossref: Advances in Information Retrieval, LNCS, Springer, pp. 95-110, 2022) ; https://arxiv.org/abs/2201.10582 ("Accepted at ECIR 2022"). NO se cita volumen LNCS porque Crossref y el prefijo ISBN no concuerdan.
+\bibitem{chen2022hybrid}
+T.~Chen, M.~Zhang, J.~Lu, M.~Bendersky y M.~Najork,
+\textit{Out-of-domain semantics to the rescue! Zero-shot hybrid retrieval models},
+Advances in Information Retrieval (ECIR 2022), Lecture Notes in Computer Science, Springer, pp.~95--110, 2022.
+
+% VERIFICADA: https://arxiv.org/abs/2110.01529 ; https://doi.org/10.1145/3527546.3527552 (Crossref: SIGIR Forum 55(2), pp. 1-29, diciembre 2021)
+\bibitem{lin2021representational}
+J.~Lin,
+\textit{A proposed conceptual framework for a representational approach to information retrieval},
+ACM SIGIR Forum, 55(2), pp.~1--29, 2021.
+
+% VERIFICADA (parcial: paginas omitidas): articulo en https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/okapi_trec3.pdf (titulo y autores leidos en el PDF) ; https://www.nist.gov/publications/overview-third-text-retrieval-conference-trec-3 (NIST SP 500-225, 1995) ; https://trec.nist.gov/pubs/trec3/t3_proceedings.html (el articulo empieza en p. 109; esta pagina dice 500-226 y otras fuentes dan 126/127 como ultima pagina -> se omiten paginas)
+\bibitem{robertson1995okapi}
+S.~E.~Robertson, S.~Walker, S.~Jones, M.~M.~Hancock-Beaulieu y M.~Gatford,
+\textit{Okapi at {TREC}-3},
+en D.~K.~Harman (ed.), Overview of the Third Text REtrieval Conference (TREC-3), NIST Special Publication 500-225, 1995.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/2212.03533 (v1 dic-2022, v2 feb-2024; sin referencia a venue arbitrado)
+\bibitem{wang2022e5}
+L.~Wang, N.~Yang, X.~Huang, B.~Jiao, L.~Yang, D.~Jiang, R.~Majumder y F.~Wei,
+\textit{Text embeddings by weakly-supervised contrastive pre-training},
+arXiv preprint arXiv:2212.03533, 2022.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/2402.05672
+\bibitem{wang2024multilinguale5}
+L.~Wang, N.~Yang, X.~Huang, L.~Yang, R.~Majumder y F.~Wei,
+\textit{Multilingual {E5} text embeddings: A technical report},
+arXiv preprint arXiv:2402.05672, 2024.
+
+% VERIFICADA: https://arxiv.org/abs/2309.07597 ("SIGIR 2024") ; https://doi.org/10.1145/3626772.3657878 (Crossref: SIGIR '24, pp. 641-649, 10-jul-2024). OJO: es un trabajo centrado en chino (C-MTEB); sirve para el modelo/receta BGE, no para espanol.
+\bibitem{xiao2024cpack}
+S.~Xiao, Z.~Liu, P.~Zhang, N.~Muennighoff, D.~Lian y J.-Y.~Nie,
+\textit{{C-Pack}: Packed resources for general {C}hinese embeddings},
+Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), pp.~641--649, 2024.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/2506.05176 (v1 5-jun-2025; v3 11-jun-2025; sin venue arbitrado). Titulo completo con subtitulo.
+\bibitem{zhang2025qwen3embedding}
+Y.~Zhang, M.~Li, D.~Long, X.~Zhang, H.~Lin, B.~Yang, P.~Xie, A.~Yang, D.~Liu, J.~Lin, F.~Huang y J.~Zhou,
+\textit{{Qwen3} embedding: Advancing text embedding and reranking through foundation models},
+arXiv preprint arXiv:2506.05176, 2025.
+
+% VERIFICADA: https://aclanthology.org/2023.tacl-1.63/ (bib oficial: TACL vol. 11, pp. 1114--1131, 2023). OJO: el titulo arbitrado es "MIRACL: A multilingual retrieval dataset covering 18 diverse languages"; "Making a MIRACL: ..." es el titulo del preprint arXiv:2210.09984. Espanol (es) incluido: https://project-miracl.github.io/
+\bibitem{zhang2023miracl}
+X.~Zhang, N.~Thakur, O.~Ogundepo, E.~Kamalloo, D.~Alfonso-Hermelo, X.~Li, Q.~Liu, M.~Rezagholizadeh y J.~Lin,
+\textit{{MIRACL}: A multilingual retrieval dataset covering 18 diverse languages},
+Transactions of the Association for Computational Linguistics, 11, pp.~1114--1131, 2023.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/2108.13897 (v5 ago-2022; 13 idiomas incl. espanol, leido en el PDF; sin venue arbitrado)
+\bibitem{bonifacio2021mmarco}
+L.~Bonifacio, V.~Jeronymo, H.~Q.~Abonizio, I.~Campiotti, M.~Fadaee, R.~Lotufo y R.~Nogueira,
+\textit{{mMARCO}: A multilingual version of the {MS MARCO} passage ranking dataset},
+arXiv preprint arXiv:2108.13897, 2021.
+
+% VERIFICADA: https://aclanthology.org/2025.emnlp-main.1412/ (bib oficial: EMNLP 2025, Suzhou, pp. 27752--27769) ; https://arxiv.org/abs/2409.05994 (v1 sep-2024). OJO: la version arbitrada es EMNLP 2025, no 2024.
+\bibitem{valentini2025messirve}
+F.~Valentini, V.~Cotik, D.~Furman, I.~Bercovich, E.~Altszyler y J.~M.~P{\'e}rez,
+\textit{{MessIRve}: A large-scale {S}panish information retrieval dataset},
+Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp.~27752--27769, 2025.
+
+% VERIFICADA: https://arxiv.org/abs/2502.13595 ; https://iclr.cc/virtual/2025/poster/27651 (ICLR 2025, poster). 85 autores segun arXiv -> se lista solo a los 3 primeros. Es multilingue (250+ idiomas segun el resumen); NO se verifico una lista de tareas en espanol.
+\bibitem{enevoldsen2025mmteb}
+K.~Enevoldsen, I.~Chung, I.~Kerboua et~al.,
+\textit{{MMTEB}: Massive multilingual text embedding benchmark},
+International Conference on Learning Representations (ICLR), 2025.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/1901.04085 (v1 ene-2019; v5 abr-2020; sin venue arbitrado)
+\bibitem{nogueira2019passage}
+R.~Nogueira y K.~Cho,
+\textit{Passage re-ranking with {BERT}},
+arXiv preprint arXiv:1901.04085, 2019.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/1611.09268 (15 autores, v3 oct-2018). OJO: existe una version de taller en CEUR-WS Vol-1773 (CoCo@NIPS 2016) con otra lista de autores (Nguyen et al.); no es la que se cita aqui.
+\bibitem{bajaj2016msmarco}
+P.~Bajaj, D.~Campos, N.~Craswell, L.~Deng, J.~Gao, X.~Liu, R.~Majumder, A.~McNamara, B.~Mitra, T.~Nguyen, M.~Rosenberg, X.~Song, A.~Stoica, S.~Tiwary y T.~Wang,
+\textit{{MS MARCO}: A human generated machine reading comprehension dataset},
+arXiv preprint arXiv:1611.09268, 2016.
+
+% VERIFICADA [PREPRINT]: https://arxiv.org/abs/2003.07820 (v1 17-mar-2020; es el overview del TREC 2019; sin venue arbitrado)
+\bibitem{craswell2020trec19dl}
+N.~Craswell, B.~Mitra, E.~Yilmaz, D.~Campos y E.~M.~Voorhees,
+\textit{Overview of the {TREC} 2019 deep learning track},
+arXiv preprint arXiv:2003.07820, 2020.
+
+% VERIFICADA: https://doi.org/10.1145/3477495.3531863 (Crossref: SIGIR '22, pp. 2387-2392, 6-jul-2022). OJO: el titulo arbitrado es "InPars: Unsupervised dataset generation for information retrieval"; "InPars: Data augmentation for information retrieval using large language models" es el titulo del preprint arXiv:2202.05144.
+\bibitem{bonifacio2022inpars}
+L.~Bonifacio, H.~Abonizio, M.~Fadaee y R.~Nogueira,
+\textit{{InPars}: Unsupervised dataset generation for information retrieval},
+Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), pp.~2387--2392, 2022.
+
+% VERIFICADA: https://iclr.cc/virtual/2023/poster/10937 (ICLR 2023, poster) ; https://arxiv.org/abs/2209.11755 (autores completos)
+\bibitem{dai2023promptagator}
+Z.~Dai, V.~Y.~Zhao, J.~Ma, Y.~Luan, J.~Ni, J.~Lu, A.~Bakalov, K.~Guu, K.~B.~Hall y M.-W.~Chang,
+\textit{Promptagator: Few-shot dense retrieval from 8 examples},
+International Conference on Learning Representations (ICLR), 2023.
+
+% VERIFICADA: https://doi.org/10.1145/1277741.1277820 (Crossref: SIGIR '07, pp. 455-462, 23-jul-2007). OJO: el titulo completo lleva subtitulo ": an analysis using six european languages".
+\bibitem{azzopardi2007simulated}
+L.~Azzopardi, M.~de~Rijke y K.~Balog,
+\textit{Building simulated queries for known-item topics: an analysis using six {E}uropean languages},
+Proceedings of the 30th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), pp.~455--462, 2007.
+
+% VERIFICADA: https://doi.org/10.1016/S0306-4573(00)00010-8 (Crossref: IPM 36(5), 697-716, septiembre 2000)
+\bibitem{voorhees2000variations}
+E.~M.~Voorhees,
+\textit{Variations in relevance judgments and the measurement of retrieval effectiveness},
+Information Processing \& Management, 36(5), pp.~697--716, 2000.
+
+% VERIFICADA: https://doi.org/10.1177/001316446002000104 (Crossref: Educational and Psychological Measurement 20(1), 37-46, abril 1960)
+\bibitem{cohen1960kappa}
+J.~Cohen,
+\textit{A coefficient of agreement for nominal scales},
+Educational and Psychological Measurement, 20(1), pp.~37--46, 1960.
+
+% VERIFICADA: https://doi.org/10.1145/2094072.2094076 (Crossref: ACM TOIS 30(1), pp. 1-34, 2012)
+\bibitem{carterette2012multiple}
+B.~A.~Carterette,
+\textit{Multiple testing in statistical analysis of systems-based information retrieval experiments},
+ACM Transactions on Information Systems, 30(1), pp.~1--34, 2012.
+
+% VERIFICADA: https://doi.org/10.1145/3331184.3331259 (Crossref: SIGIR '19, pp. 505-514, 18-jul-2019) ; https://arxiv.org/abs/1905.11096 ; https://github.com/julian-urbano/sigir2019-statistical
+\bibitem{urbano2019significance}
+J.~Urbano, H.~Lima y A.~Hanjalic,
+\textit{Statistical significance testing in information retrieval: an empirical analysis of type {I}, type {II} and type {III} errors},
+Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), pp.~505--514, 2019.
+
+% VERIFICADA: https://doi.org/10.1145/2641383.2641385 (Crossref: ACM SIGIR Forum 48(1), pp. 3-12, 26-jun-2014)
+\bibitem{sakai2014reform}
+T.~Sakai,
+\textit{Statistical reform in information retrieval?},
+ACM SIGIR Forum, 48(1), pp.~3--12, 2014.
+
+% VERIFICADA: https://doi.org/10.1145/775152.775250 (Crossref) ; Semantic Scholar API (DBLP conf/www/GuhaMM03): paginas 700-709 ; https://research.ibm.com/publications/semantic-search
+\bibitem{guha2003semantic}
+R.~Guha, R.~McCool y E.~Miller,
+\textit{Semantic search},
+Proceedings of the 12th International Conference on World Wide Web (WWW), pp.~700--709, 2003.
+
+% VERIFICADA: https://doi.org/10.1016/j.ipm.2006.09.003 (Crossref: IPM 43(4), 866-886, julio 2007)
+\bibitem{bhogal2007ontology}
+J.~Bhogal, A.~Macfarlane y P.~Smith,
+\textit{A review of ontology based query expansion},
+Information Processing \& Management, 43(4), pp.~866--886, 2007.
+
+% VERIFICADA: https://doi.org/10.1016/j.giq.2023.101877 (Crossref: Government Information Quarterly 40(4), art. 101877, octubre 2023). Autores confirmados tambien en el repositorio UGR (digibug.ugr.es/handle/10481/85925).
+\bibitem{cortescediel2023chatbots}
+M.~E.~Cort{\'e}s-Cediel, A.~Segura-Tinoco, I.~Cantador y M.~P.~Rodr{\'\i}guez~Bol{\'\i}var,
+\textit{Trends and challenges of e-government chatbots: Advances in exploring open government data and citizen participation content},
+Government Information Quarterly, 40(4), art.~101877, 2023.
+
+% VERIFICADA: https://doi.org/10.1145/3463677.3463681 (Crossref: DG.O2021, pp. 168-179, 9-jun-2021) ; https://repositorio.uam.es/handle/10486/705156
+\bibitem{cantador2021chatbot}
+I.~Cantador, J.~Viejo-Tard{\'\i}o, M.~E.~Cort{\'e}s-Cediel y M.~P.~Rodr{\'\i}guez~Bol{\'\i}var,
+\textit{A chatbot for searching and exploring open data: Implementation and evaluation in e-government},
+DG.O2021: The 22nd Annual International Conference on Digital Government Research, pp.~168--179, 2021.
+
+\end{thebibliography}
+
+\end{document}

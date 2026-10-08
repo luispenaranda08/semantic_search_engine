@@ -1,0 +1,521 @@
+[
+  {
+    "reporte": "Reporte Individual de Deportistas",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Evento",
+      "Grupo",
+      "Institución",
+      "Personal de Apoyo",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista pertenece_a Grupo",
+      "Deportista pertenece_a Institución",
+      "Deportista participa_en Evento",
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica",
+      "Grupo pertenece_a Institución",
+      "Grupo compite_en Evento",
+      "Institución ubicada_en Ubicación Geográfica",
+      "Personal de Apoyo pertenece_a Grupo"
+    ],
+    "conceptos_de_negocio": [
+      "Buscar por el nombre de un deportista específico",
+      "Deportistas por categoría, disciplina o modalidad deportiva",
+      "Deportistas o instituciones por región, departamento o municipio",
+      "Deportistas con alguna condición de inclusión (discapacidad, comunidad indígena, etc.)"
+    ],
+    "atributos_filtrables": [
+      "department_name",
+      "disability_name",
+      "discipline_code",
+      "discipline_name",
+      "document_number",
+      "event_code",
+      "event_name",
+      "event_phases_count",
+      "event_status",
+      "event_sub_status",
+      "functional_classification_code",
+      "functional_classification_name"
+    ],
+    "sinonimos": [
+      "acompañante",
+      "atleta",
+      "categoría",
+      "certamen deportivo",
+      "club",
+      "colegio",
+      "competencia",
+      "competidor",
+      "conjunto de deportistas",
+      "cuerpo técnico",
+      "delegación de grupo",
+      "departamento",
+      "deporte",
+      "entidad educativa o deportiva",
+      "entrenador",
+      "equipo",
+      "escuela",
+      "juegos",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "participante deportivo",
+      "región",
+      "torneo",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Grupos",
+    "entidades_principales": [
+      "Disciplina Deportiva",
+      "Etapa/Fase",
+      "Evento",
+      "Grupo",
+      "Institución"
+    ],
+    "relaciones_clave": [
+      "Grupo pertenece_a Institución",
+      "Grupo compite_en Evento",
+      "Evento tiene Etapa/Fase"
+    ],
+    "conceptos_de_negocio": [
+      "Buscar por el nombre de una institución específica (ej. un colegio)",
+      "Deportistas que pertenecen a un grupo determinado"
+    ],
+    "atributos_filtrables": [
+      "category_name",
+      "current_stage",
+      "discipline_name",
+      "event_code",
+      "group_name",
+      "group_status",
+      "inst_department_name",
+      "inst_municipality_name",
+      "institution_dane_code",
+      "modality",
+      "sport_name",
+      "sport_type_name"
+    ],
+    "sinonimos": [
+      "categoría",
+      "certamen deportivo",
+      "club",
+      "colegio",
+      "competencia",
+      "conjunto de deportistas",
+      "delegación de grupo",
+      "deporte",
+      "entidad educativa o deportiva",
+      "equipo",
+      "escuela",
+      "fase",
+      "juegos",
+      "modalidad",
+      "nivel de competencia",
+      "ronda",
+      "torneo"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Personal de Apoyo",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Etapa/Fase",
+      "Evento",
+      "Institución",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista pertenece_a Institución",
+      "Deportista participa_en Evento",
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica",
+      "Evento tiene Etapa/Fase",
+      "Institución ubicada_en Ubicación Geográfica"
+    ],
+    "conceptos_de_negocio": [
+      "Personal de apoyo (entrenadores, acompañantes) de un grupo o evento"
+    ],
+    "atributos_filtrables": [
+      "category_code",
+      "category_name",
+      "current_stage",
+      "department_name",
+      "document_number",
+      "document_type",
+      "email",
+      "event_code",
+      "event_name",
+      "event_slug",
+      "event_status",
+      "event_sub_status"
+    ],
+    "sinonimos": [
+      "atleta",
+      "categoría",
+      "certamen deportivo",
+      "club",
+      "colegio",
+      "competencia",
+      "competidor",
+      "departamento",
+      "deporte",
+      "entidad educativa o deportiva",
+      "escuela",
+      "fase",
+      "juegos",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "nivel de competencia",
+      "participante deportivo",
+      "región",
+      "ronda",
+      "torneo",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Documentación de Deportistas",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Documento",
+      "Etapa/Fase",
+      "Evento",
+      "Grupo",
+      "Institución",
+      "Personal de Apoyo",
+      "Promoción",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista pertenece_a Grupo",
+      "Deportista pertenece_a Institución",
+      "Deportista participa_en Evento",
+      "Deportista tiene_estado_de Promoción",
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica",
+      "Deportista presenta Documento",
+      "Grupo pertenece_a Institución",
+      "Grupo compite_en Evento",
+      "Evento tiene Etapa/Fase",
+      "Promoción habilita_avance_a Etapa/Fase",
+      "Institución ubicada_en Ubicación Geográfica",
+      "Personal de Apoyo pertenece_a Grupo"
+    ],
+    "conceptos_de_negocio": [
+      "Documentos pendientes, rechazados o aprobados de un deportista"
+    ],
+    "atributos_filtrables": [
+      "address",
+      "birth_country_name",
+      "birth_date",
+      "birth_department_name",
+      "birth_municipality_name",
+      "birth_region_name",
+      "blood_type",
+      "current_stage",
+      "department_code",
+      "department_name",
+      "document_date",
+      "document_number"
+    ],
+    "sinonimos": [
+      "acompañante",
+      "ascenso de categoría",
+      "atleta",
+      "avance de etapa",
+      "categoría",
+      "certamen deportivo",
+      "certificado",
+      "clasificación a la siguiente fase",
+      "club",
+      "colegio",
+      "competencia",
+      "competidor",
+      "conjunto de deportistas",
+      "cuerpo técnico",
+      "delegación de grupo",
+      "departamento",
+      "deporte",
+      "entidad educativa o deportiva",
+      "entrenador",
+      "equipo",
+      "escuela",
+      "fase",
+      "juegos",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "nivel de competencia",
+      "participante deportivo",
+      "región",
+      "requisito documental",
+      "ronda",
+      "soporte",
+      "torneo",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Participación",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Etapa/Fase",
+      "Evento",
+      "Institución",
+      "Participación/Delegación",
+      "Personal de Apoyo",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista pertenece_a Institución",
+      "Deportista participa_en Evento",
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica",
+      "Evento tiene Etapa/Fase",
+      "Institución ubicada_en Ubicación Geográfica",
+      "Participación/Delegación representa_a Institución"
+    ],
+    "conceptos_de_negocio": [
+      "Participación o intención de participación de una institución"
+    ],
+    "atributos_filtrables": [
+      "category_name",
+      "current_stage",
+      "delegation_code",
+      "delegation_name",
+      "department_name",
+      "discipline_name",
+      "document_number",
+      "event_code",
+      "event_name",
+      "event_status",
+      "inst_department_name",
+      "inst_municipality_name"
+    ],
+    "sinonimos": [
+      "acompañante",
+      "atleta",
+      "categoría",
+      "certamen deportivo",
+      "club",
+      "colegio",
+      "competencia",
+      "competidor",
+      "cuerpo técnico",
+      "departamento",
+      "deporte",
+      "entidad educativa o deportiva",
+      "entrenador",
+      "escuela",
+      "fase",
+      "inscripción de delegación",
+      "intención de participación",
+      "juegos",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "nivel de competencia",
+      "participante deportivo",
+      "región",
+      "ronda",
+      "torneo",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte sobre Resumen del Tablero de Control",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Etapa/Fase",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica"
+    ],
+    "conceptos_de_negocio": [
+      "Resumen general del estado de un evento (tipo tablero de control)"
+    ],
+    "atributos_filtrables": [
+      "category_name",
+      "department_code",
+      "department_name",
+      "discipline_status",
+      "discipline_type",
+      "municipality_code",
+      "municipality_name",
+      "sport_name",
+      "user_code"
+    ],
+    "sinonimos": [
+      "atleta",
+      "categoría",
+      "competidor",
+      "departamento",
+      "deporte",
+      "fase",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "nivel de competencia",
+      "participante deportivo",
+      "región",
+      "ronda",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": false
+  },
+  {
+    "reporte": "Reporte de Promoción de Deportistas",
+    "entidades_principales": [
+      "Deportista",
+      "Disciplina Deportiva",
+      "Documento",
+      "Etapa/Fase",
+      "Evento",
+      "Grupo",
+      "Institución",
+      "Personal de Apoyo",
+      "Promoción",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Deportista pertenece_a Grupo",
+      "Deportista pertenece_a Institución",
+      "Deportista participa_en Evento",
+      "Deportista tiene_estado_de Promoción",
+      "Deportista practica Disciplina Deportiva",
+      "Deportista reside_en Ubicación Geográfica",
+      "Deportista presenta Documento",
+      "Grupo pertenece_a Institución",
+      "Grupo compite_en Evento",
+      "Evento tiene Etapa/Fase",
+      "Promoción habilita_avance_a Etapa/Fase",
+      "Institución ubicada_en Ubicación Geográfica",
+      "Personal de Apoyo pertenece_a Grupo"
+    ],
+    "conceptos_de_negocio": [
+      "Buscar por el nombre de un deportista específico",
+      "Estado de promoción o avance de etapa de un deportista",
+      "Fases o etapas de un evento específico"
+    ],
+    "atributos_filtrables": [
+      "birth_date",
+      "blood_type",
+      "category_name",
+      "current_stage",
+      "department_code",
+      "department_name",
+      "disability_name",
+      "discipline_code",
+      "discipline_name",
+      "discipline_status",
+      "discipline_type",
+      "document_number"
+    ],
+    "sinonimos": [
+      "acompañante",
+      "ascenso de categoría",
+      "atleta",
+      "avance de etapa",
+      "categoría",
+      "certamen deportivo",
+      "certificado",
+      "clasificación a la siguiente fase",
+      "club",
+      "colegio",
+      "competencia",
+      "competidor",
+      "conjunto de deportistas",
+      "cuerpo técnico",
+      "delegación de grupo",
+      "departamento",
+      "deporte",
+      "entidad educativa o deportiva",
+      "entrenador",
+      "equipo",
+      "escuela",
+      "fase",
+      "juegos",
+      "jugador",
+      "modalidad",
+      "municipio",
+      "nivel de competencia",
+      "participante deportivo",
+      "región",
+      "requisito documental",
+      "ronda",
+      "soporte",
+      "torneo",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Instituciones",
+    "entidades_principales": [
+      "Institución",
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [
+      "Institución ubicada_en Ubicación Geográfica"
+    ],
+    "conceptos_de_negocio": [
+      "Buscar por el nombre de una institución específica (ej. un colegio)",
+      "Deportistas o instituciones por región, departamento o municipio"
+    ],
+    "atributos_filtrables": [
+      "company_type_name",
+      "dane_code",
+      "department_name",
+      "organization_code"
+    ],
+    "sinonimos": [
+      "club",
+      "colegio",
+      "departamento",
+      "entidad educativa o deportiva",
+      "escuela",
+      "municipio",
+      "región",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": true
+  },
+  {
+    "reporte": "Reporte de Progreso y Cumplimiento de Metas",
+    "entidades_principales": [
+      "Ubicación Geográfica"
+    ],
+    "relaciones_clave": [],
+    "conceptos_de_negocio": [
+      "Cumplimiento de metas de cobertura por región"
+    ],
+    "atributos_filtrables": [
+      "region_name"
+    ],
+    "sinonimos": [
+      "departamento",
+      "municipio",
+      "región",
+      "zona"
+    ],
+    "tiene_busqueda_por_nombre_propio": false
+  }
+]

@@ -1,0 +1,631 @@
+{
+  "enriquecidos": {
+    "parcial": 9,
+    "completa": 14
+  },
+  "nuevos": {
+    "ri_010_reporte_sobre_distribucion_de_usuarios": {
+      "entidades": [],
+      "nota": "sin clase mapeable; queda sin enriquecer"
+    },
+    "ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+      "entidades": [
+        "Disciplina Deportiva"
+      ]
+    },
+    "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+      "entidades": [
+        "Competencia / Prueba Regional",
+        "Disciplina Deportiva",
+        "Ubicación Geográfica"
+      ]
+    },
+    "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+      "entidades": [
+        "Participación/Delegación"
+      ]
+    },
+    "ri_014_reporte_de_delegaciones_de_participacion": {
+      "entidades": [
+        "Participación/Delegación",
+        "Ubicación Geográfica"
+      ]
+    },
+    "ri_015_reporte_sobre_pruebas_de_caidas": {
+      "entidades": [
+        "Competencia / Prueba Regional",
+        "Disciplina Deportiva"
+      ]
+    },
+    "ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+      "entidades": [],
+      "nota": "sin clase mapeable; queda sin enriquecer"
+    },
+    "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+      "entidades": [],
+      "nota": "sin clase mapeable; queda sin enriquecer"
+    }
+  },
+  "conjuntos": {
+    "sintetico": {
+      "n": 40,
+      "medias": {
+        "desc|denso": 0.8661972507962734,
+        "desc|hibrido": 0.8925045781158847,
+        "parcial|denso": 0.9312917934334622,
+        "parcial|hibrido": 0.9482823977831577,
+        "completa|denso": 0.9035873259322112,
+        "completa|hibrido": 0.9366838869502414
+      },
+      "comparaciones": {
+        "todas": {
+          "denso: completa − parcial": {
+            "delta": -0.027704467501250996,
+            "pares_no_nulos": 5,
+            "n": 40,
+            "p_wilcoxon": 0.04122683333716368,
+            "p_permutacion": 0.0625
+          },
+          "denso: completa − desc": {
+            "delta": 0.03739007513593812,
+            "pares_no_nulos": 8,
+            "n": 40,
+            "p_wilcoxon": 0.017153601700200603,
+            "p_permutacion": 0.015625
+          },
+          "denso: parcial − desc": {
+            "delta": 0.06509454263718911,
+            "pares_no_nulos": 10,
+            "n": 40,
+            "p_wilcoxon": 0.006837743568509189,
+            "p_permutacion": 0.00390625
+          },
+          "hibrido: completa − parcial": {
+            "delta": -0.01159851083291633,
+            "pares_no_nulos": 3,
+            "n": 40,
+            "p_wilcoxon": 0.28504940740261275,
+            "p_permutacion": 0.5
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.04417930883435682,
+            "pares_no_nulos": 10,
+            "n": 40,
+            "p_wilcoxon": 0.016254208897656598,
+            "p_permutacion": 0.017578125
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.05577781966727315,
+            "pares_no_nulos": 10,
+            "n": 40,
+            "p_wilcoxon": 0.014242591156109539,
+            "p_permutacion": 0.01171875
+          }
+        },
+        "objetivo_sin_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "denso: completa − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "denso: parcial − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 4,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          }
+        },
+        "objetivo_con_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": -0.03078274166805666,
+            "pares_no_nulos": 5,
+            "n": 36,
+            "p_wilcoxon": 0.04122683333716368,
+            "p_permutacion": 0.0625
+          },
+          "denso: completa − desc": {
+            "delta": 0.04154452792882013,
+            "pares_no_nulos": 8,
+            "n": 36,
+            "p_wilcoxon": 0.017153601700200603,
+            "p_permutacion": 0.015625
+          },
+          "denso: parcial − desc": {
+            "delta": 0.0723272695968768,
+            "pares_no_nulos": 10,
+            "n": 36,
+            "p_wilcoxon": 0.006837743568509189,
+            "p_permutacion": 0.00390625
+          },
+          "hibrido: completa − parcial": {
+            "delta": -0.012887234258795923,
+            "pares_no_nulos": 3,
+            "n": 36,
+            "p_wilcoxon": 0.28504940740261275,
+            "p_permutacion": 0.5
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.049088120927063134,
+            "pares_no_nulos": 10,
+            "n": 36,
+            "p_wilcoxon": 0.016254208897656598,
+            "p_permutacion": 0.017578125
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.06197535518585906,
+            "pares_no_nulos": 10,
+            "n": 36,
+            "p_wilcoxon": 0.014242591156109539,
+            "p_permutacion": 0.01171875
+          }
+        }
+      }
+    },
+    "ampliado": {
+      "n": 127,
+      "medias": {
+        "desc|denso": 0.932238764545814,
+        "desc|hibrido": 0.9433802955568077,
+        "parcial|denso": 0.9280706094006268,
+        "parcial|hibrido": 0.959864997568808,
+        "completa|denso": 0.9211667717887347,
+        "completa|hibrido": 0.959864997568808
+      },
+      "comparaciones": {
+        "todas": {
+          "denso: completa − parcial": {
+            "delta": -0.006903837611892118,
+            "pares_no_nulos": 4,
+            "n": 127,
+            "p_wilcoxon": 0.0633177868300456,
+            "p_permutacion": 0.125
+          },
+          "denso: completa − desc": {
+            "delta": -0.011071992757079398,
+            "pares_no_nulos": 12,
+            "n": 127,
+            "p_wilcoxon": 0.1640208809464725,
+            "p_permutacion": 0.16162109375
+          },
+          "denso: parcial − desc": {
+            "delta": -0.00416815514518728,
+            "pares_no_nulos": 11,
+            "n": 127,
+            "p_wilcoxon": 0.6548821673281318,
+            "p_permutacion": 0.5546875
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.0,
+            "pares_no_nulos": 2,
+            "n": 127,
+            "p_wilcoxon": 1.0,
+            "p_permutacion": 1.0
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.016484702012000318,
+            "pares_no_nulos": 15,
+            "n": 127,
+            "p_wilcoxon": 0.12049202763373823,
+            "p_permutacion": 0.13702392578125
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.01648470201200032,
+            "pares_no_nulos": 13,
+            "n": 127,
+            "p_wilcoxon": 0.126168424964516,
+            "p_permutacion": 0.13525390625
+          }
+        },
+        "objetivo_sin_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": -0.024604683095236172,
+            "pares_no_nulos": 1,
+            "n": 15,
+            "p_wilcoxon": 0.31731050786291415,
+            "p_permutacion": 1.0
+          },
+          "denso: completa − desc": {
+            "delta": -0.024604683095236172,
+            "pares_no_nulos": 1,
+            "n": 15,
+            "p_wilcoxon": 0.31731050786291415,
+            "p_permutacion": 1.0
+          },
+          "denso: parcial − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 15,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.008728650238097161,
+            "pares_no_nulos": 1,
+            "n": 15,
+            "p_wilcoxon": 0.31731050786291415,
+            "p_permutacion": 1.0
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.008728650238097161,
+            "pares_no_nulos": 1,
+            "n": 15,
+            "p_wilcoxon": 0.31731050786291415,
+            "p_permutacion": 1.0
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.0,
+            "pares_no_nulos": 0,
+            "n": 15,
+            "p_wilcoxon": null,
+            "p_permutacion": null
+          }
+        },
+        "objetivo_con_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": -0.004533188663229967,
+            "pares_no_nulos": 3,
+            "n": 112,
+            "p_wilcoxon": 0.10247043485974941,
+            "p_permutacion": 0.25
+          },
+          "denso: completa − desc": {
+            "delta": -0.009259578872504831,
+            "pares_no_nulos": 11,
+            "n": 112,
+            "p_wilcoxon": 0.2811980995641792,
+            "p_permutacion": 0.2724609375
+          },
+          "denso: parcial − desc": {
+            "delta": -0.004726390209274863,
+            "pares_no_nulos": 11,
+            "n": 112,
+            "p_wilcoxon": 0.6548821673281318,
+            "p_permutacion": 0.5546875
+          },
+          "hibrido: completa − parcial": {
+            "delta": -0.0011690156568880128,
+            "pares_no_nulos": 1,
+            "n": 112,
+            "p_wilcoxon": 0.31731050786291415,
+            "p_permutacion": 1.0
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.017523458946005207,
+            "pares_no_nulos": 14,
+            "n": 112,
+            "p_wilcoxon": 0.14293771473685157,
+            "p_permutacion": 0.161865234375
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.018692474602893222,
+            "pares_no_nulos": 13,
+            "n": 112,
+            "p_wilcoxon": 0.126168424964516,
+            "p_permutacion": 0.13525390625
+          }
+        }
+      }
+    },
+    "dificil": {
+      "n": 52,
+      "medias": {
+        "desc|denso": 0.7123665680036789,
+        "desc|hibrido": 0.6858745667752522,
+        "parcial|denso": 0.8348638484954396,
+        "parcial|hibrido": 0.7877915174241775,
+        "completa|denso": 0.8193356959034456,
+        "completa|hibrido": 0.8014968678889406
+      },
+      "comparaciones": {
+        "todas": {
+          "denso: completa − parcial": {
+            "delta": -0.015528152591994079,
+            "pares_no_nulos": 12,
+            "n": 52,
+            "p_wilcoxon": 0.32380380535272535,
+            "p_permutacion": 0.33984375
+          },
+          "denso: completa − desc": {
+            "delta": 0.10696912789976668,
+            "pares_no_nulos": 23,
+            "n": 52,
+            "p_wilcoxon": 0.002671792750154997,
+            "p_permutacion": 0.0012499375031248437
+          },
+          "denso: parcial − desc": {
+            "delta": 0.12249728049176073,
+            "pares_no_nulos": 21,
+            "n": 52,
+            "p_wilcoxon": 0.0005608456293460315,
+            "p_permutacion": 9.99950002499875e-05
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.013705350464763075,
+            "pares_no_nulos": 9,
+            "n": 52,
+            "p_wilcoxon": 0.9055303354286192,
+            "p_permutacion": 0.5625
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.11562230111368853,
+            "pares_no_nulos": 34,
+            "n": 52,
+            "p_wilcoxon": 0.01421262956305133,
+            "p_permutacion": 0.012149392530373481
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.10191695064892545,
+            "pares_no_nulos": 34,
+            "n": 52,
+            "p_wilcoxon": 0.034359218806903714,
+            "p_permutacion": 0.035948202589870505
+          }
+        },
+        "objetivo_sin_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": 0.0027389844274282177,
+            "pares_no_nulos": 5,
+            "n": 16,
+            "p_wilcoxon": 0.8917558535067943,
+            "p_permutacion": 1.0
+          },
+          "denso: completa − desc": {
+            "delta": -0.0030761690858490676,
+            "pares_no_nulos": 7,
+            "n": 16,
+            "p_wilcoxon": 0.864569301686742,
+            "p_permutacion": 1.0
+          },
+          "denso: parcial − desc": {
+            "delta": -0.005815153513277285,
+            "pares_no_nulos": 5,
+            "n": 16,
+            "p_wilcoxon": 0.6844698210251553,
+            "p_permutacion": 0.875
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.07082521599845154,
+            "pares_no_nulos": 6,
+            "n": 16,
+            "p_wilcoxon": 0.463071015014588,
+            "p_permutacion": 0.375
+          },
+          "hibrido: completa − desc": {
+            "delta": -0.09066846243030059,
+            "pares_no_nulos": 9,
+            "n": 16,
+            "p_wilcoxon": 0.07299804543011551,
+            "p_permutacion": 0.078125
+          },
+          "hibrido: parcial − desc": {
+            "delta": -0.16149367842875217,
+            "pares_no_nulos": 8,
+            "n": 16,
+            "p_wilcoxon": 0.011718685599768632,
+            "p_permutacion": 0.0078125
+          }
+        },
+        "objetivo_con_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": -0.023646880156181764,
+            "pares_no_nulos": 7,
+            "n": 36,
+            "p_wilcoxon": 0.12614216428432246,
+            "p_permutacion": 0.171875
+          },
+          "denso: completa − desc": {
+            "delta": 0.15587814878226258,
+            "pares_no_nulos": 16,
+            "n": 36,
+            "p_wilcoxon": 0.0006217589712286322,
+            "p_permutacion": 0.0001220703125
+          },
+          "denso: parcial − desc": {
+            "delta": 0.17952502893844433,
+            "pares_no_nulos": 16,
+            "n": 36,
+            "p_wilcoxon": 0.0004177621421192512,
+            "p_permutacion": 3.0517578125e-05
+          },
+          "hibrido: completa − parcial": {
+            "delta": -0.011681256439098469,
+            "pares_no_nulos": 3,
+            "n": 36,
+            "p_wilcoxon": 0.28504940740261275,
+            "p_permutacion": 0.5
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.20730708491101701,
+            "pares_no_nulos": 25,
+            "n": 36,
+            "p_wilcoxon": 0.0007838618156751892,
+            "p_permutacion": 0.0006499675016249188
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.2189883413501155,
+            "pares_no_nulos": 26,
+            "n": 36,
+            "p_wilcoxon": 0.0005318203212723596,
+            "p_permutacion": 0.00039998000099995
+          }
+        }
+      }
+    },
+    "dificil_b": {
+      "n": 78,
+      "medias": {
+        "desc|denso": 0.782577224210535,
+        "desc|hibrido": 0.7778063312059903,
+        "parcial|denso": 0.8366516793686579,
+        "parcial|hibrido": 0.835445081842046,
+        "completa|denso": 0.8333318093928943,
+        "completa|hibrido": 0.8386749581537166
+      },
+      "comparaciones": {
+        "todas": {
+          "denso: completa − parcial": {
+            "delta": -0.003319869975763692,
+            "pares_no_nulos": 8,
+            "n": 78,
+            "p_wilcoxon": 0.8880915325450792,
+            "p_permutacion": 0.6875
+          },
+          "denso: completa − desc": {
+            "delta": 0.050754585182359264,
+            "pares_no_nulos": 19,
+            "n": 78,
+            "p_wilcoxon": 0.0011687317106073294,
+            "p_permutacion": 0.000865936279296875
+          },
+          "denso: parcial − desc": {
+            "delta": 0.05407445515812295,
+            "pares_no_nulos": 21,
+            "n": 78,
+            "p_wilcoxon": 0.0014420280782218168,
+            "p_permutacion": 0.0008999550022498875
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.003229876311670784,
+            "pares_no_nulos": 14,
+            "n": 78,
+            "p_wilcoxon": 0.8256255182245108,
+            "p_permutacion": 0.8209228515625
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.06086862694772634,
+            "pares_no_nulos": 32,
+            "n": 78,
+            "p_wilcoxon": 0.060783907007932375,
+            "p_permutacion": 0.03369831508424579
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.05763875063605554,
+            "pares_no_nulos": 30,
+            "n": 78,
+            "p_wilcoxon": 0.07829101952220661,
+            "p_permutacion": 0.05549722513874306
+          }
+        },
+        "objetivo_sin_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": 0.01165533182043831,
+            "pares_no_nulos": 3,
+            "n": 24,
+            "p_wilcoxon": 0.10247043485974941,
+            "p_permutacion": 0.25
+          },
+          "denso: completa − desc": {
+            "delta": 0.006801378801700397,
+            "pares_no_nulos": 2,
+            "n": 24,
+            "p_wilcoxon": 0.17971249487899976,
+            "p_permutacion": 0.5
+          },
+          "denso: parcial − desc": {
+            "delta": -0.0048539530187379125,
+            "pares_no_nulos": 2,
+            "n": 24,
+            "p_wilcoxon": 0.6547208460185769,
+            "p_permutacion": 1.0
+          },
+          "hibrido: completa − parcial": {
+            "delta": 0.0664990150291818,
+            "pares_no_nulos": 7,
+            "n": 24,
+            "p_wilcoxon": 0.0625089161964483,
+            "p_permutacion": 0.078125
+          },
+          "hibrido: completa − desc": {
+            "delta": -0.007065880609121454,
+            "pares_no_nulos": 5,
+            "n": 24,
+            "p_wilcoxon": 0.7864570351373764,
+            "p_permutacion": 0.875
+          },
+          "hibrido: parcial − desc": {
+            "delta": -0.07356489563830325,
+            "pares_no_nulos": 5,
+            "n": 24,
+            "p_wilcoxon": 0.043114446783075355,
+            "p_permutacion": 0.0625
+          }
+        },
+        "objetivo_con_bloque_antes": {
+          "denso: completa − parcial": {
+            "delta": -0.009975515218520137,
+            "pares_no_nulos": 5,
+            "n": 54,
+            "p_wilcoxon": 0.22491588401596185,
+            "p_permutacion": 0.25
+          },
+          "denso: completa − desc": {
+            "delta": 0.07028934357376321,
+            "pares_no_nulos": 17,
+            "n": 54,
+            "p_wilcoxon": 0.002397204791755805,
+            "p_permutacion": 0.0015106201171875
+          },
+          "denso: parcial − desc": {
+            "delta": 0.08026485879228334,
+            "pares_no_nulos": 19,
+            "n": 54,
+            "p_wilcoxon": 0.0010171866691169038,
+            "p_permutacion": 0.00061798095703125
+          },
+          "hibrido: completa − parcial": {
+            "delta": -0.02488974089611189,
+            "pares_no_nulos": 7,
+            "n": 54,
+            "p_wilcoxon": 0.017552325938416855,
+            "p_permutacion": 0.015625
+          },
+          "hibrido: completa − desc": {
+            "delta": 0.09106174141743645,
+            "pares_no_nulos": 27,
+            "n": 54,
+            "p_wilcoxon": 0.045657066094262774,
+            "p_permutacion": 0.02184890755462227
+          },
+          "hibrido: parcial − desc": {
+            "delta": 0.11595148231354832,
+            "pares_no_nulos": 25,
+            "n": 54,
+            "p_wilcoxon": 0.00599848531468992,
+            "p_permutacion": 0.0022998850057497125
+          }
+        }
+      }
+    }
+  }
+}

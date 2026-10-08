@@ -1,0 +1,1080 @@
+{
+  "alphas": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "pesos": [
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    5.0
+  ],
+  "thetas": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "n": {
+    "sintetico": 40,
+    "ampliado": 127,
+    "dificil": 52,
+    "dificil_b": 78
+  },
+  "curvas": {
+    "desc": {
+      "sintetico": {
+        "bm25": 0.8349978934986322,
+        "denso": 0.8661972507962734,
+        "rrf60": 0.8925045781158847,
+        "convexa_minmax|a=0.1": 0.8531717644939747,
+        "convexa_minmax|a=0.2": 0.8600398286555606,
+        "convexa_minmax|a=0.3": 0.8709996708644393,
+        "convexa_minmax|a=0.4": 0.8831249991302915,
+        "convexa_minmax|a=0.5": 0.892775932539162,
+        "convexa_minmax|a=0.6": 0.9213576901883863,
+        "convexa_minmax|a=0.7": 0.9097485924796516,
+        "convexa_minmax|a=0.8": 0.9005218363189382,
+        "convexa_minmax|a=0.9": 0.8915244105617084,
+        "convexa_z|a=0.1": 0.8539379049971376,
+        "convexa_z|a=0.2": 0.8617729147037256,
+        "convexa_z|a=0.3": 0.8738982429695777,
+        "convexa_z|a=0.4": 0.8932532444580886,
+        "convexa_z|a=0.5": 0.9029041778669592,
+        "convexa_z|a=0.6": 0.9275838229490342,
+        "convexa_z|a=0.7": 0.9097485924796516,
+        "convexa_z|a=0.8": 0.8948768378074489,
+        "convexa_z|a=0.9": 0.8882511667224218,
+        "rrf_ponderado|w=1.0": 0.8925045781158847,
+        "rrf_ponderado|w=1.5": 0.8870778832273934,
+        "rrf_ponderado|w=2.0": 0.8769496378995962,
+        "rrf_ponderado|w=3.0": 0.8863908015656999,
+        "rrf_ponderado|w=5.0": 0.8798584905000713,
+        "rrf_compuerta|t=0.25": 0.8925045781158847,
+        "rrf_compuerta|t=0.50": 0.87635339976555,
+        "rrf_compuerta|t=0.75": 0.8748521606126196,
+        "rrf_compuerta|t=1.00": 0.8748521606126196
+      },
+      "ampliado": {
+        "bm25": 0.8872174270065878,
+        "denso": 0.932238764545814,
+        "rrf60": 0.9433802955568077,
+        "convexa_minmax|a=0.1": 0.9061881334596161,
+        "convexa_minmax|a=0.2": 0.9126068820034385,
+        "convexa_minmax|a=0.3": 0.9201825725754147,
+        "convexa_minmax|a=0.4": 0.9344753368672686,
+        "convexa_minmax|a=0.5": 0.947130539538809,
+        "convexa_minmax|a=0.6": 0.9486465715483862,
+        "convexa_minmax|a=0.7": 0.947913953782934,
+        "convexa_minmax|a=0.8": 0.9401356953476425,
+        "convexa_minmax|a=0.9": 0.9389216942946745,
+        "convexa_z|a=0.1": 0.9080632554506167,
+        "convexa_z|a=0.2": 0.9126068820034385,
+        "convexa_z|a=0.3": 0.9333836291203931,
+        "convexa_z|a=0.4": 0.9460995965973015,
+        "convexa_z|a=0.5": 0.9481614824803166,
+        "convexa_z|a=0.6": 0.9465846856653711,
+        "convexa_z|a=0.7": 0.9450078888504259,
+        "convexa_z|a=0.8": 0.9400319305388839,
+        "convexa_z|a=0.9": 0.9385766253904316,
+        "rrf_ponderado|w=1.0": 0.9433802955568077,
+        "rrf_ponderado|w=1.5": 0.9383685120954739,
+        "rrf_ponderado|w=2.0": 0.9407888116154902,
+        "rrf_ponderado|w=3.0": 0.9387276020768972,
+        "rrf_ponderado|w=5.0": 0.9375823223096941,
+        "rrf_compuerta|t=0.25": 0.9433802955568077,
+        "rrf_compuerta|t=0.50": 0.9470230310052533,
+        "rrf_compuerta|t=0.75": 0.9459920880637457,
+        "rrf_compuerta|t=1.00": 0.9459920880637457
+      },
+      "dificil": {
+        "bm25": 0.4071162297953676,
+        "denso": 0.7123665680036789,
+        "rrf60": 0.6858745667752522,
+        "convexa_minmax|a=0.1": 0.6367404426108971,
+        "convexa_minmax|a=0.2": 0.6426515587463217,
+        "convexa_minmax|a=0.3": 0.6624055071919943,
+        "convexa_minmax|a=0.4": 0.6657661515075772,
+        "convexa_minmax|a=0.5": 0.6691353488265561,
+        "convexa_minmax|a=0.6": 0.6795847362810824,
+        "convexa_minmax|a=0.7": 0.6941988814817053,
+        "convexa_minmax|a=0.8": 0.6922441893034806,
+        "convexa_minmax|a=0.9": 0.7054083262883704,
+        "convexa_z|a=0.1": 0.6434943231855305,
+        "convexa_z|a=0.2": 0.6497490634853323,
+        "convexa_z|a=0.3": 0.6566584601704204,
+        "convexa_z|a=0.4": 0.6640582355302729,
+        "convexa_z|a=0.5": 0.6754062128760782,
+        "convexa_z|a=0.6": 0.6835347194452521,
+        "convexa_z|a=0.7": 0.6942493783531103,
+        "convexa_z|a=0.8": 0.6983521750928948,
+        "convexa_z|a=0.9": 0.7054083262883704,
+        "rrf_ponderado|w=1.0": 0.6858745667752522,
+        "rrf_ponderado|w=1.5": 0.6899923884642705,
+        "rrf_ponderado|w=2.0": 0.693941320934785,
+        "rrf_ponderado|w=3.0": 0.7085864062376909,
+        "rrf_ponderado|w=5.0": 0.699085184189226,
+        "rrf_compuerta|t=0.25": 0.6913743766084642,
+        "rrf_compuerta|t=0.50": 0.7123665680036789,
+        "rrf_compuerta|t=0.75": 0.7123665680036789,
+        "rrf_compuerta|t=1.00": 0.7123665680036789
+      },
+      "dificil_b": {
+        "bm25": 0.6217330343669367,
+        "denso": 0.782577224210535,
+        "rrf60": 0.7778063312059903,
+        "convexa_minmax|a=0.1": 0.7551194512390074,
+        "convexa_minmax|a=0.2": 0.762418469725246,
+        "convexa_minmax|a=0.3": 0.7808594144477479,
+        "convexa_minmax|a=0.4": 0.7872696708580043,
+        "convexa_minmax|a=0.5": 0.7889482574422537,
+        "convexa_minmax|a=0.6": 0.7962472759284923,
+        "convexa_minmax|a=0.7": 0.8000962792304306,
+        "convexa_minmax|a=0.8": 0.798800793868219,
+        "convexa_minmax|a=0.9": 0.7971222072839695,
+        "convexa_z|a=0.1": 0.7607398831409965,
+        "convexa_z|a=0.2": 0.7735603959615093,
+        "convexa_z|a=0.3": 0.7808594144477479,
+        "convexa_z|a=0.4": 0.7889482574422537,
+        "convexa_z|a=0.5": 0.7915156061024853,
+        "convexa_z|a=0.6": 0.7960622133500083,
+        "convexa_z|a=0.7": 0.7963193449296206,
+        "convexa_z|a=0.8": 0.798800793868219,
+        "convexa_z|a=0.9": 0.7990298766444703,
+        "rrf_ponderado|w=1.0": 0.7778063312059903,
+        "rrf_ponderado|w=1.5": 0.7811635043744892,
+        "rrf_ponderado|w=2.0": 0.7762467719699984,
+        "rrf_ponderado|w=3.0": 0.7715151021439913,
+        "rrf_ponderado|w=5.0": 0.7667834323179844,
+        "rrf_compuerta|t=0.25": 0.7776212686275064,
+        "rrf_compuerta|t=0.50": 0.7864470005271461,
+        "rrf_compuerta|t=0.75": 0.782577224210535,
+        "rrf_compuerta|t=1.00": 0.782577224210535
+      }
+    },
+    "onto": {
+      "sintetico": {
+        "bm25": 0.9196420435300656,
+        "denso": 0.9312917934334622,
+        "rrf60": 0.9482823977831577,
+        "convexa_minmax|a=0.1": 0.9201193554489923,
+        "convexa_minmax|a=0.2": 0.9389258460221367,
+        "convexa_minmax|a=0.3": 0.9406589320703018,
+        "convexa_minmax|a=0.4": 0.9439321759095882,
+        "convexa_minmax|a=0.5": 0.944833665076672,
+        "convexa_minmax|a=0.6": 0.9533586199566116,
+        "convexa_minmax|a=0.7": 0.9497836369360882,
+        "convexa_minmax|a=0.8": 0.9581089039297181,
+        "convexa_minmax|a=0.9": 0.9462475725537558,
+        "convexa_z|a=0.1": 0.9299179579540731,
+        "convexa_z|a=0.2": 0.9389258460221367,
+        "convexa_z|a=0.3": 0.9439321759095882,
+        "convexa_z|a=0.4": 0.944833665076672,
+        "convexa_z|a=0.5": 0.9524571307895279,
+        "convexa_z|a=0.6": 0.9533586199566116,
+        "convexa_z|a=0.7": 0.9497836369360882,
+        "convexa_z|a=0.8": 0.9488821477690046,
+        "convexa_z|a=0.9": 0.9462475725537558,
+        "rrf_ponderado|w=1.0": 0.9482823977831577,
+        "rrf_ponderado|w=1.5": 0.958410643110955,
+        "rrf_ponderado|w=2.0": 0.9612065750313148,
+        "rrf_ponderado|w=3.0": 0.9524571307895279,
+        "rrf_ponderado|w=5.0": 0.9516780796893644,
+        "rrf_compuerta|t=0.25": 0.9482823977831577,
+        "rrf_compuerta|t=0.50": 0.9423288854617307,
+        "rrf_compuerta|t=0.75": 0.9339263686487111,
+        "rrf_compuerta|t=1.00": 0.9330248794816274
+      },
+      "ampliado": {
+        "bm25": 0.9055576187883905,
+        "denso": 0.9280706094006268,
+        "rrf60": 0.959864997568808,
+        "convexa_minmax|a=0.1": 0.9198503830802444,
+        "convexa_minmax|a=0.2": 0.9329269989321091,
+        "convexa_minmax|a=0.3": 0.9469582134494,
+        "convexa_minmax|a=0.4": 0.9459272705078925,
+        "convexa_minmax|a=0.5": 0.9643946030444494,
+        "convexa_minmax|a=0.6": 0.9756737938702391,
+        "convexa_minmax|a=0.7": 0.970949628027301,
+        "convexa_minmax|a=0.8": 0.9594030652621941,
+        "convexa_minmax|a=0.9": 0.9547671304568756,
+        "convexa_z|a=0.1": 0.9256625129452608,
+        "convexa_z|a=0.2": 0.9353339537193671,
+        "convexa_z|a=0.3": 0.9485350102643455,
+        "convexa_z|a=0.4": 0.9556764082469247,
+        "convexa_z|a=0.5": 0.9643946030444494,
+        "convexa_z|a=0.6": 0.970949628027301,
+        "convexa_z|a=0.7": 0.9688877421442861,
+        "convexa_z|a=0.8": 0.9586771023039161,
+        "convexa_z|a=0.9": 0.9515159966201245,
+        "rrf_ponderado|w=1.0": 0.959864997568808,
+        "rrf_ponderado|w=1.5": 0.959925762374176,
+        "rrf_ponderado|w=2.0": 0.957809336287691,
+        "rrf_ponderado|w=3.0": 0.9586601701443586,
+        "rrf_ponderado|w=5.0": 0.9441738136683504,
+        "rrf_compuerta|t=0.25": 0.959864997568808,
+        "rrf_compuerta|t=0.50": 0.959864997568808,
+        "rrf_compuerta|t=0.75": 0.9377589823342907,
+        "rrf_compuerta|t=1.00": 0.9338219744602749
+      },
+      "dificil": {
+        "bm25": 0.5454674256826323,
+        "denso": 0.8348638484954396,
+        "rrf60": 0.7877915174241775,
+        "convexa_minmax|a=0.1": 0.7328130201810006,
+        "convexa_minmax|a=0.2": 0.7446043123495671,
+        "convexa_minmax|a=0.3": 0.7624690085891918,
+        "convexa_minmax|a=0.4": 0.774550217039878,
+        "convexa_minmax|a=0.5": 0.7943703251192341,
+        "convexa_minmax|a=0.6": 0.8020152248388224,
+        "convexa_minmax|a=0.7": 0.816644394988679,
+        "convexa_minmax|a=0.8": 0.8327292944857925,
+        "convexa_minmax|a=0.9": 0.8428041176736587,
+        "convexa_z|a=0.1": 0.7343995888855955,
+        "convexa_z|a=0.2": 0.7559927218822844,
+        "convexa_z|a=0.3": 0.7725415421228287,
+        "convexa_z|a=0.4": 0.7849850399143514,
+        "convexa_z|a=0.5": 0.7986880188764227,
+        "convexa_z|a=0.6": 0.8043219717493427,
+        "convexa_z|a=0.7": 0.8162089204093621,
+        "convexa_z|a=0.8": 0.8430319274299312,
+        "convexa_z|a=0.9": 0.844137260787632,
+        "rrf_ponderado|w=1.0": 0.7877915174241775,
+        "rrf_ponderado|w=1.5": 0.7844292212674101,
+        "rrf_ponderado|w=2.0": 0.7836517743649007,
+        "rrf_ponderado|w=3.0": 0.8022871456818559,
+        "rrf_ponderado|w=5.0": 0.8020973857867487,
+        "rrf_compuerta|t=0.25": 0.8115219069653534,
+        "rrf_compuerta|t=0.50": 0.8502038930335113,
+        "rrf_compuerta|t=0.75": 0.8502038930335113,
+        "rrf_compuerta|t=1.00": 0.84196135323445
+      },
+      "dificil_b": {
+        "bm25": 0.7300463641093677,
+        "denso": 0.8366516793686579,
+        "rrf60": 0.835445081842046,
+        "convexa_minmax|a=0.1": 0.8077929301216488,
+        "convexa_minmax|a=0.2": 0.8210508426953615,
+        "convexa_minmax|a=0.3": 0.8429738907823426,
+        "convexa_minmax|a=0.4": 0.8668732593072537,
+        "convexa_minmax|a=0.5": 0.8767432650655224,
+        "convexa_minmax|a=0.6": 0.8675691405722634,
+        "convexa_minmax|a=0.7": 0.869019745607718,
+        "convexa_minmax|a=0.8": 0.8748091279034548,
+        "convexa_minmax|a=0.9": 0.8591168940268585,
+        "convexa_z|a=0.1": 0.809570454273613,
+        "convexa_z|a=0.2": 0.8330213986251034,
+        "convexa_z|a=0.3": 0.8668732593072537,
+        "convexa_z|a=0.4": 0.8725951661612996,
+        "convexa_z|a=0.5": 0.8729003573154975,
+        "convexa_z|a=0.6": 0.8684579026482455,
+        "convexa_z|a=0.7": 0.869019745607718,
+        "convexa_z|a=0.8": 0.869784203541875,
+        "convexa_z|a=0.9": 0.8597533189281246,
+        "rrf_ponderado|w=1.0": 0.835445081842046,
+        "rrf_ponderado|w=1.5": 0.8477037517030863,
+        "rrf_ponderado|w=2.0": 0.8634038282558482,
+        "rrf_ponderado|w=3.0": 0.8541431035785189,
+        "rrf_ponderado|w=5.0": 0.8464792413299167,
+        "rrf_compuerta|t=0.25": 0.8271913278306103,
+        "rrf_compuerta|t=0.50": 0.8466470904962082,
+        "rrf_compuerta|t=0.75": 0.8283050833414208,
+        "rrf_compuerta|t=1.00": 0.8330367531674279
+      }
+    }
+  },
+  "loso": {
+    "desc": {
+      "sintetico": {
+        "convexa_minmax": {
+          "parametro": "a=0.7",
+          "ndcg": 0.9097485924796516
+        },
+        "convexa_z": {
+          "parametro": "a=0.9",
+          "ndcg": 0.8882511667224218
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.8863908015656999
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.87635339976555
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "parametro": "a=0.7",
+          "ndcg": 0.947913953782934
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9465846856653711
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.9387276020768972
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.9470230310052533
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "parametro": "a=0.6",
+          "ndcg": 0.6795847362810824
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.6835347194452521
+        },
+        "rrf_ponderado": {
+          "parametro": "w=1.0",
+          "ndcg": 0.6858745667752522
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.25",
+          "ndcg": 0.6913743766084642
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "parametro": "a=0.7",
+          "ndcg": 0.8000962792304306
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.7960622133500083
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.7715151021439913
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.7864470005271461
+        }
+      }
+    },
+    "onto": {
+      "sintetico": {
+        "convexa_minmax": {
+          "parametro": "a=0.8",
+          "ndcg": 0.9581089039297181
+        },
+        "convexa_z": {
+          "parametro": "a=0.8",
+          "ndcg": 0.9488821477690046
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.9524571307895279
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.9423288854617307
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "parametro": "a=0.8",
+          "ndcg": 0.9594030652621941
+        },
+        "convexa_z": {
+          "parametro": "a=0.8",
+          "ndcg": 0.9586771023039161
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.9586601701443586
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.959864997568808
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "parametro": "a=0.6",
+          "ndcg": 0.8020152248388224
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.8043219717493427
+        },
+        "rrf_ponderado": {
+          "parametro": "w=2.0",
+          "ndcg": 0.7836517743649007
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.8502038930335113
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "parametro": "a=0.8",
+          "ndcg": 0.8748091279034548
+        },
+        "convexa_z": {
+          "parametro": "a=0.8",
+          "ndcg": 0.869784203541875
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.8541431035785189
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.8466470904962082
+        }
+      }
+    }
+  },
+  "oraculo": {
+    "desc": {
+      "sintetico": {
+        "convexa_minmax": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9213576901883863
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9275838229490342
+        },
+        "rrf_ponderado": {
+          "parametro": "w=1.0",
+          "ndcg": 0.8925045781158847
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.25",
+          "ndcg": 0.8925045781158847
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9486465715483862
+        },
+        "convexa_z": {
+          "parametro": "a=0.5",
+          "ndcg": 0.9481614824803166
+        },
+        "rrf_ponderado": {
+          "parametro": "w=1.0",
+          "ndcg": 0.9433802955568077
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.9470230310052533
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "parametro": "a=0.9",
+          "ndcg": 0.7054083262883704
+        },
+        "convexa_z": {
+          "parametro": "a=0.9",
+          "ndcg": 0.7054083262883704
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.7085864062376909
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.7123665680036789
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "parametro": "a=0.7",
+          "ndcg": 0.8000962792304306
+        },
+        "convexa_z": {
+          "parametro": "a=0.9",
+          "ndcg": 0.7990298766444703
+        },
+        "rrf_ponderado": {
+          "parametro": "w=1.5",
+          "ndcg": 0.7811635043744892
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.7864470005271461
+        }
+      }
+    },
+    "onto": {
+      "sintetico": {
+        "convexa_minmax": {
+          "parametro": "a=0.8",
+          "ndcg": 0.9581089039297181
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9533586199566116
+        },
+        "rrf_ponderado": {
+          "parametro": "w=2.0",
+          "ndcg": 0.9612065750313148
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.25",
+          "ndcg": 0.9482823977831577
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "parametro": "a=0.6",
+          "ndcg": 0.9756737938702391
+        },
+        "convexa_z": {
+          "parametro": "a=0.6",
+          "ndcg": 0.970949628027301
+        },
+        "rrf_ponderado": {
+          "parametro": "w=1.5",
+          "ndcg": 0.959925762374176
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.25",
+          "ndcg": 0.959864997568808
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "parametro": "a=0.9",
+          "ndcg": 0.8428041176736587
+        },
+        "convexa_z": {
+          "parametro": "a=0.9",
+          "ndcg": 0.844137260787632
+        },
+        "rrf_ponderado": {
+          "parametro": "w=3.0",
+          "ndcg": 0.8022871456818559
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.8502038930335113
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "parametro": "a=0.5",
+          "ndcg": 0.8767432650655224
+        },
+        "convexa_z": {
+          "parametro": "a=0.5",
+          "ndcg": 0.8729003573154975
+        },
+        "rrf_ponderado": {
+          "parametro": "w=2.0",
+          "ndcg": 0.8634038282558482
+        },
+        "rrf_compuerta": {
+          "parametro": "t=0.50",
+          "ndcg": 0.8466470904962082
+        }
+      }
+    }
+  },
+  "estadistica": {
+    "desc": {
+      "sintetico": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.017244014363766956,
+          "pares_no_nulos": 8,
+          "p_wilcoxon": 0.47839819944893547,
+          "p_permutacion": 0.484375,
+          "ic95": [
+            -0.020378777846974654,
+            0.05595886995588574
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": -0.004253411393462772,
+          "pares_no_nulos": 10,
+          "p_wilcoxon": 0.9592742896140631,
+          "p_permutacion": 0.888671875,
+          "ic95": [
+            -0.06038709022210707,
+            0.04868993506188946
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": -0.006113776550184666,
+          "pares_no_nulos": 10,
+          "p_wilcoxon": 0.8776112331422681,
+          "p_permutacion": 0.82421875,
+          "ic95": [
+            -0.0512506737356821,
+            0.0442351739820559
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": -0.0161511783503347,
+          "pares_no_nulos": 7,
+          "p_wilcoxon": 0.49819405658410876,
+          "p_permutacion": 0.625,
+          "ic95": [
+            -0.07099315639193336,
+            0.038518570804435825
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": -0.026307327319611495,
+          "pares_no_nulos": 11,
+          "p_wilcoxon": 0.47581455261653727,
+          "p_permutacion": 0.41015625
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.004533658226126312,
+          "pares_no_nulos": 12,
+          "p_wilcoxon": 0.5785027570198082,
+          "p_permutacion": 0.57177734375,
+          "ic95": [
+            -0.010310898948432637,
+            0.0199923417956696
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": 0.0032043901085634916,
+          "pares_no_nulos": 10,
+          "p_wilcoxon": 0.6412138286351945,
+          "p_permutacion": 0.671875,
+          "ic95": [
+            -0.009637576454991291,
+            0.016410115750842075
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": -0.004652693479910434,
+          "pares_no_nulos": 14,
+          "p_wilcoxon": 0.6127039025537114,
+          "p_permutacion": 0.629638671875,
+          "ic95": [
+            -0.022320813689196032,
+            0.013175002666703087
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.003642735448445538,
+          "pares_no_nulos": 9,
+          "p_wilcoxon": 0.8578399996975188,
+          "p_permutacion": 0.5546875,
+          "ic95": [
+            -0.005949722992772845,
+            0.014842296185432265
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": -0.011141531010993666,
+          "pares_no_nulos": 16,
+          "p_wilcoxon": 0.3361655512413516,
+          "p_permutacion": 0.305816650390625
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": -0.0062898304941698775,
+          "pares_no_nulos": 7,
+          "p_wilcoxon": 0.7348605992017886,
+          "p_permutacion": 0.875,
+          "ic95": [
+            -0.03400531455063385,
+            0.011216198308079413
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": -0.002339847330000102,
+          "pares_no_nulos": 8,
+          "p_wilcoxon": 0.4838398513935682,
+          "p_permutacion": 0.9375,
+          "ic95": [
+            -0.03058239132410619,
+            0.017898246331176617
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": 0.0,
+          "pares_no_nulos": 0,
+          "p_wilcoxon": null,
+          "p_permutacion": null,
+          "ic95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": null,
+          "p_holm_permutacion": null,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.005499809833211907,
+          "pares_no_nulos": 6,
+          "p_wilcoxon": 0.3454475304692257,
+          "p_permutacion": 0.5625,
+          "ic95": [
+            -0.01609136627875708,
+            0.025742099569303862
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": 0.026492001228426623,
+          "pares_no_nulos": 19,
+          "p_wilcoxon": 0.0762302944171277,
+          "p_permutacion": 0.21370315551757812
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.02228994802444026,
+          "pares_no_nulos": 11,
+          "p_wilcoxon": 0.03976760532307577,
+          "p_permutacion": 0.0654296875,
+          "ic95": [
+            0.00011457117501828576,
+            0.04821112610059752
+          ],
+          "p_holm": 0.1590704212923031,
+          "p_holm_permutacion": 0.26171875,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": 0.018255882144017976,
+          "pares_no_nulos": 7,
+          "p_wilcoxon": 0.14343261961361004,
+          "p_permutacion": 0.1875,
+          "ic95": [
+            -0.0034483176862388897,
+            0.04381078277427449
+          ],
+          "p_holm": 0.4302978588408301,
+          "p_holm_permutacion": 0.5625,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": -0.0062912290619989465,
+          "pares_no_nulos": 9,
+          "p_wilcoxon": 0.5817769165906228,
+          "p_permutacion": 0.62890625,
+          "ic95": [
+            -0.029764515613549786,
+            0.015503470905302437
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.008640669321155748,
+          "pares_no_nulos": 14,
+          "p_wilcoxon": 0.5286310688504083,
+          "p_permutacion": 0.619140625,
+          "ic95": [
+            -0.024912711139182635,
+            0.04177944468846004
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": 0.004770893004544554,
+          "pares_no_nulos": 23,
+          "p_wilcoxon": 0.8067362775347671,
+          "p_permutacion": 0.8138093095345232
+        }
+      }
+    },
+    "onto": {
+      "sintetico": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.009826506146560351,
+          "pares_no_nulos": 4,
+          "p_wilcoxon": 0.7150006546880893,
+          "p_permutacion": 0.75,
+          "ic95": [
+            -0.008024296663222892,
+            0.03840148916708367
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": 0.0005997499858467869,
+          "pares_no_nulos": 5,
+          "p_wilcoxon": 0.892738400944348,
+          "p_permutacion": 1.0,
+          "ic95": [
+            -0.027975402400394055,
+            0.034226756160713565
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": 0.004174733006370104,
+          "pares_no_nulos": 2,
+          "p_wilcoxon": 0.17971249487899976,
+          "p_permutacion": 0.5,
+          "ic95": [
+            0.0,
+            0.011622709852026644
+          ],
+          "p_holm": 0.718849979515999,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": -0.005953512321427129,
+          "pares_no_nulos": 3,
+          "p_wilcoxon": 1.0,
+          "p_permutacion": 1.0,
+          "ic95": [
+            -0.03690702464285426,
+            0.028273243839286432
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": -0.016990604349695536,
+          "pares_no_nulos": 9,
+          "p_wilcoxon": 0.2115097985550598,
+          "p_permutacion": 0.50390625
+        }
+      },
+      "ampliado": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": -0.00046193230661395555,
+          "pares_no_nulos": 10,
+          "p_wilcoxon": 0.9182285349237764,
+          "p_permutacion": 0.966796875,
+          "ic95": [
+            -0.01722159436491638,
+            0.016725612692051597
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": -0.001187895264891875,
+          "pares_no_nulos": 10,
+          "p_wilcoxon": 0.877531164968109,
+          "p_permutacion": 0.908203125,
+          "ic95": [
+            -0.018877329262601935,
+            0.016444474366496466
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": -0.0012048274244494468,
+          "pares_no_nulos": 9,
+          "p_wilcoxon": 0.8564407259982999,
+          "p_permutacion": 0.921875,
+          "ic95": [
+            -0.01773775815399016,
+            0.01714425263642853
+          ],
+          "p_holm": 1.0,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.0,
+          "pares_no_nulos": 0,
+          "p_wilcoxon": null,
+          "p_permutacion": null,
+          "ic95": [
+            0.0,
+            0.0
+          ],
+          "p_holm": null,
+          "p_holm_permutacion": null,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": -0.03179438816818127,
+          "pares_no_nulos": 16,
+          "p_wilcoxon": 0.019149571500766138,
+          "p_permutacion": 0.0123291015625
+        }
+      },
+      "dificil": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.01422370741464487,
+          "pares_no_nulos": 15,
+          "p_wilcoxon": 0.06420796741369156,
+          "p_permutacion": 0.403076171875,
+          "ic95": [
+            -0.02041321479049446,
+            0.04746801811118968
+          ],
+          "p_holm": 0.13808720283324938,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": 0.016530454325165162,
+          "pares_no_nulos": 16,
+          "p_wilcoxon": 0.04602906761108313,
+          "p_permutacion": 0.36419677734375,
+          "ic95": [
+            -0.017444318496677064,
+            0.05002710566027927
+          ],
+          "p_holm": 0.13808720283324938,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": -0.004139743059276852,
+          "pares_no_nulos": 11,
+          "p_wilcoxon": 0.6874697739159192,
+          "p_permutacion": 0.771484375,
+          "ic95": [
+            -0.033421265115687125,
+            0.02611996345904826
+          ],
+          "p_holm": 0.6874697739159192,
+          "p_holm_permutacion": 1.0,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.062412375609333645,
+          "pares_no_nulos": 17,
+          "p_wilcoxon": 0.006437677112134401,
+          "p_permutacion": 0.0135498046875,
+          "ic95": [
+            0.014544247506810203,
+            0.11200522633531511
+          ],
+          "p_holm": 0.025750708448537604,
+          "p_holm_permutacion": 0.05419921875,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": 0.04707233107126192,
+          "pares_no_nulos": 24,
+          "p_wilcoxon": 0.12822704638990054,
+          "p_permutacion": 0.14924253787310635
+        }
+      },
+      "dificil_b": {
+        "convexa_minmax": {
+          "delta_vs_rrf60": 0.03936404606140902,
+          "pares_no_nulos": 21,
+          "p_wilcoxon": 0.026093331668803923,
+          "p_permutacion": 0.02199890005499725,
+          "ic95": [
+            0.006266547820058713,
+            0.07328363452226906
+          ],
+          "p_holm": 0.10437332667521569,
+          "p_holm_permutacion": 0.087995600219989,
+          "robusto": false
+        },
+        "convexa_z": {
+          "delta_vs_rrf60": 0.034339121699829125,
+          "pares_no_nulos": 22,
+          "p_wilcoxon": 0.06174819666080647,
+          "p_permutacion": 0.059197040147992604,
+          "ic95": [
+            0.0012108122977694126,
+            0.06914138656384368
+          ],
+          "p_holm": 0.1852445899824194,
+          "p_holm_permutacion": 0.17759112044397782,
+          "robusto": false
+        },
+        "rrf_ponderado": {
+          "delta_vs_rrf60": 0.018698021736472892,
+          "pares_no_nulos": 19,
+          "p_wilcoxon": 0.25417004573547053,
+          "p_permutacion": 0.296051025390625,
+          "ic95": [
+            -0.017913870863535006,
+            0.058950890921695205
+          ],
+          "p_holm": 0.5083400914709411,
+          "p_holm_permutacion": 0.59210205078125,
+          "robusto": false
+        },
+        "rrf_compuerta": {
+          "delta_vs_rrf60": 0.011202008654162144,
+          "pares_no_nulos": 15,
+          "p_wilcoxon": 0.5291248371632917,
+          "p_permutacion": 0.51617431640625,
+          "ic95": [
+            -0.02350983551412028,
+            0.04605115319120696
+          ],
+          "p_holm": 0.5291248371632917,
+          "p_holm_permutacion": 0.59210205078125,
+          "robusto": false
+        },
+        "denso_puro": {
+          "delta_vs_rrf60": 0.0012065975266119637,
+          "pares_no_nulos": 27,
+          "p_wilcoxon": 0.961262246841438,
+          "p_permutacion": 0.9603519824008799
+        }
+      }
+    }
+  }
+}

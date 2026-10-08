@@ -1,0 +1,309 @@
+clases:
+  Deportista:
+    sinonimos:
+    - atleta
+    - jugador
+    - competidor
+    - participante deportivo
+    propiedades_de_datos:
+    - nombre: document_number
+      tipo_busqueda: atributo_filtrable
+    - nombre: full_name
+      tipo_busqueda: entidad_exacta_nombre_propio
+    - nombre: email
+      tipo_busqueda: atributo_filtrable
+    - nombre: first_last_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: first_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: document_type_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: is_reinforcement
+      tipo_busqueda: atributo_filtrable
+    - nombre: document_type
+      tipo_busqueda: atributo_filtrable
+    - nombre: phone_number
+      tipo_busqueda: atributo_filtrable
+    - nombre: sex_name
+      tipo_busqueda: atributo_filtrable
+  Disciplina Deportiva:
+    sinonimos:
+    - deporte
+    - categoría
+    - modalidad
+    propiedades_de_datos:
+    - nombre: sport_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: category_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: discipline_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: sport_type_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: modality
+      tipo_busqueda: atributo_filtrable
+    - nombre: functional_classification_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: modality_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: discipline_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: functional_classification_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: discipline_type
+      tipo_busqueda: atributo_filtrable
+  Documento:
+    sinonimos:
+    - soporte
+    - certificado
+    - requisito documental
+    propiedades_de_datos:
+    - nombre: document_status
+      tipo_busqueda: atributo_filtrable
+    - nombre: document_date
+      tipo_busqueda: atributo_filtrable
+    - nombre: uploaded_document_type
+      tipo_busqueda: atributo_filtrable
+    - nombre: entity_code
+      tipo_busqueda: atributo_filtrable
+  Etapa/Fase:
+    sinonimos:
+    - fase
+    - ronda
+    - nivel de competencia
+    propiedades_de_datos:
+    - nombre: current_stage
+      tipo_busqueda: atributo_filtrable
+    - nombre: stage_sequence
+      tipo_busqueda: atributo_filtrable
+    - nombre: discipline_status
+      tipo_busqueda: atributo_filtrable
+  Evento:
+    sinonimos:
+    - competencia
+    - torneo
+    - juegos
+    - certamen deportivo
+    propiedades_de_datos:
+    - nombre: event_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: event_phases_count
+      tipo_busqueda: atributo_filtrable
+    - nombre: event_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: event_status
+      tipo_busqueda: atributo_filtrable
+    - nombre: event_sub_status
+      tipo_busqueda: atributo_filtrable
+    - nombre: event_slug
+      tipo_busqueda: atributo_filtrable
+  Grupo:
+    sinonimos:
+    - delegación de grupo
+    - equipo
+    - conjunto de deportistas
+    propiedades_de_datos:
+    - nombre: group_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: group_status
+      tipo_busqueda: atributo_filtrable
+    - nombre: total_athletes
+      tipo_busqueda: atributo_filtrable
+  Institución:
+    sinonimos:
+    - colegio
+    - escuela
+    - club
+    - entidad educativa o deportiva
+    propiedades_de_datos:
+    - nombre: inst_department_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: inst_municipality_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: institution_name
+      tipo_busqueda: entidad_exacta_nombre_propio
+    - nombre: institution_dane_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: inst_region_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: inst_municipality_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: inst_department_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: legal_name
+      tipo_busqueda: entidad_exacta_nombre_propio
+    - nombre: company_type_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: dane_code
+      tipo_busqueda: atributo_filtrable
+  Participación/Delegación:
+    sinonimos:
+    - intención de participación
+    - inscripción de delegación
+    propiedades_de_datos:
+    - nombre: delegation_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: delegation_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: modified_at
+      tipo_busqueda: atributo_filtrable
+  Personal de Apoyo:
+    sinonimos:
+    - entrenador
+    - acompañante
+    - cuerpo técnico
+    propiedades_de_datos:
+    - nombre: role_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: participant_role
+      tipo_busqueda: atributo_filtrable
+  Promoción:
+    sinonimos:
+    - avance de etapa
+    - ascenso de categoría
+    - clasificación a la siguiente fase
+    propiedades_de_datos:
+    - nombre: status
+      tipo_busqueda: atributo_filtrable
+    - nombre: estado_promocion
+      tipo_busqueda: atributo_filtrable
+  Ubicación Geográfica:
+    sinonimos:
+    - región
+    - departamento
+    - municipio
+    - zona
+    propiedades_de_datos:
+    - nombre: birth_region_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: birth_country_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: birth_department_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: birth_municipality_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: department_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: department_code
+      tipo_busqueda: atributo_filtrable
+    - nombre: municipality_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: region_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: municipality_code
+      tipo_busqueda: atributo_filtrable
+  Región (deportiva):
+    sinonimos:
+    - macrorregión deportiva
+    - zona deportiva
+    - región de competencia
+    propiedades_de_datos:
+    - nombre: region_name
+      tipo_busqueda: atributo_filtrable
+  Competencia / Prueba Regional:
+    tipo: entidad_sintetica
+    formula_de_construccion: '{sport_name} {category_name} en Región {region_name} ({fase})'
+    sinonimos:
+    - prueba
+    - prueba regional
+    - competencia deportiva
+    - encuentro deportivo
+    propiedades_de_datos:
+    - nombre: sport_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: category_name
+      tipo_busqueda: atributo_filtrable
+    - nombre: fase
+      tipo_busqueda: atributo_filtrable
+    - nombre: region_name
+      tipo_busqueda: atributo_filtrable
+relaciones:
+- origen: Deportista
+  relacion: pertenece_a
+  destino: Grupo
+  tipo: pertenencia
+- origen: Deportista
+  relacion: pertenece_a
+  destino: Institución
+  tipo: pertenencia
+- origen: Deportista
+  relacion: participa_en
+  destino: Evento
+  tipo: temporal
+- origen: Deportista
+  relacion: tiene_estado_de
+  destino: Promoción
+  tipo: estado
+- origen: Deportista
+  relacion: practica
+  destino: Disciplina Deportiva
+  tipo: asociación
+- origen: Deportista
+  relacion: reside_en
+  destino: Ubicación Geográfica
+  tipo: ubicación
+- origen: Deportista
+  relacion: presenta
+  destino: Documento
+  tipo: proceso
+- origen: Grupo
+  relacion: pertenece_a
+  destino: Institución
+  tipo: pertenencia
+- origen: Grupo
+  relacion: compite_en
+  destino: Evento
+  tipo: temporal
+- origen: Evento
+  relacion: tiene
+  destino: Etapa/Fase
+  tipo: jerárquica
+- origen: Promoción
+  relacion: habilita_avance_a
+  destino: Etapa/Fase
+  tipo: estado/temporal
+- origen: Institución
+  relacion: ubicada_en
+  destino: Ubicación Geográfica
+  tipo: ubicación
+- origen: Institución
+  relacion: asociada_a
+  destino: Federación
+  tipo: jerárquica
+- origen: Personal de Apoyo
+  relacion: pertenece_a
+  destino: Grupo
+  tipo: pertenencia
+- origen: Participación/Delegación
+  relacion: representa_a
+  destino: Institución
+  tipo: pertenencia
+- origen: Competencia / Prueba Regional
+  relacion: corresponde_a
+  destino: Disciplina Deportiva
+  tipo: composición
+- origen: Competencia / Prueba Regional
+  relacion: ocurre_en
+  destino: Región (deportiva)
+  tipo: ubicación
+- origen: Competencia / Prueba Regional
+  relacion: corresponde_a
+  destino: Etapa/Fase
+  tipo: temporal
+- origen: Competencia / Prueba Regional
+  relacion: parte_de
+  destino: Evento
+  tipo: jerárquica
+- origen: Región (deportiva)
+  relacion: agrupa_a
+  destino: Ubicación Geográfica
+  tipo: jerárquica
+jerarquias:
+- padre: Federación
+  hijo: Institución
+- padre: Institución
+  hijo: Grupo
+- padre: Grupo
+  hijo: Deportista
+- padre: Evento
+  hijo: Etapa/Fase

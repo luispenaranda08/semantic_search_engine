@@ -1,0 +1,49 @@
+# Configuración central del experimento. Una sola fuente de verdad para rutas
+# e hiperparámetros. Todo script lee de aquí; nada se codifica a mano.
+
+rutas:
+  # Insumos (relativos a la raíz del proyecto, un nivel arriba de experimentos/).
+  descripciones: "../data/athena_suid/descripciones_semanticas.csv"
+  tabla_maestra: "../data/athena_suid/tabla_maestra_reportes.csv"
+  ontologia: "../data/ontologia_suid/ontologia_suid.yaml"
+  metadatos_reporte: "../data/ontologia_suid/metadatos_por_reporte.json"
+  mapeo_competencias: "../data/competencias_suid/mapeo_competencias.json"
+  # Salidas.
+  corpus: "corpus/corpus_v1.jsonl"
+  corpus_stats: "corpus/corpus_stats.json"
+  consultas: "datos/consultas_eval.jsonl"
+  qrels: "datos/qrels.jsonl"
+  resultados: "resultados/resultados.json"
+  dir_resultados: "resultados"
+
+encoder:
+  # "sentence-transformer" usa el modelo real (requiere descarga la primera vez).
+  # "lsa" es el fallback offline determinista (TF-IDF + SVD); no requiere red.
+  tipo: "sentence-transformer"
+  modelo_st: "jinaai/jina-embeddings-v3"   # se usa si tipo == sentence-transformer
+  # Tareas asimétricas de jina-v3 (adaptador LoRA + prompt de recuperación). Es el uso
+  # recomendado por el modelo; poner null en ambas reproduce la codificación simétrica
+  # "sin tarea" de la versión anterior (análisis de sensibilidad).
+  tarea_consulta: "retrieval.query"
+  tarea_documento: "retrieval.passage"
+  lsa_componentes: 128                       # dimensión latente del fallback
+
+bm25:
+  k1: 1.5
+  b: 0.75
+
+fusion:
+  k_rrf: 60          # constante de Reciprocal Rank Fusion
+
+realce:
+  lambda: 0.2        # peso del realce suave por entidad (config 5); rango sugerido 0.1-0.3
+
+matryoshka:
+  # Dimensiones a barrer para P6 (solo aplica al encoder sentence-transformer con MRL).
+  # Deben ser <= la dimensión nativa del modelo (jina-v3: 1024); el encoder lo valida.
+  dims: [64, 128, 256, 512, 768, 1024]
+
+evaluacion:
+  cortes_k: [10, 100]        # k para nDCG@10, Recall@100, etc.
+  semilla: 42
+  bootstrap_muestras: 1000
