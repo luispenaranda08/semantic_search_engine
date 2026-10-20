@@ -3,7 +3,7 @@
 
 PY := python3
 
-.PHONY: all corpus consultas ablation reportes eval_real control dificil dificil_b fusion ontologia_completa errores escalamiento barridos cobertura diagnostico tablas anotacion final extraer test smoke clean
+.PHONY: all corpus consultas ablation reportes eval_real control dificil dificil_b robustez complementario costo barridos_dificiles fusion ontologia_completa errores escalamiento barridos cobertura diagnostico tablas anotacion final v3 fusion_v3 auditar_pg indep extraer test smoke clean
 
 all: reportes ## pipeline completo: corpus -> consultas -> ablación -> reportes
 
@@ -66,7 +66,7 @@ cobertura: dificil eval_real ## análisis exploratorio: efecto de la ontología 
 diagnostico: ## precisión/recall del detector de entidades (realce) en los tres conjuntos
 	$(PY) diagnostico_detector.py
 
-tablas: cobertura diagnostico ## tablas LaTeX de la monografía, generadas desde los JSON
+tablas: cobertura diagnostico robustez complementario ## tablas LaTeX de la monografía, generadas desde los JSON
 	$(PY) generar_tablas_tex.py
 
 anotacion: dificil ## hojas de anotación ciega para dos expertos (pooling) + auto-test del kappa
@@ -76,11 +76,51 @@ anotacion: dificil ## hojas de anotación ciega para dos expertos (pooling) + au
 extraer: ## extracción agregada de Athena (la corre el autor con su usuario de AWS)
 	$(PY) athena/extraer_competencias.py
 
-final: eval_real ## CORPUS DEFINITIVO: competencias v2 + 17 reportes (requiere `make extraer`)
+final: eval_real dificil_b ## CORPUS DEFINITIVO: competencias v2 + 17 reportes (requiere `make extraer`)
 	$(PY) construir_competencias_v2.py
 	$(PY) eval_flexible.py --corpus corpus/corpus_final.jsonl \
 	  --consultas datos/consultas_final.jsonl --qrels datos/qrels_final.jsonl \
 	  --salida resultados/resultados_final.json
+	$(PY) eval_flexible.py --corpus corpus/corpus_final.jsonl --campo-texto texto_sin_nombre \
+	  --consultas datos/consultas_final.jsonl --qrels datos/qrels_final.jsonl \
+	  --salida resultados/resultados_final_sin_nombre.json
+	$(PY) eval_flexible.py --corpus corpus/corpus_final.jsonl \
+	  --consultas datos/consultas_dificil_ab.jsonl --qrels datos/qrels_dificil_ab.jsonl \
+	  --salida resultados/resultados_final_dificil_ab.json
+
+auditar_pg: ## auditoría de datos personales de los CSV exportados de la base operativa (pgAdmin)
+	$(PY) pg/auditar_csv_pg.py
+
+v3: auditar_pg ## CORPUS V3: 811 documentos de cinco tipos (reportes, pruebas, funcionalidades, reglas) + análisis
+	$(PY) construir_corpus_v3.py
+	nice -n 15 $(PY) eval_flexible.py --corpus corpus/corpus_v3.jsonl \
+	  --consultas datos/consultas_final_v3.jsonl --qrels datos/qrels_final_v3.jsonl \
+	  --salida resultados/resultados_v3.json
+	nice -n 15 $(PY) eval_flexible.py --corpus corpus/corpus_v3.jsonl \
+	  --consultas datos/consultas_dificil_ab.jsonl --qrels datos/qrels_dificil_ab.jsonl \
+	  --salida resultados/resultados_v3_dificil_ab.json
+	$(PY) analisis_v3.py
+
+fusion_v3: ## fusión sensible a la confianza sobre el corpus v3 (requiere `make v3`)
+	nice -n 15 $(PY) fusion_v3.py
+
+indep: ## consultas de personas independientes (requiere anotacion/respuestas_necesidades.csv)
+	$(PY) construir_consultas_independientes.py
+	nice -n 15 $(PY) eval_flexible.py --corpus corpus/corpus_v3.jsonl \
+	  --consultas datos/consultas_indep.jsonl --qrels datos/qrels_indep.jsonl \
+	  --salida resultados/resultados_indep.json
+
+robustez: ## bootstrap por reporte, dejar uno fuera y dosis-respuesta (sin modelo)
+	$(PY) analisis_robustez.py
+
+complementario: ## C1 vs BM25, éxito@k, efecto mínimo detectable, metaanálisis A+B, ponderación por demanda (sin modelo)
+	$(PY) analisis_complementario.py
+
+costo: ## campaña única de medición de costo (GPU integrada y CPU) y latencia por configuración
+	$(PY) costo_computacional.py
+
+barridos_dificiles: dificil_b ## Matryoshka, k, lambda, k1/b y chunking sobre los conjuntos difíciles
+	$(PY) barridos.py --conjuntos dificil,dificil_b,dificil_ab --sufijo _dificiles
 
 test: ## auto-tests de las métricas y la estadística
 	$(PY) lib/metrics.py

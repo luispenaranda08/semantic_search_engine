@@ -9,7 +9,9 @@
 > fuente de verdad numérica**. La otra sigue siendo útil para el guion de exposición, pero no
 > cites sus cifras sin cruzarlas con la sección 14 de aquí.
 >
-> **Actualizado el 2026-10-06** con la réplica difícil B (78 consultas), fusión alternativa, ontología ampliada (14/17), análisis de errores,
+> **Actualizado el 2026-10-20:** corpus definitivo de 177 documentos, robustez por reporte, dosis-respuesta, metaanálisis, campaña única de costo
+> y recomendación de 512 dimensiones (§14.18–14.23 y chuleta). **Si algo de abajo contradice §14.18–14.23, manda esto último.**
+> Antes (2026-10-06): con la réplica difícil B (78 consultas), fusión alternativa, ontología ampliada (14/17), análisis de errores,
 > escalamiento y 19 pruebas unitarias (ver §14.12–14.16). Antes (2026-10-05): prueba de permutación, conjunto difícil, análisis de cobertura de la ontología,
 > barridos de sensibilidad/P4/P6 con las tareas LoRA activas y hojas de anotación. Las secciones 14–18 están reescritas.
 >
@@ -1027,6 +1029,42 @@ Búsqueda exacta p50: N=10⁴ → 0,1–1 ms; N=2·10⁵ → 3 ms (m=64), 6,6 ms
 ### 14.17 Pruebas unitarias 🟢
 `make test`: 19 pruebas (BM25 solo >0, IDF a mano, RRF del ejemplo, ausentes, desempate, fusión convexa/compuerta, nDCG por posición, Holm, permutación, rank-biserial, regla de promoción, detector por palabra, **regresión de fuga de nombres sintéticos**, PII, integridad de conjuntos, dedupe).
 
+### 14.18 Corpus definitivo: 160 Pruebas Regionales + 17 reportes = 177 documentos 🟢
+Extracción de Athena (solo conteos, auditoría PII limpia; el único aviso fue un tramo de dígitos dentro del UUID de evento). 180 consultas: 127 de firmas + 53 de competencias (juicios por facetas, mediana 2 relevantes).
+
+| Config | Global (180) | Recall@100 | Competencias (53) | Entidad con nombre (55) | Entidad sin nombre | Difíciles A+B en 177 docs (130) |
+|---|---|---|---|---|---|---|
+| BM25 | 0,774 | 0,928 | 0,899 | 0,674 | 0,674 | 0,251 |
+| C1 | 0,865 | 0,994 | 0,951 | 0,749 | 0,966 | 0,503 |
+| C2 | 0,910 | 1,000 | 0,954 | 0,836 | 1,000 | **0,652** |
+| C3 | 0,868 | 0,967 | 0,961 | 0,824 | 0,853 | 0,398 |
+| C4 | **0,960** | 1,000 | **0,973** | **0,975** | 1,000 | 0,563 |
+| C5 | 0,950 | 1,000 | 0,973 | — | — | — |
+
+Comparaciones (global): C3−BM25 +0,093 · C3−C1 +0,002 · C2−C1 **+0,045** · C4−C3 **+0,093** · C5−C4 −0,010 · **C4−C2 +0,050 (p<0,001)** · C1−BM25 +0,091.
+Difíciles en 177 docs: **C3−C1 −0,104 (concordante)** → con más documentos parecidos, BM25 se llena de distractores en las paráfrasis y RRF los promueve.
+P2 en competencias (entidad SÍ en el documento): C3−C1 +0,010, n.s., todo ~0,95–0,97 (techo; consultas generadas de las mismas facetas) → **P2 no se sostiene**.
+
+### 14.19 Robustez por reporte (bootstrap de reportes, dejar uno fuera) 🟢
+En el definitivo sobreviven C3−BM25, C2−C1, C4−C3 y **C4−C2** (IC excluye 0; ningún reporte excluido cambia el signo). En el ampliado de 17 docs solo C3−BM25.
+
+### 14.20 Dosis-respuesta de la ontología 🟢
+Ganancia del híbrido por la ontología según raíces compartidas con su bloque: 0 → −0,074 / −0,065; 1 → +0,125 / +0,288; 2+ → +0,251 / +0,484 (17 / 177 docs). Spearman 0,46 / 0,54. **Respuesta a "eso es circular":** si fuera un artefacto de la definición del nivel, no crecería con la dosis. La circularidad de origen (mismo autor) se mitiga, no se elimina.
+
+### 14.21 Metaanálisis A+B, éxito@k, EMD, demanda 🟢
+- Metaanálisis (efectos fijos): C2−C1 +0,070 [0,041; 0,099] · C4−C3 +0,070 [0,021; 0,120] · C5−C4 −0,055 · C3−C1 −0,015 (n.s.) · C4−C2 −0,017 (n.s.). Sin heterogeneidad salvo en la magnitud vs BM25.
+- Éxito@1 / @3: definitivo C4 0,94 / 0,97; difíciles 177 docs C2 0,54 / 0,68.
+- EMD: ej. C3−C1 en ampliado observado +0,011 vs detectable 0,030 → "nulo" = más pequeño que lo que el diseño resolvía.
+- Ponderado por demanda real (ampliado): C4 0,964 · C3 0,959 · C1 0,944 (mismo orden).
+- C1−BM25: +0,526 (A), +0,361 (B), +0,091 (definitivo) → **la mayor parte de la ventaja del híbrido la pone el codificador denso.**
+
+### 14.22 Costo: campaña ÚNICA (reemplaza cifras anteriores) 🟢
+Apple M4, GPU integrada, fp32, un proceso: carga 7,3 s · memoria ≈2,2 GiB · 572 M parámetros · doc 141 ms · **consulta 351 / 408 ms (p50/p95)** · **solo CPU 628 / 801 ms** · BM25 0,09 ms · denso 0,002 ms · RRF 0,005 ms.
+Latencia de punta a punta: BM25 0,09 ms; C1–C5 343–349 ms (p50). Capacidad ≈ 3 consultas/s (~250.000/día) frente a 145/día reales.
+
+### 14.23 Matryoshka con paráfrasis 🟢 — **la recomendación cambia a 512**
+Difíciles A+B: 256 → −0,009 [−0,021; +0,004] (no equivalente); **512 → +0,007 [0,000; +0,017] (equivalente)**. Como el índice es de kilobytes, recomendar 512; 256 solo si la memoria aprieta. k de RRF y λ: mismas conclusiones también en los difíciles.
+
 ---
 
 ## 15. Las seis preguntas de investigación, respondidas con honestidad
@@ -1258,16 +1296,14 @@ enchufable (`config.yaml`).
 
 ### Cifras vigentes (memorízalas con su contexto)
 
-- **6.620** consultas de datos reales · **Individual 40,4 %** · **top-5 83 %** · **Gini 0,70** (IC 0,65–0,75) · **Promoción 4,2 %**.
-- Ontología: **13 clases, 20 relaciones**, cubre **9 de 17** reportes. Corpus v1: **17 docs**, PII=0.
-- nDCG@10 C4: **0,948** sintético · **0,960** ampliado · 0,788 difícil (ahí gana C2 con **0,835**). BM25: 0,819 · 0,887 · 0,186 (por construcción).
-- **C3>BM25 es robusto en los 3 conjuntos** (+0,073 · +0,056 · +0,500). **C3 vs C1: no se demuestra** (+0,026 · +0,011 · −0,026).
-- Ontología sobre el denso: **+0,122** en el difícil (robusto); nula en el ampliado. Reporte objetivo sin enriquecer: **−0,161** (exploratorio).
-- Realce: **−0,024 · −0,016 · −0,049**; detector precisión **0,10–0,17**.
-- Control sin nombre: entidad_exacta **sube** (C4 0,980 → 1,000).
-- Matryoshka: **256 dim ≡ 1024** (ampliado), **−75 %** de índice; codificar la consulta **349 ms**, buscar **0,1 ms**.
-- Parámetros: k1=1,5 · b=0,75 · k=60 · λ=0,2 · ε=0,01 · semilla 42 · 1.000 réplicas bootstrap · dim nativa 1.024.
-- Pares no nulos de C4 vs C3: **13/127** (ampliado) frente a **34/52** (difícil).
+- EDA: **6.620** consultas reales · Individual **40,4 %** · top-5 **83 %** · Gini **0,70** · Promoción **4,2 %**.
+- Corpus: v1 **17** reportes; definitivo **177** (160 Pruebas Regionales + 17). Ontología **13 clases / 20 relaciones**, cubre 9/17 reportes.
+- Definitivo: **C4 0,960** · C2 0,910 · C3 0,868 · C1 0,865 · BM25 0,774; **C4−C2 +0,050** (justifica C4).
+- Siempre: **C3 > BM25** (concordante en todo); **C3 vs C1 no** (y −0,104 con paráfrasis en 177 docs).
+- Ontología: metaanálisis +0,070 (denso e híbrido); **dosis-respuesta** ρ = 0,46–0,54.
+- Realce: nunca mejora (metaanálisis −0,055). P2: no se sostiene.
+- Costo: **351 ms** por consulta (628 ms en CPU), **~2,2 GiB**, sin entrenamiento; BM25 0,09 ms.
+- Recomendación: **C4, sin realce, 512 dimensiones, coseno exacto**; ontología en todos los reportes.
 
 ### Glosario
 

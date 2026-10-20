@@ -88,7 +88,15 @@ class SentenceTransformerEncoder:
     """Codificador denso real (multilingüe, con soporte Matryoshka opcional)."""
 
     def __init__(self, modelo: str, truncar_dim: int | None = None,
-                 tarea_consulta: str | None = None, tarea_documento: str | None = None) -> None:
+                 tarea_consulta: str | None = None, tarea_documento: str | None = None,
+                 revision: str | None = None, sin_conexion: bool = False) -> None:
+        # Reproducibilidad: `revision` fija el commit del modelo en Hugging Face y
+        # `sin_conexion` impide que la carga consulte la red, de modo que el código remoto
+        # (trust_remote_code) sale siempre de la copia ya descargada y no de la rama main.
+        if sin_conexion:
+            import os
+            os.environ["HF_HUB_OFFLINE"] = "1"
+            os.environ["TRANSFORMERS_OFFLINE"] = "1"
         # Shim de compatibilidad: transformers >=5 espera `all_tied_weights_keys`
         # en toda subclase de PreTrainedModel al finalizar la carga, pero el codigo
         # remoto de jina-v3 (XLMRobertaLoRA) no lo define. Un dict vacio es correcto
@@ -100,7 +108,7 @@ class SentenceTransformerEncoder:
 
         from sentence_transformers import SentenceTransformer
 
-        self._modelo = SentenceTransformer(modelo, trust_remote_code=True)
+        self._modelo = SentenceTransformer(modelo, trust_remote_code=True, revision=revision)
         dim_nativa = self._modelo.get_sentence_embedding_dimension()
         if truncar_dim is not None and not (0 < truncar_dim <= dim_nativa):
             raise ValueError(f"truncar_dim={truncar_dim} fuera de rango: el modelo tiene "
@@ -141,7 +149,9 @@ def construir_encoder(cfg: dict, corpus_textos: Sequence[str],
     if tipo == "sentence-transformer":
         return SentenceTransformerEncoder(cfg["encoder"]["modelo_st"], truncar_dim,
                                           cfg["encoder"].get("tarea_consulta"),
-                                          cfg["encoder"].get("tarea_documento"))
+                                          cfg["encoder"].get("tarea_documento"),
+                                          cfg["encoder"].get("revision"),
+                                          bool(cfg["encoder"].get("sin_conexion", False)))
     if tipo == "lsa":
         enc = LSAEncoder(cfg["encoder"]["lsa_componentes"])
         enc.fit(corpus_textos)

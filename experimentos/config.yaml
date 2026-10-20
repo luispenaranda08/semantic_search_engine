@@ -21,6 +21,11 @@ encoder:
   # "lsa" es el fallback offline determinista (TF-IDF + SVD); no requiere red.
   tipo: "sentence-transformer"
   modelo_st: "jinaai/jina-embeddings-v3"   # se usa si tipo == sentence-transformer
+  # Versión fijada (commit de Hugging Face) del modelo y, como referencia, del código remoto que
+  # carga (jinaai/xlm-roberta-flash-implementation @ bd55a5ec8e6c0fb1d6c26efb4b6a4a74ce8a88d3).
+  # sin_conexion: true usa solo la copia local; ponerlo en false la primera vez que se descarga.
+  revision: "ab036b023d30b4d1138c4c3bfa9f0c445ab455d6"
+  sin_conexion: true
   # Tareas asimétricas de jina-v3 (adaptador LoRA + prompt de recuperación). Es el uso
   # recomendado por el modelo; poner null en ambas reproduce la codificación simétrica
   # "sin tarea" de la versión anterior (análisis de sensibilidad).

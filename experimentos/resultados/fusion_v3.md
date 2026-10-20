@@ -1,0 +1,20 @@
+# Fusión adaptativa sobre el corpus v3 (811 documentos)
+
+450 consultas en seis grupos. nDCG@10; entre paréntesis, diferencia frente a C4 y frente a C2 (`*` = concordante: Wilcoxon y permutación rechazan tras Holm).
+
+| Alcance | n | BM25 | C2 denso | C4 RRF | rrf_cobertura | convexa_minmax|LOGO | rrf_ponderado|LOGO | rrf_compuerta|LOGO |
+|---|---|---|---|---|---|---|---|---|
+| total | 450 | 0.579 | 0.714 | 0.710 | 0.737 (+0.028*; +0.023) | 0.799 (+0.089*; +0.085*) | 0.733 (+0.024; +0.019) | 0.712 (+0.002; -0.003) |
+| total_sin_dificiles | 320 | 0.626 | 0.803 | 0.773 | 0.820 (+0.047*; +0.017) | 0.882 (+0.109*; +0.079*) | 0.824 (+0.051*; +0.022) | 0.784 (+0.011; -0.019) |
+| reportes | 127 | 0.704 | 0.759 | 0.841 | 0.828 (-0.013; +0.068) | 0.904 (+0.063*; +0.145*) | 0.830 (-0.011; +0.071*) | 0.726 (-0.115*; -0.034) |
+| pruebas_regionales | 53 | 0.914 | 0.954 | 0.970 | 0.970 (+0.000; +0.016) | 0.967 (-0.003; +0.012*) | 0.963 (-0.007; +0.009) | 0.970 (+0.000; +0.016) |
+| funcionalidades | 53 | 0.160 | 0.654 | 0.417 | 0.506 (+0.088*; -0.148*) | 0.634 (+0.216*; -0.020) | 0.591 (+0.173*; -0.063) | 0.511 (+0.093*; -0.143*) |
+| pruebas_catalogo | 60 | 0.824 | 0.836 | 0.917 | 0.929 (+0.012; +0.093*) | 0.953 (+0.036; +0.117*) | 0.879 (-0.039; +0.043*) | 0.920 (+0.003; +0.084*) |
+| reglas | 27 | 0.167 | 0.926 | 0.443 | 0.861 (+0.418*; -0.064) | 0.940 (+0.496*; +0.014) | 0.861 (+0.418*; -0.064) | 0.926 (+0.483*; +0.000) |
+| dificiles_ab | 130 | 0.464 | 0.496 | 0.555 | 0.534 (-0.020; +0.038) | 0.594 (+0.039; +0.097*) | 0.510 (-0.045; +0.014) | 0.533 (-0.021; +0.037) |
+
+Parámetros elegidos por leave-one-group-out:
+
+- convexa_minmax: reportes=a=0.8, pruebas_regionales=a=0.8, funcionalidades=a=0.8, pruebas_catalogo=a=0.8, reglas=a=0.8, dificiles_ab=a=0.8
+- rrf_ponderado: reportes=w=5.0, pruebas_regionales=w=5.0, funcionalidades=w=5.0, pruebas_catalogo=w=5.0, reglas=w=5.0, dificiles_ab=w=5.0
+- rrf_compuerta: reportes=t=0.75, pruebas_regionales=t=0.50, funcionalidades=t=0.50, pruebas_catalogo=t=0.50, reglas=t=0.50, dificiles_ab=t=1.00

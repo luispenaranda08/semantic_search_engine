@@ -111,9 +111,17 @@ def main() -> None:
     k_rrf, lam = cfg["fusion"]["k_rrf"], cfg["realce"]["lambda"]
 
     conjuntos = {}
-    for nombre, cq, qr in [("sintetico", "datos/consultas_eval.jsonl", "datos/qrels.jsonl"),
-                           ("ampliado", "datos/consultas_real_ampliado.jsonl",
-                            "datos/qrels_real_ampliado.jsonl")]:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--conjuntos", default="sintetico,ampliado")
+    ap.add_argument("--sufijo", default="", help="sufijo del archivo de salida (p. ej. _dificiles)")
+    args = ap.parse_args()
+    DISP = {"sintetico": ("datos/consultas_eval.jsonl", "datos/qrels.jsonl"),
+            "ampliado": ("datos/consultas_real_ampliado.jsonl", "datos/qrels_real_ampliado.jsonl"),
+            "dificil": ("datos/consultas_dificil.jsonl", "datos/qrels_dificil.jsonl"),
+            "dificil_b": ("datos/consultas_dificil_b.jsonl", "datos/qrels_dificil_b.jsonl"),
+            "dificil_ab": ("datos/consultas_dificil_ab.jsonl", "datos/qrels_dificil_ab.jsonl")}
+    for nombre, (cq, qr) in [(n, DISP[n]) for n in args.conjuntos.split(",")]:
         qrels = {r["id"]: r["relevancia"] for r in cargar(RAIZ / qr)}
         cons = [c for c in cargar(RAIZ / cq) if M.tiene_gold(qrels.get(c["id"], {}))]
         conjuntos[nombre] = (cons, qrels)
@@ -197,7 +205,7 @@ def main() -> None:
     out["P6"] = {"eps_equivalencia": EPS_EQUIV, "dims": dims, "por_conjunto": p6}
 
     # latencia de CODIFICACIÓN de la consulta (sin caché; es la que domina en producción)
-    cons_s = conjuntos["sintetico"][0]
+    cons_s = next(iter(conjuntos.values()))[0]
     muestra = [c["texto"] for c in cons_s[:30]]
     t_enc = []
     for t in muestra:
@@ -244,9 +252,9 @@ def main() -> None:
         print(f"[P4:{cn}] listo")
     out["P4"] = p4
 
-    ruta = RAIZ / "resultados" / "barridos.json"
+    ruta = RAIZ / "resultados" / f"barridos{args.sufijo}.json"
     ruta.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-    (RAIZ / "resultados" / "barridos.md").write_text(a_markdown(out), encoding="utf-8")
+    (RAIZ / "resultados" / f"barridos{args.sufijo}.md").write_text(a_markdown(out), encoding="utf-8")
     print(f"Guardado en {ruta}")
 
 
