@@ -32,6 +32,10 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,calc}
 \usepackage{enumitem}
+% Enlaces sin recuadros: las citas y referencias se ven como texto en azul oscuro.
+\hypersetup{colorlinks=true,linkcolor=[rgb]{0.10,0.20,0.45},citecolor=[rgb]{0.10,0.20,0.45},urlcolor=[rgb]{0.10,0.20,0.45}}
+% Encabezado de tabla en dos líneas: \dosl{Primera}{segunda}
+\newcommand{\dosl}[2]{\begin{tabular}[b]{@{}c@{}}#1\\#2\end{tabular}}
 
 % Buscar figuras en las carpetas del proyecto (Overleaf compila desde la raíz).
 \graphicspath{{data/athena_suid/}{data/ontologia_suid/}{data/ontologia_suid/diagramas/}{media/}}
@@ -381,11 +385,11 @@ La Tabla~\ref{tab:sintesis-ea} resume las líneas anteriores según los criterio
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.25}
-\caption{Síntesis cualitativa de las líneas de trabajo revisadas respecto de las restricciones del caso de estudio. ``Cobertura es--dominio'' indica si la evidencia primaria incluye español o un dominio específico.}
+\caption{Síntesis cualitativa de las líneas de trabajo revisadas respecto de las restricciones del caso de estudio. La última columna indica si la evidencia primaria incluye español o un dominio específico.}
 \label{tab:sintesis-ea}
 \begin{tabularx}{\textwidth}{@{}l c c Y c@{}}
 \toprule
-\textbf{Línea} & \textbf{Requiere etiquetas} & \textbf{Costo de índice} & \textbf{Exacto / semántico} & \textbf{Cobertura es--dominio} \\
+\textbf{Línea} & \dosl{\textbf{¿Requiere}}{\textbf{etiquetas?}} & \dosl{\textbf{Costo}}{\textbf{del índice}} & \textbf{Coincidencia exacta frente a semántica} & \dosl{\textbf{Evidencia en español}}{\textbf{o en un dominio}} \\
 \midrule
 Léxica (BM25)                       & no            & bajo      & fuerte en exacto, débil en semántico & parcial \\
 Densa preentrenada                  & no (\textit{zero-shot}) & medio & fuerte en semántico, débil en identificadores & parcial \\
@@ -996,9 +1000,9 @@ La Tabla~\ref{tab:estadistica} resume las cinco comparaciones de la escalera y l
 \footnotesize
 \setlength{\tabcolsep}{5pt}
 \renewcommand{\arraystretch}{1.25}
-\caption{Diferencia media de nDCG@10 (primera configuración menos segunda) y, entre paréntesis, el mayor de los dos $p$-valores ajustados por Holm (Wilcoxon y permutación pareadas). En negrita, las comparaciones \emph{robustas}: ambas pruebas rechazan con $\alpha=0{,}05$ tras la corrección.}
+\caption{Diferencia media de nDCG@10 (primera configuración menos segunda) y, entre paréntesis, el mayor de los dos $p$-valores ajustados por Holm (Wilcoxon y permutación pareadas). En negrita, las comparaciones \emph{concordantes}: ambas pruebas rechazan con $\alpha=0{,}05$ tras la corrección.}
 \label{tab:estadistica}
-\begin{tabularx}{\textwidth}{@{}l C C C C C@{}}
+\begin{tabularx}{\textwidth}{@{}Y c c c c c@{}}
 \toprule
 \textbf{Comparación} & \textbf{sintético} & \textbf{ampliado} & \textbf{difícil A} & \textbf{difícil B} & \textbf{A+B} \\
 \midrule
@@ -1444,7 +1448,7 @@ La Tabla~\ref{tab:final} reúne los resultados. Con $160$ documentos nuevos comp
 \label{tab:final}
 \begin{tabularx}{\textwidth}{@{}l C C C C C C@{}}
 \toprule
-\textbf{Configuración} & \begin{tabular}[b]{@{}c@{}}\textbf{Global}\\($n{=}180$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Recall@100}\\global\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Competencias}\\($n{=}53$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Entidad exacta}\\con nombre ($n{=}55$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Entidad exacta}\\sin nombre ($n{=}55$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Difíciles A+B}\\($n{=}130$)\end{tabular} \\
+\textbf{Configuración} & \begin{tabular}[b]{@{}c@{}}\textbf{Global}\\($n{=}180$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Recall@100}\\global\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Compe-}\\\textbf{tencias}\\($n{=}53$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Entidad,}\\\textbf{con nombre}\\($n{=}55$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Entidad,}\\\textbf{sin nombre}\\($n{=}55$)\end{tabular} & \begin{tabular}[b]{@{}c@{}}\textbf{Difíciles}\\\textbf{A+B}\\($n{=}130$)\end{tabular} \\
 \midrule
 BM25 (referencia) & $0{,}774$ & $0{,}928$ & $0{,}899$ & $0{,}674$ & $0{,}674$ & $0{,}251$ \\
 C1 · Denso puro & $0{,}865$ & $0{,}994$ & $0{,}951$ & $0{,}749$ & $0{,}966$ & $0{,}503$ \\
@@ -1465,7 +1469,7 @@ La Tabla~\ref{tab:final-stats} da las comparaciones. Tres resultados del corpus 
 \renewcommand{\arraystretch}{1.25}
 \caption{Comparaciones sobre el corpus definitivo: diferencia media de nDCG@10 y, entre paréntesis, el mayor de los $p$-valores de Wilcoxon y permutación. En las cinco primeras filas los $p$ están ajustados por Holm dentro de la familia y la negrita marca las concordantes; las dos últimas son complementarias, sin ajuste.}
 \label{tab:final-stats}
-\begin{tabularx}{\textwidth}{@{}l C C C C@{}}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
 \toprule
 \textbf{Comparación} & \textbf{Global} & \textbf{Competencias} & \textbf{Entidad exacta} & \textbf{Difíciles A+B} \\
 \midrule
@@ -1474,7 +1478,8 @@ C3 frente a C1 (P1, P2) & $+0{,}002$ ($0{,}896$) & $+0{,}010$ ($1{,}000$) & {\bo
 C2 frente a C1 (P3, denso) & {\boldmath\bfseries $+0{,}045$ ($0{,}001$)} & $+0{,}004$ ($1{,}000$) & {\boldmath\bfseries $+0{,}087$ ($0{,}007$)} & {\boldmath\bfseries $+0{,}150$ ($<\!0{,}001$)} \\
 C4 frente a C3 (P3, híbrido) & {\boldmath\bfseries $+0{,}093$ ($<\!0{,}001$)} & $+0{,}012$ ($0{,}430$) & {\boldmath\bfseries $+0{,}150$ ($0{,}001$)} & {\boldmath\bfseries $+0{,}192$ ($<\!0{,}001$)} \\
 C5 frente a C4 (P5) & $-0{,}010$ ($0{,}125$) & $+0{,}000$ (n/d) & $+0{,}000$ (n/d) & {\boldmath\bfseries $-0{,}027$ ($0{,}018$)} \\
-\\midrule C1 frente a BM25 (aporte del codificador) & $+0{,}091$ ($<\!0{,}001$) & $+0{,}052$ ($0{,}095$) & $+0{,}075$ ($0{,}090$) & $+0{,}252$ ($<\!0{,}001$) \\
+\midrule
+C1 frente a BM25 (aporte del codificador) & $+0{,}091$ ($<\!0{,}001$) & $+0{,}052$ ($0{,}095$) & $+0{,}075$ ($0{,}090$) & $+0{,}252$ ($<\!0{,}001$) \\
 C4 frente a C2 (elección de la configuración) & $+0{,}050$ ($<\!0{,}001$) & $+0{,}019$ ($0{,}294$) & $+0{,}139$ ($<\!0{,}001$) & $-0{,}062$ ($0{,}061$) \\
 \bottomrule
 \end{tabularx}
@@ -1633,7 +1638,7 @@ C4 $-$ C2 & $+0{,}032$ [$-0{,}009$; $+0{,}053$] & $-0{,}020$ [$-0{,}066$; $+0{,}
 \renewcommand{\arraystretch}{1.25}
 \caption{Metaanálisis de efectos fijos de los conjuntos difíciles A ($n=52$) y B ($n=78$), corpus de 17 documentos. $Q$ mide la heterogeneidad entre ambos (con un grado de libertad, valores menores que $3{,}84$ no indican heterogeneidad significativa). En negrita, los efectos combinados cuyo intervalo excluye el cero.}
 \label{tab:meta}
-\begin{tabularx}{\textwidth}{@{}l C C C C@{}}
+\begin{tabularx}{\textwidth}{@{}Y c c c c@{}}
 \toprule
 \textbf{Comparación} & \textbf{Difícil A} & \textbf{Difícil B} & \textbf{Combinado [IC 95\%]} & $\boldsymbol{Q}$ \\
 \midrule
@@ -1701,7 +1706,7 @@ C4 $-$ C2 & $+0{,}032$ / $0{,}035$ & $-0{,}047$ / $0{,}089$ & $-0{,}001$ / $0{,}
 \renewcommand{\arraystretch}{1.3}
 \caption{Estado de las hipótesis. ``Confirmatoria'' indica evidencia de conjuntos y análisis fijados en el plan de la Sección~\ref{sec:plan-analisis}; ``exploratoria'', evidencia de análisis definidos después de ver resultados.}
 \label{tab:hipotesis}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{2.4cm} Y@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{3.2cm} Y@{}}
 \toprule
 \textbf{Hipótesis} & \textbf{Estado} & \textbf{Evidencia principal} \\
 \midrule
@@ -1726,7 +1731,7 @@ H7: una fusión distinta de RRF es mejor & sostenida en el corpus v3 & Con dieci
   \item[\textbf{P3.}] Se sostiene con condiciones. La ontología mejora al denso y al híbrido de forma concordante en el corpus definitivo y en el metaanálisis de los difíciles, y su efecto crece con el número de términos que la consulta comparte con ella; es nulo cuando la consulta ya usa el vocabulario del reporte o cuando no comparte ningún término con la ontología.
   \item[\textbf{P4.}] La fragmentación no aporta con documentos de entre $64$ y $184$ palabras.
   \item[\textbf{P5.}] El realce nunca mejora, para ningún valor de $\lambda$, y es de forma concordante adverso en los conjuntos difíciles. Se descarta.
-  \item[\textbf{P6.}] Las configuraciones neuronales cuestan lo mismo: unos $0{,}35$ s por consulta con la GPU integrada ($0{,}63$ s solo en CPU) y unos $2$ GiB de memoria por el codificador, sin ningún entrenamiento. La elección entre ellas se hace por efectividad, y C4 es la recomendada. La menor dimensión equivalente a la nativa en todos los conjuntos es $512$; $256$ lo es en el conjunto ampliado pero no en las paráfrasis. BM25 es la única alternativa más barata, a costa de perder entre $0{,}07$ y $0{,}51$ de nDCG@10.
+  \item[\textbf{P6.}] Las configuraciones neuronales cuestan lo mismo: unos $0{,}35$ s por consulta con la GPU integrada ($0{,}63$ s solo en CPU) y unos $2$ GiB de memoria por el codificador, sin ningún entrenamiento. La elección entre ellas se hace por efectividad: C4 para la Versión~1, limitada a reportes, y la combinación convexa con $\alpha=0{,}8$, que tampoco cuesta más, para un buscador sobre todos los objetos funcionales. La menor dimensión equivalente a la nativa en todos los conjuntos es $512$; $256$ lo es en el conjunto ampliado pero no en las paráfrasis. BM25 es la única alternativa más barata, a costa de perder entre $0{,}07$ y $0{,}51$ de nDCG@10.
 \end{description}
 
 
