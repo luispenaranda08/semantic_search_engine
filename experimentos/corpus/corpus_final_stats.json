@@ -1,0 +1,15 @@
+{
+  "n_pruebas": 160,
+  "n_reportes": 17,
+  "n_corpus_final": 177,
+  "eventos": [
+    "Juegos Intercolegiados"
+  ],
+  "regiones": 8,
+  "deporte_x_categoria": 21,
+  "descripciones_distintas": 160,
+  "pruebas_con_resultados": 143,
+  "consultas_competencias": 53,
+  "relevantes_por_consulta_mediana": 2,
+  "consultas_final": 180
+}

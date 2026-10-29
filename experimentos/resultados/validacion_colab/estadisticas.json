@@ -1,0 +1,1309 @@
+{
+  "medias": {
+    "sin_ontologia": {
+      "bm25_libre": 0.13821144456100898,
+      "bm25_oracle": 0.278773382556971,
+      "bm25_predicha": 0.1731526611151585,
+      "bm25_semantica": 0.271024189355461,
+      "convexa_libre": 0.41255718748077597,
+      "convexa_oracle": 0.5558922719595893,
+      "convexa_predicha": 0.43518502836770057,
+      "convexa_semantica": 0.5020278547899735,
+      "denso_libre": 0.42563533371883017,
+      "denso_oracle": 0.551898995684653,
+      "denso_predicha": 0.4332584423048593,
+      "denso_semantica": 0.4887673909433497,
+      "rrf_libre": 0.2937751886974904,
+      "rrf_oracle": 0.48575449727198267,
+      "rrf_predicha": 0.36725380543512315,
+      "rrf_semantica": 0.43854706659184306
+    },
+    "ontologia": {
+      "bm25_libre": 0.29947965175447694,
+      "bm25_oracle": 0.42674564681335464,
+      "bm25_predicha": 0.31663469416219636,
+      "bm25_semantica": 0.3396666388458688,
+      "convexa_libre": 0.5329536475438906,
+      "convexa_oracle": 0.7123260896559239,
+      "convexa_predicha": 0.5892290424209562,
+      "convexa_semantica": 0.5628876793985552,
+      "denso_libre": 0.48377967585519627,
+      "denso_oracle": 0.6547189227811108,
+      "denso_predicha": 0.5332812645982534,
+      "denso_semantica": 0.5406303359398971,
+      "rrf_libre": 0.4388080623229291,
+      "rrf_oracle": 0.6223337716935637,
+      "rrf_predicha": 0.5003026683852162,
+      "rrf_semantica": 0.4918202625404164
+    },
+    "repeticion": {
+      "bm25_libre": 0.18191711534582092,
+      "bm25_oracle": 0.315588909362729,
+      "bm25_predicha": 0.20920992126136184,
+      "bm25_semantica": 0.2992133885834246,
+      "convexa_libre": 0.4170426909667541,
+      "convexa_oracle": 0.5425966379739934,
+      "convexa_predicha": 0.4232094662367376,
+      "convexa_semantica": 0.4920481217601043,
+      "denso_libre": 0.4052879831462304,
+      "denso_oracle": 0.5340066136202606,
+      "denso_predicha": 0.41529039624340197,
+      "denso_semantica": 0.4784869174068493,
+      "rrf_libre": 0.34848778362793464,
+      "rrf_oracle": 0.494702689135465,
+      "rrf_predicha": 0.37573680100687057,
+      "rrf_semantica": 0.4463718612090571
+    },
+    "vecinos": {
+      "bm25_libre": 0.13441037233913852,
+      "bm25_oracle": 0.24852452136030265,
+      "bm25_predicha": 0.15844856918465028,
+      "bm25_semantica": 0.2434377106351518,
+      "convexa_libre": 0.3661432727236738,
+      "convexa_oracle": 0.5085458353872401,
+      "convexa_predicha": 0.3902407662482766,
+      "convexa_semantica": 0.4646698600841637,
+      "denso_libre": 0.37396515277609876,
+      "denso_oracle": 0.5160729640037237,
+      "denso_predicha": 0.3987543662948791,
+      "denso_semantica": 0.4621834680926117,
+      "rrf_libre": 0.28495679636142296,
+      "rrf_oracle": 0.437868881954968,
+      "rrf_predicha": 0.3276212566745518,
+      "rrf_semantica": 0.4055307112266342
+    },
+    "metadatos": {
+      "bm25_libre": 0.25466692420716297,
+      "bm25_oracle": 0.36411343088464815,
+      "bm25_predicha": 0.25234320543856065,
+      "bm25_semantica": 0.33210456838796354,
+      "convexa_libre": 0.45363869421378417,
+      "convexa_oracle": 0.5837454897398181,
+      "convexa_predicha": 0.4628097257283868,
+      "convexa_semantica": 0.5167131882256567,
+      "denso_libre": 0.4334838252512582,
+      "denso_oracle": 0.5728321160492601,
+      "denso_predicha": 0.4532271794569076,
+      "denso_semantica": 0.5041478861408547,
+      "rrf_libre": 0.4000182096658374,
+      "rrf_oracle": 0.5478765283278801,
+      "rrf_predicha": 0.42550140822651666,
+      "rrf_semantica": 0.4824081810185881
+    }
+  },
+  "protocolo": "Mismos 450 juicios existentes; no evaluación independiente. Fondo documental sin cambios entre brazos; todos los documentos tienen vector real.",
+  "ontologia_vs_alternativas": {
+    "denso:ontologia-sin_ontologia": {
+      "estadistico": 858.5,
+      "p_valor": 1.6671335937008306e-08,
+      "media_dif": 0.05814434213636616,
+      "n": 450,
+      "n_pares_no_nulos": 99,
+      "rank_biserial": 0.6531313131313131,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.038282695675411864,
+        0.077369330917491
+      ],
+      "ic95_componentes": [
+        0.02824020005535386,
+        0.09122696664307701
+      ],
+      "p_holm": 5.0014007811024914e-08,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "denso:ontologia-repeticion": {
+      "estadistico": 938.5,
+      "p_valor": 1.0239246746491379e-10,
+      "media_dif": 0.07849169270896593,
+      "n": 450,
+      "n_pares_no_nulos": 112,
+      "rank_biserial": 0.7033817951959545,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.055404939789330844,
+        0.10012447836004669
+      ],
+      "ic95_componentes": [
+        0.04523918741313509,
+        0.11506668494900986
+      ],
+      "p_holm": 6.143548047894828e-10,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "denso:ontologia-vecinos": {
+      "estadistico": 516.5,
+      "p_valor": 3.259571638074927e-17,
+      "media_dif": 0.10981452307909756,
+      "n": 450,
+      "n_pares_no_nulos": 125,
+      "rank_biserial": 0.8688253968253968,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.08531640477390434,
+        0.13349222073697697
+      ],
+      "ic95_componentes": [
+        0.07698074646159066,
+        0.1490430118182865
+      ],
+      "p_holm": 2.6076573104599414e-16,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "denso:ontologia-metadatos": {
+      "estadistico": 772.0,
+      "p_valor": 7.976812230456055e-07,
+      "media_dif": 0.050295850603938055,
+      "n": 450,
+      "n_pares_no_nulos": 88,
+      "rank_biserial": 0.6057201225740552,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.03106133677830855,
+        0.06880568624209084
+      ],
+      "ic95_componentes": [
+        0.022199012979695985,
+        0.08477625130811016
+      ],
+      "p_holm": 1.595362446091211e-06,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "rrf:ontologia-sin_ontologia": {
+      "estadistico": 1109.0,
+      "p_valor": 1.6420681564498067e-18,
+      "media_dif": 0.14503287362543865,
+      "n": 450,
+      "n_pares_no_nulos": 154,
+      "rank_biserial": 0.8141600335148722,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.11548973264522938,
+        0.17673424923138767
+      ],
+      "ic95_componentes": [
+        0.09693653471511308,
+        0.1919126836596707
+      ],
+      "p_holm": 1.6420681564498065e-17,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "rrf:ontologia-repeticion": {
+      "estadistico": 2800.5,
+      "p_valor": 1.064878513403692e-08,
+      "media_dif": 0.09032027869499447,
+      "n": 450,
+      "n_pares_no_nulos": 154,
+      "rank_biserial": 0.5307080016757436,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.05935362756037992,
+        0.12130587183416129
+      ],
+      "ic95_componentes": [
+        0.03510868402212124,
+        0.13719518554272508
+      ],
+      "p_holm": 4.259514053614768e-08,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "rrf:ontologia-vecinos": {
+      "estadistico": 1759.0,
+      "p_valor": 6.583432247688616e-20,
+      "media_dif": 0.15385126596150617,
+      "n": 450,
+      "n_pares_no_nulos": 180,
+      "rank_biserial": 0.7840392879066912,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.12392681757136538,
+        0.18535041813295508
+      ],
+      "ic95_componentes": [
+        0.0952672783879904,
+        0.2079118881014861
+      ],
+      "p_holm": 7.241775472457478e-19,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "rrf:ontologia-metadatos": {
+      "estadistico": 3162.5,
+      "p_valor": 0.010805439763608343,
+      "media_dif": 0.038789852657091756,
+      "n": 450,
+      "n_pares_no_nulos": 130,
+      "rank_biserial": 0.2571931884908984,
+      "p_permutacion": 0.008349582520873956,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.009061499588582421,
+        0.06677960938510652
+      ],
+      "ic95_componentes": [
+        -0.017125718093113133,
+        0.0896983669892705
+      ],
+      "p_holm": 0.010805439763608343,
+      "p_holm_permutacion": 0.008349582520873956,
+      "concordante": true
+    },
+    "convexa:ontologia-sin_ontologia": {
+      "estadistico": 570.5,
+      "p_valor": 1.487097794260637e-17,
+      "media_dif": 0.12039646006311464,
+      "n": 450,
+      "n_pares_no_nulos": 129,
+      "rank_biserial": 0.8639236732259988,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.09558164330919453,
+        0.1464126089633223
+      ],
+      "ic95_componentes": [
+        0.08042712903308573,
+        0.1663974764771598
+      ],
+      "p_holm": 1.3383880148345734e-16,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "convexa:ontologia-repeticion": {
+      "estadistico": 915.5,
+      "p_valor": 7.196634357545004e-15,
+      "media_dif": 0.11591095657713642,
+      "n": 450,
+      "n_pares_no_nulos": 130,
+      "rank_biserial": 0.7849677040516735,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.08830932726274662,
+        0.142162073768084
+      ],
+      "ic95_componentes": [
+        0.06912567243177552,
+        0.16694670632418146
+      ],
+      "p_holm": 5.0376440502815024e-14,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "convexa:ontologia-vecinos": {
+      "estadistico": 474.0,
+      "p_valor": 3.8050181777755447e-22,
+      "media_dif": 0.16681037482021674,
+      "n": 450,
+      "n_pares_no_nulos": 148,
+      "rank_biserial": 0.9140214039542899,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.13615424103215631,
+        0.1959548732770997
+      ],
+      "ic95_componentes": [
+        0.1136617569806614,
+        0.23058785038924065
+      ],
+      "p_holm": 4.566021813330654e-21,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    },
+    "convexa:ontologia-metadatos": {
+      "estadistico": 947.5,
+      "p_valor": 3.296988304992021e-10,
+      "media_dif": 0.07931495333010635,
+      "n": 450,
+      "n_pares_no_nulos": 110,
+      "rank_biserial": 0.6895986895986896,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.05659067624516332,
+        0.10224311378318622
+      ],
+      "ic95_componentes": [
+        0.04089740004844758,
+        0.12051874265671002
+      ],
+      "p_holm": 1.6484941524960105e-09,
+      "p_holm_permutacion": 0.000599970001499925,
+      "concordante": true
+    }
+  },
+  "enrutamiento_vs_oracle": {
+    "denso:predicha-oracle": {
+      "estadistico": 0.0,
+      "p_valor": 1.9715112806881243e-12,
+      "media_dif": -0.12143765818285736,
+      "n": 450,
+      "n_pares_no_nulos": 60,
+      "rank_biserial": -1.0,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.15174566003675927,
+        -0.09381764035858707
+      ],
+      "ic95_componentes": [
+        -0.3209747206682132,
+        -0.0045956288112941465
+      ],
+      "p_holm": 3.943022561376249e-12,
+      "p_holm_permutacion": 0.00014999250037498125,
+      "concordante": true
+    },
+    "rrf:predicha-oracle": {
+      "estadistico": 0.0,
+      "p_valor": 3.140547324777186e-12,
+      "media_dif": -0.12203110330834754,
+      "n": 450,
+      "n_pares_no_nulos": 59,
+      "rank_biserial": -1.0,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.15275257723456787,
+        -0.0933769730247253
+      ],
+      "ic95_componentes": [
+        -0.32232655061897464,
+        -0.003975339650719131
+      ],
+      "p_holm": 3.943022561376249e-12,
+      "p_holm_permutacion": 0.00014999250037498125,
+      "concordante": true
+    },
+    "convexa:predicha-oracle": {
+      "estadistico": 0.0,
+      "p_valor": 1.1480799199867936e-12,
+      "media_dif": -0.12309704723496774,
+      "n": 450,
+      "n_pares_no_nulos": 60,
+      "rank_biserial": -1.0,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.15384750637869163,
+        -0.09509166935683235
+      ],
+      "ic95_componentes": [
+        -0.32418003581444377,
+        -0.004559510608754471
+      ],
+      "p_holm": 3.4442397599603808e-12,
+      "p_holm_permutacion": 0.00014999250037498125,
+      "concordante": true
+    }
+  },
+  "enrutamiento_vs_libre": {
+    "denso:predicha-libre": {
+      "estadistico": 7392.5,
+      "p_valor": 0.07446142675840703,
+      "media_dif": 0.04950158874305711,
+      "n": 450,
+      "n_pares_no_nulos": 186,
+      "rank_biserial": 0.14984762233339083,
+      "p_permutacion": 0.024098795060246987,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.007452071476406391,
+        0.08975794372004092
+      ],
+      "ic95_componentes": [
+        -0.18386975026639518,
+        0.21094390582244163
+      ],
+      "p_holm": 0.21004164518701074,
+      "p_holm_permutacion": 0.034698265086745665,
+      "concordante": false
+    },
+    "rrf:predicha-libre": {
+      "estadistico": 8252.0,
+      "p_valor": 0.09701358862221232,
+      "media_dif": 0.061494606062287134,
+      "n": 450,
+      "n_pares_no_nulos": 195,
+      "rank_biserial": 0.13636839351125066,
+      "p_permutacion": 0.007149642517874106,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.013604892021303914,
+        0.10602234222007689
+      ],
+      "ic95_componentes": [
+        -0.18147349274108912,
+        0.22494577801485288
+      ],
+      "p_holm": 0.21004164518701074,
+      "p_holm_permutacion": 0.021448927553622318,
+      "concordante": false
+    },
+    "convexa:predicha-libre": {
+      "estadistico": 7462.0,
+      "p_valor": 0.07001388172900358,
+      "media_dif": 0.056275394877065614,
+      "n": 450,
+      "n_pares_no_nulos": 187,
+      "rank_biserial": 0.15098418477642508,
+      "p_permutacion": 0.017349132543372833,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.00888679199468415,
+        0.10114166680326464
+      ],
+      "ic95_componentes": [
+        -0.19539222319686975,
+        0.22571327447978806
+      ],
+      "p_holm": 0.21004164518701074,
+      "p_holm_permutacion": 0.034698265086745665,
+      "concordante": false
+    }
+  },
+  "enrutamiento_semantico_vs_libre": {
+    "denso:semantica-libre": {
+      "estadistico": 939.0,
+      "p_valor": 8.016325794433397e-06,
+      "media_dif": 0.056850660084700765,
+      "n": 450,
+      "n_pares_no_nulos": 90,
+      "rank_biserial": 0.5413919413919414,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.033893617535522405,
+        0.08146777407632422
+      ],
+      "ic95_componentes": [
+        0.031392851041563176,
+        0.09263723604110169
+      ],
+      "p_holm": 2.4048977383300193e-05,
+      "p_holm_permutacion": 0.00014999250037498125,
+      "concordante": true
+    },
+    "rrf:semantica-libre": {
+      "estadistico": 2309.5,
+      "p_valor": 0.0018544220430562084,
+      "media_dif": 0.05301220021748727,
+      "n": 450,
+      "n_pares_no_nulos": 117,
+      "rank_biserial": 0.33087063595538174,
+      "p_permutacion": 0.0008499575021248938,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.022452365192646075,
+        0.08427396566543034
+      ],
+      "ic95_componentes": [
+        0.014726089629087185,
+        0.10885709500358777
+      ],
+      "p_holm": 0.003708844086112417,
+      "p_holm_permutacion": 0.0016999150042497876,
+      "concordante": true
+    },
+    "convexa:semantica-libre": {
+      "estadistico": 1491.0,
+      "p_valor": 0.02453228603899415,
+      "media_dif": 0.029934031854664644,
+      "n": 450,
+      "n_pares_no_nulos": 90,
+      "rank_biserial": 0.2717948717948718,
+      "p_permutacion": 0.037048147592620366,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        0.0025251453574852817,
+        0.05638581683221903
+      ],
+      "ic95_componentes": [
+        0.0010723019118059943,
+        0.06591069450782633
+      ],
+      "p_holm": 0.02453228603899415,
+      "p_holm_permutacion": 0.037048147592620366,
+      "concordante": true
+    }
+  },
+  "grupos": {
+    "dificiles_ab": {
+      "n": 130,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.0,
+          "bm25_oracle": 0.012446666878853362,
+          "bm25_predicha": 0.012446666878853362,
+          "bm25_semantica": 0.004853305796703519,
+          "convexa_libre": 0.15110360727040384,
+          "convexa_oracle": 0.2654202044396951,
+          "convexa_predicha": 0.25485105253266416,
+          "convexa_semantica": 0.15718614011183776,
+          "denso_libre": 0.16291581890950757,
+          "denso_oracle": 0.3286271578549304,
+          "denso_predicha": 0.3207980612333458,
+          "denso_semantica": 0.17621088717145467,
+          "rrf_libre": 0.05977465577519407,
+          "rrf_oracle": 0.18291820085195243,
+          "rrf_predicha": 0.1773783074629688,
+          "rrf_semantica": 0.08536637397181403
+        },
+        "ontologia": {
+          "bm25_libre": 0.11146526631049024,
+          "bm25_oracle": 0.24789680215221854,
+          "bm25_predicha": 0.24020449445991088,
+          "bm25_semantica": 0.0570768813837642,
+          "convexa_libre": 0.2806224991452724,
+          "convexa_oracle": 0.5697752002884056,
+          "convexa_predicha": 0.5561313109463357,
+          "convexa_semantica": 0.22123342361160525,
+          "denso_libre": 0.2462099367159611,
+          "denso_oracle": 0.5139750991887719,
+          "denso_predicha": 0.5002298396104533,
+          "denso_semantica": 0.2358655876286105,
+          "rrf_libre": 0.2124651821526511,
+          "rrf_oracle": 0.433328822765001,
+          "rrf_predicha": 0.42232361847212885,
+          "rrf_semantica": 0.13437535782742227
+        },
+        "repeticion": {
+          "bm25_libre": 0.01739891928571473,
+          "bm25_oracle": 0.04102498028916714,
+          "bm25_predicha": 0.03333267259685945,
+          "bm25_semantica": 0.027930228873626596,
+          "convexa_libre": 0.14296537649100832,
+          "convexa_oracle": 0.23931418781529393,
+          "convexa_predicha": 0.23446088201859042,
+          "convexa_semantica": 0.13442712163730364,
+          "denso_libre": 0.1488396669256039,
+          "denso_oracle": 0.2854146814082047,
+          "denso_predicha": 0.2805613756115012,
+          "denso_semantica": 0.15112242065831677,
+          "rrf_libre": 0.0727732337538886,
+          "rrf_oracle": 0.1740685398699379,
+          "rrf_predicha": 0.1659023374726698,
+          "rrf_semantica": 0.07944997488529035
+        },
+        "vecinos": {
+          "bm25_libre": 0.0,
+          "bm25_oracle": 0.0022235755870606755,
+          "bm25_predicha": 0.0022235755870606755,
+          "bm25_semantica": 0.0,
+          "convexa_libre": 0.13994483650105102,
+          "convexa_oracle": 0.24450080688305137,
+          "convexa_predicha": 0.23809055047279498,
+          "convexa_semantica": 0.1411480199697701,
+          "denso_libre": 0.15203236774911846,
+          "denso_oracle": 0.29218224667192877,
+          "denso_predicha": 0.2883360928257749,
+          "denso_semantica": 0.15901504519703102,
+          "rrf_libre": 0.06251128985928198,
+          "rrf_oracle": 0.1546591135169754,
+          "rrf_predicha": 0.15081295967082156,
+          "rrf_semantica": 0.07338957592412382
+        },
+        "metadatos": {
+          "bm25_libre": 0.023076923076923078,
+          "bm25_oracle": 0.051007151950549674,
+          "bm25_predicha": 0.04331484425824198,
+          "bm25_semantica": 0.03076923076923077,
+          "convexa_libre": 0.16999456199541804,
+          "convexa_oracle": 0.28982350554250463,
+          "convexa_predicha": 0.27956709528609436,
+          "convexa_semantica": 0.16351741253070867,
+          "denso_libre": 0.1726917961576494,
+          "denso_oracle": 0.34880715792030464,
+          "denso_predicha": 0.33855074766389437,
+          "denso_semantica": 0.1796910667577889,
+          "rrf_libre": 0.10351051876626256,
+          "rrf_oracle": 0.2270572857586302,
+          "rrf_predicha": 0.21680087550221996,
+          "rrf_semantica": 0.10439750608807874
+        }
+      }
+    },
+    "funcionalidades": {
+      "n": 53,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.1476192066735295,
+          "bm25_oracle": 0.20662469155049784,
+          "bm25_predicha": 0.19849871875666023,
+          "bm25_semantica": 0.20662469155049784,
+          "convexa_libre": 0.5238326548868019,
+          "convexa_oracle": 0.622423817013864,
+          "convexa_predicha": 0.5846879679572602,
+          "convexa_semantica": 0.5846879679572602,
+          "denso_libre": 0.5300817369438191,
+          "denso_oracle": 0.6337883063821101,
+          "denso_predicha": 0.6030160468807618,
+          "denso_semantica": 0.6030160468807618,
+          "rrf_libre": 0.3959791593668898,
+          "rrf_oracle": 0.5390349504742497,
+          "rrf_predicha": 0.5082626909729013,
+          "rrf_semantica": 0.5012991014176459
+        },
+        "ontologia": {
+          "bm25_libre": 0.14551828321294563,
+          "bm25_oracle": 0.1975433532223631,
+          "bm25_predicha": 0.18563901824931672,
+          "bm25_semantica": 0.1975433532223631,
+          "convexa_libre": 0.5596835288482781,
+          "convexa_oracle": 0.6422946284814445,
+          "convexa_predicha": 0.5988789681858977,
+          "convexa_semantica": 0.609750839013907,
+          "denso_libre": 0.5710320314908175,
+          "denso_oracle": 0.6771380228514512,
+          "denso_predicha": 0.6406859521111601,
+          "denso_semantica": 0.6440036717438797,
+          "rrf_libre": 0.41886399246416706,
+          "rrf_oracle": 0.5968189919677944,
+          "rrf_predicha": 0.5534033316722475,
+          "rrf_semantica": 0.5650351047583235
+        },
+        "repeticion": {
+          "bm25_libre": 0.1375752485900959,
+          "bm25_oracle": 0.20039712860425604,
+          "bm25_predicha": 0.19227115581041843,
+          "bm25_semantica": 0.20039712860425604,
+          "convexa_libre": 0.4883359974490462,
+          "convexa_oracle": 0.6149083165760496,
+          "convexa_predicha": 0.5771724675194458,
+          "convexa_semantica": 0.5771724675194458,
+          "denso_libre": 0.5024892914331733,
+          "denso_oracle": 0.6389408849118435,
+          "denso_predicha": 0.6081686254104951,
+          "denso_semantica": 0.6106389981193906,
+          "rrf_libre": 0.4003667676412607,
+          "rrf_oracle": 0.5277985539043024,
+          "rrf_predicha": 0.49006270484769865,
+          "rrf_semantica": 0.5089306293760005
+        },
+        "vecinos": {
+          "bm25_libre": 0.13817860035448615,
+          "bm25_oracle": 0.2163348686940038,
+          "bm25_predicha": 0.19746694416570193,
+          "bm25_semantica": 0.2163348686940038,
+          "convexa_libre": 0.4014299593888149,
+          "convexa_oracle": 0.5818860716196553,
+          "convexa_predicha": 0.5441502225630516,
+          "convexa_semantica": 0.5562972567685606,
+          "denso_libre": 0.3897407112675302,
+          "denso_oracle": 0.5617735933071617,
+          "denso_predicha": 0.5240377442505579,
+          "denso_semantica": 0.5487633948082683,
+          "rrf_libre": 0.3351953362002441,
+          "rrf_oracle": 0.4905226940070578,
+          "rrf_predicha": 0.452786844950454,
+          "rrf_semantica": 0.48380180368426484
+        },
+        "metadatos": {
+          "bm25_libre": 0.11623695135289858,
+          "bm25_oracle": 0.2103158658293506,
+          "bm25_predicha": 0.202189893035513,
+          "bm25_semantica": 0.2103158658293506,
+          "convexa_libre": 0.5222859310528438,
+          "convexa_oracle": 0.6171975619191248,
+          "convexa_predicha": 0.5794617128625211,
+          "convexa_semantica": 0.5888956751266721,
+          "denso_libre": 0.5304171224314388,
+          "denso_oracle": 0.6493596755980531,
+          "denso_predicha": 0.6185874160967049,
+          "denso_semantica": 0.6231926414992882,
+          "rrf_libre": 0.38538244737107136,
+          "rrf_oracle": 0.556188565045775,
+          "rrf_predicha": 0.5184527159891712,
+          "rrf_semantica": 0.5254163055444268
+        }
+      }
+    },
+    "pruebas_catalogo": {
+      "n": 60,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.22459376632528516,
+          "bm25_oracle": 0.7118535889001294,
+          "bm25_predicha": 0.7118535889001294,
+          "bm25_semantica": 0.7118535889001294,
+          "convexa_libre": 0.5584040265358822,
+          "convexa_oracle": 0.9431163149720735,
+          "convexa_predicha": 0.9431163149720735,
+          "convexa_semantica": 0.9431163149720735,
+          "denso_libre": 0.48497031463760193,
+          "denso_oracle": 0.7738112090091658,
+          "denso_predicha": 0.7738112090091658,
+          "denso_semantica": 0.7738112090091658,
+          "rrf_libre": 0.44369805384425093,
+          "rrf_oracle": 0.9273971277897847,
+          "rrf_predicha": 0.9273971277897847,
+          "rrf_semantica": 0.9273971277897847
+        },
+        "ontologia": {
+          "bm25_libre": 0.62820405009168,
+          "bm25_oracle": 0.8251681679117733,
+          "bm25_predicha": 0.8251681679117733,
+          "bm25_semantica": 0.8251681679117733,
+          "convexa_libre": 0.8181625457045614,
+          "convexa_oracle": 0.9520878983875565,
+          "convexa_predicha": 0.9520878983875565,
+          "convexa_semantica": 0.9520878983875565,
+          "denso_libre": 0.5549870041502466,
+          "denso_oracle": 0.8361601528452923,
+          "denso_predicha": 0.8361601528452923,
+          "denso_semantica": 0.8361601528452923,
+          "rrf_libre": 0.7995747009771769,
+          "rrf_oracle": 0.9445189832449666,
+          "rrf_predicha": 0.9445189832449666,
+          "rrf_semantica": 0.9445189832449666
+        },
+        "repeticion": {
+          "bm25_libre": 0.3191619755868912,
+          "bm25_oracle": 0.6930887541097576,
+          "bm25_predicha": 0.6930887541097576,
+          "bm25_semantica": 0.6930887541097576,
+          "convexa_libre": 0.6693462152148146,
+          "convexa_oracle": 0.9571547962626828,
+          "convexa_predicha": 0.9571547962626828,
+          "convexa_semantica": 0.9571547962626828,
+          "denso_libre": 0.5018415192799858,
+          "denso_oracle": 0.8000061821582723,
+          "denso_predicha": 0.8000061821582723,
+          "denso_semantica": 0.8000061821582723,
+          "rrf_libre": 0.6822331484926816,
+          "rrf_oracle": 0.957710588476105,
+          "rrf_predicha": 0.957710588476105,
+          "rrf_semantica": 0.957710588476105
+        },
+        "vecinos": {
+          "bm25_libre": 0.29387402221453296,
+          "bm25_oracle": 0.6241173801823051,
+          "bm25_predicha": 0.6241173801823051,
+          "bm25_semantica": 0.6241173801823051,
+          "convexa_libre": 0.5339078493690221,
+          "convexa_oracle": 0.8768218571843406,
+          "convexa_predicha": 0.8768218571843406,
+          "convexa_semantica": 0.8768218571843406,
+          "denso_libre": 0.40372478005570805,
+          "denso_oracle": 0.7628298757522498,
+          "denso_predicha": 0.7628298757522498,
+          "denso_semantica": 0.7628298757522498,
+          "rrf_libre": 0.5938479133428344,
+          "rrf_oracle": 0.8758850501109483,
+          "rrf_predicha": 0.8758850501109483,
+          "rrf_semantica": 0.8758850501109483
+        },
+        "metadatos": {
+          "bm25_libre": 0.5129187384675745,
+          "bm25_oracle": 0.7016389799368469,
+          "bm25_predicha": 0.7016389799368469,
+          "bm25_semantica": 0.7016389799368469,
+          "convexa_libre": 0.7390245776038219,
+          "convexa_oracle": 0.9301818736094739,
+          "convexa_predicha": 0.9301818736094739,
+          "convexa_semantica": 0.9301818736094739,
+          "denso_libre": 0.5035557460331369,
+          "denso_oracle": 0.7920272708486,
+          "denso_predicha": 0.7920272708486,
+          "denso_semantica": 0.7920272708486,
+          "rrf_libre": 0.8013228908313164,
+          "rrf_oracle": 0.9450529660557546,
+          "rrf_predicha": 0.9450529660557546,
+          "rrf_semantica": 0.9450529660557546
+        }
+      }
+    },
+    "pruebas_regionales": {
+      "n": 53,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.5087499315095174,
+          "bm25_oracle": 0.8886537375611736,
+          "bm25_predicha": 0.0,
+          "bm25_semantica": 0.8886537375611736,
+          "convexa_libre": 0.9270457989176695,
+          "convexa_oracle": 0.9555328277881493,
+          "convexa_predicha": 0.0,
+          "convexa_semantica": 0.9555328277881493,
+          "denso_libre": 0.9068111943955729,
+          "denso_oracle": 0.9506288588570125,
+          "denso_predicha": 0.0,
+          "denso_semantica": 0.9506288588570125,
+          "rrf_libre": 0.7913519367411841,
+          "rrf_oracle": 0.9554879641342289,
+          "rrf_predicha": 0.0,
+          "rrf_semantica": 0.9554879641342289
+        },
+        "ontologia": {
+          "bm25_libre": 0.8046236393361756,
+          "bm25_oracle": 0.9041320554613167,
+          "bm25_predicha": 0.0,
+          "bm25_semantica": 0.9041320554613167,
+          "convexa_libre": 0.9538452890083525,
+          "convexa_oracle": 0.9628277513072553,
+          "convexa_predicha": 0.0,
+          "convexa_semantica": 0.9628277513072553,
+          "denso_libre": 0.889109002810146,
+          "denso_oracle": 0.9541867075615271,
+          "denso_predicha": 0.0,
+          "denso_semantica": 0.9541867075615271,
+          "rrf_libre": 0.9532986227201282,
+          "rrf_oracle": 0.9594142755035033,
+          "rrf_predicha": 0.0,
+          "rrf_semantica": 0.9594142755035033
+        },
+        "repeticion": {
+          "bm25_libre": 0.5583564130969577,
+          "bm25_oracle": 0.8762239261800344,
+          "bm25_predicha": 0.0,
+          "bm25_semantica": 0.8762239261800344,
+          "convexa_libre": 0.9328994005087294,
+          "convexa_oracle": 0.9585704283372787,
+          "convexa_predicha": 0.0,
+          "convexa_semantica": 0.9585704283372787,
+          "denso_libre": 0.8504180482309661,
+          "denso_oracle": 0.9585703985912346,
+          "denso_predicha": 0.0,
+          "denso_semantica": 0.9585703985912346,
+          "rrf_libre": 0.8419047176878937,
+          "rrf_oracle": 0.9460322643941385,
+          "rrf_predicha": 0.0,
+          "rrf_semantica": 0.9460322643941385
+        },
+        "vecinos": {
+          "bm25_libre": 0.44372475055219435,
+          "bm25_oracle": 0.7459278958310105,
+          "bm25_predicha": 0.0,
+          "bm25_semantica": 0.7459278958310105,
+          "convexa_libre": 0.9175672029032188,
+          "convexa_oracle": 0.9450657151398962,
+          "convexa_predicha": 0.0,
+          "convexa_semantica": 0.9450657151398962,
+          "denso_libre": 0.86453674984941,
+          "denso_oracle": 0.942210599657964,
+          "denso_predicha": 0.0,
+          "denso_semantica": 0.942210599657964,
+          "rrf_libre": 0.7301498124395422,
+          "rrf_oracle": 0.8826056234500743,
+          "rrf_predicha": 0.0,
+          "rrf_semantica": 0.8826056234500743
+        },
+        "metadatos": {
+          "bm25_libre": 0.6970763933064404,
+          "bm25_oracle": 0.9219985828804903,
+          "bm25_predicha": 0.0,
+          "bm25_semantica": 0.9219985828804903,
+          "convexa_libre": 0.9292340812575968,
+          "convexa_oracle": 0.9584659555753366,
+          "convexa_predicha": 0.0,
+          "convexa_semantica": 0.9584659555753366,
+          "denso_libre": 0.9034812783482,
+          "denso_oracle": 0.9528632300480344,
+          "denso_predicha": 0.0,
+          "denso_semantica": 0.9528632300480344,
+          "rrf_libre": 0.9102325961025031,
+          "rrf_oracle": 0.9698516486593757,
+          "rrf_predicha": 0.0,
+          "rrf_semantica": 0.9698516486593757
+        }
+      }
+    },
+    "reglas": {
+      "n": 27,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.011149259098665971,
+          "bm25_oracle": 0.333606558067214,
+          "bm25_predicha": 0.333606558067214,
+          "bm25_semantica": 0.333606558067214,
+          "convexa_libre": 0.656384598452439,
+          "convexa_oracle": 0.912173146515011,
+          "convexa_predicha": 0.912173146515011,
+          "convexa_semantica": 0.912173146515011,
+          "denso_libre": 0.9106484002174511,
+          "denso_oracle": 0.912173146515011,
+          "denso_predicha": 0.912173146515011,
+          "denso_semantica": 0.912173146515011,
+          "rrf_libre": 0.3234986713523871,
+          "rrf_oracle": 0.8751361094779739,
+          "rrf_predicha": 0.8751361094779739,
+          "rrf_semantica": 0.8751361094779739
+        },
+        "ontologia": {
+          "bm25_libre": 0.0,
+          "bm25_oracle": 0.35344903943035405,
+          "bm25_predicha": 0.35344903943035405,
+          "bm25_semantica": 0.35344903943035405,
+          "convexa_libre": 0.6515719558888539,
+          "convexa_oracle": 0.9395116832874956,
+          "convexa_predicha": 0.9395116832874956,
+          "convexa_semantica": 0.9395116832874956,
+          "denso_libre": 0.8952988817154754,
+          "denso_oracle": 0.9258424149012533,
+          "denso_predicha": 0.9258424149012533,
+          "denso_semantica": 0.9258424149012533,
+          "rrf_libre": 0.29422309213952674,
+          "rrf_oracle": 0.9073238963827348,
+          "rrf_predicha": 0.9073238963827348,
+          "rrf_semantica": 0.9073238963827348
+        },
+        "repeticion": {
+          "bm25_libre": 0.037037037037037035,
+          "bm25_oracle": 0.37628868713368757,
+          "bm25_predicha": 0.37628868713368757,
+          "bm25_semantica": 0.37628868713368757,
+          "convexa_libre": 0.6737388153203062,
+          "convexa_oracle": 0.9258424149012533,
+          "convexa_predicha": 0.9258424149012533,
+          "convexa_semantica": 0.9258424149012533,
+          "denso_libre": 0.9258424149012533,
+          "denso_oracle": 0.9395116832874956,
+          "denso_predicha": 0.9395116832874956,
+          "denso_semantica": 0.9395116832874956,
+          "rrf_libre": 0.3497322590176978,
+          "rrf_oracle": 0.8871842182659931,
+          "rrf_predicha": 0.8871842182659931,
+          "rrf_semantica": 0.8871842182659931
+        },
+        "vecinos": {
+          "bm25_libre": 0.011149259098665971,
+          "bm25_oracle": 0.3922198157233332,
+          "bm25_predicha": 0.3922198157233332,
+          "bm25_semantica": 0.3922198157233332,
+          "convexa_libre": 0.5750823057661659,
+          "convexa_oracle": 0.9073238963827348,
+          "convexa_predicha": 0.9073238963827348,
+          "convexa_semantica": 0.9073238963827348,
+          "denso_libre": 0.8787672499824425,
+          "denso_oracle": 0.9073238963827348,
+          "denso_predicha": 0.9073238963827348,
+          "denso_semantica": 0.9073238963827348,
+          "rrf_libre": 0.3461987375504774,
+          "rrf_oracle": 0.9073238963827348,
+          "rrf_predicha": 0.9073238963827348,
+          "rrf_semantica": 0.9073238963827348
+        },
+        "metadatos": {
+          "bm25_libre": 0.011149259098665971,
+          "bm25_oracle": 0.37970340178929113,
+          "bm25_predicha": 0.37970340178929113,
+          "bm25_semantica": 0.37970340178929113,
+          "convexa_libre": 0.6523909142952731,
+          "convexa_oracle": 0.9258424149012533,
+          "convexa_predicha": 0.9258424149012533,
+          "convexa_semantica": 0.9258424149012533,
+          "denso_libre": 0.8970140496122381,
+          "denso_oracle": 0.9209931647689771,
+          "denso_predicha": 0.9209931647689771,
+          "denso_semantica": 0.9209931647689771,
+          "rrf_libre": 0.31114956192273413,
+          "rrf_oracle": 0.9024746462504586,
+          "rrf_predicha": 0.9024746462504586,
+          "rrf_semantica": 0.9024746462504586
+        }
+      }
+    },
+    "reportes": {
+      "n": 127,
+      "medias": {
+        "sin_ontologia": {
+          "bm25_libre": 0.10733015553993273,
+          "bm25_oracle": 0.11072130954051064,
+          "bm25_predicha": 0.11072130954051064,
+          "bm25_semantica": 0.09103627017043191,
+          "convexa_libre": 0.29829985526921965,
+          "convexa_oracle": 0.399996376188334,
+          "convexa_predicha": 0.39762606126184596,
+          "convexa_semantica": 0.33567701111978554,
+          "denso_libre": 0.31902198952852373,
+          "denso_oracle": 0.3984374825419223,
+          "denso_predicha": 0.3956327015410717,
+          "denso_semantica": 0.3436014416666216,
+          "rrf_libre": 0.20585223789132315,
+          "rrf_oracle": 0.2860467760952492,
+          "rrf_predicha": 0.28342210417923874,
+          "rrf_semantica": 0.2343805846649748
+        },
+        "ontologia": {
+          "bm25_libre": 0.25374483282320226,
+          "bm25_oracle": 0.3335979998949622,
+          "bm25_predicha": 0.3335979998949622,
+          "bm25_semantica": 0.2203778118203986,
+          "convexa_libre": 0.4444802646314267,
+          "convexa_oracle": 0.6213573923374502,
+          "convexa_predicha": 0.6190812913428213,
+          "convexa_semantica": 0.46220752772286444,
+          "denso_libre": 0.4002661219565331,
+          "denso_oracle": 0.521095962771813,
+          "denso_predicha": 0.5182911817709626,
+          "denso_semantica": 0.41535181342516814,
+          "rrf_libre": 0.3244096867268343,
+          "rrf_oracle": 0.4729779758239601,
+          "rrf_predicha": 0.4703533039079496,
+          "rrf_semantica": 0.3298080336591638
+        },
+        "repeticion": {
+          "bm25_libre": 0.17769091176259202,
+          "bm25_oracle": 0.21949390608562125,
+          "bm25_predicha": 0.21949390608562125,
+          "bm25_semantica": 0.17487448351344276,
+          "convexa_libre": 0.2787914564795986,
+          "convexa_oracle": 0.37193886782525665,
+          "convexa_predicha": 0.3696627668306276,
+          "convexa_semantica": 0.31594269701335664,
+          "denso_libre": 0.2851819712924628,
+          "denso_oracle": 0.35562033970180146,
+          "denso_predicha": 0.3528155587009509,
+          "denso_semantica": 0.30817254916204045,
+          "rrf_libre": 0.24521128833922165,
+          "rrf_oracle": 0.31856423115198323,
+          "rrf_predicha": 0.3159395592359727,
+          "rrf_semantica": 0.25204093100332664
+        },
+        "vecinos": {
+          "bm25_libre": 0.0922072332757662,
+          "bm25_oracle": 0.0985044522088523,
+          "bm25_predicha": 0.0985044522088523,
+          "bm25_semantica": 0.08275642071278931,
+          "convexa_libre": 0.22915827685992907,
+          "convexa_oracle": 0.30728361966780204,
+          "convexa_predicha": 0.30479964426004047,
+          "convexa_semantica": 0.26829055352174064,
+          "denso_libre": 0.26845041692750204,
+          "denso_oracle": 0.3485861555882241,
+          "denso_predicha": 0.3457813745873735,
+          "denso_semantica": 0.2993814591486777,
+          "rrf_libre": 0.14694926841411046,
+          "rrf_oracle": 0.2134540400654333,
+          "rrf_predicha": 0.21082936814942282,
+          "rrf_semantica": 0.18486404200581555
+        },
+        "metadatos": {
+          "bm25_libre": 0.29463271120125933,
+          "bm25_oracle": 0.35320565132580295,
+          "bm25_predicha": 0.35320565132580295,
+          "bm25_semantica": 0.260504404318428,
+          "convexa_libre": 0.3397758215916812,
+          "convexa_oracle": 0.4778707922542031,
+          "convexa_predicha": 0.47559469125957404,
+          "convexa_semantica": 0.38145548839720184,
+          "denso_libre": 0.33219250802938816,
+          "denso_oracle": 0.4340413857764287,
+          "denso_predicha": 0.4312366047755781,
+          "denso_semantica": 0.3747031275053983,
+          "rrf_libre": 0.3260143148355938,
+          "rrf_oracle": 0.43367610913735044,
+          "rrf_predicha": 0.43105143722134,
+          "rrf_semantica": 0.34010087151185225
+        }
+      }
+    }
+  },
+  "dos_etapas": {
+    "medias": {
+      "reordenador_libre": 0.48166010802117565,
+      "reordenador_predicha": 0.5213549093927027,
+      "reordenador_semantica": 0.520449813288275,
+      "reordenador_oracle": 0.6427164477556481,
+      "alfa_cv_libre": 0.5228180234719746,
+      "alfa_cv_predicha": 0.5537781478586065,
+      "alfa_cv_semantica": 0.5546028624940673,
+      "alfa_cv_oracle": 0.6765209322848886
+    },
+    "alfa_por_fold": {
+      "0": 0.8,
+      "1": 0.8,
+      "2": 0.8,
+      "3": 0.9,
+      "4": 0.9
+    },
+    "ndcg_oracle_del_pool": 0.8760584319678465,
+    "pool": "Unión top100 de BM25, denso, RRF y convexa; hasta 400 documentos por consulta; no se insertan relevantes a mano.",
+    "features": "dn,bn,60/(60+rd),60/(60+rb),dn*bn,min,max,dn-bn",
+    "cv": "5 folds por componentes de relevantes compartidos. StandardScaler y LogisticRegression C=1 balanced ajustados solo en train. Alfa elegido solo en train.",
+    "comparaciones": {
+      "reordenador_libre-convexa_libre": {
+        "estadistico": 1384.5,
+        "p_valor": 1.8575710989213334e-08,
+        "media_dif": -0.05129353952271491,
+        "n": 450,
+        "n_pares_no_nulos": 117,
+        "rank_biserial": -0.5988700564971752,
+        "p_permutacion": 4.999750012499375e-05,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.06916316122074513,
+          -0.03515293512838775
+        ],
+        "ic95_componentes": [
+          -0.07848814113790888,
+          -0.02962264224734493
+        ],
+        "p_holm": 1.4860568791370667e-07,
+        "p_holm_permutacion": 0.00039998000099995,
+        "concordante": true
+      },
+      "alfa_cv_libre-convexa_libre": {
+        "estadistico": 402.5,
+        "p_valor": 0.05702394414580235,
+        "media_dif": -0.010135624071915993,
+        "n": 450,
+        "n_pares_no_nulos": 48,
+        "rank_biserial": -0.31547619047619047,
+        "p_permutacion": 0.11924403779811009,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.02311092225605187,
+          0.002652362150991157
+        ],
+        "ic95_componentes": [
+          -0.02778489687285262,
+          0.006084521529059549
+        ],
+        "p_holm": 0.1140478882916047,
+        "p_holm_permutacion": 0.13179341032948352,
+        "concordante": false
+      },
+      "reordenador_predicha-convexa_predicha": {
+        "estadistico": 2308.0,
+        "p_valor": 1.2149748329784455e-07,
+        "media_dif": -0.06787413302825354,
+        "n": 450,
+        "n_pares_no_nulos": 138,
+        "rank_biserial": -0.5187154624126785,
+        "p_permutacion": 4.999750012499375e-05,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.09419170393289912,
+          -0.041913896815929885
+        ],
+        "ic95_componentes": [
+          -0.1129871305429736,
+          -0.02790939264071594
+        ],
+        "p_holm": 6.074874164892227e-07,
+        "p_holm_permutacion": 0.00039998000099995,
+        "concordante": true
+      },
+      "alfa_cv_predicha-convexa_predicha": {
+        "estadistico": 640.0,
+        "p_valor": 0.0004162977696632424,
+        "media_dif": -0.03545089456234971,
+        "n": 450,
+        "n_pares_no_nulos": 70,
+        "rank_biserial": -0.48490945674044267,
+        "p_permutacion": 0.00024998750062496874,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.057338741885485864,
+          -0.016875529087764834
+        ],
+        "ic95_componentes": [
+          -0.0646900120502432,
+          -0.011867017068340617
+        ],
+        "p_holm": 0.0015746659695562329,
+        "p_holm_permutacion": 0.0007999600019999,
+        "concordante": true
+      },
+      "reordenador_semantica-convexa_semantica": {
+        "estadistico": 740.5,
+        "p_valor": 8.488217911164505e-08,
+        "media_dif": -0.04243786611028021,
+        "n": 450,
+        "n_pares_no_nulos": 91,
+        "rank_biserial": -0.6462016244624941,
+        "p_permutacion": 4.999750012499375e-05,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.058905369100734614,
+          -0.02774176465260018
+        ],
+        "ic95_componentes": [
+          -0.06108164365849158,
+          -0.024714772681338218
+        ],
+        "p_holm": 5.092930746698703e-07,
+        "p_holm_permutacion": 0.00039998000099995,
+        "concordante": true
+      },
+      "alfa_cv_semantica-convexa_semantica": {
+        "estadistico": 201.0,
+        "p_valor": 0.09888238008931911,
+        "media_dif": -0.008284816904487766,
+        "n": 450,
+        "n_pares_no_nulos": 34,
+        "rank_biserial": -0.3243697478991597,
+        "p_permutacion": 0.06589670516474176,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.017621883308692875,
+          0.0006172111366684755
+        ],
+        "ic95_componentes": [
+          -0.017801749690516636,
+          -0.0005173143842725036
+        ],
+        "p_holm": 0.1140478882916047,
+        "p_holm_permutacion": 0.13179341032948352,
+        "concordante": false
+      },
+      "reordenador_oracle-convexa_oracle": {
+        "estadistico": 2832.0,
+        "p_valor": 4.0460664638661644e-08,
+        "media_dif": -0.0696096419002758,
+        "n": 450,
+        "n_pares_no_nulos": 152,
+        "rank_biserial": -0.5128998968008256,
+        "p_permutacion": 4.999750012499375e-05,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.09563541655685717,
+          -0.04337855144590633
+        ],
+        "ic95_componentes": [
+          -0.11527602628609364,
+          -0.029897960803406377
+        ],
+        "p_holm": 2.832246524706315e-07,
+        "p_holm_permutacion": 0.00039998000099995,
+        "concordante": true
+      },
+      "alfa_cv_oracle-convexa_oracle": {
+        "estadistico": 683.0,
+        "p_valor": 0.0003936664923890582,
+        "media_dif": -0.035805157371035214,
+        "n": 450,
+        "n_pares_no_nulos": 72,
+        "rank_biserial": -0.4802130898021309,
+        "p_permutacion": 0.000199990000499975,
+        "metodo_permutacion": "monte_carlo(20000)",
+        "ic95_dif": [
+          -0.05749826392490718,
+          -0.016882809651552425
+        ],
+        "ic95_componentes": [
+          -0.06517105945103349,
+          -0.012184649659196465
+        ],
+        "p_holm": 0.0015746659695562329,
+        "p_holm_permutacion": 0.0007999600019999,
+        "concordante": true
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/492 [00:00<?, ?it/s]Loading weights:   2%|▏         | 8/492 [00:01<01:16,  6.34it/s]Loading weights: 100%|██████████| 492/492 [00:01<00:00, 386.73it/s]
+[resultados/resultados_v3.json] docs=811 consultas=320 gold=320 enc=jina-embeddings-v3
+  BM25 (referencia léxica)           nDCG@10=0.582  Recall@100=0.902
+  Denso puro                         nDCG@10=0.731  Recall@100=0.927
+  Denso + ontología                  nDCG@10=0.803  Recall@100=0.993
+  Híbrido (sin ontología)            nDCG@10=0.773  Recall@100=0.986
+  Híbrido + ontología                nDCG@10=0.773  Recall@100=0.994
+  Híbrido + ontología + realce       nDCG@10=0.780  Recall@100=0.994
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/492 [00:00<?, ?it/s]Loading weights:   2%|▏         | 8/492 [00:00<00:54,  8.87it/s]Loading weights: 100%|██████████| 492/492 [00:00<00:00, 541.33it/s]
+[resultados/resultados_v3_dificil_ab.json] docs=811 consultas=130 gold=130 enc=jina-embeddings-v3
+  BM25 (referencia léxica)           nDCG@10=0.177  Recall@100=0.377
+  Denso puro                         nDCG@10=0.328  Recall@100=0.600
+  Denso + ontología                  nDCG@10=0.496  Recall@100=0.815
+  Híbrido (sin ontología)            nDCG@10=0.294  Recall@100=0.615
+  Híbrido + ontología                nDCG@10=0.555  Recall@100=0.915
+  Híbrido + ontología + realce       nDCG@10=0.546  Recall@100=0.900

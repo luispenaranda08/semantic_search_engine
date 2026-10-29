@@ -1,0 +1,92 @@
+{
+  "accuracy_agrupada": 0.86,
+  "n_componentes": 114,
+  "clases": [
+    "competencia",
+    "funcionalidad",
+    "prueba",
+    "regla",
+    "reporte"
+  ],
+  "confusion": [
+    [
+      0,
+      0,
+      26,
+      0,
+      27
+    ],
+    [
+      0,
+      50,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      27,
+      0
+    ],
+    [
+      0,
+      3,
+      3,
+      1,
+      250
+    ]
+  ],
+  "cv": "5 folds, componentes por cualquier documento relevante compartido",
+  "hiperparametros": "TFIDF palabras 1-2 + caracteres 3-5, LogisticRegression C=1, balanced, semilla42",
+  "independiente": false,
+  "alternativa_semantica_sin_entrenamiento": {
+    "metodo": "Tipo de la descripción v3 más similar a la consulta, sin consultar gold. Solo para predecir contexto; el ranking posterior usa el universo completo.",
+    "accuracy": 0.6911111111111111,
+    "confusion": [
+      [
+        53,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        50,
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        60,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        27,
+        0
+      ],
+      [
+        31,
+        33,
+        65,
+        7,
+        121
+      ]
+    ]
+  }
+}

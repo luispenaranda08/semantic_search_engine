@@ -1,0 +1,4309 @@
+{
+ "r002|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r002|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r002|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r002|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r002|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r002|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r002|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r003|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r003|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r003|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r003|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r003|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r006|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r006|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r006|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r006|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r006|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r007|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r007|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r007|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r007|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r007|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r007|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r008|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r008|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r009|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r009|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r009|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r009|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r009|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r014|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r014|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r014|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r014|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r014|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r015|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r015|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r015|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r015|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r015|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r016|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r016|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r016|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r016|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   2,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r016|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r018|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r018|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r018|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r018|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r018|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r028|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r028|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r028|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r028|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r033|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r033|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r033|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r033|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r033|ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r033|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r035|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r035|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r035|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r035|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r038|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r038|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r038|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r038|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r041|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r041|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r041|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r041|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r041|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r041|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r044|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r044|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r044|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r044|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r044|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r046|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r046|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r046|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r046|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r046|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r048|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r048|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r048|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r048|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r048|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r048|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r049|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r049|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r049|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r049|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r053|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r053|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r053|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r053|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r053|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r056|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r056|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r056|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r056|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r056|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r057|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r057|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r057|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r057|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r057|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r061|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r061|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r061|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r061|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r061|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r064|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r068|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r068|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r068|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r068|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r068|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r068|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r070|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r070|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r070|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r070|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r074|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r074|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r074|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r074|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r078|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r078|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r078|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r078|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r078|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r080|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r080|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r080|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r080|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r080|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r081|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r081|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r081|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r081|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r081|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r082|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r082|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r082|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r082|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r087|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r087|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r093|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r093|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r093|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r093|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r093|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r093|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r094|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r094|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r094|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r094|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r095|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r095|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r095|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r095|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r095|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r097|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r097|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r097|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r097|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r097|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r099|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r099|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r099|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r101|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r101|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r101|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r101|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r103|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r103|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r103|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r103|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+  "sistemas": [
+   0,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": true
+ },
+ "r104|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r104|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r109|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r109|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r109|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r109|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r109|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r109|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r114|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r114|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r114|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r114|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r114|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "r116|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r116|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r119|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r119|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r119|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r119|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   2,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "r119|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r120|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r120|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r120|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r120|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r120|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r121|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r121|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r124|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r124|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r124|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r124|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r124|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r125|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "r125|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r125|ri_016_reporte_sobre_resumen_de_pruebas_de_caidas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r125|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r126|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r126|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r126|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r126|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "r126|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "r127|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "r127|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r127|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "r127|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d001|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d001|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d001|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d001|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d002|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d002|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d002|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d002|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d003|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": true
+ },
+ "d003|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d003|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d004|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d004|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d005|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d005|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d005|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d005|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d005|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d006|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d006|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d006|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d006|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d006|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d007|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d007|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d008|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d008|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d008|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d008|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d009|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "d009|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d009|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d009|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d009|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d010|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d010|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d010|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d010|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d011|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d011|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d011|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d011|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d012|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d012|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d012|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d012|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d013|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d013|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d013|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d013|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d014|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d014|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d014|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d014|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d014|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d015|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d015|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d015|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d015|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d016|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d016|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d016|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d016|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d016|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d017|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d017|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d017|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d017|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d017|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d018|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d018|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d018|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d019|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d019|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d019|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d019|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d019|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d020|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d020|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d020|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d020|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d020|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d021|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d021|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d021|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d021|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "d021|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d021|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d022|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d022|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d022|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d022|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "d023|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   2,
+   4
+  ],
+  "es_objetivo_silver": true
+ },
+ "d024|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d024|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d024|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d024|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d025|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d025|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d025|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d025|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d025|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d026|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d026|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d026|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d026|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d026|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "d027|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d027|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d027|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d027|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d027|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d028|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d028|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d028|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d028|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d028|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d029|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d029|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d029|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d029|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d029|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d030|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d030|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d030|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d030|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1
+  ],
+  "es_objetivo_silver": false
+ },
+ "d030|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d030|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d031|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d031|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d031|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d031|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": true
+ },
+ "d032|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d032|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d032|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d032|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d033|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d033|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d033|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d033|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d033|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d033|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d034|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d034|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d034|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d034|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d034|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d035|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d035|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d035|ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d036|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d036|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d036|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d036|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d037|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d037|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d037|ri_015_reporte_sobre_pruebas_de_caidas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d037|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d037|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d037|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d038|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d038|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d038|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d038|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d039|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d039|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d039|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d039|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d039|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d040|ri_010_reporte_sobre_distribucion_de_usuarios": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d040|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d040|ri_003_reporte_de_personal_de_apoyo": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d040|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d041|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d041|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "d041|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d041|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d041|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d041|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d042|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d042|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d042|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d043|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "d043|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d043|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d043|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d043|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d043|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d044|ri_011_reporte_sobre_metricas_por_federacion_deportiva": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "d044|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d044|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d044|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "d044|ri_006_reporte_sobre_resumen_del_tablero_de_control": {
+  "sistemas": [
+   2,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d045|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d045|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d045|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d045|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d046|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d046|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "d046|ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d046|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d046|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d047|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d047|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d047|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d048|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": true
+ },
+ "d048|ri_009_reporte_de_progreso_y_cumplimiento_de_metas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d048|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d049|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d049|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d049|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d049|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": true
+ },
+ "d050|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": true
+ },
+ "d050|ri_013_reporte_de_cambios_en_la_intencion_de_participacion": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d050|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d050|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d050|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_004_reporte_de_documentacion_de_deportistas": {
+  "sistemas": [
+   0
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   0,
+   3
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   3
+  ],
+  "es_objetivo_silver": true
+ },
+ "d051|ri_005_reporte_de_participacion": {
+  "sistemas": [
+   2
+  ],
+  "es_objetivo_silver": false
+ },
+ "d051|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   2,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d052|ri_002_reporte_de_grupos": {
+  "sistemas": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d052|ri_001_reporte_individual_de_deportistas": {
+  "sistemas": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "es_objetivo_silver": false
+ },
+ "d052|ri_008_reporte_de_instituciones": {
+  "sistemas": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "es_objetivo_silver": false
+ },
+ "d052|ri_014_reporte_de_delegaciones_de_participacion": {
+  "sistemas": [
+   1,
+   2
+  ],
+  "es_objetivo_silver": true
+ },
+ "d052|ri_007_reporte_de_promocion_de_deportistas": {
+  "sistemas": [
+   5
+  ],
+  "es_objetivo_silver": false
+ }
+}

@@ -221,3 +221,17 @@ consultas sin el nombre propio), `make extraer` (Athena, lo corre el autor) y `m
 
 `lib/stats.py` incluye ahora la **prueba de permutación pareada** (exacta con ≤ 20 diferencias no nulas, Monte Carlo en otro caso) y marca
 cada comparación como *robusta* si Wilcoxon y permutación rechazan tras Holm.
+
+## Versión de la tesis y datos no publicados
+
+La etiqueta `v1.0-tesis` del repositorio corresponde a la versión que produce las cifras de la
+monografía. `resultados/validacion_colab/` contiene los agregados, las métricas por consulta, el
+protocolo y los scripts de la validación con cobertura densa completa sobre el registro
+(757.554 documentos, sección «Validación con cobertura densa completa» de la tesis).
+
+No se publican el historial de consultas de la plataforma, la base operativa del módulo de
+competencias ni las fichas del registro completo, porque contienen datos de personas, muchas de
+ellas menores de edad, y su uso se autorizó solo con fines académicos. Por eso los scripts de
+`athena/` y `pg/` documentan la extracción, pero no pueden ejecutarse sin el acceso autorizado de
+la organización. Todo lo demás (corpus de descripciones, ontología, consultas sintéticas, qrels y
+resultados) se reconstruye con `make all` y los objetivos descritos arriba.

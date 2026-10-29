@@ -1,0 +1,28 @@
+{
+  "documentos": 757554,
+  "documentos_core": 811,
+  "textos_unicos": 760267,
+  "dim": 1024,
+  "variantes": [
+    "sin_ontologia",
+    "ontologia",
+    "repeticion",
+    "vecinos",
+    "metadatos"
+  ],
+  "fondo": "Descripción original idéntica en todos los brazos; solo varían los 811 documentos del corpus v3.",
+  "sha256_textos": "cc46ef7bddb2859e670da54be166494daa8e2f26a5f3aed6f761ef7d73728f8c",
+  "bytes_vectores": 3114053632,
+  "sha256_corpus": "03a8e2962a948a53e91a7f2e8a903649b4d88d56e5a218baf9cccd8447c14d96",
+  "sha256_engine": "da667070c9df2934bf95a40e7115fb23c9748bfac12440ef3920806502f576dd",
+  "sha256_core": "41eeedbf74735874675e1bdb3fdbc4dbb03100769341f42e90ebc70dca2e1d55",
+  "sha256_consultas": "a0224a37b5ef7cc42e001630209e7a224da7478c7cfd9a071dbdcccf4984350d",
+  "modelo_revision": "ab036b023d30b4d1138c4c3bfa9f0c445ab455d6",
+  "atencion_larga": "Exacta, bloques de 128 consultas con todas las claves; prueba de equivalencia CPU aprobada.",
+  "migracion": {
+    "destino": "Colab A100",
+    "vectores_reutilizados": 29440,
+    "implementacion": "Mismas fuentes Candle 0.9.2, CUDA en lugar de Metal; cosenos fp32, TF32 desactivado.",
+    "corpus_transferido": "id, tipo y descripción; se conservan todos los documentos y orden."
+  }
+}

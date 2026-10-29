@@ -1,0 +1,242 @@
+VALIDACIÓN COMPLETA Y MEJORA DEL RANKING
+
+Mismos 450 juicios existentes; no evaluación independiente. Fondo documental sin cambios entre brazos; todos los documentos tienen vector real.
+
+MEDIAS POR VARIANTE
+sin_ontologia
+{"bm25_libre": 0.13821144456100898, "bm25_oracle": 0.278773382556971, "bm25_predicha": 0.1731526611151585, "bm25_semantica": 0.271024189355461, "convexa_libre": 0.41255718748077597, "convexa_oracle": 0.5558922719595893, "convexa_predicha": 0.43518502836770057, "convexa_semantica": 0.5020278547899735, "denso_libre": 0.42563533371883017, "denso_oracle": 0.551898995684653, "denso_predicha": 0.4332584423048593, "denso_semantica": 0.4887673909433497, "rrf_libre": 0.2937751886974904, "rrf_oracle": 0.48575449727198267, "rrf_predicha": 0.36725380543512315, "rrf_semantica": 0.43854706659184306}
+ontologia
+{"bm25_libre": 0.29947965175447694, "bm25_oracle": 0.42674564681335464, "bm25_predicha": 0.31663469416219636, "bm25_semantica": 0.3396666388458688, "convexa_libre": 0.5329536475438906, "convexa_oracle": 0.7123260896559239, "convexa_predicha": 0.5892290424209562, "convexa_semantica": 0.5628876793985552, "denso_libre": 0.48377967585519627, "denso_oracle": 0.6547189227811108, "denso_predicha": 0.5332812645982534, "denso_semantica": 0.5406303359398971, "rrf_libre": 0.4388080623229291, "rrf_oracle": 0.6223337716935637, "rrf_predicha": 0.5003026683852162, "rrf_semantica": 0.4918202625404164}
+repeticion
+{"bm25_libre": 0.18191711534582092, "bm25_oracle": 0.315588909362729, "bm25_predicha": 0.20920992126136184, "bm25_semantica": 0.2992133885834246, "convexa_libre": 0.4170426909667541, "convexa_oracle": 0.5425966379739934, "convexa_predicha": 0.4232094662367376, "convexa_semantica": 0.4920481217601043, "denso_libre": 0.4052879831462304, "denso_oracle": 0.5340066136202606, "denso_predicha": 0.41529039624340197, "denso_semantica": 0.4784869174068493, "rrf_libre": 0.34848778362793464, "rrf_oracle": 0.494702689135465, "rrf_predicha": 0.37573680100687057, "rrf_semantica": 0.4463718612090571}
+vecinos
+{"bm25_libre": 0.13441037233913852, "bm25_oracle": 0.24852452136030265, "bm25_predicha": 0.15844856918465028, "bm25_semantica": 0.2434377106351518, "convexa_libre": 0.3661432727236738, "convexa_oracle": 0.5085458353872401, "convexa_predicha": 0.3902407662482766, "convexa_semantica": 0.4646698600841637, "denso_libre": 0.37396515277609876, "denso_oracle": 0.5160729640037237, "denso_predicha": 0.3987543662948791, "denso_semantica": 0.4621834680926117, "rrf_libre": 0.28495679636142296, "rrf_oracle": 0.437868881954968, "rrf_predicha": 0.3276212566745518, "rrf_semantica": 0.4055307112266342}
+metadatos
+{"bm25_libre": 0.25466692420716297, "bm25_oracle": 0.36411343088464815, "bm25_predicha": 0.25234320543856065, "bm25_semantica": 0.33210456838796354, "convexa_libre": 0.45363869421378417, "convexa_oracle": 0.5837454897398181, "convexa_predicha": 0.4628097257283868, "convexa_semantica": 0.5167131882256567, "denso_libre": 0.4334838252512582, "denso_oracle": 0.5728321160492601, "denso_predicha": 0.4532271794569076, "denso_semantica": 0.5041478861408547, "rrf_libre": 0.4000182096658374, "rrf_oracle": 0.5478765283278801, "rrf_predicha": 0.42550140822651666, "rrf_semantica": 0.4824081810185881}
+
+ontologia_vs_alternativas
+denso:ontologia-sin_ontologia: delta=+0.058144, IC95 componentes=[0.02824020005535386, 0.09122696664307701], pH W=5.0014007811024914e-08, pH P=0.000599970001499925, concordante=True
+denso:ontologia-repeticion: delta=+0.078492, IC95 componentes=[0.04523918741313509, 0.11506668494900986], pH W=6.143548047894828e-10, pH P=0.000599970001499925, concordante=True
+denso:ontologia-vecinos: delta=+0.109815, IC95 componentes=[0.07698074646159066, 0.1490430118182865], pH W=2.6076573104599414e-16, pH P=0.000599970001499925, concordante=True
+denso:ontologia-metadatos: delta=+0.050296, IC95 componentes=[0.022199012979695985, 0.08477625130811016], pH W=1.595362446091211e-06, pH P=0.000599970001499925, concordante=True
+rrf:ontologia-sin_ontologia: delta=+0.145033, IC95 componentes=[0.09693653471511308, 0.1919126836596707], pH W=1.6420681564498065e-17, pH P=0.000599970001499925, concordante=True
+rrf:ontologia-repeticion: delta=+0.090320, IC95 componentes=[0.03510868402212124, 0.13719518554272508], pH W=4.259514053614768e-08, pH P=0.000599970001499925, concordante=True
+rrf:ontologia-vecinos: delta=+0.153851, IC95 componentes=[0.0952672783879904, 0.2079118881014861], pH W=7.241775472457478e-19, pH P=0.000599970001499925, concordante=True
+rrf:ontologia-metadatos: delta=+0.038790, IC95 componentes=[-0.017125718093113133, 0.0896983669892705], pH W=0.010805439763608343, pH P=0.008349582520873956, concordante=True
+convexa:ontologia-sin_ontologia: delta=+0.120396, IC95 componentes=[0.08042712903308573, 0.1663974764771598], pH W=1.3383880148345734e-16, pH P=0.000599970001499925, concordante=True
+convexa:ontologia-repeticion: delta=+0.115911, IC95 componentes=[0.06912567243177552, 0.16694670632418146], pH W=5.0376440502815024e-14, pH P=0.000599970001499925, concordante=True
+convexa:ontologia-vecinos: delta=+0.166810, IC95 componentes=[0.1136617569806614, 0.23058785038924065], pH W=4.566021813330654e-21, pH P=0.000599970001499925, concordante=True
+convexa:ontologia-metadatos: delta=+0.079315, IC95 componentes=[0.04089740004844758, 0.12051874265671002], pH W=1.6484941524960105e-09, pH P=0.000599970001499925, concordante=True
+
+enrutamiento_vs_oracle
+denso:predicha-oracle: delta=-0.121438, IC95 componentes=[-0.3209747206682132, -0.0045956288112941465], pH W=3.943022561376249e-12, pH P=0.00014999250037498125, concordante=True
+rrf:predicha-oracle: delta=-0.122031, IC95 componentes=[-0.32232655061897464, -0.003975339650719131], pH W=3.943022561376249e-12, pH P=0.00014999250037498125, concordante=True
+convexa:predicha-oracle: delta=-0.123097, IC95 componentes=[-0.32418003581444377, -0.004559510608754471], pH W=3.4442397599603808e-12, pH P=0.00014999250037498125, concordante=True
+
+enrutamiento_vs_libre
+denso:predicha-libre: delta=+0.049502, IC95 componentes=[-0.18386975026639518, 0.21094390582244163], pH W=0.21004164518701074, pH P=0.034698265086745665, concordante=False
+rrf:predicha-libre: delta=+0.061495, IC95 componentes=[-0.18147349274108912, 0.22494577801485288], pH W=0.21004164518701074, pH P=0.021448927553622318, concordante=False
+convexa:predicha-libre: delta=+0.056275, IC95 componentes=[-0.19539222319686975, 0.22571327447978806], pH W=0.21004164518701074, pH P=0.034698265086745665, concordante=False
+
+enrutamiento_semantico_vs_libre
+denso:semantica-libre: delta=+0.056851, IC95 componentes=[0.031392851041563176, 0.09263723604110169], pH W=2.4048977383300193e-05, pH P=0.00014999250037498125, concordante=True
+rrf:semantica-libre: delta=+0.053012, IC95 componentes=[0.014726089629087185, 0.10885709500358777], pH W=0.003708844086112417, pH P=0.0016999150042497876, concordante=True
+convexa:semantica-libre: delta=+0.029934, IC95 componentes=[0.0010723019118059943, 0.06591069450782633], pH W=0.02453228603899415, pH P=0.037048147592620366, concordante=True
+
+DOS ETAPAS
+{
+  "medias": {
+    "reordenador_libre": 0.48166010802117565,
+    "reordenador_predicha": 0.5213549093927027,
+    "reordenador_semantica": 0.520449813288275,
+    "reordenador_oracle": 0.6427164477556481,
+    "alfa_cv_libre": 0.5228180234719746,
+    "alfa_cv_predicha": 0.5537781478586065,
+    "alfa_cv_semantica": 0.5546028624940673,
+    "alfa_cv_oracle": 0.6765209322848886
+  },
+  "alfa_por_fold": {
+    "0": 0.8,
+    "1": 0.8,
+    "2": 0.8,
+    "3": 0.9,
+    "4": 0.9
+  },
+  "ndcg_oracle_del_pool": 0.8760584319678465,
+  "pool": "Unión top100 de BM25, denso, RRF y convexa; hasta 400 documentos por consulta; no se insertan relevantes a mano.",
+  "features": "dn,bn,60/(60+rd),60/(60+rb),dn*bn,min,max,dn-bn",
+  "cv": "5 folds por componentes de relevantes compartidos. StandardScaler y LogisticRegression C=1 balanced ajustados solo en train. Alfa elegido solo en train.",
+  "comparaciones": {
+    "reordenador_libre-convexa_libre": {
+      "estadistico": 1384.5,
+      "p_valor": 1.8575710989213334e-08,
+      "media_dif": -0.05129353952271491,
+      "n": 450,
+      "n_pares_no_nulos": 117,
+      "rank_biserial": -0.5988700564971752,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.06916316122074513,
+        -0.03515293512838775
+      ],
+      "ic95_componentes": [
+        -0.07848814113790888,
+        -0.02962264224734493
+      ],
+      "p_holm": 1.4860568791370667e-07,
+      "p_holm_permutacion": 0.00039998000099995,
+      "concordante": true
+    },
+    "alfa_cv_libre-convexa_libre": {
+      "estadistico": 402.5,
+      "p_valor": 0.05702394414580235,
+      "media_dif": -0.010135624071915993,
+      "n": 450,
+      "n_pares_no_nulos": 48,
+      "rank_biserial": -0.31547619047619047,
+      "p_permutacion": 0.11924403779811009,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.02311092225605187,
+        0.002652362150991157
+      ],
+      "ic95_componentes": [
+        -0.02778489687285262,
+        0.006084521529059549
+      ],
+      "p_holm": 0.1140478882916047,
+      "p_holm_permutacion": 0.13179341032948352,
+      "concordante": false
+    },
+    "reordenador_predicha-convexa_predicha": {
+      "estadistico": 2308.0,
+      "p_valor": 1.2149748329784455e-07,
+      "media_dif": -0.06787413302825354,
+      "n": 450,
+      "n_pares_no_nulos": 138,
+      "rank_biserial": -0.5187154624126785,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.09419170393289912,
+        -0.041913896815929885
+      ],
+      "ic95_componentes": [
+        -0.1129871305429736,
+        -0.02790939264071594
+      ],
+      "p_holm": 6.074874164892227e-07,
+      "p_holm_permutacion": 0.00039998000099995,
+      "concordante": true
+    },
+    "alfa_cv_predicha-convexa_predicha": {
+      "estadistico": 640.0,
+      "p_valor": 0.0004162977696632424,
+      "media_dif": -0.03545089456234971,
+      "n": 450,
+      "n_pares_no_nulos": 70,
+      "rank_biserial": -0.48490945674044267,
+      "p_permutacion": 0.00024998750062496874,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.057338741885485864,
+        -0.016875529087764834
+      ],
+      "ic95_componentes": [
+        -0.0646900120502432,
+        -0.011867017068340617
+      ],
+      "p_holm": 0.0015746659695562329,
+      "p_holm_permutacion": 0.0007999600019999,
+      "concordante": true
+    },
+    "reordenador_semantica-convexa_semantica": {
+      "estadistico": 740.5,
+      "p_valor": 8.488217911164505e-08,
+      "media_dif": -0.04243786611028021,
+      "n": 450,
+      "n_pares_no_nulos": 91,
+      "rank_biserial": -0.6462016244624941,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.058905369100734614,
+        -0.02774176465260018
+      ],
+      "ic95_componentes": [
+        -0.06108164365849158,
+        -0.024714772681338218
+      ],
+      "p_holm": 5.092930746698703e-07,
+      "p_holm_permutacion": 0.00039998000099995,
+      "concordante": true
+    },
+    "alfa_cv_semantica-convexa_semantica": {
+      "estadistico": 201.0,
+      "p_valor": 0.09888238008931911,
+      "media_dif": -0.008284816904487766,
+      "n": 450,
+      "n_pares_no_nulos": 34,
+      "rank_biserial": -0.3243697478991597,
+      "p_permutacion": 0.06589670516474176,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.017621883308692875,
+        0.0006172111366684755
+      ],
+      "ic95_componentes": [
+        -0.017801749690516636,
+        -0.0005173143842725036
+      ],
+      "p_holm": 0.1140478882916047,
+      "p_holm_permutacion": 0.13179341032948352,
+      "concordante": false
+    },
+    "reordenador_oracle-convexa_oracle": {
+      "estadistico": 2832.0,
+      "p_valor": 4.0460664638661644e-08,
+      "media_dif": -0.0696096419002758,
+      "n": 450,
+      "n_pares_no_nulos": 152,
+      "rank_biserial": -0.5128998968008256,
+      "p_permutacion": 4.999750012499375e-05,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.09563541655685717,
+        -0.04337855144590633
+      ],
+      "ic95_componentes": [
+        -0.11527602628609364,
+        -0.029897960803406377
+      ],
+      "p_holm": 2.832246524706315e-07,
+      "p_holm_permutacion": 0.00039998000099995,
+      "concordante": true
+    },
+    "alfa_cv_oracle-convexa_oracle": {
+      "estadistico": 683.0,
+      "p_valor": 0.0003936664923890582,
+      "media_dif": -0.035805157371035214,
+      "n": 450,
+      "n_pares_no_nulos": 72,
+      "rank_biserial": -0.4802130898021309,
+      "p_permutacion": 0.000199990000499975,
+      "metodo_permutacion": "monte_carlo(20000)",
+      "ic95_dif": [
+        -0.05749826392490718,
+        -0.016882809651552425
+      ],
+      "ic95_componentes": [
+        -0.06517105945103349,
+        -0.012184649659196465
+      ],
+      "p_holm": 0.0015746659695562329,
+      "p_holm_permutacion": 0.0007999600019999,
+      "concordante": true
+    }
+  }
+}
+
+LÍMITES
+No hay evaluación independiente ni nuevos juicios. Los documentos agregados no recibieron juicios nuevos. Los controles son alternativas específicas y no representan todas las formas de enriquecimiento posibles. La predicción de función y el reordenador se validan internamente por grupos; no constituyen validación externa. Las mejoras deben contrastarse con las configuraciones de este experimento: el 0,684619 anterior usa otra cobertura densa y otra política de enriquecimiento de distractores.

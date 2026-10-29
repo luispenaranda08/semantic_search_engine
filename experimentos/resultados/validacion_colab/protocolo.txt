@@ -1,0 +1,37 @@
+VALIDACIÓN ADICIONAL — protocolo fijado antes de consultar los nuevos resultados
+Fecha: 28 de octubre de 2026
+
+Alcance autorizado
+Se conservan las 450 consultas y sus juicios existentes. No se realizará evaluación independiente, no se fabricarán participantes y no se enviarán mensajes a terceros.
+
+1. Búsqueda densa completa
+Se congela el mismo universo de 757.554 documentos del experimento anterior. Cada documento recibe un vector real jina-embeddings-v3 de 1.024 dimensiones, tarea retrieval.passage; cada consulta usa retrieval.query. Se calcula coseno exacto contra TODOS los documentos, sin aproximación ANN ni omisión de personas, grupos o instituciones. Deduplicar textos solo evita repetir cómputo; no elimina documentos del ranking. No se cambia la revisión del modelo ni el criterio de desempate por identificador.
+
+2. Ontología frente a controles
+Se mantienen idénticas las descripciones de los distractores en todos los brazos. Solo cambia la representación de los 811 documentos v3, con cinco brazos:
+- Descripción original, sin expansión.
+- Texto original enriquecido con ontología.
+- Repetición de la propia descripción: control de extensión.
+- Expansión distribucional: términos ponderados de los cinco documentos más similares por TF-IDF, sin consultar la ontología ni las consultas de evaluación.
+- Metadatos planos: título, subtítulo y facetas disponibles en el corpus, sin recorrer clases o relaciones ontológicas.
+Los controles enriquecidos usan un presupuesto total de subpalabras igual al texto con ontología, medido con el tokenizador del modelo. Se auditan las diferencias reales de longitud. Los datos estructurados comparten origen de dominio con la ontología: este es un control de organización del conocimiento, no un control de conocimiento ajeno al dominio.
+La calidad de estos controles no representa todas las alternativas textuales posibles. Solo se podrá concluir superioridad frente a las alternativas efectivamente evaluadas.
+
+3. Restricción por función sin objetivo conocido
+Clasificador de tipo de documento a partir EXCLUSIVAMENTE del texto de consulta. TF-IDF de palabras 1-2 y caracteres 3-5, regresión logística C=1 con balance de clases. Cinco folds por componentes conexas de consultas que comparten CUALQUIER relevante. El vocabulario y el modelo se ajustan solo en el entrenamiento de cada fold. La etiqueta gold de la consulta evaluada no entra al clasificador. Se comparan búsqueda libre, tipo predicho y tipo gold como referencia ideal. No equivale a validación externa. Se añade una alternativa exploratoria sin entrenamiento: asignar el tipo del documento v3 de descripción original con mayor coseno. Usa solo corpus y consulta, nunca juicios, y se comparará por separado.
+
+4. Mejora del ranking respecto al 0,684619 previo
+Se conserva alfa=0,8 para la réplica de fusión convexa. Se exploran dos mejoras con el mismo esquema de cinco folds:
+- Fusión dentro de candidatos, con alfa elegido exclusivamente en entrenamiento entre 0,0 y 1,0 por pasos de 0,1.
+- Reordenador supervisado de candidatos, regresión logística C=1 balanceada y escalado ajustado solo en entrenamiento. Usa puntuaciones normalizadas y rangos léxicos y densos; no usa identificadores ni relevancia de test como atributos.
+El pool es la unión de los primeros 100 candidatos de BM25, denso, RRF y convexa, sin insertar objetivos conocidos. Se informa el techo del pool con los juicios existentes para separar fallos de recuperación y ordenamiento.
+El 0,684619 previo usa tipo gold, cobertura densa selectiva y enriquecimiento del registro original. El nuevo experimento cambia cobertura y fija el fondo documental entre brazos. La comparación directa con esa cifra es descriptiva; la atribución causal de las mejoras usa comparadores dentro del nuevo experimento.
+
+5. Estadística
+Wilcoxon pareada bilateral, permutación de signos (20.000 sorteos o exacta con hasta 20 diferencias no nulas), Holm y bootstrap de diferencias. Familia principal: 12 contrastes de ontología contra cuatro controles para denso, RRF y convexa libres. Familias adicionales: tres comparaciones de enrutamiento por familia y ocho de ranking en dos etapas. Concordante significa rechazo en ambas pruebas tras Holm. Los IC agrupados remuestrean componentes de objetivos compartidos, 2.000 réplicas. Semilla 42. Desgloses por tipo exploratorios, sin afirmar confirmación global por cada estrato.
+
+Límites que permanecerán
+Mismos autores, consultas y juicios. Sin usuarios independientes ni nuevos juicios de relevancia sobre distractores. Un distractor nuevo puede ser pertinente y no estar juzgado. Los resultados caracterizan recuperación de objetivos conocidos. Los controles no son una prueba de que toda ontología supere cualquier enriquecimiento. Si las mejoras no aparecen, se reportarán también.
+
+Ejecución
+Copia aislada del motor en work/validacion_total/engine. No se modifica el proyecto de Claude. Pesos y exportaciones locales, sin llamadas a AWS ni descargas. Codificación con checkpoint cada 256 textos y reanudación. Datos personales y matrices permanecen en work/. Los informes agregados, scripts y estado se guardan en outputs/validacion_total.

@@ -1,0 +1,22 @@
+{
+  "docs_total": 811,
+  "docs_por_dominio": {
+    "competencias": 160,
+    "reportes": 17,
+    "funcionalidades": 75,
+    "pruebas_catalogo": 549,
+    "reglas_participacion": 10
+  },
+  "consultas_nuevas_por_estrato": {
+    "funcionalidad": 53,
+    "prueba_catalogo": 60,
+    "regla_participacion": 27
+  },
+  "relevantes_medios_por_estrato": {
+    "funcionalidad": 1.26,
+    "prueba_catalogo": 4.2,
+    "regla_participacion": 1.11
+  },
+  "consultas_final_v3": 320,
+  "semilla": 20261020
+}

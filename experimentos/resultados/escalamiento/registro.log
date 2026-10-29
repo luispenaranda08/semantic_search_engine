@@ -1,0 +1,10 @@
+· corpus v3: 811 documentos
+· reportes: 561 cortes por departamento
+· distractores del registro: 756743
+· 450 consultas
+· vectores: 15974 textos, 15159 por codificar
+  codificados 512/15159     codificados 1024/15159     codificados 1536/15159     codificados 2048/15159     codificados 2560/15159     codificados 3072/15159     codificados 3584/15159     codificados 4096/15159     codificados 4608/15159     codificados 5120/15159     codificados 5632/15159     codificados 6144/15159     codificados 6656/15159     codificados 7168/15159     codificados 7680/15159     codificados 8192/15159     codificados 8704/15159     codificados 9216/15159     codificados 9728/15159     codificados 10240/15159     codificados 10752/15159     codificados 11264/15159     codificados 11776/15159     codificados 12288/15159     codificados 12800/15159     codificados 13312/15159     codificados 13824/15159     codificados 14336/15159     codificados 14848/15159     codificados 15159/15159   
+· vista desc: BM25 de 757554 documentos, denso de 15974 (883s)
+· vectores: 15974 textos, 0 por codificar
+· vista onto: BM25 de 757554 documentos, denso de 15974 (923s)
+· 757554 documentos · 450 consultas · 974s → ../experimentos/resultados/escalamiento/registro.json

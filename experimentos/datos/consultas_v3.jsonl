@@ -1,0 +1,140 @@
+{"id": "v3_001", "texto": "quién puede agregar cronograma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_002", "texto": "cómo quitar competidor en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_003", "texto": "permiso para consultar competidor", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_004", "texto": "consultar atleta", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_005", "texto": "quién puede modificar competidor", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_006", "texto": "cómo registrar plazas de Colombia en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_007", "texto": "permiso para consultar indicadores", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_008", "texto": "registrar boletines", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_009", "texto": "quién puede registrar torneo", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_010", "texto": "cómo consultar torneo en la plataforma", "estrato": "funcionalidad", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_011", "texto": "permiso para registrar torneo de liga", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_012", "texto": "dar de baja competencia de liga", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_013", "texto": "quién puede revisar competencia de liga", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_014", "texto": "cómo modificar competencia de liga en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_015", "texto": "permiso para administrar competencia", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_016", "texto": "consultar torneo", "estrato": "funcionalidad", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_017", "texto": "quién puede modificar torneo", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_018", "texto": "cómo obtener plantilla en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_019", "texto": "permiso para dar de baja podio", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_020", "texto": "modificar podio", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_021", "texto": "quién puede registrar presea", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_022", "texto": "cómo designar asesor técnico en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_023", "texto": "permiso para administrar invitado", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_024", "texto": "consultar valoración", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_025", "texto": "quién puede registrar evaluación cualitativa", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_026", "texto": "cómo agregar matrícula en la plataforma", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_027", "texto": "permiso para quitar marca", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_028", "texto": "corregir puntaje", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_029", "texto": "quién puede registrar marca", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_030", "texto": "cómo revisar organización invitada en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_031", "texto": "permiso para corregir competidor", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_032", "texto": "revisar papeles", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_033", "texto": "quién puede agregar soporte", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_034", "texto": "cómo administrar llaves en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_035", "texto": "permiso para administrar ingreso", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_036", "texto": "quién puede controlar miembro del evento", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_037", "texto": "cómo registrar delegación oficial en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_038", "texto": "permiso para quitar miembros de la misión", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_039", "texto": "revisar delegación oficial", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_040", "texto": "quién puede conteo delegación oficial", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_041", "texto": "cómo corregir miembros de la misión en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_042", "texto": "permiso para revisar ronda", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_043", "texto": "agregar etapa", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_044", "texto": "quién puede agregar matrícula", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_045", "texto": "cómo dar de baja registro de participantes en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_046", "texto": "permiso para revisar registro de participantes", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_047", "texto": "corregir matrícula", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_048", "texto": "quién puede agregar marca", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_049", "texto": "cómo consultar puntaje en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_050", "texto": "permiso para corregir puntaje", "estrato": "funcionalidad", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_051", "texto": "validar entrenador", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_052", "texto": "quién puede revisar entrenador", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_053", "texto": "cómo registrar delegado en la plataforma", "estrato": "funcionalidad", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_054", "texto": "boxeo de la categoría juvenil rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 13, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_055", "texto": "kata equipos x 3 rama femenina pre juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_056", "texto": "pruebas de patinaje rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 6, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_057", "texto": "resultados de lanzamiento de disco juveniles", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_058", "texto": "patinaje prejuveniles rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 6, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_059", "texto": "hasta 79 kg. rama masculina de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_060", "texto": "pruebas de ajedrez rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 8, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_061", "texto": "resultados de Menos de 50 kg prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_062", "texto": "natación niños mujeres", "estrato": "prueba_catalogo", "n_relevantes": 11, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_063", "texto": "salto con pértiga rama femenina juveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_064", "texto": "pruebas de boxeo hombres", "estrato": "prueba_catalogo", "n_relevantes": 13, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_065", "texto": "resultados de 150 metros planos pre juvenil", "estrato": "prueba_catalogo", "n_relevantes": 4, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_066", "texto": "judo juveniles mujeres", "estrato": "prueba_catalogo", "n_relevantes": 10, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_067", "texto": "100 metros mariposa mujeres de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_068", "texto": "pruebas de partidas de ajedrez rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 8, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_069", "texto": "resultados de campeonato de festivales escolares iniciados", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_070", "texto": "judo de la categoría juvenil rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 10, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_071", "texto": "100 metros libre hombres prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_072", "texto": "pruebas de boccia hombres", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_073", "texto": "resultados de hasta 56 kg. prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_074", "texto": "judo pre juvenil mujeres", "estrato": "prueba_catalogo", "n_relevantes": 10, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_075", "texto": "50 metros libre mujeres de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_076", "texto": "pruebas de festivales escolares hombres y mujeres", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_077", "texto": "resultados de 200 metros mariposa de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_078", "texto": "handball de la categoría juvenil rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_079", "texto": "impulsion de bala rama masculina de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_080", "texto": "pruebas de partidas de ajedrez rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 8, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_081", "texto": "resultados de menos de 76 kg. juveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_082", "texto": "karate juveniles rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 7, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_083", "texto": "50 metros libre rama femenina niños", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_084", "texto": "pruebas de básquet 3x3 mujeres", "estrato": "prueba_catalogo", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_085", "texto": "resultados de más de 80 kg. de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_086", "texto": "ping pong pre infantil rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_087", "texto": "hasta 55 kg. mujeres prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_088", "texto": "pruebas de voleibol de sala rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_089", "texto": "resultados de relevo 4 x 100 metros planos de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_090", "texto": "natación adaptada de la categoría juvenil rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 13, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_091", "texto": "relevo 5 x 80 metros hombres pre juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_092", "texto": "pruebas de ajedrez hombres", "estrato": "prueba_catalogo", "n_relevantes": 8, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_093", "texto": "resultados de hasta 70 kg. juveniles", "estrato": "prueba_catalogo", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_094", "texto": "taekwondo de la categoría juvenil mujeres", "estrato": "prueba_catalogo", "n_relevantes": 6, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_095", "texto": "hasta 61 kg. rama masculina prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_096", "texto": "pruebas de ping pong hombres", "estrato": "prueba_catalogo", "n_relevantes": 8, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_097", "texto": "resultados de mas de 73 kg. juveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_098", "texto": "fútbol de campo pre juvenil mujeres", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_099", "texto": "50 metros pecho mujeres infantiles", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_100", "texto": "pruebas de 3x3 rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_101", "texto": "resultados de hasta 36 kg. prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_102", "texto": "ruta pre juvenil mujeres", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_103", "texto": "400 metros libre mujeres prejuveniles", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_104", "texto": "pruebas de futsal hombres", "estrato": "prueba_catalogo", "n_relevantes": 6, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_105", "texto": "resultados de 50 metros espalda infantiles", "estrato": "prueba_catalogo", "n_relevantes": 4, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_106", "texto": "karate de la categoría juvenil mujeres", "estrato": "prueba_catalogo", "n_relevantes": 7, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_107", "texto": "puntos 10.000 metros — ruta mujeres pre juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_108", "texto": "pruebas de boxeo rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 13, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_109", "texto": "resultados de hasta 52 kg. juveniles", "estrato": "prueba_catalogo", "n_relevantes": 3, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_110", "texto": "karate-do pre juvenil rama masculina", "estrato": "prueba_catalogo", "n_relevantes": 7, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_111", "texto": "400 metros planos hombres pre juvenil", "estrato": "prueba_catalogo", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_112", "texto": "pruebas de futsal rama femenina", "estrato": "prueba_catalogo", "n_relevantes": 6, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_113", "texto": "resultados de 4x100 metros relevo libre de la categoría juvenil", "estrato": "prueba_catalogo", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_114", "texto": "cuántos atletas por equipo en básquetbol", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_115", "texto": "máximo permitido de equipo en básquetbol", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_116", "texto": "mínimo de jugadores por equipos para inscribirse en básquet", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_117", "texto": "cuántos jugadores por equipo en 3x3", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_118", "texto": "máximo permitido de equipo en básquet 3x3", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_119", "texto": "mínimo de jugadores por equipos para inscribirse en 3x3", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_120", "texto": "cuántos jugadores por equipo en balón mano", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_121", "texto": "límite de equipos en handball", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_122", "texto": "mínimo de jugadores por equipos para inscribirse en handball", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_123", "texto": "cuántos atletas por equipos en fútbol once", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_124", "texto": "máximo permitido de equipo en fútbol once", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_125", "texto": "mínimo de atletas por equipos para inscribirse en fútbol de campo", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_126", "texto": "cuántos atletas por equipo en microfútbol", "estrato": "regla_participacion", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_127", "texto": "límite de equipo en microfútbol", "estrato": "regla_participacion", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_128", "texto": "mínimo de jugadores por equipo para inscribirse en microfútbol", "estrato": "regla_participacion", "n_relevantes": 2, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_129", "texto": "cuántos jugadores por equipos en básquet infantil", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_130", "texto": "máximo permitido de equipos en minibásquet", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_131", "texto": "mínimo de jugadores por equipos para inscribirse en minibásquet", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_132", "texto": "cuántos jugadores por equipo en mini microfútbol", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_133", "texto": "máximo permitido de equipos en minifutsal", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_134", "texto": "mínimo de jugadores por equipo para inscribirse en mini microfútbol", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_135", "texto": "cuántos jugadores por equipo en vóley infantil", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_136", "texto": "máximo permitido de equipos en vóley infantil", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_137", "texto": "mínimo de jugadores por equipos para inscribirse en minivóley", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_138", "texto": "cuántos atletas por equipo en vóley", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_139", "texto": "máximo permitido de equipo en vóley", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}
+{"id": "v3_140", "texto": "mínimo de jugadores por equipo para inscribirse en vóley", "estrato": "regla_participacion", "n_relevantes": 1, "menciona_nombre_propio": false, "origen": "estructura_del_sistema"}

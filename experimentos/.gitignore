@@ -1,2 +1,4 @@
 __pycache__/
-*.pyc
+.DS_Store
+# Identifica a la organización; no se publica (anonimato, ver Sección de Ética de la tesis).
+pg/nombre_organizacion.txt
