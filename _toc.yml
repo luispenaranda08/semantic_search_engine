@@ -7,6 +7,15 @@ parts:
       - file: tesis/metodo
       - file: tesis/resultados
       - file: tesis/codigo
+  - caption: Recorrido por corpus
+    chapters:
+      - file: recorrido/index
+      - file: recorrido/01_demanda
+      - file: recorrido/02_version1_17_reportes
+      - file: recorrido/03_corpus_definitivo_177
+      - file: recorrido/04_corpus_v3_811
+      - file: recorrido/05_registro_completo
+      - file: recorrido/06_validez_y_robustez
   - caption: Archivo exploratorio
     chapters:
       - file: archivo/index

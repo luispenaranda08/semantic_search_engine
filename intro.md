@@ -47,7 +47,9 @@ relevancia de la estructura del propio sistema.
 ## Cómo está organizado
 
 La primera parte resume la monografía, su método y sus resultados, y explica cómo reproducir
-cada cifra con el código. La segunda guarda los notebooks de las primeras etapas con sus salidas
+cada cifra con el código. La segunda recorre en detalle cada etapa y cada corpus: la demanda
+observada, los diecisiete reportes, el corpus de $177$ documentos, el corpus v3 de $811$, el
+registro completo de la plataforma y los controles de validez. La tercera guarda los notebooks de las primeras etapas con sus salidas
 originales; muchas de sus cifras son anteriores a la auditoría del 30 de septiembre de 2026 y la
 monografía ya no las usa, pero se conservan como registro del proceso.
 
