@@ -1,0 +1,2133 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Versión 1: diecisiete reportes &#8212; Buscadores semánticos GovTech · Proyecto de grado</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'recorrido/02_version1_17_reportes';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/recorrido/02_version1_17_reportes.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Corpus definitivo: 177 documentos" href="03_corpus_definitivo_177.html" />
+    <link rel="prev" title="La demanda observada y la ontología" href="01_demanda.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscadores semánticos para la recuperación de conocimiento funcional en plataformas GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">La tesis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resumen.html">La monografía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/metodo.html">Método</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/codigo.html">Código y reproducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recorrido por corpus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Recorrido por los corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_demanda.html">La demanda observada y la ontología</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Versión 1: diecisiete reportes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_corpus_definitivo_177.html">Corpus definitivo: 177 documentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_corpus_v3_811.html">Corpus v3: 811 documentos de cinco tipos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_registro_completo.html">El registro completo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_validez_y_robustez.html">Validez y robustez</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Archivo exploratorio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../archivo/index.html">Archivo exploratorio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/recorrido/02_version1_17_reportes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Versión 1: diecisiete reportes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-corpus-y-el-documento-enriquecido">El corpus y el documento enriquecido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-configuraciones">Las configuraciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-conjuntos-de-evaluacion">Los conjuntos de evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-conjunto-sintetico">El conjunto sintético</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-conjunto-ampliado-desde-firmas">El conjunto ampliado desde firmas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-control-sin-nombre-propio">El control sin nombre propio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-conjuntos-dificiles-a-y-b">Los conjuntos difíciles A y B</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-globales">Resultados globales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica-de-la-escalera">Estadística de la escalera</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-por-estrato-p2">Resultados por estrato (P2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">El control sin nombre propio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-p3">La ontología (P3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-nivel-de-solape">Por nivel de solape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-cobertura-parcial-un-efecto-no-previsto">La cobertura parcial: un efecto no previsto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-ampliada-a-catorce-reportes">La ontología ampliada a catorce reportes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-realce-por-entidad-p5">El realce por entidad (P5)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#es-rrf-la-mejor-fusion">¿Es RRF la mejor fusión?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-a-los-hiperparametros">Sensibilidad a los hiperparámetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-del-vector-p6">Dimensión del vector (P6)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fragmentacion-de-los-documentos-p4">Fragmentación de los documentos (P4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escalamiento-de-la-busqueda-exacta">Escalamiento de la búsqueda exacta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costo-computacional">Costo computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-errores">Análisis de errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustez-de-las-conclusiones-en-este-corpus">Robustez de las conclusiones en este corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-dejo-esta-etapa">Lo que dejó esta etapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="version-1-diecisiete-reportes">
+<h1>Versión 1: diecisiete reportes<a class="headerlink" href="#version-1-diecisiete-reportes" title="Link to this heading">#</a></h1>
+<p>La primera versión del buscador se limita a los diecisiete reportes que la plataforma ofrece,
+con prioridad en los cinco que concentran el <span class="math notranslate nohighlight">\(83\%\)</span> de la demanda real (ver
+<a class="reference internal" href="01_demanda.html"><span class="std std-doc">la demanda observada</span></a>). Sobre ese corpus se corrió la escalera de ablación
+completa con cinco conjuntos de consultas, la estadística del plan de análisis, los barridos de
+hiperparámetros, de dimensión y de fragmentación, las fusiones alternativas y la campaña de
+costo computacional. Todas las cifras de esta página se calcularon sobre los diecisiete
+reportes, con el codificador <code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code> de <span class="math notranslate nohighlight">\(1.024\)</span> dimensiones y sus tareas de
+recuperación de consulta y de pasaje activadas, salvo donde se indique otro corpus.</p>
+<section id="el-corpus-y-el-documento-enriquecido">
+<h2>El corpus y el documento enriquecido<a class="headerlink" href="#el-corpus-y-el-documento-enriquecido" title="Link to this heading">#</a></h2>
+<p>Cada documento es la descripción en lenguaje natural de un reporte. Las descripciones tienen
+entre <span class="math notranslate nohighlight">\(64\)</span> y <span class="math notranslate nohighlight">\(184\)</span> palabras, con una media de <span class="math notranslate nohighlight">\(103\)</span>, y no contienen datos personales: la
+construcción del corpus aborta si encuentra correos electrónicos o secuencias numéricas largas.</p>
+<p>Cada reporte <span class="math notranslate nohighlight">\(d\)</span> tiene dos componentes: su descripción <span class="math notranslate nohighlight">\(d_{\text{desc}}\)</span> y sus metadatos de
+ontología <span class="math notranslate nohighlight">\(o_d\)</span> (entidades que cubre, sinónimos y preguntas de negocio que responde). El
+documento enriquecido concatena a la descripción la serialización de un subconjunto selectivo
+de esos metadatos:</p>
+<div class="math notranslate nohighlight">
+\[
+d' = d_{\text{desc}} \oplus \phi(o_d).
+\]</div>
+<p>El subconjunto se elige a propósito, siguiendo el resultado de ECLASS de que inyectar
+metadatos escogidos rinde más que volcar todos los atributos. Solo <span class="math notranslate nohighlight">\(9\)</span> de los <span class="math notranslate nohighlight">\(17\)</span> reportes
+tienen bloque de ontología; para los otros <span class="math notranslate nohighlight">\(8\)</span>, el documento enriquecido coincide con la
+descripción y la ontología no puede cambiar nada. Esa cobertura parcial resultó importante, como
+se ve más abajo.</p>
+</section>
+<section id="las-configuraciones">
+<h2>Las configuraciones<a class="headerlink" href="#las-configuraciones" title="Link to this heading">#</a></h2>
+<p>La escalera tiene cinco configuraciones anidadas y una referencia léxica. El detalle de cada
+una está en <a class="reference internal" href="../tesis/metodo.html"><span class="std std-doc">el método</span></a>; aquí basta con lo que distingue a cada peldaño.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Puntuación</p></th>
+<th class="head"><p>Qué aísla</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25 (referencia)</p></td>
+<td><p>BM25 sobre <span class="math notranslate nohighlight">\(d_{\text{desc}}\)</span></p></td>
+<td><p>línea base léxica clásica</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>coseno entre vectores de la consulta y de <span class="math notranslate nohighlight">\(d_{\text{desc}}\)</span></p></td>
+<td><p>línea base neuronal</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>coseno con <span class="math notranslate nohighlight">\(d'\)</span></p></td>
+<td><p>efecto de la ontología en el denso (P3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>RRF de BM25 y denso sobre <span class="math notranslate nohighlight">\(d_{\text{desc}}\)</span></p></td>
+<td><p>aporte de la señal léxica (P1, P2)</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>RRF sobre <span class="math notranslate nohighlight">\(d'\)</span></p></td>
+<td><p>efecto de la ontología en el híbrido (P3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p><span class="math notranslate nohighlight">\(s_{\text{RRF}}\cdot(1+\lambda\,\mathbb{1}_{\text{entidad}})\)</span></p></td>
+<td><p>efecto del realce por entidad (P5)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>BM25 usa <span class="math notranslate nohighlight">\(k_1=1{,}5\)</span> y <span class="math notranslate nohighlight">\(b=0{,}75\)</span>, con un analizador en español que pasa a minúsculas, quita
+tildes, descarta palabras vacías y reduce cada palabra a su raíz con Snowball; solo puntúa los
+documentos que comparten al menos un término con la consulta. La fusión por rango recíproco
+suma, para cada documento, <span class="math notranslate nohighlight">\(1/(k+\text{posición})\)</span> en cada lista, con <span class="math notranslate nohighlight">\(k=60\)</span>. El realce multiplica
+la puntuación fusionada por <span class="math notranslate nohighlight">\(1+\lambda\)</span>, con <span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span>, cuando la consulta menciona una
+clase de entidad que el documento cubre. Ninguno de estos valores se ajustó sobre los datos de
+evaluación, y ningún componente se entrena: el codificador se usa congelado, de modo que no hay
+partición entre entrenamiento y prueba y todas las consultas son de evaluación.</p>
+</section>
+<section id="los-conjuntos-de-evaluacion">
+<h2>Los conjuntos de evaluación<a class="headerlink" href="#los-conjuntos-de-evaluacion" title="Link to this heading">#</a></h2>
+<p>Todos los conjuntos usan un protocolo de objetivo conocido (<em>known-item</em>): cada consulta apunta
+a un reporte objetivo, que recibe grado de relevancia <span class="math notranslate nohighlight">\(2\)</span>, y algunas añaden reportes secundarios
+con grado <span class="math notranslate nohighlight">\(1\)</span>. El protocolo es estándar y no fabrica juicios humanos, pero las consultas
+derivadas de los documentos comparten vocabulario con ellos. Por eso el valor absoluto de las
+métricas no debe leerse como precisión de producción; lo que se interpreta es la comparación
+entre configuraciones bajo el mismo protocolo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Conjunto</p></th>
+<th class="head"><p>Consultas con juicio</p></th>
+<th class="head"><p>Cómo se construyó</p></th>
+<th class="head"><p>Estratos o niveles</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sintético</p></td>
+<td><p><span class="math notranslate nohighlight">\(40\)</span> (de <span class="math notranslate nohighlight">\(51\)</span>)</p></td>
+<td><p>escrito a partir de títulos, entidades y sinónimos de la ontología y del mapeo de competencias</p></td>
+<td><p>entidad exacta <span class="math notranslate nohighlight">\(17\)</span>, ambigua <span class="math notranslate nohighlight">\(13\)</span>, documento largo <span class="math notranslate nohighlight">\(10\)</span>; las <span class="math notranslate nohighlight">\(11\)</span> de competencias no tienen documento relevante en la Versión 1 y se excluyen de las métricas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ampliado desde firmas</p></td>
+<td><p><span class="math notranslate nohighlight">\(127\)</span></p></td>
+<td><p>una consulta por patrón distinto de firma del historial; relevante el reporte que se ejecutó (juicio <em>silver</em>)</p></td>
+<td><p>entidad exacta <span class="math notranslate nohighlight">\(55\)</span>, operacional <span class="math notranslate nohighlight">\(35\)</span>, documento largo <span class="math notranslate nohighlight">\(25\)</span>, ambigua <span class="math notranslate nohighlight">\(12\)</span>; <span class="math notranslate nohighlight">\(50\)</span> marcadas como candidatas a anotación por expertos</p></td>
+</tr>
+<tr class="row-even"><td><p>Control sin nombre</p></td>
+<td><p><span class="math notranslate nohighlight">\(55\)</span></p></td>
+<td><p>las consultas de entidad exacta del ampliado con el nombre propio borrado</p></td>
+<td><p>un solo estrato</p></td>
+</tr>
+<tr class="row-odd"><td><p>Difícil A</p></td>
+<td><p><span class="math notranslate nohighlight">\(52\)</span></p></td>
+<td><p>paráfrasis y expresiones coloquiales del propósito de <span class="math notranslate nohighlight">\(13\)</span> reportes, redactadas para no compartir vocabulario con la descripción</p></td>
+<td><p>niveles A, B y C calculados por solape de raíces</p></td>
+</tr>
+<tr class="row-even"><td><p>Difícil B</p></td>
+<td><p><span class="math notranslate nohighlight">\(78\)</span></p></td>
+<td><p>réplica con consultas nuevas, seis por reporte en cuatro registros (pregunta, telegráfico, coloquial y administrativo)</p></td>
+<td><p>mismos niveles calculados</p></td>
+</tr>
+<tr class="row-odd"><td><p>Difíciles A y B</p></td>
+<td><p><span class="math notranslate nohighlight">\(130\)</span></p></td>
+<td><p>unión de los dos anteriores para la estadística</p></td>
+<td><p>nivel A <span class="math notranslate nohighlight">\(52\)</span>, nivel B <span class="math notranslate nohighlight">\(21\)</span>, nivel C <span class="math notranslate nohighlight">\(57\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="el-conjunto-sintetico">
+<h3>El conjunto sintético<a class="headerlink" href="#el-conjunto-sintetico" title="Link to this heading">#</a></h3>
+<p>Es el conjunto original de la escalera: <span class="math notranslate nohighlight">\(51\)</span> consultas escritas a mano a partir de artefactos
+reales (títulos de reporte, entidades y sinónimos de la ontología, mapeo de competencias). Las
+<span class="math notranslate nohighlight">\(11\)</span> consultas de competencias no tienen documento relevante en la Versión 1, por diseño; miden
+el vacío de cobertura del dominio de competencias y quedan fuera de las métricas de calidad. Los
+nombres propios de las consultas de entidad exacta son sintéticos: dan forma realista a la
+consulta, cuyo objetivo es el reporte y no la persona.</p>
+</section>
+<section id="el-conjunto-ampliado-desde-firmas">
+<h3>El conjunto ampliado desde firmas<a class="headerlink" href="#el-conjunto-ampliado-desde-firmas" title="Link to this heading">#</a></h3>
+<p>Cada consulta parte de una firma del historial, la estructura de una solicitud real (reporte
+ejecutado, columnas y filtros) sin los valores buscados, y su texto se sintetiza a partir de
+los filtros reales. La unidad de muestreo es el <em>patrón distinto</em> de firma. Si se hubiera tomado
+cada combinación con un nombre propio sustituible, la misma consulta se habría repetido con
+distintos nombres sintéticos, inflando el tamaño muestral sin añadir información
+(pseudo-replicación). Además se eliminaron los textos duplicados entre estratos. Es el conjunto
+más parecido al uso real, porque sus consultas reproducen lo que la gente efectivamente pidió,
+y también el más cercano al techo, porque comparten el vocabulario de los filtros del propio
+reporte.</p>
+</section>
+<section id="el-control-sin-nombre-propio">
+<h3>El control sin nombre propio<a class="headerlink" href="#el-control-sin-nombre-propio" title="Link to this heading">#</a></h3>
+<p>Cada consulta del estrato de entidad exacta del ampliado se repite con el nombre propio
+borrado. Si el nombre contribuyera a la recuperación, el desempeño debería bajar al quitarlo. Su
+resultado, más abajo, decide qué mide en realidad ese estrato.</p>
+</section>
+<section id="los-conjuntos-dificiles-a-y-b">
+<h3>Los conjuntos difíciles A y B<a class="headerlink" href="#los-conjuntos-dificiles-a-y-b" title="Link to this heading">#</a></h3>
+<p>En los conjuntos sintético y ampliado la mayoría de las consultas queda en la primera posición
+para todas las configuraciones, lo que limita el poder estadístico. El conjunto difícil A
+contiene paráfrasis del propósito de <span class="math notranslate nohighlight">\(13\)</span> reportes; los reportes de pruebas de caídas se
+excluyeron porque su significado de negocio no está confirmado. La dificultad se calcula, en
+lugar de asignarse a mano, con el solape de raíces Snowball entre la consulta y el documento:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel</p></th>
+<th class="head"><p>Definición</p></th>
+<th class="head"><p>Qué puede ayudar</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A: con puente</p></td>
+<td><p>la consulta no comparte raíces con la descripción, pero sí con el bloque de ontología</p></td>
+<td><p>la ontología</p></td>
+</tr>
+<tr class="row-odd"><td><p>B: sin puente</p></td>
+<td><p>no comparte raíces ni con la descripción ni con la ontología</p></td>
+<td><p>solo la semántica densa</p></td>
+</tr>
+<tr class="row-even"><td><p>C: con solape</p></td>
+<td><p>comparte al menos una raíz con la descripción</p></td>
+<td><p>también la señal léxica</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El nivel B sirve de control contra el sesgo de haber redactado consultas con sinónimos de la
+ontología. Conviene no confundir los nombres: el <em>conjunto</em> difícil A es el primer grupo de <span class="math notranslate nohighlight">\(52\)</span>
+paráfrasis, y el <em>nivel</em> A es una categoría de solape que existe dentro de los dos conjuntos.</p>
+<p>El conjunto difícil B se redactó después de conocer los resultados de A, para poner a prueba los
+hallazgos formulados al mirarlo. No se ajustó a ningún sistema ni se descartó ninguna consulta
+por su resultado, pero no es una prueba ciega, y la tesis lo presenta como réplica. Las consultas
+de los dos conjuntos las redactó el autor y deben someterse a revisión de expertos.</p>
+</section>
+</section>
+<section id="resultados-globales">
+<h2>Resultados globales<a class="headerlink" href="#resultados-globales" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Sintético (<span class="math notranslate nohighlight">\(n=40\)</span>)</p></th>
+<th class="head"><p>Ampliado (<span class="math notranslate nohighlight">\(n=127\)</span>)</p></th>
+<th class="head"><p>Difícil A (<span class="math notranslate nohighlight">\(n=52\)</span>)</p></th>
+<th class="head"><p>Difícil B (<span class="math notranslate nohighlight">\(n=78\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25 (referencia)</p></td>
+<td><p>0,819</p></td>
+<td><p>0,887</p></td>
+<td><p>0,186</p></td>
+<td><p>0,422</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,866</p></td>
+<td><p>0,932</p></td>
+<td><p>0,712</p></td>
+<td><p>0,783</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,931</p></td>
+<td><p>0,928</p></td>
+<td><p>0,835</p></td>
+<td><p>0,837</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>0,893</p></td>
+<td><p>0,943</p></td>
+<td><p>0,686</p></td>
+<td><p>0,778</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,948</p></td>
+<td><p>0,960</p></td>
+<td><p>0,788</p></td>
+<td><p>0,835</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,924</p></td>
+<td><p>0,944</p></td>
+<td><p>0,739</p></td>
+<td><p>0,773</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El híbrido con ontología (C4) es la mejor configuración en el sintético y en el ampliado. En los
+dos conjuntos difíciles gana el denso con ontología (C2), y el híbrido queda igual o por debajo.
+BM25 es la configuración de menor desempeño en los cuatro conjuntos. En el sintético su
+Recall&#64;100 es <span class="math notranslate nohighlight">\(0{,}950\)</span>, por debajo de <span class="math notranslate nohighlight">\(1{,}000\)</span>, porque BM25 solo devuelve documentos que
+comparten algún término con la consulta y, cuando no hay coincidencia, el objetivo no aparece.
+En el difícil A su nDCG&#64;10 es bajo por construcción, porque en los niveles A y B la consulta no
+comparte raíces con la descripción del documento. Las demás configuraciones devuelven los
+diecisiete documentos, de modo que su Recall&#64;100 vale trivialmente <span class="math notranslate nohighlight">\(1\)</span> y no discrimina.</p>
+</section>
+<section id="estadistica-de-la-escalera">
+<h2>Estadística de la escalera<a class="headerlink" href="#estadistica-de-la-escalera" title="Link to this heading">#</a></h2>
+<p>Las cinco comparaciones de la escalera forman una familia: C3 frente a BM25, C3 frente a C1, C2
+frente a C1, C4 frente a C3 y C5 frente a C4. Cada una se contrasta con la prueba de Wilcoxon
+pareada y con una prueba de permutación de signos, los <span class="math notranslate nohighlight">\(p\)</span>-valores se ajustan con Holm dentro de
+la familia y la diferencia se declara concordante solo si las dos pruebas la rechazan. Las
+comparaciones sobre los conjuntos fijados en el plan (sintético, ampliado, difícil A) son
+confirmatorias; el difícil B es una réplica.</p>
+<p>Diferencia media de nDCG&#64;10 (primera configuración menos segunda) y, entre paréntesis, el mayor
+de los dos <span class="math notranslate nohighlight">\(p\)</span>-valores ajustados por Holm. El asterisco marca las concordantes.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comparación</p></th>
+<th class="head"><p>Sintético</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Difícil A</p></th>
+<th class="head"><p>Difícil B</p></th>
+<th class="head"><p>A+B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 − BM25 (P1)</p></td>
+<td><p>+0,073 (0,021) *</p></td>
+<td><p>+0,056 (0,009) *</p></td>
+<td><p>+0,500 (&lt;0,001) *</p></td>
+<td><p>+0,356 (&lt;0,001) *</p></td>
+<td><p>+0,413 (&lt;0,001) *</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 − C1 (P1)</p></td>
+<td><p>+0,026 (0,820)</p></td>
+<td><p>+0,011 (0,672)</p></td>
+<td><p>−0,026 (0,214)</p></td>
+<td><p>−0,005 (0,814)</p></td>
+<td><p>−0,013 (0,356)</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 − C1 (P3, denso)</p></td>
+<td><p>+0,065 (0,027) *</p></td>
+<td><p>−0,004 (0,672)</p></td>
+<td><p>+0,122 (0,002) *</p></td>
+<td><p>+0,054 (0,006) *</p></td>
+<td><p>+0,081 (&lt;0,001) *</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 − C3 (P3, híbrido)</p></td>
+<td><p>+0,056 (0,043) *</p></td>
+<td><p>+0,016 (0,406)</p></td>
+<td><p>+0,102 (0,072)</p></td>
+<td><p>+0,058 (0,157)</p></td>
+<td><p>+0,075 (0,011) *</p></td>
+</tr>
+<tr class="row-even"><td><p>C5 − C4 (P5)</p></td>
+<td><p>−0,024 (0,820)</p></td>
+<td><p>−0,016 (0,250)</p></td>
+<td><p>−0,049 (0,035) *</p></td>
+<td><p>−0,063 (0,023) *</p></td>
+<td><p>−0,057 (0,001) *</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La prueba de Wilcoxon descarta las consultas en las que las dos configuraciones obtienen la
+misma métrica, así que el poder real de cada contraste lo da el número de pares con diferencia
+no nula y no el total de consultas.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comparación</p></th>
+<th class="head"><p>Sintético</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Difícil A</p></th>
+<th class="head"><p>Difícil B</p></th>
+<th class="head"><p>A+B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 − BM25</p></td>
+<td><p>11/40</p></td>
+<td><p>31/127</p></td>
+<td><p>45/52</p></td>
+<td><p>45/78</p></td>
+<td><p>90/130</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 − C1</p></td>
+<td><p>11/40</p></td>
+<td><p>16/127</p></td>
+<td><p>19/52</p></td>
+<td><p>23/78</p></td>
+<td><p>42/130</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 − C1</p></td>
+<td><p>10/40</p></td>
+<td><p>11/127</p></td>
+<td><p>21/52</p></td>
+<td><p>21/78</p></td>
+<td><p>42/130</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 − C3</p></td>
+<td><p>10/40</p></td>
+<td><p>13/127</p></td>
+<td><p>34/52</p></td>
+<td><p>30/78</p></td>
+<td><p>64/130</p></td>
+</tr>
+<tr class="row-even"><td><p>C5 − C4</p></td>
+<td><p>3/40</p></td>
+<td><p>5/127</p></td>
+<td><p>8/52</p></td>
+<td><p>15/78</p></td>
+<td><p>23/130</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las dos tablas explican por qué ampliar el número de consultas no bastaba. En el ampliado, la
+comparación C4 frente a C3 se apoya en <span class="math notranslate nohighlight">\(13\)</span> pares con diferencia no nula entre <span class="math notranslate nohighlight">\(127\)</span> consultas,
+porque en las demás todas las configuraciones dejan el objetivo primero. En la unión de los
+difíciles esa misma comparación tiene <span class="math notranslate nohighlight">\(64\)</span> pares de <span class="math notranslate nohighlight">\(130\)</span>, y con ese poder resulta concordante
+(<span class="math notranslate nohighlight">\(+0{,}075\)</span>).</p>
+<p>El híbrido sin ontología supera a BM25 de forma concordante en los cuatro conjuntos y en la
+unión, incluida la réplica B, así que la primera parte de la hipótesis H1 se sostiene. La
+segunda parte, que el híbrido supere también al denso puro, no se sostiene: la diferencia entre
+C3 y C1 es pequeña, cambia de signo y no es significativa en ningún conjunto. Casi toda la
+ventaja del híbrido sobre BM25 la aporta el codificador denso por sí solo; en el metaanálisis de
+los difíciles, C1 frente a BM25 vale <span class="math notranslate nohighlight">\(+0{,}442\)</span> (ver <a class="reference internal" href="06_validez_y_robustez.html"><span class="std std-doc">validez y robustez</span></a>).</p>
+</section>
+<section id="resultados-por-estrato-p2">
+<h2>Resultados por estrato (P2)<a class="headerlink" href="#resultados-por-estrato-p2" title="Link to this heading">#</a></h2>
+<p>nDCG&#64;10 por estrato en el conjunto ampliado.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Entidad exacta (<span class="math notranslate nohighlight">\(n=55\)</span>)</p></th>
+<th class="head"><p>Operacional (<span class="math notranslate nohighlight">\(n=35\)</span>)</p></th>
+<th class="head"><p>Documento largo (<span class="math notranslate nohighlight">\(n=25\)</span>)</p></th>
+<th class="head"><p>Ambigua (<span class="math notranslate nohighlight">\(n=12\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,862</p></td>
+<td><p>0,893</p></td>
+<td><p>0,910</p></td>
+<td><p>0,938</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,925</p></td>
+<td><p>0,961</p></td>
+<td><p>0,945</p></td>
+<td><p>0,854</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,913</p></td>
+<td><p>0,961</p></td>
+<td><p>0,945</p></td>
+<td><p>0,866</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>0,926</p></td>
+<td><p>0,957</p></td>
+<td><p>0,950</p></td>
+<td><p>0,969</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,980</p></td>
+<td><p>0,941</p></td>
+<td><p>0,946</p></td>
+<td><p>0,953</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,980</p></td>
+<td><p>0,930</p></td>
+<td><p>0,880</p></td>
+<td><p>0,953</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>nDCG&#64;10 por estrato en el conjunto sintético.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Entidad exacta (<span class="math notranslate nohighlight">\(n=17\)</span>)</p></th>
+<th class="head"><p>Ambigua (<span class="math notranslate nohighlight">\(n=13\)</span>)</p></th>
+<th class="head"><p>Documento largo (<span class="math notranslate nohighlight">\(n=10\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,883</p></td>
+<td><p>0,846</p></td>
+<td><p>0,677</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,875</p></td>
+<td><p>0,894</p></td>
+<td><p>0,815</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,931</p></td>
+<td><p>0,956</p></td>
+<td><p>0,900</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>0,972</p></td>
+<td><p>0,920</p></td>
+<td><p>0,721</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,976</p></td>
+<td><p>0,962</p></td>
+<td><p>0,884</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,957</p></td>
+<td><p>0,962</p></td>
+<td><p>0,819</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En el estrato de entidad exacta del ampliado, C4 alcanza <span class="math notranslate nohighlight">\(0{,}980\)</span>, frente a <span class="math notranslate nohighlight">\(0{,}926\)</span> de C3,
+<span class="math notranslate nohighlight">\(0{,}925\)</span> del denso puro y <span class="math notranslate nohighlight">\(0{,}862\)</span> de BM25. El híbrido sin ontología no mejora al denso puro en
+ese estrato (<span class="math notranslate nohighlight">\(+0{,}001\)</span>, <span class="math notranslate nohighlight">\(p\)</span> de Holm de <span class="math notranslate nohighlight">\(1{,}000\)</span>), de modo que la ventaja aparece solo cuando se
+añade la ontología, y la comparación C4 frente a C3 en el estrato (<span class="math notranslate nohighlight">\(+0{,}054\)</span>) tampoco es
+concordante (<span class="math notranslate nohighlight">\(p\)</span> de Holm de <span class="math notranslate nohighlight">\(0{,}069\)</span> con Wilcoxon y <span class="math notranslate nohighlight">\(0{,}054\)</span> con permutación). En el sintético,
+C3 supera al denso puro en el estrato (<span class="math notranslate nohighlight">\(0{,}972\)</span> frente a <span class="math notranslate nohighlight">\(0{,}875\)</span>), sin significancia con <span class="math notranslate nohighlight">\(17\)</span>
+consultas (<span class="math notranslate nohighlight">\(p\)</span> de Holm de <span class="math notranslate nohighlight">\(0{,}577\)</span>). Los contrastes por estrato no tienen una corrección global
+entre estratos y se leen como exploratorios; el estrato ambiguo, con <span class="math notranslate nohighlight">\(12\)</span> consultas, no admite
+conclusiones.</p>
+</section>
+<section id="id1">
+<h2>El control sin nombre propio<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>nDCG&#64;10 de las <span class="math notranslate nohighlight">\(55\)</span> consultas del estrato de entidad exacta del ampliado, con la consulta
+original y con el nombre propio borrado.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Con nombre</p></th>
+<th class="head"><p>Sin nombre</p></th>
+<th class="head"><p>Diferencia</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,862</p></td>
+<td><p>0,854</p></td>
+<td><p>−0,008</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,925</p></td>
+<td><p>0,966</p></td>
+<td><p>+0,041</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,913</p></td>
+<td><p>1,000</p></td>
+<td><p>+0,087</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>0,926</p></td>
+<td><p>0,953</p></td>
+<td><p>+0,027</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,980</p></td>
+<td><p>1,000</p></td>
+<td><p>+0,020</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,980</p></td>
+<td><p>1,000</p></td>
+<td><p>+0,020</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Al quitar el nombre, el desempeño sube en cinco de las seis configuraciones; solo BM25 baja, y
+marginalmente. Los nombres sintéticos no figuran en ningún documento del corpus, que describe
+reportes y no personas. Para la señal léxica son términos sin coincidencia y para la densa, un
+elemento de distracción. El estrato mide entonces cuánto describe la consulta el tema de un
+reporte, y no la capacidad de localizar una entidad, por lo que la hipótesis H2 no es
+contrastable con este diseño.</p>
+<p>El problema está en el instrumento de medida. Un estrato de entidad exacta solo es válido si la
+entidad objetivo figura en el documento indexado, y esa condición de validez es una de las
+contribuciones metodológicas de la tesis. El <a class="reference internal" href="03_corpus_definitivo_177.html"><span class="std std-doc">corpus definitivo</span></a> y
+el <a class="reference internal" href="05_registro_completo.html"><span class="std std-doc">registro completo</span></a> se usaron después para contrastar P2 en
+condiciones en las que sí se cumple.</p>
+</section>
+<section id="la-ontologia-p3">
+<h2>La ontología (P3)<a class="headerlink" href="#la-ontologia-p3" title="Link to this heading">#</a></h2>
+<p>El efecto de la ontología cambia con el conjunto. Sobre el denso (C2 frente a C1) es concordante
+en el sintético (<span class="math notranslate nohighlight">\(+0{,}065\)</span>), en el difícil A (<span class="math notranslate nohighlight">\(+0{,}122\)</span>) y en la réplica B (<span class="math notranslate nohighlight">\(+0{,}054\)</span>), y nulo en
+el ampliado (<span class="math notranslate nohighlight">\(-0{,}004\)</span>). Sobre el híbrido (C4 frente a C3) es concordante en el sintético
+(<span class="math notranslate nohighlight">\(+0{,}056\)</span>) y en la unión de los difíciles (<span class="math notranslate nohighlight">\(+0{,}075\)</span>); en A (<span class="math notranslate nohighlight">\(+0{,}102\)</span>, <span class="math notranslate nohighlight">\(p\)</span> de Holm de <span class="math notranslate nohighlight">\(0{,}072\)</span>) y
+en B (<span class="math notranslate nohighlight">\(+0{,}058\)</span>) por separado el signo y la magnitud coinciden y solo falta poder. El patrón es
+coherente con un puente de vocabulario: la ontología ayuda cuando la consulta se aparta del
+vocabulario del documento, como en las paráfrasis, y no aporta en el ampliado, cuyas consultas
+se sintetizaron desde los filtros del propio reporte.</p>
+<section id="por-nivel-de-solape">
+<h3>Por nivel de solape<a class="headerlink" href="#por-nivel-de-solape" title="Link to this heading">#</a></h3>
+<p>nDCG&#64;10 en la unión de los difíciles (<span class="math notranslate nohighlight">\(n=130\)</span>) por nivel de solape calculado.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Nivel A: puente (<span class="math notranslate nohighlight">\(n=52\)</span>)</p></th>
+<th class="head"><p>Nivel B: sin puente (<span class="math notranslate nohighlight">\(n=21\)</span>)</p></th>
+<th class="head"><p>Nivel C: con solape (<span class="math notranslate nohighlight">\(n=57\)</span>)</p></th>
+<th class="head"><p>Global (<span class="math notranslate nohighlight">\(n=130\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,000</p></td>
+<td><p>0,000</p></td>
+<td><p>0,747</p></td>
+<td><p>0,328</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,689</p></td>
+<td><p>0,766</p></td>
+<td><p>0,810</p></td>
+<td><p>0,754</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,819</p></td>
+<td><p>0,801</p></td>
+<td><p>0,864</p></td>
+<td><p>0,836</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido sin ontología</p></td>
+<td><p>0,636</p></td>
+<td><p>0,744</p></td>
+<td><p>0,836</p></td>
+<td><p>0,741</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,870</p></td>
+<td><p>0,658</p></td>
+<td><p>0,826</p></td>
+<td><p>0,816</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,810</p></td>
+<td><p>0,655</p></td>
+<td><p>0,752</p></td>
+<td><p>0,759</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En el nivel A, donde la consulta comparte raíces con el bloque de ontología pero no con la
+descripción, el denso con ontología alcanza <span class="math notranslate nohighlight">\(0{,}819\)</span> frente a <span class="math notranslate nohighlight">\(0{,}689\)</span> del denso puro, y el
+híbrido con ontología <span class="math notranslate nohighlight">\(0{,}870\)</span> frente a <span class="math notranslate nohighlight">\(0{,}636\)</span> del híbrido sin ella. En el nivel B, sin ese
+puente, el denso puro llega a <span class="math notranslate nohighlight">\(0{,}766\)</span> y la ontología aporta poco (<span class="math notranslate nohighlight">\(0{,}801\)</span>), porque la
+recuperación depende casi por completo del modelo denso. BM25 vale cero en los niveles A y B
+por construcción.</p>
+</section>
+<section id="la-cobertura-parcial-un-efecto-no-previsto">
+<h3>La cobertura parcial: un efecto no previsto<a class="headerlink" href="#la-cobertura-parcial-un-efecto-no-previsto" title="Link to this heading">#</a></h3>
+<p>Como solo <span class="math notranslate nohighlight">\(9\)</span> de los <span class="math notranslate nohighlight">\(17\)</span> reportes tienen bloque de ontología, se separaron las consultas según
+el reporte objetivo esté enriquecido o no. Es un análisis exploratorio, sin corrección de Holm,
+que debe leerse como generador de hipótesis.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Conjunto</p></th>
+<th class="head"><p>Grupo</p></th>
+<th class="head"><p>Comparación</p></th>
+<th class="head"><p>Δ</p></th>
+<th class="head"><p>Pares ≠ 0</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p\)</span> Wilcoxon</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p\)</span> permutación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>difícil A</p></td>
+<td><p>objetivo enriquecido (<span class="math notranslate nohighlight">\(n=36\)</span>)</p></td>
+<td><p>C2 − C1</p></td>
+<td><p>+0,180</p></td>
+<td><p>16</p></td>
+<td><p>&lt;0,001</p></td>
+<td><p>&lt;0,001</p></td>
+</tr>
+<tr class="row-odd"><td><p>difícil A</p></td>
+<td><p>objetivo enriquecido (<span class="math notranslate nohighlight">\(n=36\)</span>)</p></td>
+<td><p>C4 − C3</p></td>
+<td><p>+0,219</p></td>
+<td><p>26</p></td>
+<td><p>&lt;0,001</p></td>
+<td><p>&lt;0,001</p></td>
+</tr>
+<tr class="row-even"><td><p>difícil A</p></td>
+<td><p>objetivo sin enriquecer (<span class="math notranslate nohighlight">\(n=16\)</span>)</p></td>
+<td><p>C2 − C1</p></td>
+<td><p>−0,006</p></td>
+<td><p>5</p></td>
+<td><p>0,684</p></td>
+<td><p>0,875</p></td>
+</tr>
+<tr class="row-odd"><td><p>difícil A</p></td>
+<td><p>objetivo sin enriquecer (<span class="math notranslate nohighlight">\(n=16\)</span>)</p></td>
+<td><p>C4 − C3</p></td>
+<td><p>−0,161</p></td>
+<td><p>8</p></td>
+<td><p>0,012</p></td>
+<td><p>0,008</p></td>
+</tr>
+<tr class="row-even"><td><p>ampliado</p></td>
+<td><p>objetivo enriquecido (<span class="math notranslate nohighlight">\(n=112\)</span>)</p></td>
+<td><p>C2 − C1</p></td>
+<td><p>−0,005</p></td>
+<td><p>11</p></td>
+<td><p>0,655</p></td>
+<td><p>0,555</p></td>
+</tr>
+<tr class="row-odd"><td><p>ampliado</p></td>
+<td><p>objetivo enriquecido (<span class="math notranslate nohighlight">\(n=112\)</span>)</p></td>
+<td><p>C4 − C3</p></td>
+<td><p>+0,019</p></td>
+<td><p>13</p></td>
+<td><p>0,126</p></td>
+<td><p>0,135</p></td>
+</tr>
+<tr class="row-even"><td><p>ampliado</p></td>
+<td><p>objetivo sin enriquecer (<span class="math notranslate nohighlight">\(n=15\)</span>)</p></td>
+<td><p>C2 − C1</p></td>
+<td><p>+0,000</p></td>
+<td><p>0</p></td>
+<td><p>n/d</p></td>
+<td><p>n/d</p></td>
+</tr>
+<tr class="row-odd"><td><p>ampliado</p></td>
+<td><p>objetivo sin enriquecer (<span class="math notranslate nohighlight">\(n=15\)</span>)</p></td>
+<td><p>C4 − C3</p></td>
+<td><p>+0,000</p></td>
+<td><p>0</p></td>
+<td><p>n/d</p></td>
+<td><p>n/d</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Cuando el objetivo está enriquecido, la ontología aporta mucho en el conjunto difícil. Cuando no
+lo está, el híbrido con ontología empeora (<span class="math notranslate nohighlight">\(-0{,}161\)</span>, <span class="math notranslate nohighlight">\(p&lt;0{,}02\)</span> con ambas pruebas), porque los
+documentos enriquecidos, más largos y con más términos, compiten con ventaja frente a los que no
+lo están. En el ampliado el efecto no aparece porque sus consultas son fáciles.</p>
+</section>
+<section id="la-ontologia-ampliada-a-catorce-reportes">
+<h3>La ontología ampliada a catorce reportes<a class="headerlink" href="#la-ontologia-ampliada-a-catorce-reportes" title="Link to this heading">#</a></h3>
+<p>Para poner a prueba esa hipótesis («la ontología tiene que cubrir todo el corpus») se
+enriquecieron también los reportes que admiten un mapeo, sin redactar texto libre ni mirar las
+consultas. Las entidades de cada reporte se derivaron de las columnas y filtros reales de sus
+firmas, cruzados con las propiedades de datos de cada clase de la ontología, y la clase
+Promoción se descartó salvo que la firma use el registro de promociones. La cobertura pasó de
+<span class="math notranslate nohighlight">\(9\)</span> a <span class="math notranslate nohighlight">\(14\)</span> reportes; tres quedaron sin enriquecer porque sus columnas no se asocian a ninguna
+clase. El enriquecimiento es deliberadamente pobre: entidades y sinónimos, sin las preguntas de
+negocio que tienen los nueve originales.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Conjunto</p></th>
+<th class="head"><p>Denso: sin / parcial / ampliada</p></th>
+<th class="head"><p>Híbrido: sin / parcial / ampliada</p></th>
+<th class="head"><p>Híbrido, objetivos antes sin bloque (ampliada − parcial)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sintético</p></td>
+<td><p>0,866 / 0,931 / 0,904</p></td>
+<td><p>0,893 / 0,948 / 0,937</p></td>
+<td><p>n/d</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ampliado</p></td>
+<td><p>0,932 / 0,928 / 0,921</p></td>
+<td><p>0,943 / 0,960 / 0,960</p></td>
+<td><p>+0,009 (<span class="math notranslate nohighlight">\(n=15\)</span>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Difícil A</p></td>
+<td><p>0,712 / 0,835 / 0,819</p></td>
+<td><p>0,686 / 0,788 / 0,801</p></td>
+<td><p>+0,071 (<span class="math notranslate nohighlight">\(n=16\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Difícil B</p></td>
+<td><p>0,783 / 0,837 / 0,833</p></td>
+<td><p>0,778 / 0,835 / 0,839</p></td>
+<td><p>+0,066 (<span class="math notranslate nohighlight">\(n=24\)</span>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ampliar la cobertura no mejora el desempeño global: el híbrido pasa de <span class="math notranslate nohighlight">\(0{,}948\)</span> a <span class="math notranslate nohighlight">\(0{,}937\)</span> en el
+sintético, se mantiene en <span class="math notranslate nohighlight">\(0{,}960\)</span> en el ampliado y cambia <span class="math notranslate nohighlight">\(+0{,}013\)</span> y <span class="math notranslate nohighlight">\(+0{,}004\)</span> en los difíciles,
+todo dentro del ruido. Sí recupera a los reportes antes perjudicados, en dirección: <span class="math notranslate nohighlight">\(+0{,}071\)</span> en
+A y <span class="math notranslate nohighlight">\(+0{,}066\)</span> en B, con <span class="math notranslate nohighlight">\(p\)</span> de Wilcoxon de <span class="math notranslate nohighlight">\(0{,}46\)</span> y <span class="math notranslate nohighlight">\(0{,}06\)</span>. La dirección coincide en dos muestras
+independientes, pero ninguna diferencia es significativa, así que la hipótesis queda con apoyo
+sugerente y sin confirmar. Un enriquecimiento mecánico y pobre tampoco equivale al trabajo de
+modelado de los nueve originales.</p>
+</section>
+</section>
+<section id="el-realce-por-entidad-p5">
+<h2>El realce por entidad (P5)<a class="headerlink" href="#el-realce-por-entidad-p5" title="Link to this heading">#</a></h2>
+<p>El realce es el único componente de la escalera que nunca mejora el orden. C5 frente a C4 vale
+<span class="math notranslate nohighlight">\(-0{,}024\)</span> en el sintético, <span class="math notranslate nohighlight">\(-0{,}016\)</span> en el ampliado (donde <span class="math notranslate nohighlight">\(5\)</span> consultas empeoran y ninguna mejora),
+<span class="math notranslate nohighlight">\(-0{,}049\)</span> en el difícil A y <span class="math notranslate nohighlight">\(-0{,}063\)</span> en el B, estos dos concordantes, y <span class="math notranslate nohighlight">\(-0{,}057\)</span> en la unión.</p>
+<p>La causa está en el detector de entidades, diagnosticado con su versión corregida. Visto como un
+clasificador de pares consulta–documento cuya etiqueta ideal es que el documento sea el
+objetivo, el detector tiene estas cifras en los tres conjuntos diagnosticados (el difícil B no se
+incluyó):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Medida</p></th>
+<th class="head"><p>Rango en los tres conjuntos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Precisión</p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}17\)</span>, <span class="math notranslate nohighlight">\(0{,}13\)</span> y <span class="math notranslate nohighlight">\(0{,}10\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Recall</em></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}70\)</span>, <span class="math notranslate nohighlight">\(0{,}74\)</span> y <span class="math notranslate nohighlight">\(0{,}38\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Documentos activados por consulta</p></td>
+<td><p>entre <span class="math notranslate nohighlight">\(4{,}0\)</span> y <span class="math notranslate nohighlight">\(5{,}7\)</span> de <span class="math notranslate nohighlight">\(17\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Precisión de una activación al azar</p></td>
+<td><p>cercana a <span class="math notranslate nohighlight">\(0{,}06\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El detector es entre <span class="math notranslate nohighlight">\(1{,}7\)</span> y <span class="math notranslate nohighlight">\(2{,}9\)</span> veces más preciso que el azar, y aun así no sirve. Casi
+todos los reportes cubren las mismas clases del dominio (deportista, grupo, institución), así
+que el factor multiplicativo eleva a un grupo de documentos a la vez y el correcto no gana
+posiciones frente a los demás. El realce se descarta en la Versión 1. Solo tendría sentido con un
+detector que resuelva la mención concreta contra un diccionario de entidades, que es lo que se
+evaluó después sobre el <a class="reference internal" href="05_registro_completo.html"><span class="std std-doc">registro completo</span></a>.</p>
+<p>Antes de la auditoría, en una evaluación con consultas desde firmas, el realce parecía ayudar.
+Esas cifras se calcularon con un detector que coincidía por subcadena y sin las demás
+correcciones, y quedaron invalidadas. Ninguna cifra válida de la tesis muestra un realce que
+mejore.</p>
+</section>
+<section id="es-rrf-la-mejor-fusion">
+<h2>¿Es RRF la mejor fusión?<a class="headerlink" href="#es-rrf-la-mejor-fusion" title="Link to this heading">#</a></h2>
+<p>La literatura sugiere que una combinación convexa de puntuaciones supera a RRF, y en los
+resultados anteriores el híbrido no supera al denso. Se compararon cuatro alternativas sobre las
+puntuaciones crudas de BM25 y del denso, todas sobre el texto enriquecido: la combinación convexa
+con normalización min–max o <span class="math notranslate nohighlight">\(z\)</span>, un RRF ponderado a favor del denso y un RRF con compuerta que
+descarta la señal léxica cuando cubre menos de cierta fracción de la consulta. Para evitar la
+fuga que supondría elegir el parámetro en el mismo conjunto en que se evalúa, cada parámetro se
+elige con los otros tres conjuntos (<em>leave-one-set-out</em>) y se aplica sin retocar. Una comprobación
+de sanidad confirma que el RRF del código de fusión reproduce exactamente C1 a C4. Este análisis
+corresponde a la hipótesis exploratoria H7.</p>
+<p>nDCG&#64;10 y, entre paréntesis, la diferencia con RRF (<span class="math notranslate nohighlight">\(k=60\)</span>).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variante (texto enriquecido)</p></th>
+<th class="head"><p>Sintético</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Difícil A</p></th>
+<th class="head"><p>Difícil B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25 solo</p></td>
+<td><p>0,920</p></td>
+<td><p>0,906</p></td>
+<td><p>0,545</p></td>
+<td><p>0,730</p></td>
+</tr>
+<tr class="row-odd"><td><p>Denso (C2)</p></td>
+<td><p>0,931</p></td>
+<td><p>0,928</p></td>
+<td><p>0,835</p></td>
+<td><p>0,837</p></td>
+</tr>
+<tr class="row-even"><td><p>RRF <span class="math notranslate nohighlight">\(k=60\)</span> (C4)</p></td>
+<td><p>0,948</p></td>
+<td><p>0,960</p></td>
+<td><p>0,788</p></td>
+<td><p>0,835</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convexa min–max</p></td>
+<td><p>0,958 (+0,010)</p></td>
+<td><p>0,959 (−0,000)</p></td>
+<td><p>0,802 (+0,014)</p></td>
+<td><p>0,875 (+0,039)</p></td>
+</tr>
+<tr class="row-even"><td><p>Convexa <span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p>0,949 (+0,001)</p></td>
+<td><p>0,959 (−0,001)</p></td>
+<td><p>0,804 (+0,017)</p></td>
+<td><p>0,870 (+0,034)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RRF ponderado</p></td>
+<td><p>0,952 (+0,004)</p></td>
+<td><p>0,959 (−0,001)</p></td>
+<td><p>0,784 (−0,004)</p></td>
+<td><p>0,854 (+0,019)</p></td>
+</tr>
+<tr class="row-even"><td><p>RRF con compuerta</p></td>
+<td><p>0,942 (−0,006)</p></td>
+<td><p>0,960 (+0,000)</p></td>
+<td><p>0,850 (+0,062)</p></td>
+<td><p>0,847 (+0,011)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Con diecisiete reportes ninguna alternativa supera a RRF de forma concordante. La convexa es
+mejor en dirección en los difíciles y en el sintético, pero no en el ampliado, y ninguna
+diferencia sobrevive a Holm. La compuerta mejora el difícil A (<span class="math notranslate nohighlight">\(+0{,}062\)</span>, <span class="math notranslate nohighlight">\(p\)</span> de Holm de <span class="math notranslate nohighlight">\(0{,}026\)</span> con
+Wilcoxon y <span class="math notranslate nohighlight">\(0{,}054\)</span> con permutación) pero solo <span class="math notranslate nohighlight">\(+0{,}011\)</span> en la réplica, así que la mejora no se
+confirma. BM25 sobre el texto enriquecido da <span class="math notranslate nohighlight">\(0{,}545\)</span> en el difícil A, frente a <span class="math notranslate nohighlight">\(0{,}186\)</span> sobre la
+descripción, porque el bloque de ontología le da términos con los que coincidir.</p>
+<p>Con diecisiete documentos el híbrido tampoco perjudica al denso de manera consistente: C4 queda
+por debajo de C2 en el difícil A (<span class="math notranslate nohighlight">\(-0{,}047\)</span>, sin significancia), igual en la réplica (<span class="math notranslate nohighlight">\(-0{,}002\)</span>) y
+por encima en el ampliado (<span class="math notranslate nohighlight">\(+0{,}032\)</span>; <span class="math notranslate nohighlight">\(p\)</span> de <span class="math notranslate nohighlight">\(0{,}019\)</span> con Wilcoxon y <span class="math notranslate nohighlight">\(0{,}012\)</span> con permutación, sin
+corregir). La convexa con peso <span class="math notranslate nohighlight">\(0{,}8\)</span> para el denso fue la elegida en tres de los cuatro cortes de
+este corpus, el mismo valor que luego se eligió sin fuga en el <a class="reference internal" href="04_corpus_v3_811.html"><span class="std std-doc">corpus v3</span></a>,
+donde la conclusión sobre la fusión cambia.</p>
+</section>
+<section id="sensibilidad-a-los-hiperparametros">
+<h2>Sensibilidad a los hiperparámetros<a class="headerlink" href="#sensibilidad-a-los-hiperparametros" title="Link to this heading">#</a></h2>
+<p>Los hiperparámetros se tomaron de la literatura sin ajustarlos. El barrido comprueba si las
+conclusiones dependen de esa elección. Filas de <span class="math notranslate nohighlight">\(k\)</span>: C3 / C4. Filas de <span class="math notranslate nohighlight">\(\lambda\)</span>: C5 y su
+diferencia con C4. Filas de <span class="math notranslate nohighlight">\(k_1\)</span> y <span class="math notranslate nohighlight">\(b\)</span>: BM25 / C4.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Sintético</p></th>
+<th class="head"><p>Ampliado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k=1\)</span></p></td>
+<td><p>0,856 / 0,943</p></td>
+<td><p>0,947 / 0,958</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k=10\)</span></p></td>
+<td><p>0,893 / 0,948</p></td>
+<td><p>0,943 / 0,961</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k=30\)</span></p></td>
+<td><p>0,893 / 0,948</p></td>
+<td><p>0,943 / 0,960</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k=60\)</span></p></td>
+<td><p>0,893 / 0,948</p></td>
+<td><p>0,943 / 0,960</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k=100\)</span></p></td>
+<td><p>0,893 / 0,948</p></td>
+<td><p>0,943 / 0,960</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k=200\)</span></p></td>
+<td><p>0,893 / 0,948</p></td>
+<td><p>0,943 / 0,960</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}0\)</span></p></td>
+<td><p>0,948 (+0,000)</p></td>
+<td><p>0,960 (+0,000)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}05\)</span></p></td>
+<td><p>0,929 (−0,019)</p></td>
+<td><p>0,949 (−0,011)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}1\)</span></p></td>
+<td><p>0,926 (−0,022)</p></td>
+<td><p>0,945 (−0,015)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span></p></td>
+<td><p>0,924 (−0,024)</p></td>
+<td><p>0,944 (−0,016)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}3\)</span></p></td>
+<td><p>0,924 (−0,024)</p></td>
+<td><p>0,944 (−0,016)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\lambda=0{,}5\)</span></p></td>
+<td><p>0,924 (−0,024)</p></td>
+<td><p>0,944 (−0,016)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k_1=0{,}9\)</span>, <span class="math notranslate nohighlight">\(b=0{,}5\)</span></p></td>
+<td><p>0,815 / 0,950</p></td>
+<td><p>0,878 / 0,961</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k_1=0{,}9\)</span>, <span class="math notranslate nohighlight">\(b=0{,}9\)</span></p></td>
+<td><p>0,819 / 0,948</p></td>
+<td><p>0,863 / 0,963</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k_1=1{,}5\)</span>, <span class="math notranslate nohighlight">\(b=0{,}5\)</span></p></td>
+<td><p>0,819 / 0,951</p></td>
+<td><p>0,902 / 0,961</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k_1=1{,}5\)</span>, <span class="math notranslate nohighlight">\(b=0{,}9\)</span></p></td>
+<td><p>0,828 / 0,948</p></td>
+<td><p>0,849 / 0,961</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k_1=2{,}0\)</span>, <span class="math notranslate nohighlight">\(b=0{,}5\)</span></p></td>
+<td><p>0,819 / 0,952</p></td>
+<td><p>0,905 / 0,967</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k_1=2{,}0\)</span>, <span class="math notranslate nohighlight">\(b=0{,}9\)</span></p></td>
+<td><p>0,828 / 0,949</p></td>
+<td><p>0,855 / 0,961</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Para <span class="math notranslate nohighlight">\(k\ge 30\)</span> los resultados de C3 y C4 son idénticos a los de <span class="math notranslate nohighlight">\(k=60\)</span> en los dos conjuntos, y con
+<span class="math notranslate nohighlight">\(k=10\)</span> cambia a lo sumo una consulta; solo <span class="math notranslate nohighlight">\(k=1\)</span> altera el orden de unas pocas (<span class="math notranslate nohighlight">\(5\)</span> de C3 y <span class="math notranslate nohighlight">\(2\)</span> de C4
+en el sintético, <span class="math notranslate nohighlight">\(9\)</span> y <span class="math notranslate nohighlight">\(5\)</span> en el ampliado). Esa insensibilidad se debe en parte al tamaño del
+corpus: con diecisiete documentos los rangos van de <span class="math notranslate nohighlight">\(1\)</span> a <span class="math notranslate nohighlight">\(17\)</span> y la constante apenas altera el
+orden relativo de las sumas, así que no debe extrapolarse a corpus grandes. Cualquier
+<span class="math notranslate nohighlight">\(\lambda&gt;0\)</span> iguala o empeora a <span class="math notranslate nohighlight">\(\lambda=0\)</span>, y desde <span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span> el resultado deja de cambiar,
+probablemente porque el factor ya basta para que los documentos activados superen a los demás.
+Variar <span class="math notranslate nohighlight">\(k_1\)</span> y <span class="math notranslate nohighlight">\(b\)</span> mueve a BM25 entre <span class="math notranslate nohighlight">\(0{,}815\)</span> y <span class="math notranslate nohighlight">\(0{,}828\)</span> en el sintético y entre <span class="math notranslate nohighlight">\(0{,}849\)</span> y <span class="math notranslate nohighlight">\(0{,}905\)</span>
+en el ampliado, mientras C4 se mantiene entre <span class="math notranslate nohighlight">\(0{,}948\)</span> y <span class="math notranslate nohighlight">\(0{,}952\)</span> y entre <span class="math notranslate nohighlight">\(0{,}960\)</span> y <span class="math notranslate nohighlight">\(0{,}967\)</span>: el
+híbrido supera a BM25 en toda la rejilla.</p>
+</section>
+<section id="dimension-del-vector-p6">
+<h2>Dimensión del vector (P6)<a class="headerlink" href="#dimension-del-vector-p6" title="Link to this heading">#</a></h2>
+<p>El codificador fue entrenado con representación Matryoshka, de modo que sus primeras <span class="math notranslate nohighlight">\(m\)</span>
+dimensiones ya forman un vector útil y se puede truncar sin reentrenar. La equivalencia se juzga
+con el criterio fijado en el plan: que el límite inferior del intervalo de confianza de la
+pérdida no baje de <span class="math notranslate nohighlight">\(-0{,}01\)</span>. Es una hipótesis de equivalencia (H6) y por eso se evalúa con el
+intervalo, no con un <span class="math notranslate nohighlight">\(p\)</span>-valor.</p>
+<p>nDCG&#64;10 de C4 y, entre paréntesis, la diferencia con <span class="math notranslate nohighlight">\(m=1.024\)</span> y si permite declarar equivalencia.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(m\)</span></p></th>
+<th class="head"><p>Sintético</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Ahorro de índice</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.024</p></td>
+<td><p>0,948 (+0,000; eq.)</p></td>
+<td><p>0,960 (+0,000; eq.)</p></td>
+<td><p>0 %</p></td>
+</tr>
+<tr class="row-odd"><td><p>768</p></td>
+<td><p>0,948 (+0,000; eq.)</p></td>
+<td><p>0,960 (+0,000; eq.)</p></td>
+<td><p>25 %</p></td>
+</tr>
+<tr class="row-even"><td><p>512</p></td>
+<td><p>0,931 (−0,018; no eq.)</p></td>
+<td><p>0,963 (+0,003; eq.)</p></td>
+<td><p>50 %</p></td>
+</tr>
+<tr class="row-odd"><td><p>256</p></td>
+<td><p>0,940 (−0,008; no eq.)</p></td>
+<td><p>0,963 (+0,003; eq.)</p></td>
+<td><p>75 %</p></td>
+</tr>
+<tr class="row-even"><td><p>128</p></td>
+<td><p>0,944 (−0,004; no eq.)</p></td>
+<td><p>0,944 (−0,016; no eq.)</p></td>
+<td><p>87,5 %</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>0,949 (+0,001; no eq.)</p></td>
+<td><p>0,923 (−0,037; no eq.)</p></td>
+<td><p>93,8 %</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En el ampliado, truncar a <span class="math notranslate nohighlight">\(256\)</span> dimensiones es equivalente a la dimensión nativa (<span class="math notranslate nohighlight">\(+0{,}003\)</span>,
+intervalo de <span class="math notranslate nohighlight">\(0{,}000\)</span> a <span class="math notranslate nohighlight">\(+0{,}009\)</span>), igual que <span class="math notranslate nohighlight">\(512\)</span> y <span class="math notranslate nohighlight">\(768\)</span>; a <span class="math notranslate nohighlight">\(128\)</span> la pérdida es pequeña pero
+detectable y a <span class="math notranslate nohighlight">\(64\)</span> es clara. Ese conjunto está cerca del techo, y en un conjunto saturado la
+equivalencia es casi automática. En los conjuntos difíciles, donde hay margen para perder, con
+<span class="math notranslate nohighlight">\(256\)</span> dimensiones la pérdida puntual es de <span class="math notranslate nohighlight">\(-0{,}009\)</span> y el intervalo llega a <span class="math notranslate nohighlight">\(-0{,}021\)</span>, así que no
+se puede declarar equivalencia; con <span class="math notranslate nohighlight">\(512\)</span> sí (<span class="math notranslate nohighlight">\(+0{,}007\)</span>, intervalo de <span class="math notranslate nohighlight">\(0{,}000\)</span> a <span class="math notranslate nohighlight">\(+0{,}017\)</span>). En el
+sintético, con <span class="math notranslate nohighlight">\(40\)</span> consultas, el intervalo es demasiado ancho para declarar equivalencia por
+debajo de <span class="math notranslate nohighlight">\(768\)</span>, un límite de poder del conjunto y no de calidad. La dimensión recomendada es
+<span class="math notranslate nohighlight">\(512\)</span>, la menor equivalente en todos los conjuntos; <span class="math notranslate nohighlight">\(256\)</span> es aceptable si la memoria se vuelve una
+restricción, con una pérdida esperada menor que un centésimo de nDCG&#64;10. Truncar reduce la
+memoria del índice y no la latencia, que la domina la codificación de la consulta.</p>
+</section>
+<section id="fragmentacion-de-los-documentos-p4">
+<h2>Fragmentación de los documentos (P4)<a class="headerlink" href="#fragmentacion-de-los-documentos-p4" title="Link to this heading">#</a></h2>
+<p>nDCG&#64;10 de C4 al dividir cada documento en fragmentos y agregar por máximo, con solapamiento de
+<span class="math notranslate nohighlight">\(0\%\)</span> y de <span class="math notranslate nohighlight">\(25\%\)</span>. Entre paréntesis, la diferencia con el documento completo.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tamaño</p></th>
+<th class="head"><p>Sintético, 0 %</p></th>
+<th class="head"><p>Sintético, 25 %</p></th>
+<th class="head"><p>Ampliado, 0 %</p></th>
+<th class="head"><p>Ampliado, 25 %</p></th>
+<th class="head"><p>Fragmentos por documento</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Documento completo</p></td>
+<td><p>0,948 (+0,000)</p></td>
+<td><p>0,948 (+0,000)</p></td>
+<td><p>0,960 (+0,000)</p></td>
+<td><p>0,960 (+0,000)</p></td>
+<td><p>1,00</p></td>
+</tr>
+<tr class="row-odd"><td><p>128 palabras</p></td>
+<td><p>0,939 (−0,009)</p></td>
+<td><p>0,952 (+0,004)</p></td>
+<td><p>0,951 (−0,009)</p></td>
+<td><p>0,953 (−0,007)</p></td>
+<td><p>1,24</p></td>
+</tr>
+<tr class="row-even"><td><p>64 palabras</p></td>
+<td><p>0,935 (−0,014)</p></td>
+<td><p>0,943 (−0,005)</p></td>
+<td><p>0,908 (−0,051)</p></td>
+<td><p>0,934 (−0,026)</p></td>
+<td><p>2,12</p></td>
+</tr>
+<tr class="row-odd"><td><p>40 palabras</p></td>
+<td><p>0,913 (−0,036)</p></td>
+<td><p>0,909 (−0,039)</p></td>
+<td><p>0,933 (−0,027)</p></td>
+<td><p>0,928 (−0,032)</p></td>
+<td><p>2,94</p></td>
+</tr>
+<tr class="row-even"><td><p>24 palabras</p></td>
+<td><p>0,896 (−0,052)</p></td>
+<td><p>0,925 (−0,023)</p></td>
+<td><p>0,897 (−0,063)</p></td>
+<td><p>0,912 (−0,048)</p></td>
+<td><p>4,65</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Fragmentar nunca supera al documento completo de forma apreciable. La única ganancia, <span class="math notranslate nohighlight">\(+0{,}004\)</span>
+en el sintético con fragmentos de <span class="math notranslate nohighlight">\(128\)</span> palabras y <span class="math notranslate nohighlight">\(25\%\)</span> de solapamiento, está dentro del ruido,
+y los fragmentos pequeños empeoran hasta <span class="math notranslate nohighlight">\(-0{,}063\)</span>. Con documentos de <span class="math notranslate nohighlight">\(64\)</span> a <span class="math notranslate nohighlight">\(184\)</span> palabras, por
+debajo de la ventana efectiva de cualquier codificador actual, era el resultado esperado. La
+hipótesis H4 no se sostiene, y la unidad de indexación es el reporte completo.</p>
+</section>
+<section id="escalamiento-de-la-busqueda-exacta">
+<h2>Escalamiento de la búsqueda exacta<a class="headerlink" href="#escalamiento-de-la-busqueda-exacta" title="Link to this heading">#</a></h2>
+<p>Para saber qué pasaría al crecer el corpus se midió la búsqueda exacta por fuerza bruta con
+vectores aleatorios de la forma real de los <em>embeddings</em>. Cada celda da la memoria del índice
+(MiB) y la latencia mediana de la búsqueda (ms), sin contar la codificación de la consulta.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(N\)</span> documentos</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(m=64\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(m=256\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(m=1.024\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.000</p></td>
+<td><p>0,2 / 0,02</p></td>
+<td><p>1,0 / 0,02</p></td>
+<td><p>3,9 / 0,03</p></td>
+</tr>
+<tr class="row-odd"><td><p>10.000</p></td>
+<td><p>2,4 / 0,11</p></td>
+<td><p>9,8 / 0,14</p></td>
+<td><p>39,1 / 0,98</p></td>
+</tr>
+<tr class="row-even"><td><p>100.000</p></td>
+<td><p>24,4 / 1,46</p></td>
+<td><p>97,7 / 3,09</p></td>
+<td><p>390,6 / 8,10</p></td>
+</tr>
+<tr class="row-odd"><td><p>200.000</p></td>
+<td><p>48,8 / 2,98</p></td>
+<td><p>195,3 / 6,63</p></td>
+<td><p>781,2 / 17,73</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hasta cientos de miles de documentos la búsqueda exacta sigue siendo despreciable frente a los
+<span class="math notranslate nohighlight">\(351\)</span> ms de codificar la consulta, y la truncación Matryoshka aporta sobre todo ahorro de
+memoria. La medida se tomó en un equipo personal con otras tareas activas, depende del equipo y
+no dice nada sobre calidad, pero basta para justificar que no se introduzca un índice aproximado
+en esta etapa.</p>
+</section>
+<section id="costo-computacional">
+<h2>Costo computacional<a class="headerlink" href="#costo-computacional" title="Link to this heading">#</a></h2>
+<p>Todas las cifras de costo provienen de una única campaña de medición en un equipo personal
+(procesador Apple M4 con aceleración por su GPU integrada, Python 3.14 y el modelo en precisión
+de <span class="math notranslate nohighlight">\(32\)</span> bits), con un solo proceso de medición, prioridad baja y una pasada de calentamiento.
+Sirven para comparar componentes y configuraciones entre sí, no para anticipar lo que mediría un
+servidor de producción. Las tareas fuera de línea se hacen una vez, al construir el índice; las
+en línea se repiten en cada consulta y su suma es lo que espera el usuario.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Componente</p></th>
+<th class="head"><p>Cuándo</p></th>
+<th class="head"><p>Costo</p></th>
+<th class="head"><p>Qué significa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Entrenamiento o ajuste</p></td>
+<td><p>nunca</p></td>
+<td><p>ninguno</p></td>
+<td><p>no hay que recolectar datos etiquetados ni usar una GPU dedicada</p></td>
+</tr>
+<tr class="row-odd"><td><p>Carga del codificador</p></td>
+<td><p>una vez, al iniciar el servicio</p></td>
+<td><p>7,3 s</p></td>
+<td><p>el usuario no lo espera</p></td>
+</tr>
+<tr class="row-even"><td><p>Memoria del proceso</p></td>
+<td><p>mientras el servicio está activo</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>el requisito de hardware principal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Índice BM25 de 17 documentos</p></td>
+<td><p>fuera de línea</p></td>
+<td><p>11 ms</p></td>
+<td><p>rehacer el índice léxico es instantáneo</p></td>
+</tr>
+<tr class="row-even"><td><p>Codificación de un documento</p></td>
+<td><p>fuera de línea</p></td>
+<td><p>≈ 141 ms</p></td>
+<td><p>menos de tres segundos para el corpus de la Versión 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Índice denso a 1.024 / 512 / 256 dimensiones</p></td>
+<td><p>mientras el servicio está activo</p></td>
+<td><p>68 / 34 / 17 KiB</p></td>
+<td><p>despreciable a esta escala</p></td>
+</tr>
+<tr class="row-even"><td><p>Codificación de la consulta, GPU integrada (p50 / p95)</p></td>
+<td><p>en cada consulta</p></td>
+<td><p>351 / 408 ms</p></td>
+<td><p>casi todo el tiempo que espera el usuario</p></td>
+</tr>
+<tr class="row-odd"><td><p>Codificación de la consulta, solo CPU (p50 / p95)</p></td>
+<td><p>en cada consulta</p></td>
+<td><p>628 / 801 ms</p></td>
+<td><p>casi el doble, aún por debajo de un segundo</p></td>
+</tr>
+<tr class="row-even"><td><p>Búsqueda BM25</p></td>
+<td><p>en cada consulta</p></td>
+<td><p>0,09 ms</p></td>
+<td><p>unas cuatro mil veces más rápida que codificar</p></td>
+</tr>
+<tr class="row-odd"><td><p>Búsqueda densa sobre 17 vectores</p></td>
+<td><p>en cada consulta</p></td>
+<td><p>0,002 ms</p></td>
+<td><p>inmediata</p></td>
+</tr>
+<tr class="row-even"><td><p>Fusión RRF</p></td>
+<td><p>en cada consulta</p></td>
+<td><p>0,005 ms</p></td>
+<td><p>sin costo perceptible</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recorrido de una consulta en C4 (medianas de la misma campaña):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paso</p></th>
+<th class="head"><p>Qué hace el sistema</p></th>
+<th class="head"><p>Tiempo</p></th>
+<th class="head"><p>Proporción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>convierte la consulta en un vector con el codificador</p></td>
+<td><p>351 ms</p></td>
+<td><p>&gt; 99,9 %</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>busca la consulta en el índice léxico</p></td>
+<td><p>0,09 ms</p></td>
+<td><p>&lt; 0,1 %</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>compara el vector con los de los documentos</p></td>
+<td><p>0,002 ms</p></td>
+<td><p>&lt; 0,01 %</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>fusiona las dos listas por rango recíproco</p></td>
+<td><p>0,005 ms</p></td>
+<td><p>&lt; 0,01 %</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Total medido de punta a punta (p50 / p95)</p></td>
+<td><p>345 / 380 ms</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Costo frente a efectividad por configuración. La latencia es el tiempo total por consulta medido
+de punta a punta. Las columnas de nDCG&#64;10 mezclan corpus a propósito, para mostrar que el costo
+es el mismo en todos: el ampliado y la unión de los difíciles son de este corpus de diecisiete
+reportes, y la última columna es del <a class="reference internal" href="03_corpus_definitivo_177.html"><span class="std std-doc">corpus definitivo</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Latencia p50 / p95 (ms)</p></th>
+<th class="head"><p>Memoria</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Difíciles A+B</p></th>
+<th class="head"><p>Definitivo (177)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,09 / 0,12</p></td>
+<td><p>kilobytes</p></td>
+<td><p>0,887</p></td>
+<td><p>0,328</p></td>
+<td><p>0,774</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>344 / 360</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>0,932</p></td>
+<td><p>0,754</p></td>
+<td><p>0,865</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>343 / 351</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>0,928</p></td>
+<td><p>0,836</p></td>
+<td><p>0,910</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido</p></td>
+<td><p>345 / 370</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>0,943</p></td>
+<td><p>0,741</p></td>
+<td><p>0,868</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>345 / 380</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>0,960</p></td>
+<td><p>0,816</p></td>
+<td><p>0,960</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>349 / 378</p></td>
+<td><p>≈ 2,2 GiB</p></td>
+<td><p>0,944</p></td>
+<td><p>0,759</p></td>
+<td><p>0,950</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Entre las cinco configuraciones neuronales las latencias van de <span class="math notranslate nohighlight">\(343\)</span> a <span class="math notranslate nohighlight">\(349\)</span> ms en la mediana,
+menos de un <span class="math notranslate nohighlight">\(2\%\)</span> de diferencia, porque todas pagan la misma codificación de la consulta. En
+tiempo, añadir la señal léxica, la ontología o el realce no cuesta prácticamente nada. BM25
+responde en una décima de milisegundo y no necesita el modelo en memoria, pero pierde <span class="math notranslate nohighlight">\(0{,}073\)</span> de
+nDCG&#64;10 en el ampliado, <span class="math notranslate nohighlight">\(0{,}186\)</span> en el corpus definitivo y <span class="math notranslate nohighlight">\(0{,}508\)</span> en las paráfrasis frente a la
+mejor configuración. Si el equipo no puede reservar unos <span class="math notranslate nohighlight">\(2\)</span> GiB de memoria, BM25 es la única
+opción; si puede, la elección entre las neuronales se hace solo por efectividad.</p>
+<p>Con unos <span class="math notranslate nohighlight">\(0{,}35\)</span> segundos por consulta, un solo proceso atiende del orden de tres consultas por
+segundo, unas doscientas cincuenta mil al día. La demanda observada es de unas <span class="math notranslate nohighlight">\(145\)</span> consultas
+reales por día, menos de un minuto de cómputo diario, y en usabilidad suele aceptarse que una
+respuesta de menos de un segundo no interrumpe el hilo de pensamiento del usuario.</p>
+</section>
+<section id="analisis-de-errores">
+<h2>Análisis de errores<a class="headerlink" href="#analisis-de-errores" title="Link to this heading">#</a></h2>
+<p>Exactitud en la primera posición (fracción de consultas cuyo reporte objetivo queda primero).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Conjunto</p></th>
+<th class="head"><p>BM25</p></th>
+<th class="head"><p>C1</p></th>
+<th class="head"><p>C2</p></th>
+<th class="head"><p>C3</p></th>
+<th class="head"><p>C4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sintético (<span class="math notranslate nohighlight">\(n=40\)</span>)</p></td>
+<td><p>0,650</p></td>
+<td><p>0,725</p></td>
+<td><p>0,825</p></td>
+<td><p>0,750</p></td>
+<td><p>0,875</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ampliado (<span class="math notranslate nohighlight">\(n=127\)</span>)</p></td>
+<td><p>0,748</p></td>
+<td><p>0,882</p></td>
+<td><p>0,866</p></td>
+<td><p>0,874</p></td>
+<td><p>0,921</p></td>
+</tr>
+<tr class="row-even"><td><p>Difícil A (<span class="math notranslate nohighlight">\(n=52\)</span>)</p></td>
+<td><p>0,135</p></td>
+<td><p>0,404</p></td>
+<td><p>0,654</p></td>
+<td><p>0,442</p></td>
+<td><p>0,615</p></td>
+</tr>
+<tr class="row-odd"><td><p>Difícil B (<span class="math notranslate nohighlight">\(n=78\)</span>)</p></td>
+<td><p>0,372</p></td>
+<td><p>0,577</p></td>
+<td><p>0,641</p></td>
+<td><p>0,615</p></td>
+<td><p>0,641</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En los conjuntos difíciles solo el <span class="math notranslate nohighlight">\(65\%\)</span> (A) y el <span class="math notranslate nohighlight">\(64\%\)</span> (B) de las consultas deja el reporte
+objetivo en primer lugar con el mejor sistema, frente al <span class="math notranslate nohighlight">\(92\%\)</span> en el ampliado. Las confusiones
+más frecuentes son entre reportes que describen entidades vecinas: las métricas por federación
+devueltas como reporte individual de deportistas, o el personal de apoyo devuelto como grupos.
+En muchos de esos casos la consulta es ambigua entre dos reportes, un límite del protocolo de
+objetivo único que los juicios de expertos con grados intermedios corregirían.</p>
+<p>Éxito en la primera posición y entre las tres primeras, en los conjuntos de este corpus:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Ampliado &#64;1 / &#64;3</p></th>
+<th class="head"><p>Difícil A &#64;1 / &#64;3</p></th>
+<th class="head"><p>Difícil B &#64;1 / &#64;3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25</p></td>
+<td><p>0,75 / 0,94</p></td>
+<td><p>0,12 / 0,17</p></td>
+<td><p>0,32 / 0,45</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso puro</p></td>
+<td><p>0,88 / 0,94</p></td>
+<td><p>0,40 / 0,77</p></td>
+<td><p>0,58 / 0,83</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,87 / 0,96</p></td>
+<td><p>0,65 / 0,88</p></td>
+<td><p>0,64 / 0,94</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · Híbrido</p></td>
+<td><p>0,87 / 0,99</p></td>
+<td><p>0,44 / 0,60</p></td>
+<td><p>0,62 / 0,77</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · Híbrido con ontología</p></td>
+<td><p>0,92 / 0,97</p></td>
+<td><p>0,62 / 0,79</p></td>
+<td><p>0,64 / 0,91</p></td>
+</tr>
+<tr class="row-odd"><td><p>C5 · C4 con realce</p></td>
+<td><p>0,90 / 0,94</p></td>
+<td><p>0,54 / 0,75</p></td>
+<td><p>0,56 / 0,79</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="robustez-de-las-conclusiones-en-este-corpus">
+<h2>Robustez de las conclusiones en este corpus<a class="headerlink" href="#robustez-de-las-conclusiones-en-este-corpus" title="Link to this heading">#</a></h2>
+<p>Las consultas que comparten reporte objetivo no son independientes, porque comparten documento,
+vocabulario y redactor. Para que esa dependencia no infle la significancia, las comparaciones se
+repitieron con un <em>bootstrap</em> que remuestrea reportes objetivo en lugar de consultas, y dejando
+fuera un reporte a la vez. El asterisco marca los intervalos que excluyen el cero.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comparación</p></th>
+<th class="head"><p>Ampliado</p></th>
+<th class="head"><p>Difíciles A+B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 − BM25</p></td>
+<td><p>+0,056 [+0,024; +0,101] *</p></td>
+<td><p>+0,413 [+0,312; +0,517] *</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 − C1</p></td>
+<td><p>+0,011 [−0,016; +0,034]</p></td>
+<td><p>−0,013 [−0,053; +0,028]</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 − C1</p></td>
+<td><p>−0,004 [−0,025; +0,014]</p></td>
+<td><p>+0,081 [+0,038; +0,128] *</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 − C3</p></td>
+<td><p>+0,016 [−0,016; +0,053]</p></td>
+<td><p>+0,075 [−0,020; +0,174]</p></td>
+</tr>
+<tr class="row-even"><td><p>C5 − C4</p></td>
+<td><p>−0,016 [−0,042; +0,000]</p></td>
+<td><p>−0,057 [−0,113; −0,007] *</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 − C2</p></td>
+<td><p>+0,032 [−0,009; +0,053]</p></td>
+<td><p>−0,020 [−0,066; +0,025]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En el ampliado solo la ventaja del híbrido sobre BM25 sobrevive a este criterio, lo que confirma
+que allí las demás diferencias son pequeñas frente a la variación entre reportes. En los
+difíciles sobreviven además la ventaja de la ontología sobre el denso y el daño del realce; la
+ventaja de la ontología sobre el híbrido, concordante con la prueba por consulta, deja de
+excluir el cero al remuestrear reportes.</p>
+<p>Este corpus pasó además por tres controles, detallados en <a class="reference internal" href="06_validez_y_robustez.html"><span class="std std-doc">validez y robustez</span></a>.
+El metaanálisis de efectos fijos de A y B da efectos combinados de <span class="math notranslate nohighlight">\(+0{,}070\)</span> para la ontología en el
+denso y en el híbrido y de <span class="math notranslate nohighlight">\(-0{,}055\)</span> para el realce, sin heterogeneidad entre los dos conjuntos.
+El análisis de dosis-respuesta muestra que la ganancia de la ontología en el híbrido crece con el
+número de raíces que la consulta comparte con su bloque de ontología, de <span class="math notranslate nohighlight">\(-0{,}074\)</span> sin ninguna a
+<span class="math notranslate nohighlight">\(+0{,}251\)</span> con dos o más. Y si cada consulta del ampliado se pondera según la cuota de su reporte
+objetivo en las <span class="math notranslate nohighlight">\(6.620\)</span> solicitudes reales, el orden no cambia: C4 obtiene <span class="math notranslate nohighlight">\(0{,}964\)</span>, el híbrido sin
+ontología <span class="math notranslate nohighlight">\(0{,}959\)</span> y el denso puro <span class="math notranslate nohighlight">\(0{,}944\)</span>. En el difícil B, por registro de redacción, C4 es la
+mejor en las consultas formuladas como pregunta (<span class="math notranslate nohighlight">\(0{,}884\)</span>) y C2 en las administrativas (<span class="math notranslate nohighlight">\(0{,}817\)</span>) y
+en las telegráficas (<span class="math notranslate nohighlight">\(0{,}866\)</span>), sin que ningún registro invierta las conclusiones generales.</p>
+</section>
+<section id="lo-que-dejo-esta-etapa">
+<h2>Lo que dejó esta etapa<a class="headerlink" href="#lo-que-dejo-esta-etapa" title="Link to this heading">#</a></h2>
+<p>Con diecisiete reportes, el híbrido supera a BM25 pero no al denso, la ontología ayuda en las
+paráfrasis y no en las consultas que ya usan el vocabulario del reporte, el realce no sirve, la
+fragmentación no aporta y <span class="math notranslate nohighlight">\(512\)</span> dimensiones bastan. La recomendación para una Versión 1 limitada
+a reportes es C4 sin realce, con el vector truncado a <span class="math notranslate nohighlight">\(512\)</span> dimensiones y un índice denso por
+coseno exacto, con C2 como alternativa equivalente si se esperan consultas muy coloquiales.</p>
+<p>Quedaron tres límites. La hipótesis de entidad exacta no era contrastable, porque las entidades
+no figuraban en ningún documento. Recall&#64;100 era trivial con diecisiete documentos. Y varias
+diferencias eran menores que lo que el número de consultas permitía detectar. El
+<a class="reference internal" href="03_corpus_definitivo_177.html"><span class="std std-doc">corpus definitivo</span></a> se construyó para atacar los tres.</p>
+</section>
+<section id="como-reproducirlo">
+<h2>Cómo reproducirlo<a class="headerlink" href="#como-reproducirlo" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> encadena
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/preprocess_corpus.py"><code class="docutils literal notranslate"><span class="pre">preprocess_corpus.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/generar_consultas.py"><code class="docutils literal notranslate"><span class="pre">generar_consultas.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/run_ablation.py"><code class="docutils literal notranslate"><span class="pre">run_ablation.py</span></code></a>
+y
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/generar_reportes.py"><code class="docutils literal notranslate"><span class="pre">generar_reportes.py</span></code></a>,
+y produce la escalera con el conjunto sintético. Los demás conjuntos tienen objetivos propios:
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">eval_real</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">control</span></code> para el ampliado y el control sin nombre
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/construir_eval_real_ampliado.py"><code class="docutils literal notranslate"><span class="pre">construir_eval_real_ampliado.py</span></code></a>
+y <a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/eval_flexible.py"><code class="docutils literal notranslate"><span class="pre">eval_flexible.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">dificil</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">dificil_b</span></code> para los difíciles
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/construir_eval_dificil.py"><code class="docutils literal notranslate"><span class="pre">construir_eval_dificil.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/construir_eval_dificil_b.py"><code class="docutils literal notranslate"><span class="pre">construir_eval_dificil_b.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">fusion</span></code> para las fusiones alternativas
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/fusion.py"><code class="docutils literal notranslate"><span class="pre">fusion.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">ontologia_completa</span></code> para la ontología en catorce reportes
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/enriquecimiento_completo.py"><code class="docutils literal notranslate"><span class="pre">enriquecimiento_completo.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">cobertura</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">diagnostico</span></code> para la cobertura de la ontología y el detector
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/analisis_cobertura_ontologia.py"><code class="docutils literal notranslate"><span class="pre">analisis_cobertura_ontologia.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/diagnostico_detector.py"><code class="docutils literal notranslate"><span class="pre">diagnostico_detector.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">barridos</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">barridos_dificiles</span></code> para la sensibilidad, Matryoshka y la fragmentación
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/barridos.py"><code class="docutils literal notranslate"><span class="pre">barridos.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">errores</span></code> para la exactitud en la primera posición
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/analisis_errores.py"><code class="docutils literal notranslate"><span class="pre">analisis_errores.py</span></code></a>),
+<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">costo</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">escalamiento</span></code> para el costo y la búsqueda con vectores aleatorios
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/costo_computacional.py"><code class="docutils literal notranslate"><span class="pre">costo_computacional.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/escalamiento.py"><code class="docutils literal notranslate"><span class="pre">escalamiento.py</span></code></a>),
+y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">robustez</span></code> y <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">complementario</span></code> para la robustez, que no necesitan el modelo
+(<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/analisis_robustez.py"><code class="docutils literal notranslate"><span class="pre">analisis_robustez.py</span></code></a>,
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/analisis_complementario.py"><code class="docutils literal notranslate"><span class="pre">analisis_complementario.py</span></code></a>).
+El corpus de diecisiete reportes, las consultas y sus juicios están publicados en <code class="docutils literal notranslate"><span class="pre">corpus/</span></code> y
+<code class="docutils literal notranslate"><span class="pre">datos/</span></code>; las firmas del historial de las que se derivó el ampliado no, pero el conjunto ya
+construido sí, de modo que la evaluación se puede repetir sin ellas. Los cuadernos
+<a class="reference internal" href="../notebooks/Benchmark_Escalera_Ablacion.html"><span class="std std-doc">de la escalera</span></a> y
+<a class="reference internal" href="../notebooks/01_Analisis_por_Estratos_y_Estadistica.html"><span class="std std-doc">de estratos y estadística</span></a> del
+archivo muestran la misma tubería con cifras anteriores a la auditoría.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./recorrido"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_demanda.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">La demanda observada y la ontología</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_corpus_definitivo_177.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Corpus definitivo: 177 documentos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-corpus-y-el-documento-enriquecido">El corpus y el documento enriquecido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-configuraciones">Las configuraciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-conjuntos-de-evaluacion">Los conjuntos de evaluación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-conjunto-sintetico">El conjunto sintético</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-conjunto-ampliado-desde-firmas">El conjunto ampliado desde firmas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-control-sin-nombre-propio">El control sin nombre propio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-conjuntos-dificiles-a-y-b">Los conjuntos difíciles A y B</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-globales">Resultados globales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadistica-de-la-escalera">Estadística de la escalera</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-por-estrato-p2">Resultados por estrato (P2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">El control sin nombre propio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-p3">La ontología (P3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-nivel-de-solape">Por nivel de solape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-cobertura-parcial-un-efecto-no-previsto">La cobertura parcial: un efecto no previsto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-ampliada-a-catorce-reportes">La ontología ampliada a catorce reportes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-realce-por-entidad-p5">El realce por entidad (P5)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#es-rrf-la-mejor-fusion">¿Es RRF la mejor fusión?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-a-los-hiperparametros">Sensibilidad a los hiperparámetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dimension-del-vector-p6">Dimensión del vector (P6)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fragmentacion-de-los-documentos-p4">Fragmentación de los documentos (P4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escalamiento-de-la-busqueda-exacta">Escalamiento de la búsqueda exacta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#costo-computacional">Costo computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-errores">Análisis de errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustez-de-las-conclusiones-en-este-corpus">Robustez de las conclusiones en este corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-dejo-esta-etapa">Lo que dejó esta etapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

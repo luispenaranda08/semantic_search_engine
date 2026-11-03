@@ -1,0 +1,1564 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>El registro completo &#8212; Buscadores semánticos GovTech · Proyecto de grado</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'recorrido/05_registro_completo';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/recorrido/05_registro_completo.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Validez y robustez" href="06_validez_y_robustez.html" />
+    <link rel="prev" title="Corpus v3: 811 documentos de cinco tipos" href="04_corpus_v3_811.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscadores semánticos para la recuperación de conocimiento funcional en plataformas GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">La tesis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resumen.html">La monografía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/metodo.html">Método</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/codigo.html">Código y reproducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recorrido por corpus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Recorrido por los corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_demanda.html">La demanda observada y la ontología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_version1_17_reportes.html">Versión 1: diecisiete reportes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_corpus_definitivo_177.html">Corpus definitivo: 177 documentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_corpus_v3_811.html">Corpus v3: 811 documentos de cinco tipos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">El registro completo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_validez_y_robustez.html">Validez y robustez</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Archivo exploratorio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../archivo/index.html">Archivo exploratorio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/recorrido/05_registro_completo.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>El registro completo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion">Composición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-escalera-entre-757-554-documentos-primera-corrida">La escalera entre 757.554 documentos: primera corrida</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-limites-de-la-primera-corrida">Los tres límites de la primera corrida</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-con-cobertura-densa-completa">Validación con cobertura densa completa</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-cambio-respecto-de-la-primera-corrida">Qué cambió respecto de la primera corrida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-brazos">Los cinco brazos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontologia-frente-a-los-controles">Ontología frente a los controles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-puede-predecir-el-tipo-de-objeto">¿Se puede predecir el tipo de objeto?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-la-convexa-un-ordenamiento-en-dos-etapas">¿Mejora la convexa un ordenamiento en dos etapas?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-la-validacion-no-resuelve">Lo que la validación no resuelve</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-persona-a-persona-p2">Búsqueda persona a persona (P2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-dos-componentes-que-se-comparan">Los dos componentes que se comparan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-evaluacion">La evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura">Lectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heterogeneidad-del-corpus-y-restriccion-por-funcion">Heterogeneidad del corpus y restricción por función</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-restriccion">La restricción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contraste-con-las-cajas-de-busqueda-actuales">Contraste con las cajas de búsqueda actuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-dejo-esta-etapa">Lo que dejó esta etapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="el-registro-completo">
+<h1>El registro completo<a class="headerlink" href="#el-registro-completo" title="Link to this heading">#</a></h1>
+<p>Los corpus anteriores tenían <span class="math notranslate nohighlight">\(17\)</span>, <span class="math notranslate nohighlight">\(177\)</span> y <span class="math notranslate nohighlight">\(811\)</span> documentos. Para observar el método a la escala de
+la plataforma, el corpus se extendió a todo su registro: cada deportista, integrante del personal
+de apoyo, grupo e institución pasó a ser un documento, junto con los escenarios deportivos, los
+eventos y sus disciplinas, las competencias, las acreditaciones, los usuarios de gestión y el
+contenido de los reportes. Sobre ese corpus se midieron tres cosas: la escalera de ablación con
+las mismas consultas y juicios del corpus v3, en dos corridas; la búsqueda de una persona o una
+institución por su nombre, que contesta la parte de P2 que la Versión 1 no podía contestar; y el
+efecto de la heterogeneidad del corpus sobre el ranking, con la restricción por función que lo
+corrige. Al final de la página se contrasta el método con las cajas de búsqueda que la
+plataforma ofrece hoy.</p>
+<section id="composicion">
+<h2>Composición<a class="headerlink" href="#composicion" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de objeto</p></th>
+<th class="head"><p>Documentos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Deportistas</p></td>
+<td><p><span class="math notranslate nohighlight">\(643.107\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Grupos</p></td>
+<td><p><span class="math notranslate nohighlight">\(45.224\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Personas de apoyo</p></td>
+<td><p><span class="math notranslate nohighlight">\(30.220\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Instituciones</p></td>
+<td><p><span class="math notranslate nohighlight">\(13.097\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Escenarios</p></td>
+<td><p><span class="math notranslate nohighlight">\(12.342\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Acreditaciones</p></td>
+<td><p><span class="math notranslate nohighlight">\(9.685\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Disciplinas de evento</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.837\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Reportes y cortes de reporte por departamento</p></td>
+<td><p><span class="math notranslate nohighlight">\(581\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Competencias</p></td>
+<td><p><span class="math notranslate nohighlight">\(310\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuarios de gestión</p></td>
+<td><p><span class="math notranslate nohighlight">\(222\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Total, incluido el conocimiento funcional del corpus v3</p></td>
+<td><p><span class="math notranslate nohighlight">\(757.538\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El corpus completo es unas <span class="math notranslate nohighlight">\(935\)</span> veces el corpus v3 y unas <span class="math notranslate nohighlight">\(44.000\)</span> veces el de la Versión 1, pero
+su crecimiento es heterogéneo. El <span class="math notranslate nohighlight">\(85\%\)</span> son fichas de personas, cuyo texto es un nombre y unos
+atributos, y solo unos <span class="math notranslate nohighlight">\(26.000\)</span> documentos describen objetos de conocimiento u operación.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Estas evaluaciones usan el registro de la plataforma, que contiene datos de personas, muchas de
+ellas menores de edad. Se hicieron con autorización de la organización y con fines académicos.
+Ningún nombre ni número de documento queda en el repositorio, en la monografía ni en este sitio:
+los informes guardan solo métricas por consulta, la clase de cada consulta y si hubo acierto.</p>
+</div>
+</section>
+<section id="la-escalera-entre-757-554-documentos-primera-corrida">
+<h2>La escalera entre 757.554 documentos: primera corrida<a class="headerlink" href="#la-escalera-entre-757-554-documentos-primera-corrida" title="Link to this heading">#</a></h2>
+<p>Se repitió la escalera con las mismas <span class="math notranslate nohighlight">\(450\)</span> consultas y los mismos juicios del
+<a class="reference internal" href="04_corpus_v3_811.html"><span class="std std-doc">corpus v3</span></a> (las <span class="math notranslate nohighlight">\(320\)</span> del conjunto final y las <span class="math notranslate nohighlight">\(130\)</span> paráfrasis), en dos
+universos: los <span class="math notranslate nohighlight">\(811\)</span> documentos de v3 solos, y esos mismos documentos más <span class="math notranslate nohighlight">\(756.743\)</span> objetos del
+registro como distractores, <span class="math notranslate nohighlight">\(757.554\)</span> en total. Del registro se excluyeron los objetos que
+duplican a los de v3 (reportes curados, Pruebas Regionales, pruebas, reglas y funcionalidades),
+de modo que los relevantes son exactamente los mismos en los dos universos. Por esa construcción
+el total difiere ligeramente de los <span class="math notranslate nohighlight">\(757.538\)</span> documentos del registro, que incluye sus propias
+versiones de esos objetos.</p>
+<p>Las configuraciones son las de la escalera: BM25, C1 y C3 sobre la descripción; C2, C4 y la
+convexa (<span class="math notranslate nohighlight">\(\alpha=0{,}8\)</span>) sobre el texto con ontología. En esta corrida el índice léxico cubre los
+<span class="math notranslate nohighlight">\(757.554\)</span> documentos y el denso solo los <span class="math notranslate nohighlight">\(15.974\)</span> que describen objetos de conocimiento u
+operación; las fichas de personas, grupos e instituciones entran solo al índice léxico. Como
+control de implementación, en el universo de <span class="math notranslate nohighlight">\(811\)</span> documentos C2 y C4 reproducen consulta por
+consulta los resultados de la evaluación original, con un error máximo del orden de <span class="math notranslate nohighlight">\(10^{-16}\)</span>. La
+estadística es la del resto del trabajo, con el <em>bootstrap</em> agrupado por documento objetivo.</p>
+<p>nDCG&#64;10 promedio de las <span class="math notranslate nohighlight">\(450\)</span> consultas. «Tipo conocido» restringe el ranking al tipo del documento
+objetivo, tomado de los juicios: es una referencia ideal de contexto perfecto, no una predicción.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>811 documentos</p></th>
+<th class="head"><p>757.554 documentos</p></th>
+<th class="head"><p>Cambio</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BM25 (descripción)</p></td>
+<td><p>0,465</p></td>
+<td><p>0,138</p></td>
+<td><p>−0,327</p></td>
+</tr>
+<tr class="row-odd"><td><p>C1 · Denso sin ontología</p></td>
+<td><p>0,615</p></td>
+<td><p>0,454</p></td>
+<td><p>−0,161</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 · Denso con ontología</p></td>
+<td><p>0,714</p></td>
+<td><p>0,576</p></td>
+<td><p>−0,139</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 · RRF sin ontología</p></td>
+<td><p>0,634</p></td>
+<td><p>0,319</p></td>
+<td><p>−0,315</p></td>
+</tr>
+<tr class="row-even"><td><p>C4 · RRF con ontología</p></td>
+<td><p>0,710</p></td>
+<td><p>0,459</p></td>
+<td><p>−0,251</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convexa con ontología</p></td>
+<td><p>0,799</p></td>
+<td><p>0,588</p></td>
+<td><p>−0,211</p></td>
+</tr>
+<tr class="row-even"><td><p>C4, tipo conocido</p></td>
+<td><p>0,848</p></td>
+<td><p>0,597</p></td>
+<td><p>−0,251</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convexa, tipo conocido</p></td>
+<td><p>0,889</p></td>
+<td><p>0,685</p></td>
+<td><p>−0,205</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Contrastes principales sobre los <span class="math notranslate nohighlight">\(757.554\)</span> documentos. Los cuatro son concordantes: Wilcoxon y
+permutación rechazan tras Holm, con un <span class="math notranslate nohighlight">\(p\)</span> ajustado de permutación cercano a <span class="math notranslate nohighlight">\(0{,}00025\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contraste</p></th>
+<th class="head"><p>Δ nDCG&#64;10</p></th>
+<th class="head"><p>IC 95 % agrupado por objetivo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C3 − BM25: aporte de la fusión sobre lo léxico</p></td>
+<td><p>+0,181</p></td>
+<td><p>[+0,144; +0,231]</p></td>
+</tr>
+<tr class="row-odd"><td><p>C3 − C1: fusión frente al denso, sin ontología</p></td>
+<td><p>−0,135</p></td>
+<td><p>[−0,199; −0,075]</p></td>
+</tr>
+<tr class="row-even"><td><p>C2 − C1: aporte de la ontología al denso</p></td>
+<td><p>+0,122</p></td>
+<td><p>[+0,085; +0,158]</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4 − C3: aporte de la ontología al híbrido</p></td>
+<td><p>+0,140</p></td>
+<td><p>[+0,097; +0,183]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Todas las configuraciones pierden al crecer el universo unas <span class="math notranslate nohighlight">\(935\)</span> veces, pero no por igual. BM25
+es la que más pierde: con más de seiscientas mil fichas que comparten nombres de deportes,
+regiones e instituciones, la coincidencia de palabras deja de discriminar, y la fusión por rango
+hereda ese daño. C3 cae <span class="math notranslate nohighlight">\(0{,}315\)</span> y queda claramente por debajo del denso sin ontología (<span class="math notranslate nohighlight">\(-0{,}135\)</span>),
+la dirección que el corpus v3 ya mostraba y que a esta escala se vuelve concordante. La ontología,
+en cambio, conserva su aporte: mejora al denso en <span class="math notranslate nohighlight">\(0{,}122\)</span> y al híbrido en <span class="math notranslate nohighlight">\(0{,}140\)</span>. Su efecto sobre
+el híbrido incluso crece entre universos de forma concordante, mientras que el crecimiento de su
+efecto sobre el denso no es concordante. La convexa con ontología es la mejor configuración libre
+(<span class="math notranslate nohighlight">\(0{,}588\)</span>) y supera a C4, pero frente al denso con ontología la diferencia (<span class="math notranslate nohighlight">\(+0{,}013\)</span>) no es
+concordante y su intervalo incluye el cero.</p>
+<p>A esta escala, P1 se sostiene solo en parte: el híbrido supera a la búsqueda léxica pero no al
+denso, y la fusión por rango es la configuración que más se degrada con los distractores. P3 sale
+reforzada, porque el aporte de la ontología no se diluye cuando los relevantes compiten con
+setecientos cincuenta mil distractores.</p>
+<section id="los-tres-limites-de-la-primera-corrida">
+<h3>Los tres límites de la primera corrida<a class="headerlink" href="#los-tres-limites-de-la-primera-corrida" title="Link to this heading">#</a></h3>
+<p>La primera corrida tenía tres límites. El índice denso cubría solo <span class="math notranslate nohighlight">\(15.974\)</span> documentos, de modo
+que las fichas de personas, grupos e instituciones no competían en la lista densa y las cifras de
+C1, C2 y la convexa quedaban sobrestimadas. Los contrastes de la ontología comparaban el texto
+enriquecido con la descripción original, sin descartar que cualquier texto más largo produjera la
+misma mejora. Y los juicios son los del corpus v3, así que un objeto nuevo pertinente que no fue
+juzgado cuenta como no relevante; la evaluación mide la recuperación de objetivos conocidos. La
+segunda corrida corrige los dos primeros límites. El tercero sigue en pie.</p>
+</section>
+</section>
+<section id="validacion-con-cobertura-densa-completa">
+<h2>Validación con cobertura densa completa<a class="headerlink" href="#validacion-con-cobertura-densa-completa" title="Link to this heading">#</a></h2>
+<p>La segunda ejecución sobre el registro se fijó por escrito el 28 de octubre de 2026, antes de
+calcular los resultados. El protocolo conserva las <span class="math notranslate nohighlight">\(450\)</span> consultas y sus juicios, no añade ninguna
+evaluación independiente y congela el mismo universo de <span class="math notranslate nohighlight">\(757.554\)</span> documentos.</p>
+<section id="que-cambio-respecto-de-la-primera-corrida">
+<h3>Qué cambió respecto de la primera corrida<a class="headerlink" href="#que-cambio-respecto-de-la-primera-corrida" title="Link to this heading">#</a></h3>
+<p>Cada uno de los <span class="math notranslate nohighlight">\(757.554\)</span> documentos recibió un vector real de <code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code> (<span class="math notranslate nohighlight">\(1.024\)</span>
+dimensiones, tarea de pasaje), cada consulta se codificó con la tarea de consulta y se comparó por
+coseno exacto con todos los documentos, sin búsqueda aproximada y sin dejar fuera ninguna ficha.
+En total se codificaron <span class="math notranslate nohighlight">\(760.267\)</span> textos únicos: los <span class="math notranslate nohighlight">\(757.554\)</span> documentos más las variantes de los
+<span class="math notranslate nohighlight">\(811\)</span> documentos de v3. Deduplicar textos solo evita repetir cómputo; no saca documentos del
+ranking. La revisión del modelo y el criterio de desempate por identificador no cambiaron.</p>
+<p>El cómputo se hizo en una GPU A100 de un entorno temporal en la nube, con autorización de la
+organización; los textos y los vectores se usaron solo para la evaluación y no se conservan en
+él. Antes de usar los vectores se comprobó que coinciden con los calculados en el equipo local:
+el coseno entre ambos fue superior a <span class="math notranslate nohighlight">\(0{,}99999\)</span> y el error absoluto máximo de <span class="math notranslate nohighlight">\(2{,}6\times10^{-7}\)</span>.
+Como control de implementación, BM25 sobre la descripción original reproduce el <span class="math notranslate nohighlight">\(0{,}138\)</span> de la
+primera corrida.</p>
+</section>
+<section id="los-cinco-brazos">
+<h3>Los cinco brazos<a class="headerlink" href="#los-cinco-brazos" title="Link to this heading">#</a></h3>
+<p>Para que la única diferencia entre brazos fuera la representación de los documentos evaluados,
+los <span class="math notranslate nohighlight">\(756.743\)</span> distractores conservan su descripción original en todos los brazos y solo cambia el
+texto de los <span class="math notranslate nohighlight">\(811\)</span> documentos de v3.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Brazo</p></th>
+<th class="head"><p>Qué es</p></th>
+<th class="head"><p>Qué descarta si la ontología le gana</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Descripción original</p></td>
+<td><p>el texto sin cambios</p></td>
+<td><p>es la base</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ontología</p></td>
+<td><p>la descripción enriquecida, como en C2 y C4</p></td>
+<td><p>es el tratamiento</p></td>
+</tr>
+<tr class="row-even"><td><p>Repetición</p></td>
+<td><p>la descripción repetida hasta igualar la longitud del texto con ontología</p></td>
+<td><p>que la mejora se deba solo a tener un texto más largo</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vecinos por TF-IDF</p></td>
+<td><p>la descripción ampliada con los términos más pesados de sus cinco vecinos por TF-IDF, sin usar la ontología ni las consultas</p></td>
+<td><p>que baste con añadir vocabulario relacionado tomado del propio corpus</p></td>
+</tr>
+<tr class="row-even"><td><p>Metadatos planos</p></td>
+<td><p>la descripción ampliada con título, subtítulo y facetas del propio documento, sin recorrer clases ni relaciones</p></td>
+<td><p>que baste con poner en el texto la información estructurada del documento</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los tres controles se recortaron al mismo número de subpalabras que el texto con ontología,
+medido con el tokenizador del modelo, y la auditoría confirmó la igualdad en los <span class="math notranslate nohighlight">\(811\)</span> documentos:
+<span class="math notranslate nohighlight">\(160{,}4\)</span> subpalabras en promedio, frente a <span class="math notranslate nohighlight">\(68{,}2\)</span> de la descripción original. El control de
+metadatos planos comparte origen de dominio con la ontología, así que la comparación con él pone a
+prueba la organización del conocimiento en clases y relaciones, con el mismo conocimiento de
+partida. Es el control más exigente.</p>
+</section>
+<section id="ontologia-frente-a-los-controles">
+<h3>Ontología frente a los controles<a class="headerlink" href="#ontologia-frente-a-los-controles" title="Link to this heading">#</a></h3>
+<p>nDCG&#64;10 promedio de las <span class="math notranslate nohighlight">\(450\)</span> consultas, búsqueda libre (sin restricción de tipo).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Texto de los documentos v3</p></th>
+<th class="head"><p>BM25</p></th>
+<th class="head"><p>Denso</p></th>
+<th class="head"><p>RRF</p></th>
+<th class="head"><p>Convexa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Descripción original</p></td>
+<td><p>0,138</p></td>
+<td><p>0,426</p></td>
+<td><p>0,294</p></td>
+<td><p>0,413</p></td>
+</tr>
+<tr class="row-odd"><td><p>Repetición</p></td>
+<td><p>0,182</p></td>
+<td><p>0,405</p></td>
+<td><p>0,348</p></td>
+<td><p>0,417</p></td>
+</tr>
+<tr class="row-even"><td><p>Vecinos por TF-IDF</p></td>
+<td><p>0,134</p></td>
+<td><p>0,374</p></td>
+<td><p>0,285</p></td>
+<td><p>0,366</p></td>
+</tr>
+<tr class="row-odd"><td><p>Metadatos planos</p></td>
+<td><p>0,255</p></td>
+<td><p>0,433</p></td>
+<td><p>0,400</p></td>
+<td><p>0,454</p></td>
+</tr>
+<tr class="row-even"><td><p>Ontología</p></td>
+<td><p>0,299</p></td>
+<td><p>0,484</p></td>
+<td><p>0,439</p></td>
+<td><p>0,533</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Diferencia de nDCG&#64;10 entre el texto con ontología y cada alternativa, con su intervalo del <span class="math notranslate nohighlight">\(95\%\)</span>
+por <em>bootstrap</em> agrupado por componentes de objetivos compartidos (<span class="math notranslate nohighlight">\(2.000\)</span> réplicas). Los doce
+contrastes forman una familia corregida por Holm y los doce son concordantes. El símbolo † marca
+el único intervalo agrupado que incluye el cero.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ontología frente a</p></th>
+<th class="head"><p>Denso</p></th>
+<th class="head"><p>RRF</p></th>
+<th class="head"><p>Convexa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Descripción original</p></td>
+<td><p>+0,058 [+0,028; +0,091]</p></td>
+<td><p>+0,145 [+0,097; +0,192]</p></td>
+<td><p>+0,120 [+0,080; +0,166]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Repetición</p></td>
+<td><p>+0,078 [+0,045; +0,115]</p></td>
+<td><p>+0,090 [+0,035; +0,137]</p></td>
+<td><p>+0,116 [+0,069; +0,167]</p></td>
+</tr>
+<tr class="row-even"><td><p>Vecinos por TF-IDF</p></td>
+<td><p>+0,110 [+0,077; +0,149]</p></td>
+<td><p>+0,154 [+0,095; +0,208]</p></td>
+<td><p>+0,167 [+0,114; +0,231]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Metadatos planos</p></td>
+<td><p>+0,050 [+0,022; +0,085]</p></td>
+<td><p>+0,039 [−0,017; +0,090] †</p></td>
+<td><p>+0,079 [+0,041; +0,121]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Estas cifras no se comparan directamente con las de la primera corrida, que usaba otra cobertura
+densa y otro texto para los distractores. Con todos los documentos en el índice denso, el denso
+con ontología queda en <span class="math notranslate nohighlight">\(0{,}484\)</span>, frente al <span class="math notranslate nohighlight">\(0{,}576\)</span> de la primera corrida. Lo que sí es claro es el
+orden entre brazos dentro de esta corrida. El texto con ontología es el mejor en las cuatro
+configuraciones y supera a los cuatro controles en el denso, en RRF y en la convexa.</p>
+<p>Repetir la descripción no ayuda al denso (<span class="math notranslate nohighlight">\(0{,}405\)</span> frente a <span class="math notranslate nohighlight">\(0{,}426\)</span>). Ampliarla con los términos de
+sus vecinos lo empeora en todas las configuraciones, porque arrastra vocabulario de documentos
+parecidos y los vuelve menos distinguibles. Los metadatos planos son el control más fuerte, y su
+ventaja sobre la descripción original muestra que una parte del aporte viene simplemente de poner
+en el texto la información estructurada del documento. La ontología añade a eso una mejora
+concordante en el denso (<span class="math notranslate nohighlight">\(+0{,}050\)</span>) y en la convexa (<span class="math notranslate nohighlight">\(+0{,}079\)</span>). En RRF las dos pruebas también
+rechazan tras Holm (<span class="math notranslate nohighlight">\(p\)</span> ajustados de <span class="math notranslate nohighlight">\(0{,}011\)</span> con Wilcoxon y <span class="math notranslate nohighlight">\(0{,}008\)</span> con permutación), pero el
+intervalo agrupado de la diferencia (<span class="math notranslate nohighlight">\(+0{,}039\)</span>) incluye el cero, así que ese contraste es el menos
+firme de la familia.</p>
+<p>Por grupos, de forma exploratoria, la ganancia de la convexa se concentra en las paráfrasis de los
+conjuntos difíciles (<span class="math notranslate nohighlight">\(0{,}151\)</span> con la descripción original, <span class="math notranslate nohighlight">\(0{,}281\)</span> con ontología y a lo sumo <span class="math notranslate nohighlight">\(0{,}170\)</span>
+con los controles), en los reportes y en las pruebas del catálogo. En las reglas de participación
+ningún brazo se distingue. La convexa con ontología es la configuración libre con el promedio más
+alto (<span class="math notranslate nohighlight">\(0{,}533\)</span>), aunque su diferencia con el denso con ontología no se contrastó en esta familia.</p>
+<p>La conclusión formal es acotada: la ontología supera a las alternativas evaluadas, que son
+concretas y no agotan las formas posibles de enriquecer un texto. Con esa salvedad, su aporte no
+se explica por la longitud del texto, por el vocabulario de documentos vecinos ni por la sola
+presencia de información estructurada.</p>
+</section>
+<section id="se-puede-predecir-el-tipo-de-objeto">
+<h3>¿Se puede predecir el tipo de objeto?<a class="headerlink" href="#se-puede-predecir-el-tipo-de-objeto" title="Link to this heading">#</a></h3>
+<p>La primera corrida había mostrado que restringir el ranking al tipo del objetivo sube mucho la
+efectividad, pero tomaba el tipo de los juicios. La segunda corrida evaluó si el beneficio se
+conserva cuando el tipo hay que predecirlo a partir de la consulta. Se probaron dos predictores,
+los dos aplicados sobre el texto con ontología.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Predictor</p></th>
+<th class="head"><p>Cómo funciona</p></th>
+<th class="head"><p>Entrenamiento</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clasificador</p></td>
+<td><p>TF-IDF de palabras (de una y dos) y de caracteres (de tres a cinco) con regresión logística (<span class="math notranslate nohighlight">\(C=1\)</span>, clases balanceadas), solo con el texto de la consulta</p></td>
+<td><p>validación cruzada de cinco particiones agrupadas por <span class="math notranslate nohighlight">\(114\)</span> componentes de consultas que comparten algún documento relevante; vocabulario y modelo ajustados solo en el entrenamiento de cada partición</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ruta semántica</p></td>
+<td><p>asigna a la consulta el tipo del documento v3 cuya descripción original es más parecida a ella por coseno</p></td>
+<td><p>ninguno; no consulta los juicios</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>nDCG&#64;10 según de dónde sale el tipo (<span class="math notranslate nohighlight">\(757.554\)</span> documentos, texto con ontología, cobertura densa
+completa).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuración</p></th>
+<th class="head"><p>Libre</p></th>
+<th class="head"><p>Clasificador</p></th>
+<th class="head"><p>Semántico</p></th>
+<th class="head"><p>Tipo conocido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Denso</p></td>
+<td><p>0,484</p></td>
+<td><p>0,533</p></td>
+<td><p>0,541</p></td>
+<td><p>0,655</p></td>
+</tr>
+<tr class="row-odd"><td><p>RRF</p></td>
+<td><p>0,439</p></td>
+<td><p>0,500</p></td>
+<td><p>0,492</p></td>
+<td><p>0,622</p></td>
+</tr>
+<tr class="row-even"><td><p>Convexa</p></td>
+<td><p>0,533</p></td>
+<td><p>0,589</p></td>
+<td><p>0,563</p></td>
+<td><p>0,712</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El clasificador acierta el tipo en el <span class="math notranslate nohighlight">\(86\%\)</span> de las consultas (<span class="math notranslate nohighlight">\(387\)</span> de <span class="math notranslate nohighlight">\(450\)</span>), pero no acierta
+ninguna de las <span class="math notranslate nohighlight">\(53\)</span> de competencias. Su matriz de confusión (filas: tipo verdadero; columnas: tipo
+predicho) muestra dónde caen:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo verdadero</p></th>
+<th class="head"><p>Competencia</p></th>
+<th class="head"><p>Funcionalidad</p></th>
+<th class="head"><p>Prueba</p></th>
+<th class="head"><p>Regla</p></th>
+<th class="head"><p>Reporte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Competencia (<span class="math notranslate nohighlight">\(53\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>26</p></td>
+<td><p>0</p></td>
+<td><p>27</p></td>
+</tr>
+<tr class="row-odd"><td><p>Funcionalidad (<span class="math notranslate nohighlight">\(53\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>50</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba (<span class="math notranslate nohighlight">\(60\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>60</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Regla (<span class="math notranslate nohighlight">\(27\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>27</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Reporte (<span class="math notranslate nohighlight">\(257\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>250</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El fallo en competencias lo produce la propia validación cruzada. Las <span class="math notranslate nohighlight">\(53\)</span> consultas de
+competencias tienen juicios por facetas que se solapan, así que comparten documentos relevantes
+entre sí, forman un único componente y caen completas en la misma partición. Al evaluarlas, el
+clasificador no ha visto en entrenamiento ningún ejemplo de esa clase y no puede predecirla. La
+validación agrupada es la correcta, porque evita que el clasificador vea en entrenamiento
+consultas casi iguales a las de prueba; el 0 de 53 es su efecto secundario y no dice que el
+clasificador sea incapaz de reconocer competencias. Sin esa clase acierta <span class="math notranslate nohighlight">\(387\)</span> de <span class="math notranslate nohighlight">\(397\)</span> consultas
+(<span class="math notranslate nohighlight">\(97{,}5\%\)</span>).</p>
+<p>Su mejora frente a la búsqueda libre es de <span class="math notranslate nohighlight">\(+0{,}050\)</span> en el denso, <span class="math notranslate nohighlight">\(+0{,}061\)</span> en RRF y <span class="math notranslate nohighlight">\(+0{,}056\)</span> en la
+convexa, pero no es concordante. La permutación la detecta (<span class="math notranslate nohighlight">\(p\)</span> de Holm entre <span class="math notranslate nohighlight">\(0{,}021\)</span> y <span class="math notranslate nohighlight">\(0{,}035\)</span>) y
+Wilcoxon no (<span class="math notranslate nohighlight">\(0{,}21\)</span>), y los intervalos agrupados son muy anchos (de <span class="math notranslate nohighlight">\(-0{,}18\)</span> a <span class="math notranslate nohighlight">\(+0{,}21\)</span> en el denso)
+porque ese grupo de <span class="math notranslate nohighlight">\(53\)</span> consultas pesa en bloque.</p>
+<p>La ruta semántica acierta menos, el <span class="math notranslate nohighlight">\(69\%\)</span> (<span class="math notranslate nohighlight">\(311\)</span> de <span class="math notranslate nohighlight">\(450\)</span>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo verdadero</p></th>
+<th class="head"><p>Competencia</p></th>
+<th class="head"><p>Funcionalidad</p></th>
+<th class="head"><p>Prueba</p></th>
+<th class="head"><p>Regla</p></th>
+<th class="head"><p>Reporte</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Competencia (<span class="math notranslate nohighlight">\(53\)</span>)</p></td>
+<td><p>53</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Funcionalidad (<span class="math notranslate nohighlight">\(53\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>50</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Prueba (<span class="math notranslate nohighlight">\(60\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>60</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Regla (<span class="math notranslate nohighlight">\(27\)</span>)</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>27</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>Reporte (<span class="math notranslate nohighlight">\(257\)</span>)</p></td>
+<td><p>31</p></td>
+<td><p>33</p></td>
+<td><p>65</p></td>
+<td><p>7</p></td>
+<td><p>121</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Resuelve las <span class="math notranslate nohighlight">\(53\)</span> de competencias, las <span class="math notranslate nohighlight">\(60\)</span> pruebas y las <span class="math notranslate nohighlight">\(27\)</span> reglas y <span class="math notranslate nohighlight">\(50\)</span> de <span class="math notranslate nohighlight">\(53\)</span> funcionalidades,
+y confunde muchas de reportes (<span class="math notranslate nohighlight">\(121\)</span> de <span class="math notranslate nohighlight">\(257\)</span> correctas). Aun así, mejora a la búsqueda libre de
+forma concordante en las tres configuraciones: <span class="math notranslate nohighlight">\(+0{,}057\)</span> en el denso, <span class="math notranslate nohighlight">\(+0{,}053\)</span> en RRF y <span class="math notranslate nohighlight">\(+0{,}030\)</span>
+en la convexa, este último con un intervalo agrupado que apenas excluye el cero (<span class="math notranslate nohighlight">\([+0{,}001;
++0{,}066]\)</span>).</p>
+<p>Las dos rutas quedan lejos del tipo conocido. El clasificador queda unos <span class="math notranslate nohighlight">\(0{,}12\)</span> por debajo del
+techo en las tres configuraciones (<span class="math notranslate nohighlight">\(-0{,}121\)</span>, <span class="math notranslate nohighlight">\(-0{,}122\)</span> y <span class="math notranslate nohighlight">\(-0{,}123\)</span>), de forma concordante.
+Restringir por tipo ayuda aun cuando el tipo se predice con errores, pero la mayor parte del margen
+hasta el techo depende de predecirlo mejor.</p>
+</section>
+<section id="mejora-la-convexa-un-ordenamiento-en-dos-etapas">
+<h3>¿Mejora la convexa un ordenamiento en dos etapas?<a class="headerlink" href="#mejora-la-convexa-un-ordenamiento-en-dos-etapas" title="Link to this heading">#</a></h3>
+<p>Para comprobar si un ordenamiento en dos etapas mejora la convexa, se reunieron como candidatos
+los primeros <span class="math notranslate nohighlight">\(100\)</span> documentos de BM25, del denso, de RRF y de la convexa, hasta <span class="math notranslate nohighlight">\(400\)</span> por consulta,
+sin insertar a mano los relevantes. Sobre ellos se probaron dos variantes con la misma validación
+cruzada agrupada en cinco particiones. Una elige el peso <span class="math notranslate nohighlight">\(\alpha\)</span> de la convexa solo con las
+particiones de entrenamiento, entre <span class="math notranslate nohighlight">\(0{,}0\)</span> y <span class="math notranslate nohighlight">\(1{,}0\)</span> en pasos de <span class="math notranslate nohighlight">\(0{,}1\)</span>. La otra es un reordenador
+supervisado, una regresión logística (<span class="math notranslate nohighlight">\(C=1\)</span>, balanceada, con el escalado ajustado solo en
+entrenamiento) sobre las puntuaciones normalizadas y las posiciones léxica y densa, sin
+identificadores de documento.</p>
+<p>nDCG&#64;10 de cada variante y diferencia con la convexa de <span class="math notranslate nohighlight">\(\alpha=0{,}8\)</span> en el mismo modo de búsqueda.
+El asterisco marca las diferencias concordantes tras Holm en la familia de ocho comparaciones.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modo de búsqueda</p></th>
+<th class="head"><p>Convexa (<span class="math notranslate nohighlight">\(\alpha=0{,}8\)</span>)</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\alpha\)</span> por validación cruzada</p></th>
+<th class="head"><p>Diferencia</p></th>
+<th class="head"><p>Reordenador supervisado</p></th>
+<th class="head"><p>Diferencia</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Libre</p></td>
+<td><p>0,533</p></td>
+<td><p>0,523</p></td>
+<td><p>−0,010</p></td>
+<td><p>0,482</p></td>
+<td><p>−0,051 *</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipo del clasificador</p></td>
+<td><p>0,589</p></td>
+<td><p>0,554</p></td>
+<td><p>−0,035 *</p></td>
+<td><p>0,521</p></td>
+<td><p>−0,068 *</p></td>
+</tr>
+<tr class="row-even"><td><p>Tipo semántico</p></td>
+<td><p>0,563</p></td>
+<td><p>0,555</p></td>
+<td><p>−0,008</p></td>
+<td><p>0,520</p></td>
+<td><p>−0,042 *</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipo conocido</p></td>
+<td><p>0,712</p></td>
+<td><p>0,677</p></td>
+<td><p>−0,036 *</p></td>
+<td><p>0,643</p></td>
+<td><p>−0,070 *</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ninguna de las dos variantes supera a la convexa con <span class="math notranslate nohighlight">\(\alpha=0{,}8\)</span>. El <span class="math notranslate nohighlight">\(\alpha\)</span> elegido fue <span class="math notranslate nohighlight">\(0{,}8\)</span> en
+tres particiones y <span class="math notranslate nohighlight">\(0{,}9\)</span> en las otras dos, y su diferencia con la convexa fija no es significativa
+en la búsqueda libre ni con la ruta semántica; con el clasificador y con el tipo conocido incluso
+empeora de forma concordante. El reordenador empeora a la convexa de forma concordante en las
+cuatro variantes, entre <span class="math notranslate nohighlight">\(-0{,}042\)</span> y <span class="math notranslate nohighlight">\(-0{,}070\)</span>.</p>
+<p>Si los candidatos se ordenaran de forma perfecta, el nDCG&#64;10 llegaría a <span class="math notranslate nohighlight">\(0{,}876\)</span>. Los documentos
+relevantes casi siempre están entre los candidatos y lo que falta es ordenarlos mejor. Con <span class="math notranslate nohighlight">\(450\)</span>
+consultas y los atributos usados, un reordenador supervisado no aprende ese orden mejor que la
+regla convexa, que no necesita entrenamiento.</p>
+</section>
+<section id="lo-que-la-validacion-no-resuelve">
+<h3>Lo que la validación no resuelve<a class="headerlink" href="#lo-que-la-validacion-no-resuelve" title="Link to this heading">#</a></h3>
+<p>Las consultas y los juicios son los mismos de v3, sin evaluación independiente, y los
+distractores agregados no recibieron juicios nuevos. Los controles son alternativas concretas y
+no agotan las formas posibles de enriquecer un texto. La predicción del tipo y el reordenador se
+validaron de forma interna por grupos, y eso tampoco equivale a una validación externa.</p>
+</section>
+</section>
+<section id="busqueda-persona-a-persona-p2">
+<h2>Búsqueda persona a persona (P2)<a class="headerlink" href="#busqueda-persona-a-persona-p2" title="Link to this heading">#</a></h2>
+<p>El control sin nombre propio de la Versión 1 dejó a P2 sin contrastar, porque las entidades no
+figuraban en ningún documento (ver <a class="reference internal" href="02_version1_17_reportes.html"><span class="std std-doc">la Versión 1</span></a>). En el registro
+completo cada persona sí es un documento, y la pregunta se puede plantear de forma directa: dado un
+nombre escrito como lo escribiría un usuario, ¿qué componente devuelve a la persona correcta?</p>
+<section id="los-dos-componentes-que-se-comparan">
+<h3>Los dos componentes que se comparan<a class="headerlink" href="#los-dos-componentes-que-se-comparan" title="Link to this heading">#</a></h3>
+<p>El primero es el ranking C4, el híbrido con ontología, aplicado sin cambios a las fichas de
+personas. El segundo es un diccionario de entidades, el componente que el diseño de privacidad
+separa del índice semántico, que resuelve la mención contra los nombres completos.</p>
+<p>Para cada término <span class="math notranslate nohighlight">\(t\)</span> de la consulta, el diccionario busca términos <span class="math notranslate nohighlight">\(u\)</span> de los nombres con una
+similitud</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\sigma(t,u)=\begin{cases}
+1 &amp; \text{si } u=t,\\
+0{,}9 &amp; \text{si } t \text{ es el último término y es prefijo de } u,\\
+0{,}97-0{,}05\,e(t,u) &amp; \text{si } e(t,u)\le e_{\max}(t),\\
+\mathrm{JW}(t,u)-0{,}08 &amp; \text{si } \mathrm{JW}(t,u)\ge 0{,}93 \text{ y } |t|\ge 5,
+\end{cases}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(e\)</span> es la distancia de Damerau–Levenshtein (el número mínimo de inserciones, borrados,
+sustituciones o trasposiciones de letras vecinas), <span class="math notranslate nohighlight">\(e_{\max}\)</span> vale <span class="math notranslate nohighlight">\(1\)</span> para términos de cuatro a
+siete caracteres y <span class="math notranslate nohighlight">\(2\)</span> desde ocho, y <span class="math notranslate nohighlight">\(\mathrm{JW}\)</span> es la similitud de Jaro–Winkler, que premia las
+coincidencias al principio de la palabra. Los candidatos se preseleccionan con un índice de
+trigramas de caracteres: solo se comparan los términos que comparten al menos el <span class="math notranslate nohighlight">\(40\%\)</span> de los
+trigramas de <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Si <span class="math notranslate nohighlight">\(k\)</span> términos de la consulta <span class="math notranslate nohighlight">\(q\)</span> encuentran pareja en el nombre de <span class="math notranslate nohighlight">\(d\)</span>, con similitud media
+<span class="math notranslate nohighlight">\(\bar\sigma\)</span>, el nombre recibe</p>
+<div class="math notranslate nohighlight">
+\[
+s(d)=\bar\sigma^{2}\left(0{,}85\,\frac{k}{|q|}+0{,}15\,\min\!\left(1,\frac{k}{|d|}\right)\right)+0{,}02\,\mathbb{1}[\text{orden}]+0{,}03\,\mathbb{1}[\text{exacto}],
+\]</div>
+<p>donde los dos indicadores premian que los términos aparezcan en el orden escrito y que la consulta
+coincida con el nombre completo. Se exige <span class="math notranslate nohighlight">\(k\ge\min(2,|q|,|d|)\)</span> y <span class="math notranslate nohighlight">\(s(d)\ge0{,}55\)</span>. Elevar <span class="math notranslate nohighlight">\(\bar\sigma\)</span>
+al cuadrado hace que una coincidencia exacta gane a una aproximada aunque el nombre aproximado sea
+más corto. Un número de documento se empareja de forma exacta y se antepone a cualquier nombre. Los
+pesos se fijaron a mano antes de la evaluación y no se ajustaron sobre ella.</p>
+</section>
+<section id="la-evaluacion">
+<h3>La evaluación<a class="headerlink" href="#la-evaluacion" title="Link to this heading">#</a></h3>
+<p>Con una semilla fija se tomó una muestra aleatoria de <span class="math notranslate nohighlight">\(300\)</span> deportistas y <span class="math notranslate nohighlight">\(75\)</span> instituciones del
+registro. La muestra se toma en memoria en cada ejecución y el informe registra solo la clase de
+consulta y si hubo acierto. Cada deportista se buscó de cinco formas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Forma</p></th>
+<th class="head"><p>Qué se escribe</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nombre exacto</p></td>
+<td><p>el nombre como figura en la ficha</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sin tildes y en minúsculas</p></td>
+<td><p>el mismo nombre normalizado</p></td>
+</tr>
+<tr class="row-even"><td><p>Un error de digitación</p></td>
+<td><p>una letra cambiada, quitada o traspuesta en la palabra más larga</p></td>
+</tr>
+<tr class="row-odd"><td><p>A medio escribir</p></td>
+<td><p>la última palabra truncada</p></td>
+</tr>
+<tr class="row-even"><td><p>Número de documento</p></td>
+<td><p>el número, sin el nombre</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Cada institución se buscó con su nombre exacto y con un error de digitación. La medida principal es
+Acierto&#64;1, que la persona o la institución buscada sea el primer resultado; se reportan también
+Acierto&#64;5 y MRR.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase de consulta</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p>Acierto&#64;1 diccionario</p></th>
+<th class="head"><p>Acierto&#64;1 C4</p></th>
+<th class="head"><p>Acierto&#64;5 diccionario</p></th>
+<th class="head"><p>Acierto&#64;5 C4</p></th>
+<th class="head"><p>MRR diccionario</p></th>
+<th class="head"><p>MRR C4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Deportista · nombre exacto</p></td>
+<td><p>300</p></td>
+<td><p>0,987</p></td>
+<td><p>0,877</p></td>
+<td><p>1,000</p></td>
+<td><p>0,947</p></td>
+<td><p>0,993</p></td>
+<td><p>0,910</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deportista · sin tildes, minúsculas</p></td>
+<td><p>300</p></td>
+<td><p>0,987</p></td>
+<td><p>0,877</p></td>
+<td><p>1,000</p></td>
+<td><p>0,947</p></td>
+<td><p>0,993</p></td>
+<td><p>0,910</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportista · un error de digitación</p></td>
+<td><p>300</p></td>
+<td><p>0,977</p></td>
+<td><p>0,573</p></td>
+<td><p>0,993</p></td>
+<td><p>0,727</p></td>
+<td><p>0,985</p></td>
+<td><p>0,645</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deportista · a medio escribir</p></td>
+<td><p>300</p></td>
+<td><p>0,970</p></td>
+<td><p>0,513</p></td>
+<td><p>0,990</p></td>
+<td><p>0,707</p></td>
+<td><p>0,979</p></td>
+<td><p>0,600</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportista · número de documento</p></td>
+<td><p>300</p></td>
+<td><p>1,000</p></td>
+<td><p>0,947</p></td>
+<td><p>1,000</p></td>
+<td><p>1,000</p></td>
+<td><p>1,000</p></td>
+<td><p>0,973</p></td>
+</tr>
+<tr class="row-odd"><td><p>Institución · nombre exacto</p></td>
+<td><p>75</p></td>
+<td><p>1,000</p></td>
+<td><p>0,867</p></td>
+<td><p>1,000</p></td>
+<td><p>0,933</p></td>
+<td><p>1,000</p></td>
+<td><p>0,895</p></td>
+</tr>
+<tr class="row-even"><td><p>Institución · un error de digitación</p></td>
+<td><p>75</p></td>
+<td><p>0,987</p></td>
+<td><p>0,640</p></td>
+<td><p>1,000</p></td>
+<td><p>0,747</p></td>
+<td><p>0,993</p></td>
+<td><p>0,686</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>En la clase «a medio escribir» el diccionario se evalúa en modo de sugerencia.</p>
+</section>
+<section id="lectura">
+<h3>Lectura<a class="headerlink" href="#lectura" title="Link to this heading">#</a></h3>
+<p>Los dos componentes se separan con claridad. Con el nombre exacto, el diccionario pone primera a
+la persona buscada en el <span class="math notranslate nohighlight">\(98{,}7\%\)</span> de los casos. El <span class="math notranslate nohighlight">\(1{,}3\%\)</span> restante son homónimos, personas
+distintas con el mismo nombre, y en todos esos casos la persona buscada queda entre las cinco
+primeras. El ranking C4 llega al <span class="math notranslate nohighlight">\(87{,}7\%\)</span>. La diferencia crece con la perturbación: con un error de
+digitación el diccionario conserva el <span class="math notranslate nohighlight">\(97{,}7\%\)</span> y C4 cae al <span class="math notranslate nohighlight">\(57{,}3\%\)</span>, y con el nombre a medio escribir
+C4 baja al <span class="math notranslate nohighlight">\(51{,}3\%\)</span>.</p>
+<p>El término truncado o mal escrito no coincide con ningún término del índice léxico, así que C4 solo
+se apoya en las palabras completas, que comparten muchas otras personas, y las fichas de personas
+no tienen vector denso que compense, porque su contenido se reduce a un nombre y unos atributos.
+Quitar las tildes no cambia ninguno de los dos componentes, lo que confirma que la normalización
+del texto absorbe esa variación. Las instituciones se comportan igual.</p>
+<p>El diccionario responde en <span class="math notranslate nohighlight">\(37\)</span> ms en la mediana y <span class="math notranslate nohighlight">\(47\)</span> ms en el percentil <span class="math notranslate nohighlight">\(95\)</span> sobre los <span class="math notranslate nohighlight">\(757.538\)</span>
+documentos, y en <span class="math notranslate nohighlight">\(3{,}7\)</span> ms en el percentil <span class="math notranslate nohighlight">\(95\)</span> en modo de sugerencia, en el mismo equipo personal de
+la campaña de costo y con una implementación compilada del recuperador.</p>
+<p>Esto contesta la parte de P2 que la Versión 1 no podía contestar, y la respuesta contradice la
+formulación original. Para la búsqueda por entidad la fusión del híbrido no basta: hace falta un
+componente de resolución de entidades. Sin él, el mejor ranking del trabajo pierde <span class="math notranslate nohighlight">\(11\)</span> puntos con
+el nombre exacto, <span class="math notranslate nohighlight">\(40\)</span> con un error de digitación y <span class="math notranslate nohighlight">\(46\)</span> con una palabra a medio escribir. El
+análisis del realce ya lo anticipaba, al mostrar que un realce sobre los documentos que comparten
+la clase de la entidad no discrimina y que la mención concreta debe resolverse contra un
+diccionario. La arquitectura recomendada usa el ranking semántico para el conocimiento funcional y
+un diccionario de entidades para los nombres propios, y presenta juntos los resultados de ambos.</p>
+</section>
+</section>
+<section id="heterogeneidad-del-corpus-y-restriccion-por-funcion">
+<h2>Heterogeneidad del corpus y restricción por función<a class="headerlink" href="#heterogeneidad-del-corpus-y-restriccion-por-funcion" title="Link to this heading">#</a></h2>
+<p>Al pasar de <span class="math notranslate nohighlight">\(811\)</span> a <span class="math notranslate nohighlight">\(757.538\)</span> documentos, el corpus mezcla objetos que comparten vocabulario sin
+compartir función. En una búsqueda sin restricción, el ranking C4 empeoró en consultas que antes
+resolvía. La consulta «halterofilia» devolvió primero un escenario llamado «Coliseo de
+Halterofilia» en lugar de la prueba, y siete de las treinta consultas del corpus de precisión
+salieron de su posición esperada. Es el mismo mecanismo que perjudicaba a la fusión por rango en el
+corpus v3: un documento de otro tipo que comparte palabras con la consulta entra como distractor.</p>
+<section id="la-restriccion">
+<h3>La restricción<a class="headerlink" href="#la-restriccion" title="Link to this heading">#</a></h3>
+<p>La plataforma ofrece una caja de búsqueda en cada pantalla de listado, y cada una tiene una
+función: la de deportistas busca deportistas, la de escenarios busca escenarios. Para
+formalizarlo, cada contexto de búsqueda <span class="math notranslate nohighlight">\(b\)</span> declara el conjunto <span class="math notranslate nohighlight">\(T_b\)</span> de tipos de objeto que puede
+devolver, los filtros que acepta y, cuando aplica, un filtro obligatorio que fija el contexto, como
+el evento que se está viendo o el usuario que consulta sus propias competencias. El ranking C4 se
+calcula sobre todo el corpus y después se conserva solo</p>
+<div class="math notranslate nohighlight">
+\[
+\{\,d : \mathrm{tipo}(d)\in T_b\,\},
+\]</div>
+<p>lo que preserva el orden relativo de la fusión. Cada resultado se verifica contra <span class="math notranslate nohighlight">\(T_b\)</span> y contra el
+contexto antes de devolverse. La restricción depende solo de la función de la búsqueda; qué
+pantallas ve cada rol de usuario lo decide la plataforma. En total se definieron <span class="math notranslate nohighlight">\(22\)</span> contextos de
+búsqueda.</p>
+</section>
+<section id="resultados">
+<h3>Resultados<a class="headerlink" href="#resultados" title="Link to this heading">#</a></h3>
+<p>Con la restricción, las treinta consultas del corpus de precisión volvieron a su posición esperada,
+incluidas las nueve que preguntan por el contenido de un reporte, como «documentos rechazados de
+deportistas en Magdalena» o «qué reporte trae el tipo de sangre y la EPS».</p>
+<p>Para comprobar el aislamiento se enviaron <span class="math notranslate nohighlight">\(1.826\)</span> consultas cruzadas a los <span class="math notranslate nohighlight">\(22\)</span> contextos, con
+nombres de personas, números de documento, escenarios, eventos, deportes, reportes y títulos reales
+de cada tipo del índice. Ningún contexto devolvió un tipo de objeto fuera de <span class="math notranslate nohighlight">\(T_b\)</span>, y dos contextos
+con filtros obligatorios distintos (dos eventos, dos usuarios) nunca compartieron un resultado.</p>
+<p>Además se tomaron, para cada contexto, hasta <span class="math notranslate nohighlight">\(25\)</span> objetos reales de sus tipos, que se buscaron por
+su nombre exacto y con una letra menos. Con el nombre exacto el objeto quedó entre los cinco
+primeros en el <span class="math notranslate nohighlight">\(100\%\)</span> de los casos, y con el error, entre el <span class="math notranslate nohighlight">\(88\)</span> y el <span class="math notranslate nohighlight">\(100\%\)</span> según el contexto. La
+búsqueda restringida tarda <span class="math notranslate nohighlight">\(14\)</span> ms en la mediana y <span class="math notranslate nohighlight">\(47\)</span> ms en el percentil <span class="math notranslate nohighlight">\(95\)</span>.</p>
+</section>
+</section>
+<section id="contraste-con-las-cajas-de-busqueda-actuales">
+<h2>Contraste con las cajas de búsqueda actuales<a class="headerlink" href="#contraste-con-las-cajas-de-busqueda-actuales" title="Link to this heading">#</a></h2>
+<p>Las cajas de búsqueda que la plataforma ofrece hoy en sus pantallas de listado comparan una
+subcadena de un solo campo. Sirven como línea base: con las mismas consultas, la tabla compara lo
+que devolvían el 28 de octubre de 2026 con lo que devuelve el método (C4 con diccionario de
+entidades y restricción por función). «Posición» es la del primer resultado correcto.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Contexto</p></th>
+<th class="head"><p>Consulta</p></th>
+<th class="head"><p>Caja actual</p></th>
+<th class="head"><p>Método</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Escenarios</p></td>
+<td><p>colizeo</p></td>
+<td><p>0 resultados</p></td>
+<td><p>posición 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Escenarios</p></td>
+<td><p>pisina</p></td>
+<td><p>0 resultados</p></td>
+<td><p>posición 1</p></td>
+</tr>
+<tr class="row-even"><td><p>Escenarios</p></td>
+<td><p>cancha de futbol / cancha de fútbol</p></td>
+<td><p>472 / 41: la tilde cambia el resultado</p></td>
+<td><p>los mismos cinco primeros</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eventos</p></td>
+<td><p>juegos nacionales</p></td>
+<td><p>0: las palabras no van seguidas en el nombre</p></td>
+<td><p>posición 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Eventos</p></td>
+<td><p>voleibol</p></td>
+<td><p>0: no busca por deporte</p></td>
+<td><p>posición 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Competencias</p></td>
+<td><p>futbol salon / futsal</p></td>
+<td><p>0 / 16, y 13 con tildes</p></td>
+<td><p>posición 1 en las tres</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportes</p></td>
+<td><p>futsal, ping pong, halterofilia</p></td>
+<td><p>0: sin sinónimos</p></td>
+<td><p>posición 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disciplinas de un evento</p></td>
+<td><p>futsal, tenis de mesa</p></td>
+<td><p>0</p></td>
+<td><p>posición 1</p></td>
+</tr>
+<tr class="row-even"><td><p>Reportes</p></td>
+<td><p>documentos rechazados</p></td>
+<td><p>«Sin reportes»</p></td>
+<td><p>posición 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La caja actual distingue tildes, no tolera errores de digitación, no conoce sinónimos, exige que
+las palabras vayan seguidas y no busca en campos que su propio texto de ayuda promete. Cada una de
+esas fallas corresponde a una pieza del método:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Falla de la caja actual</p></th>
+<th class="head"><p>Pieza del método que la resuelve</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>la tilde cambia el resultado</p></td>
+<td><p>la normalización del texto</p></td>
+</tr>
+<tr class="row-odd"><td><p>un error de digitación da cero resultados</p></td>
+<td><p>el diccionario de entidades</p></td>
+</tr>
+<tr class="row-even"><td><p>no conoce sinónimos («futsal», «ping pong»)</p></td>
+<td><p>la ontología</p></td>
+</tr>
+<tr class="row-odd"><td><p>exige palabras contiguas o no busca en ciertos campos</p></td>
+<td><p>la recuperación densa</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las consultas de la tabla las escribió el autor a partir de fallas observadas, de modo que ilustran
+el contraste sin estimar una tasa de error de la caja actual. La restricción por función se comparó
+con la búsqueda sin restricción, pero queda pendiente compararla con la combinación convexa, que
+ataca el mismo daño por otra vía, para saber si basta una de las dos o si se complementan. Como la
+restricción se aplica después de fusionar, elimina los distractores de otros tipos y deja intacto el
+orden dentro de un mismo tipo.</p>
+</section>
+<section id="lo-que-dejo-esta-etapa">
+<h2>Lo que dejó esta etapa<a class="headerlink" href="#lo-que-dejo-esta-etapa" title="Link to this heading">#</a></h2>
+<p>A la escala de la plataforma, la ontología conserva su aporte y supera a tres controles de la misma
+longitud, la fusión por rango es la configuración que más se degrada y la convexa es la
+configuración libre con el promedio más alto. La búsqueda de personas necesita un diccionario de
+entidades separado del ranking, y la heterogeneidad del corpus se controla restringiendo cada
+búsqueda a los tipos de su función; cuando el tipo hay que predecirlo, un predictor sin
+entrenamiento ya mejora la búsqueda libre, aunque lejos del techo. El mismo recuperador responde en
+<span class="math notranslate nohighlight">\(47\)</span> ms en el percentil <span class="math notranslate nohighlight">\(95\)</span> sobre <span class="math notranslate nohighlight">\(757.538\)</span> documentos. Los límites comunes a todo el trabajo, en
+especial que las consultas no son de usuarios, se discuten en <a class="reference internal" href="06_validez_y_robustez.html"><span class="std std-doc">validez y robustez</span></a>.</p>
+</section>
+<section id="como-reproducirlo">
+<h2>Cómo reproducirlo<a class="headerlink" href="#como-reproducirlo" title="Link to this heading">#</a></h2>
+<p>Estas evaluaciones no se pueden reconstruir desde el repositorio, porque requieren las fichas del
+registro completo, que contienen datos personales y no se publican. Lo que sí está publicado son
+los agregados y las métricas por consulta. La primera corrida de la escalera está en
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/main/experimentos/resultados/escalamiento"><code class="docutils literal notranslate"><span class="pre">resultados/escalamiento/</span></code></a>
+(<code class="docutils literal notranslate"><span class="pre">registro.json</span></code> para los <span class="math notranslate nohighlight">\(757.554\)</span> documentos y <code class="docutils literal notranslate"><span class="pre">v3.json</span></code> para el universo de <span class="math notranslate nohighlight">\(811\)</span>). La carpeta de
+la validación con cobertura densa completa, dentro de <code class="docutils literal notranslate"><span class="pre">experimentos/resultados/</span></code>, guarda el
+protocolo escrito antes de calcular, el informe, las estadísticas, la comprobación de paridad de
+los vectores, el enrutamiento, el ordenamiento en dos etapas por consulta, las métricas por
+consulta de cada brazo y los scripts de cálculo y de estadística. La búsqueda persona a persona y
+la restricción por función se reportan con los agregados de la monografía; ningún nombre, número
+de documento ni consulta con datos de una persona se conserva.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./recorrido"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_corpus_v3_811.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Corpus v3: 811 documentos de cinco tipos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_validez_y_robustez.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Validez y robustez</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion">Composición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-escalera-entre-757-554-documentos-primera-corrida">La escalera entre 757.554 documentos: primera corrida</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-tres-limites-de-la-primera-corrida">Los tres límites de la primera corrida</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-con-cobertura-densa-completa">Validación con cobertura densa completa</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-cambio-respecto-de-la-primera-corrida">Qué cambió respecto de la primera corrida</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-cinco-brazos">Los cinco brazos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontologia-frente-a-los-controles">Ontología frente a los controles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#se-puede-predecir-el-tipo-de-objeto">¿Se puede predecir el tipo de objeto?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-la-convexa-un-ordenamiento-en-dos-etapas">¿Mejora la convexa un ordenamiento en dos etapas?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-la-validacion-no-resuelve">Lo que la validación no resuelve</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-persona-a-persona-p2">Búsqueda persona a persona (P2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#los-dos-componentes-que-se-comparan">Los dos componentes que se comparan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-evaluacion">La evaluación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura">Lectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heterogeneidad-del-corpus-y-restriccion-por-funcion">Heterogeneidad del corpus y restricción por función</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-restriccion">La restricción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contraste-con-las-cajas-de-busqueda-actuales">Contraste con las cajas de búsqueda actuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-dejo-esta-etapa">Lo que dejó esta etapa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

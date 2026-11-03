@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>La demanda observada y la ontología &#8212; Buscadores semánticos GovTech · Proyecto de grado</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'recorrido/01_demanda';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/recorrido/01_demanda.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Versión 1: diecisiete reportes" href="02_version1_17_reportes.html" />
+    <link rel="prev" title="Recorrido por los corpus" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscadores semánticos para la recuperación de conocimiento funcional en plataformas GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">La tesis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resumen.html">La monografía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/metodo.html">Método</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/resultados.html">Resultados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tesis/codigo.html">Código y reproducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recorrido por corpus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Recorrido por los corpus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">La demanda observada y la ontología</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_version1_17_reportes.html">Versión 1: diecisiete reportes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_corpus_definitivo_177.html">Corpus definitivo: 177 documentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_corpus_v3_811.html">Corpus v3: 811 documentos de cinco tipos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_registro_completo.html">El registro completo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_validez_y_robustez.html">Validez y robustez</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Archivo exploratorio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../archivo/index.html">Archivo exploratorio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/recorrido/01_demanda.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>La demanda observada y la ontología</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-guardo-del-historial">Qué se guardó del historial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-unidad-de-analisis">La unidad de análisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-reparte-la-demanda">Cómo se reparte la demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-reporte-de-promocion">El reporte de promoción</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-cifras-del-problema">Otras cifras del problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dominio-de-competencias-gran-volumen-cero-demanda">El dominio de competencias: gran volumen, cero demanda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-entidad-prueba-regional">La entidad Prueba Regional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-del-dominio">La ontología del dominio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-desde-el-origen">Privacidad desde el origen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-alcance-de-la-version-1">El alcance de la Versión 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-corrigio-la-auditoria-del-30-de-septiembre">Lo que corrigió la auditoría del 30 de septiembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="la-demanda-observada-y-la-ontologia">
+<h1>La demanda observada y la ontología<a class="headerlink" href="#la-demanda-observada-y-la-ontologia" title="Link to this heading">#</a></h1>
+<p>Antes de construir un buscador hacía falta saber qué buscan las personas que usan la
+plataforma. Como la plataforma no tiene un buscador sobre sus reportes y sus cajas de texto son
+filtros de lista que no guardan lo que se escribe, no existe un registro de búsquedas en texto
+libre. Lo más cercano a una consulta humana es el historial de ejecuciones de reportes: cada
+vez que alguien abre un reporte y aplica filtros, el sistema ejecuta instrucciones contra el
+almacén de datos y las registra. De ese historial salieron la unidad de análisis, la medida de
+la concentración de la demanda, la evidencia de un dominio que no aparece en él y, a partir de
+todo eso, la ontología del dominio.</p>
+<p>Las cifras son las de la monografía después de la auditoría del 30 de septiembre de 2026. El
+cuaderno <a class="reference internal" href="../notebooks/EDA_SUID.html"><span class="std std-doc">EDA del historial</span></a> del archivo muestra la versión
+anterior; al final de la página se detalla qué cambió.</p>
+<section id="que-se-guardo-del-historial">
+<h2>Qué se guardó del historial<a class="headerlink" href="#que-se-guardo-del-historial" title="Link to this heading">#</a></h2>
+<p>La ventana de observación es de seis semanas y media. De cada ejecución se conservó su <em>firma</em>:
+qué reporte se ejecutó, qué tablas y columnas tocó y qué palabras clave de filtro usó. Los
+valores buscados no se guardaron. Antes de almacenar nada se eliminaron de cada instrucción los
+literales de cadena y los números largos, y una auditoría automática buscó correos, teléfonos y
+secuencias de dígitos en el resultado sin encontrar ninguno. El análisis examina qué se
+preguntó, nunca qué respondió el sistema, y no toca información de ninguna persona.</p>
+<p>Los nombres técnicos internos de los reportes y tablas se mencionan en la monografía una sola
+vez; aquí se usan los nombres en lenguaje natural.</p>
+</section>
+<section id="la-unidad-de-analisis">
+<h2>La unidad de análisis<a class="headerlink" href="#la-unidad-de-analisis" title="Link to this heading">#</a></h2>
+<p>Contar ejecuciones brutas sobrestima la demanda. La plataforma ejecuta dos instrucciones por
+cada página de resultados que ve el usuario: una que trae los datos y otra que solo cuenta
+cuántos hay, para paginar. Además, muchas ejecuciones solo llenan los desplegables de los
+filtros de la interfaz. Ninguna de las dos expresa una necesidad de información.</p>
+<p>La unidad que usa la tesis es la <em>consulta de datos real</em>, que descarta las verificaciones de
+conteo y las consultas de filtros.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de ejecución</p></th>
+<th class="head"><p>Cantidad o proporción</p></th>
+<th class="head"><p>Lectura</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ejecuciones registradas</p></td>
+<td><p><span class="math notranslate nohighlight">\(14.718\)</span></p></td>
+<td><p>todo lo que el sistema ejecutó en la ventana</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solicitudes reales de datos</p></td>
+<td><p><span class="math notranslate nohighlight">\(6.620\)</span> (<span class="math notranslate nohighlight">\(45\%\)</span>)</p></td>
+<td><p>unas <span class="math notranslate nohighlight">\(145\)</span> por día</p></td>
+</tr>
+<tr class="row-even"><td><p>Conteos de paginación</p></td>
+<td><p><span class="math notranslate nohighlight">\(38{,}5\%\)</span></p></td>
+<td><p>la instrucción gemela que solo cuenta filas</p></td>
+</tr>
+<tr class="row-odd"><td><p>Consultas de filtros de la interfaz</p></td>
+<td><p><span class="math notranslate nohighlight">\(16{,}5\%\)</span></p></td>
+<td><p>alimentan los desplegables, no responden una pregunta</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Contar las dos instrucciones de cada página por igual inflaría la demanda casi al doble. Las
+<span class="math notranslate nohighlight">\(145\)</span> solicitudes reales por día son, además, la cifra con la que la tesis dimensiona la carga
+del buscador: con unos <span class="math notranslate nohighlight">\(0{,}35\)</span> segundos por consulta, esa demanda representa menos de un minuto
+de cómputo diario (ver el costo computacional en <a class="reference internal" href="02_version1_17_reportes.html"><span class="std std-doc">la Versión 1</span></a>).</p>
+</section>
+<section id="como-se-reparte-la-demanda">
+<h2>Cómo se reparte la demanda<a class="headerlink" href="#como-se-reparte-la-demanda" title="Link to this heading">#</a></h2>
+<p>Sobre las <span class="math notranslate nohighlight">\(6.620\)</span> solicitudes reales, la demanda se reparte de forma muy desigual entre los
+diecisiete reportes que la plataforma ofrece.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Posición</p></th>
+<th class="head"><p>Reporte</p></th>
+<th class="head"><p>Solicitudes reales</p></th>
+<th class="head"><p>Proporción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Reporte Individual de Deportistas</p></td>
+<td><p><span class="math notranslate nohighlight">\(2.675\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(40{,}4\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Grupos</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.080\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(16{,}3\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Personal de apoyo</p></td>
+<td><p><span class="math notranslate nohighlight">\(809\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(12{,}2\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Documentación de deportistas</p></td>
+<td><p><span class="math notranslate nohighlight">\(495\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(7{,}5\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Participación</p></td>
+<td><p><span class="math notranslate nohighlight">\(461\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(7{,}0\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Resumen del tablero de control</p></td>
+<td><p><span class="math notranslate nohighlight">\(307\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(4{,}6\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Promoción de deportistas</p></td>
+<td><p><span class="math notranslate nohighlight">\(275\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(4{,}2\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Instituciones</p></td>
+<td><p><span class="math notranslate nohighlight">\(191\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2{,}9\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Progreso y cumplimiento de metas</p></td>
+<td><p><span class="math notranslate nohighlight">\(96\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1{,}5\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Distribución de usuarios</p></td>
+<td><p><span class="math notranslate nohighlight">\(58\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}9\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Métricas por federación</p></td>
+<td><p><span class="math notranslate nohighlight">\(48\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}7\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Pruebas de caídas (todas las etapas)</p></td>
+<td><p><span class="math notranslate nohighlight">\(47\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}7\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Cambios en la intención de participación</p></td>
+<td><p><span class="math notranslate nohighlight">\(33\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}5\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Delegaciones de participación</p></td>
+<td><p><span class="math notranslate nohighlight">\(29\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}4\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Pruebas de caídas</p></td>
+<td><p><span class="math notranslate nohighlight">\(12\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}2\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>Resumen de caídas</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}0\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Resumen de caídas (todas las etapas)</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}0\%\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/fig_ranking_ajustado.png"><img alt="Barras horizontales con las solicitudes reales de cada uno de los diecisiete reportes" src="../_images/fig_ranking_ajustado.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 1 </span><span class="caption-text">Solicitudes reales de datos por reporte en la ventana de seis semanas y media, sin las
+verificaciones de paginación ni las consultas de filtros. Los cinco primeros, en naranja, son
+los de prioridad alta.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Los cinco reportes de mayor demanda suman el <span class="math notranslate nohighlight">\(83\%\)</span> de las solicitudes reales, y el Reporte
+Individual de Deportistas explica por sí solo el <span class="math notranslate nohighlight">\(40{,}4\%\)</span>. Su mediana es de <span class="math notranslate nohighlight">\(51{,}7\)</span> MB
+procesados por solicitud, del orden de <span class="math notranslate nohighlight">\(138\)</span> GB en la ventana; esa cifra es una estimación que
+multiplica la frecuencia por la mediana y no una medición del volumen total.</p>
+<p>La desigualdad se resume con el índice de Gini, que vale <span class="math notranslate nohighlight">\(0\)</span> cuando todos los reportes se piden
+lo mismo y se acerca a <span class="math notranslate nohighlight">\(1\)</span> cuando uno concentra toda la demanda. Sobre los diecisiete reportes
+vale <span class="math notranslate nohighlight">\(0{,}70\)</span>. Para saber cuánto podría variar esa cifra con otra ventana de observación, se
+calculó un intervalo de confianza del <span class="math notranslate nohighlight">\(95\%\)</span> por <em>bootstrap</em> que remuestrea días completos del
+historial. El intervalo va de <span class="math notranslate nohighlight">\(0{,}65\)</span> a <span class="math notranslate nohighlight">\(0{,}75\)</span>. La curva de Lorenz de la monografía ordena los
+reportes de menor a mayor demanda y acumula su proporción; cuanto más se aleja de la diagonal de
+igualdad, más concentrada está la demanda, y aquí se aleja mucho, porque los últimos reportes de
+la tabla apenas reciben solicitudes.</p>
+<p>Esa concentración tiene una consecuencia práctica directa. No tiene sentido invertir el mismo
+esfuerzo en un reporte que casi nadie pide que en uno que se pide cientos de veces por semana,
+y un buscador que acierte en los cinco primeros cubre la mayor parte del uso real desde su
+primera versión. Por eso la Versión 1 prioriza esos cinco reportes en sus conjuntos de
+evaluación.</p>
+<section id="el-reporte-de-promocion">
+<h3>El reporte de promoción<a class="headerlink" href="#el-reporte-de-promocion" title="Link to this heading">#</a></h3>
+<p>El reporte de promoción tiene una particularidad. No hay una fuente de datos que lo tenga ya
+calculado: se reconstruye en cada solicitud con un cruce al vuelo entre los datos del
+deportista, el registro de promociones y la definición de fases del evento, porque el estado de
+promoción sale de una lógica de negocio que no está guardada en ninguna tabla. Cada vez que
+alguien lo pide, el sistema repite el mismo cálculo aunque nada haya cambiado. Es el primer
+ejemplo de una pregunta de negocio real que se arma cruzando tablas en el momento, un patrón que
+reaparece, llevado al extremo, en el dominio de competencias.</p>
+<p>Una versión preliminar del análisis atribuía a este reporte cerca de la mitad de la demanda. La
+cifra era un artefacto de la regla de clasificación, que marcaba como promoción cualquier
+consulta al reporte individual que mencionara columnas como categoría o etapa, atributos de ese
+mismo reporte. La regla corregida exige usar el registro de promociones o calcular un estado de
+promoción, y con ella el reporte pasa al séptimo lugar, con el <span class="math notranslate nohighlight">\(4{,}2\%\)</span>.</p>
+</section>
+</section>
+<section id="otras-cifras-del-problema">
+<h2>Otras cifras del problema<a class="headerlink" href="#otras-cifras-del-problema" title="Link to this heading">#</a></h2>
+<p>El historial y los conteos agregados de la base de datos permiten dimensionar el problema más
+allá de la demanda de reportes.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Indicador</p></th>
+<th class="head"><p>Valor</p></th>
+<th class="head"><p>Lectura</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Reportes disponibles</p></td>
+<td><p><span class="math notranslate nohighlight">\(17\)</span></p></td>
+<td><p>el universo que hoy puede consultar un usuario</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cuentas de organismos deportivos</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.262\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.146\)</span> municipales, <span class="math notranslate nohighlight">\(67\)</span> departamentales, <span class="math notranslate nohighlight">\(42\)</span> nacionales y <span class="math notranslate nohighlight">\(7\)</span> clubes</p></td>
+</tr>
+<tr class="row-even"><td><p>Roles de usuario</p></td>
+<td><p><span class="math notranslate nohighlight">\(29\)</span></p></td>
+<td><p>cada rol ve una parte distinta del sistema</p></td>
+</tr>
+<tr class="row-odd"><td><p>Participaciones de deportistas en disciplinas</p></td>
+<td><p><span class="math notranslate nohighlight">\(732.640\)</span></p></td>
+<td><p>dominio de competencias</p></td>
+</tr>
+<tr class="row-even"><td><p>Resultados de competencia registrados</p></td>
+<td><p><span class="math notranslate nohighlight">\(47.635\)</span></p></td>
+<td><p>ninguna consulta los usa, porque no hay un reporte que los exponga</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pares consulta–reporte etiquetados</p></td>
+<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p>impide entrenar o calibrar modelos con supervisión</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los <span class="math notranslate nohighlight">\(29\)</span> roles y las <span class="math notranslate nohighlight">\(1.262\)</span> cuentas dependen de encontrar el reporte que responde a su
+pregunta y hoy solo pueden hacerlo recorriendo menús con nombres técnicos. El historial no
+registra cuánto tiempo se pierde ni cuántas consultas terminan en el equipo de soporte, de modo
+que ese costo no se puede cuantificar con estos datos.</p>
+</section>
+<section id="el-dominio-de-competencias-gran-volumen-cero-demanda">
+<h2>El dominio de competencias: gran volumen, cero demanda<a class="headerlink" href="#el-dominio-de-competencias-gran-volumen-cero-demanda" title="Link to this heading">#</a></h2>
+<p>Los diecisiete reportes no son todo el sistema. Una revisión directa del catálogo de datos
+muestra que las tablas que definen la competencia en sí (eventos, resultados con sus
+configuraciones y posiciones, y sedes) no aparecen en ninguna solicitud de la ventana. Las de
+grupos y participantes sí aparecen, pero solo como apoyo de otros reportes. La capa intermedia
+de eventos del almacén está vacía y ninguna de las tablas ya resueltas cubre el dominio.</p>
+<p>Su volumen, en cambio, es varias veces mayor que el de cualquier reporte actual.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tabla del dominio de competencias</p></th>
+<th class="head"><p>Registros</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Participante y disciplina</p></td>
+<td><p><span class="math notranslate nohighlight">\(732.640\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Participantes</p></td>
+<td><p><span class="math notranslate nohighlight">\(674.186\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Resultados de competencia</p></td>
+<td><p><span class="math notranslate nohighlight">\(47.635\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Grupos y delegaciones</p></td>
+<td><p><span class="math notranslate nohighlight">\(42.485\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/fig_diferencial_dominios.png"><img alt="Dos paneles; a la izquierda las 6.620 consultas reales frente a cero consultas a eventos y resultados; a la derecha los registros del dominio de competencias en escala logarítmica" src="../_images/fig_diferencial_dominios.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 2 </span><span class="caption-text">Mapeo diferencial entre la demanda observada y el tamaño del dominio de competencias. Las
+tablas que definen la competencia no reciben ninguna consulta y guardan cientos de miles de
+registros.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Un cero en el historial admite dos lecturas: que nadie necesita esa información o que nadie
+puede pedirla porque ningún reporte la expone. Los datos son coherentes con la segunda, ya que el
+dominio tiene cientos de miles de registros, sus tablas se usan como apoyo de otros reportes y
+no existe una fuente dedicada. El trabajo no puede contrastar por sí solo cuál de las dos es la
+correcta. Por eso el dominio se trata como candidato prioritario para una segunda versión y no
+como demanda demostrada.</p>
+</section>
+<section id="la-entidad-prueba-regional">
+<h2>La entidad Prueba Regional<a class="headerlink" href="#la-entidad-prueba-regional" title="Link to this heading">#</a></h2>
+<p>La consulta que motivó la investigación sería algo como «Atletismo Pre-Juvenil en Región
+Caribe 1». Esa frase no corresponde a ningún campo del sistema. Cruza tres conceptos reales,
+verificados contra los datos, que viven en tablas distintas: una disciplina con su categoría
+(Atletismo, Pre Juvenil), una fase de competencia (Regionales) y una región deportiva (Caribe 1).
+La entidad de negocio es una <em>Prueba Regional</em>, y no está materializada en ninguna parte: se
+arma componiendo conceptos.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/diagrama_6_construccion_competencia1.png"><img alt="Diagrama en el que disciplina, fase y región confluyen en la Prueba Regional, que se nombra como Atletismo Pre-Juvenil en Región Caribe 1 y forma parte de un evento" src="../_images/diagrama_6_construccion_competencia1.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 3 </span><span class="caption-text">Construcción de la Prueba Regional. La disciplina con su categoría, la fase y la región
+deportiva confluyen en una entidad compuesta que se nombra en lenguaje natural y forma parte de
+un evento.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Si las preguntas de negocio se arman componiendo conceptos (disciplina, categoría, región y
+fase, o deportista, evento y estado de promoción), un recuperador que compare texto plano
+contra texto plano puede quedarse corto si no conoce esos conceptos y sus relaciones. De ahí la
+hipótesis de que una ontología aporte más en este dominio que en los reportes, que se contrasta
+después con el <a class="reference internal" href="03_corpus_definitivo_177.html"><span class="std std-doc">corpus definitivo</span></a>.</p>
+</section>
+<section id="la-ontologia-del-dominio">
+<h2>La ontología del dominio<a class="headerlink" href="#la-ontologia-del-dominio" title="Link to this heading">#</a></h2>
+<p>Una ontología es un modelo explícito de las clases del dominio, de sus sinónimos y de sus
+relaciones. La de este trabajo tiene <span class="math notranslate nohighlight">\(13\)</span> clases: Deportista, Institución, Grupo, Evento, Etapa
+o fase, Promoción, Ubicación geográfica, Disciplina deportiva, Personal de apoyo, Documento,
+Participación o delegación, Región deportiva y Prueba Regional. La federación figura como entidad
+relacionada sin clase propia. Las clases están unidas por <span class="math notranslate nohighlight">\(20\)</span> relaciones. Los nombres de
+columna que la ontología asocia a cada clase salieron de las firmas reales, sin inventar
+ninguno.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Origen</p></th>
+<th class="head"><p>Relación</p></th>
+<th class="head"><p>Destino</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Deportista</p></td>
+<td><p>practica</p></td>
+<td><p>Disciplina deportiva</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deportista</p></td>
+<td><p>presenta</p></td>
+<td><p>Documento</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportista</p></td>
+<td><p>pertenece a</p></td>
+<td><p>Institución</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deportista</p></td>
+<td><p>pertenece a</p></td>
+<td><p>Grupo</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportista</p></td>
+<td><p>participa en</p></td>
+<td><p>Evento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deportista</p></td>
+<td><p>tiene estado de</p></td>
+<td><p>Promoción</p></td>
+</tr>
+<tr class="row-even"><td><p>Deportista</p></td>
+<td><p>reside en</p></td>
+<td><p>Ubicación geográfica</p></td>
+</tr>
+<tr class="row-odd"><td><p>Personal de apoyo</p></td>
+<td><p>pertenece a</p></td>
+<td><p>Grupo</p></td>
+</tr>
+<tr class="row-even"><td><p>Grupo</p></td>
+<td><p>representa a</p></td>
+<td><p>Institución</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grupo</p></td>
+<td><p>compite en</p></td>
+<td><p>Evento</p></td>
+</tr>
+<tr class="row-even"><td><p>Participación o delegación</p></td>
+<td><p>pertenece a</p></td>
+<td><p>Institución</p></td>
+</tr>
+<tr class="row-odd"><td><p>Institución</p></td>
+<td><p>ubicada en</p></td>
+<td><p>Ubicación geográfica</p></td>
+</tr>
+<tr class="row-even"><td><p>Institución</p></td>
+<td><p>asociada a</p></td>
+<td><p>Federación</p></td>
+</tr>
+<tr class="row-odd"><td><p>Evento</p></td>
+<td><p>tiene</p></td>
+<td><p>Etapa o fase</p></td>
+</tr>
+<tr class="row-even"><td><p>Promoción</p></td>
+<td><p>habilita avance a</p></td>
+<td><p>Etapa o fase</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La tabla recoge las quince relaciones entre las clases principales. Las restantes conectan la
+Región deportiva y la Prueba Regional con la disciplina, la fase, la región y el evento, según la
+composición descrita arriba.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/diagrama_3_mapa_relaciones1.png"><img alt="Grafo con Deportista e Institución resaltadas y flechas hacia disciplina, documento, grupo, evento, promoción, ubicación, fase y federación" src="../_images/diagrama_3_mapa_relaciones1.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 4 </span><span class="caption-text">Clases principales de la ontología y sus relaciones. En naranja, las dos clases que admiten
+búsqueda por nombre propio. La federación aparece como entidad relacionada; en la ontología no
+tiene clase propia.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La ontología marca de forma explícita qué propiedades se buscan por nombre propio, que en el
+diseño original son las de Deportista e Institución. Durante la construcción apareció un detalle
+de calidad de datos: el nombre de una institución figura con dos nombres técnicos según el
+reporte (<code class="docutils literal notranslate"><span class="pre">institution_name</span></code> en la mayoría y <code class="docutils literal notranslate"><span class="pre">legal_name</span></code> en el reporte de instituciones), y al
+principio el reporte de instituciones quedaba marcado como «sin búsqueda por nombre propio»,
+justo donde más se quería. Se corrigió unificando ambos.</p>
+<p>La ontología se usa de una sola manera en el trabajo: como fuente de metadatos para enriquecer
+el texto que se indexa. Para cada documento se recorre la ontología y se produce un bloque con
+sus entidades principales, sus sinónimos y las preguntas de negocio que responde, que se
+concatena a su descripción. La definición formal del documento enriquecido está en
+<a class="reference internal" href="02_version1_17_reportes.html"><span class="std std-doc">la página de la Versión 1</span></a>.</p>
+</section>
+<section id="privacidad-desde-el-origen">
+<h2>Privacidad desde el origen<a class="headerlink" href="#privacidad-desde-el-origen" title="Link to this heading">#</a></h2>
+<p>El corpus que se indexa está formado por descripciones en lenguaje natural de cada reporte,
+enriquecidas con la ontología, y no incluye filas de datos personales ni el historial de
+consultas. La búsqueda por nombre propio de una persona o una institución se resuelve, en el
+diseño propuesto, en un componente aparte con control de acceso, coherente con que la base de
+datos ya almacena cifrados por columna los nombres de los participantes. El índice semántico
+nunca contiene datos personales. Los nombres propios que aparecen en las consultas de
+evaluación de la Versión 1 son sintéticos y no corresponden a ninguna persona real.</p>
+</section>
+<section id="el-alcance-de-la-version-1">
+<h2>El alcance de la Versión 1<a class="headerlink" href="#el-alcance-de-la-version-1" title="Link to this heading">#</a></h2>
+<p>Con estos hallazgos se fijó el alcance de la primera versión del buscador: los diecisiete
+reportes y la ontología, con prioridad en los cinco reportes que concentran el <span class="math notranslate nohighlight">\(83\%\)</span> de las
+solicitudes reales. El dominio de competencias quedó fuera, porque exponerlo exige materializar
+la Prueba Regional y un trabajo de modelado propio. La ontología ya incluye la fórmula de
+composición de la Prueba Regional, de modo que el <a class="reference internal" href="03_corpus_definitivo_177.html"><span class="std std-doc">corpus definitivo</span></a>
+pudo reutilizar la misma tubería sin rediseñarla.</p>
+</section>
+<section id="lo-que-corrigio-la-auditoria-del-30-de-septiembre">
+<h2>Lo que corrigió la auditoría del 30 de septiembre<a class="headerlink" href="#lo-que-corrigio-la-auditoria-del-30-de-septiembre" title="Link to this heading">#</a></h2>
+<p>La auditoría interna revisó el análisis de la demanda con la misma severidad que los benchmarks
+y cambió varias cifras centrales. Los cuadernos del archivo conservan las anteriores.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cifra</p></th>
+<th class="head"><p>Antes de la auditoría</p></th>
+<th class="head"><p>Después</p></th>
+<th class="head"><p>Causa</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Demanda real total</p></td>
+<td><p><span class="math notranslate nohighlight">\(9.051\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(6.620\)</span></p></td>
+<td><p>se excluyeron los conteos gemelos de paginación y las consultas de filtros</p></td>
+</tr>
+<tr class="row-odd"><td><p>Conteos de paginación</p></td>
+<td><p>«cerca del <span class="math notranslate nohighlight">\(50\%\)</span>»</p></td>
+<td><p><span class="math notranslate nohighlight">\(38{,}5\%\)</span> de las ejecuciones</p></td>
+<td><p>conteo directo de las instrucciones gemelas</p></td>
+</tr>
+<tr class="row-even"><td><p>Reporte de promoción</p></td>
+<td><p><span class="math notranslate nohighlight">\(47{,}5\%\)</span> de la demanda</p></td>
+<td><p><span class="math notranslate nohighlight">\(4{,}2\%\)</span>, séptimo lugar</p></td>
+<td><p>regla de clasificación corregida</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reporte líder</p></td>
+<td><p>Promoción</p></td>
+<td><p>Reporte Individual de Deportistas, <span class="math notranslate nohighlight">\(40{,}4\%\)</span></p></td>
+<td><p>consecuencia de la regla corregida</p></td>
+</tr>
+<tr class="row-even"><td><p>Concentración en cinco reportes</p></td>
+<td><p><span class="math notranslate nohighlight">\(86\%\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(83\%\)</span></p></td>
+<td><p>nueva unidad de análisis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Índice de Gini</p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}74\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}70\)</span>, con intervalo de <span class="math notranslate nohighlight">\(0{,}65\)</span> a <span class="math notranslate nohighlight">\(0{,}75\)</span></p></td>
+<td><p>nueva unidad y <em>bootstrap</em> por día</p></td>
+</tr>
+<tr class="row-even"><td><p>«Cero consultas a competencias»</p></td>
+<td><p>afirmado para todo el dominio</p></td>
+<td><p>acotado a eventos, resultados y sedes</p></td>
+<td><p>grupos y participantes sí aparecen, como apoyo de otros reportes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hay además un pendiente que la auditoría dejó a la vista. Para validar el clasificador que
+asigna cada firma a un reporte se preparó una muestra de <span class="math notranslate nohighlight">\(296\)</span> casos, pero nunca se etiquetó, de
+modo que no existe una precisión medida de esa clasificación. La regla de promoción corregida
+está implementada en el código del experimento y se aplica a todas las firmas que usan los
+conjuntos de evaluación.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>El cuaderno del análisis exploratorio y sus figuras muestran las cifras anteriores a esta
+corrección, incluida una curva de Lorenz con otro índice de Gini calculado sobre las
+ejecuciones brutas. Se conservan como registro del proceso; las cifras válidas son las de esta
+página y de la monografía.</p>
+</div>
+</section>
+<section id="como-reproducirlo">
+<h2>Cómo reproducirlo<a class="headerlink" href="#como-reproducirlo" title="Link to this heading">#</a></h2>
+<p>El historial de ejecuciones y sus firmas no se publican, porque provienen del almacén de datos
+de la plataforma y su uso se autorizó solo con fines académicos. La regla corregida de
+clasificación de reportes está en
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/lib/etiquetado.py"><code class="docutils literal notranslate"><span class="pre">lib/etiquetado.py</span></code></a>,
+y la construcción del conjunto de consultas a partir de las firmas en
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/construir_eval_real_ampliado.py"><code class="docutils literal notranslate"><span class="pre">construir_eval_real_ampliado.py</span></code></a>
+(<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">eval_real</span></code>). La ontología está publicada en
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/main/data/ontologia_suid">la carpeta de la ontología</a>,
+con su catálogo de entidades y los metadatos por reporte, y el cuaderno de
+<a class="reference internal" href="../notebooks/Exploracion_Ontologia_Metadatos_SUID.html"><span class="std std-doc">exploración de la ontología</span></a> muestra
+cómo se construyó.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./recorrido"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Recorrido por los corpus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_version1_17_reportes.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Versión 1: diecisiete reportes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-se-guardo-del-historial">Qué se guardó del historial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-unidad-de-analisis">La unidad de análisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-reparte-la-demanda">Cómo se reparte la demanda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-reporte-de-promocion">El reporte de promoción</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-cifras-del-problema">Otras cifras del problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dominio-de-competencias-gran-volumen-cero-demanda">El dominio de competencias: gran volumen, cero demanda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-entidad-prueba-regional">La entidad Prueba Regional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ontologia-del-dominio">La ontología del dominio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacidad-desde-el-origen">Privacidad desde el origen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-alcance-de-la-version-1">El alcance de la Versión 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lo-que-corrigio-la-auditoria-del-30-de-septiembre">Lo que corrigió la auditoría del 30 de septiembre</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-reproducirlo">Cómo reproducirlo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
