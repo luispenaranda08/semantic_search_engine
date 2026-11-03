@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Código y reproducción &#8212; Buscadores semánticos GovTech · Proyecto de grado</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Haz clic para mostrar';</script>
+    <script>let toggleHintHide = 'Haz clic para ocultar';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=d190bf04"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tesis/codigo';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://luispenaranda08.github.io/semantic_search_engine/tesis/codigo.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Archivo exploratorio" href="../archivo/index.html" />
+    <link rel="prev" title="Resultados" href="resultados.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Navegación del sitio">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="En esta página">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/portada.png" class="logo__image only-light" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+    <img src="../_static/portada.png" class="logo__image only-dark pst-js-only" alt="Buscadores semánticos GovTech · Proyecto de grado - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Buscadores semánticos para la recuperación de conocimiento funcional en plataformas GovTech
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">La tesis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resumen.html">La monografía</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metodo.html">Método</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultados.html">Resultados</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Código y reproducción</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Archivo exploratorio</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../archivo/index.html">Archivo exploratorio</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/EDA_SUID.html">Análisis Exploratorio de Datos (EDA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Exploracion_Ontologia_Metadatos_SUID.html">Ontología y Metadatos Estructurados del Dominio Deportivo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Escalera_Ablacion.html">Benchmark — Escalera de ablación del buscador semántico híbrido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/01_Analisis_por_Estratos_y_Estadistica.html">01 · Análisis por estratos y significancia estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/02_Diagnostico_Realce_Entidad.html">02 · Diagnóstico y retuning del realce por entidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03_Matryoshka_y_Chunking_P4_P6.html">03 · Eficiencia de despliegue — Matryoshka (P6) y chunking (P4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Benchmark_Matryoshka_P6.html">Benchmark — Barrido Matryoshka (P6): efectividad vs. eficiencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_Evaluacion_Validez_Externa.html">05 · Evaluación con validez externa (Escalera 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/06_Expansion_Corpus_Competencias.html">06 · Expansión del corpus a Competencias (Escalera 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/07_Poder_Estadistico_Eval_Ampliado.html">07 · Poder estadístico y conjunto de evaluación real ampliado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Resumen_Ejecutivo_y_Roadmap_v2.html">04 · Resumen ejecutivo y roadmap hacia la v2</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/luispenaranda08/semantic_search_engine" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Repositorio de origen"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tesis/codigo.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Código y reproducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducir-los-resultados">Reproducir los resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-del-codigo">Mapa del código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-no-se-publica">Qué no se publica</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="codigo-y-reproduccion">
+<h1>Código y reproducción<a class="headerlink" href="#codigo-y-reproduccion" title="Link to this heading">#</a></h1>
+<p>El código está en la carpeta
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/v1.0-tesis/experimentos"><code class="docutils literal notranslate"><span class="pre">experimentos/</span></code></a>
+del repositorio. La etiqueta <code class="docutils literal notranslate"><span class="pre">v1.0-tesis</span></code> fija la versión que produce las cifras de la monografía.</p>
+<section id="reproducir-los-resultados">
+<h2>Reproducir los resultados<a class="headerlink" href="#reproducir-los-resultados" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/luispenaranda08/semantic_search_engine.git
+<span class="nb">cd</span><span class="w"> </span>semantic_search_engine
+git<span class="w"> </span>checkout<span class="w"> </span>v1.0-tesis
+<span class="nb">cd</span><span class="w"> </span>experimentos
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+make<span class="w"> </span><span class="nb">test</span><span class="w">     </span><span class="c1"># pruebas de métricas y estadística</span>
+make<span class="w"> </span>smoke<span class="w">    </span><span class="c1"># tubería completa con un codificador offline, sin descargar modelos</span>
+make<span class="w"> </span>all<span class="w">      </span><span class="c1"># corpus, consultas, escalera de ablación y reportes</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> encadena la construcción del corpus, la generación de consultas, la escalera de
+ablación y los reportes. Otros objetivos reconstruyen partes concretas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Objetivo</p></th>
+<th class="head"><p>Qué produce</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">eval_real</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">control</span></code></p></td>
+<td><p>conjunto ampliado desde el historial y control sin nombre propio</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">dificil</span></code></p></td>
+<td><p>conjunto difícil de paráfrasis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">barridos</span></code></p></td>
+<td><p>sensibilidad de hiperparámetros, Matryoshka y fragmentación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">cobertura</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">diagnostico</span></code></p></td>
+<td><p>cobertura de la ontología y diagnóstico del detector de entidades</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">tablas</span></code></p></td>
+<td><p>las tablas LaTeX de la monografía, generadas desde los archivos de resultados</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">anotacion</span></code></p></td>
+<td><p>hojas ciegas para la anotación por expertos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los parámetros están fijados en <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>: <span class="math notranslate nohighlight">\(k_1=1{,}5\)</span>, <span class="math notranslate nohighlight">\(b=0{,}75\)</span>, <span class="math notranslate nohighlight">\(k=60\)</span> para RRF,
+<span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span> para el realce, semilla <span class="math notranslate nohighlight">\(42\)</span> y <span class="math notranslate nohighlight">\(1.000\)</span> remuestreos <em>bootstrap</em>. Ninguno se ajustó
+sobre los conjuntos de evaluación. La versión del codificador está fijada por commit
+(<code class="docutils literal notranslate"><span class="pre">ab036b0</span></code> de <code class="docutils literal notranslate"><span class="pre">jinaai/jina-embeddings-v3</span></code>) y se carga sin conexión desde la copia local.</p>
+</section>
+<section id="mapa-del-codigo">
+<h2>Mapa del código<a class="headerlink" href="#mapa-del-codigo" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ruta</p></th>
+<th class="head"><p>Contenido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lib/metrics.py</span></code></p></td>
+<td><p>nDCG, MRR, Recall, P&#64;k y AP, con pruebas propias</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lib/stats.py</span></code></p></td>
+<td><p>Wilcoxon pareada, permutación de signos, Holm y <em>bootstrap</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lib/indexes.py</span></code></p></td>
+<td><p>BM25 implementado desde cero e índice denso por coseno exacto</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lib/retrievers.py</span></code></p></td>
+<td><p>las configuraciones de la escalera, RRF y el realce por entidad</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lib/encoders.py</span></code></p></td>
+<td><p>codificador enchufable: <code class="docutils literal notranslate"><span class="pre">jina-embeddings-v3</span></code> o un respaldo offline determinista</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">construir_*.py</span></code></p></td>
+<td><p>construcción de los corpus y de los conjuntos de evaluación</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">run_ablation.py</span></code></p></td>
+<td><p>la escalera de ablación con su estadística</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fusion.py</span></code>, <code class="docutils literal notranslate"><span class="pre">fusion_v3.py</span></code></p></td>
+<td><p>fusiones alternativas con el parámetro elegido sin fuga</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">analisis_*.py</span></code></p></td>
+<td><p>robustez, errores, cobertura de la ontología y análisis del corpus v3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">corpus/</span></code>, <code class="docutils literal notranslate"><span class="pre">datos/</span></code></p></td>
+<td><p>corpus de descripciones, consultas y <em>qrels</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">resultados/</span></code></p></td>
+<td><p>resultados de cada experimento, incluidos los del registro completo</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resultados/validacion_colab/</span></code></p></td>
+<td><p>protocolo, scripts, agregados y métricas por consulta de la validación con cobertura densa completa</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">anotacion/</span></code></p></td>
+<td><p>procedimiento, hojas y cálculo de <span class="math notranslate nohighlight">\(\kappa\)</span> para la anotación por expertos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="que-no-se-publica">
+<h2>Qué no se publica<a class="headerlink" href="#que-no-se-publica" title="Link to this heading">#</a></h2>
+<p>El historial de consultas de la plataforma, la base operativa del módulo de competencias y las
+fichas del registro completo contienen datos de personas, muchas de ellas menores de edad, y su
+uso se autorizó solo con fines académicos. Por eso no están en el repositorio. Los scripts de
+<code class="docutils literal notranslate"><span class="pre">athena/</span></code> y <code class="docutils literal notranslate"><span class="pre">pg/</span></code> documentan la extracción, pero solo se pueden ejecutar con el acceso autorizado
+de la organización. Del registro completo se publican los agregados y las métricas por consulta.
+Todo lo demás (corpus de descripciones, ontología, consultas sintéticas, <em>qrels</em> y resultados) se
+reconstruye con el código.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tesis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="resultados.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Resultados</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../archivo/index.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Archivo exploratorio</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproducir-los-resultados">Reproducir los resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-del-codigo">Mapa del código</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-no-se-publica">Qué no se publica</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Luis David Peñaranda
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
