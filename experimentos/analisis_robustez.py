@@ -5,7 +5,7 @@
 Las consultas de un mismo reporte objetivo no son independientes (comparten documento, vocabulario
 y redactor). Este análisis, que solo relee los resultados por consulta ya guardados (no carga el
 modelo), reporta para cada comparación de la escalera:
-  * IC 95 % por bootstrap POR REPORTE (se remuestrean reportes, no consultas; 2.000 réplicas);
+  * IC 95 % por bootstrap POR REPORTE (se remuestrean reportes, no consultas; 10.000 réplicas);
   * dejar un reporte fuera: rango de la diferencia media y número de cambios de signo;
   * número de reportes que aportan consultas.
 Y, para los conjuntos difíciles, la relación entre el número de raíces que la consulta comparte con el
@@ -55,7 +55,7 @@ def main() -> None:
                 por_g[grupo[i]].append(dif[i])
             media = float(np.mean(list(dif.values())))
             boots = []
-            for _ in range(2000):
+            for _ in range(10000):
                 muestra = rng.choice(reps, size=len(reps), replace=True)
                 vals = [x for g in muestra for x in por_g[g]]
                 boots.append(np.mean(vals))

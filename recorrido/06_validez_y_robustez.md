@@ -83,12 +83,12 @@ nDCG@10 e intervalo del $95\%$; el asterisco marca los intervalos que excluyen e
 
 | Comparación | Ampliado (17) | Difíciles (17) | Definitivo (177) | Difíciles (177) |
 |---|---|---|---|---|
-| C3 − BM25 | +0,056 [+0,024; +0,101] \* | +0,413 [+0,312; +0,517] \* | +0,093 [+0,049; +0,136] \* | +0,147 [+0,059; +0,234] \* |
-| C3 − C1 | +0,011 [−0,016; +0,034] | −0,013 [−0,053; +0,028] | +0,002 [−0,063; +0,048] | −0,104 [−0,160; −0,047] \* |
-| C2 − C1 | −0,004 [−0,025; +0,014] | +0,081 [+0,038; +0,128] \* | +0,045 [+0,008; +0,102] \* | +0,150 [+0,076; +0,239] \* |
-| C4 − C3 | +0,016 [−0,016; +0,053] | +0,075 [−0,020; +0,174] | +0,093 [+0,016; +0,185] \* | +0,192 [+0,075; +0,309] \* |
-| C5 − C4 | −0,016 [−0,042; +0,000] | −0,057 [−0,113; −0,007] \* | −0,010 [−0,024; +0,000] | −0,027 [−0,062; +0,000] |
-| C4 − C2 | +0,032 [−0,009; +0,053] | −0,020 [−0,066; +0,025] | +0,050 [+0,006; +0,079] \* | −0,062 [−0,143; +0,020] |
+| C3 − BM25 | +0,056 [+0,022; +0,102] \* | +0,413 [+0,307; +0,517] \* | +0,093 [+0,047; +0,136] \* | +0,147 [+0,060; +0,235] \* |
+| C3 − C1 | +0,011 [−0,016; +0,035] | −0,013 [−0,052; +0,028] | +0,002 [−0,065; +0,049] | −0,104 [−0,158; −0,048] \* |
+| C2 − C1 | −0,004 [−0,025; +0,014] | +0,081 [+0,037; +0,132] \* | +0,045 [+0,007; +0,102] \* | +0,150 [+0,071; +0,236] \* |
+| C4 − C3 | +0,016 [−0,017; +0,052] | +0,075 [−0,018; +0,175] | +0,093 [+0,015; +0,189] \* | +0,192 [+0,075; +0,309] \* |
+| C5 − C4 | −0,016 [−0,045; +0,000] | −0,057 [−0,115; −0,008] \* | −0,010 [−0,025; +0,000] | −0,027 [−0,061; +0,000] |
+| C4 − C2 | +0,032 [−0,011; +0,053] | −0,020 [−0,066; +0,029] | +0,050 [+0,005; +0,079] \* | −0,062 [−0,144; +0,020] |
 
 Dejar fuera un reporte a la vez no cambia el signo de ninguna diferencia cuyo intervalo excluye el
 cero. En el corpus definitivo, las ventajas de la ontología sobre el denso y sobre el híbrido y la
@@ -202,7 +202,7 @@ auditoría; «exploratoria», evidencia de análisis definidos después de ver r
 | H3a: la ontología mejora al denso | sostenida con condiciones (confirmatoria) | concordante en el sintético, los difíciles y el definitivo; nula en el ampliado; crece con el solape; supera a tres controles de la misma longitud a escala |
 | H3b: la ontología mejora al híbrido | sostenida con condiciones | concordante en el definitivo y en el metaanálisis de A y B; nula sin solape con la ontología |
 | H4: la fragmentación mejora | no sostenida | documentos de $64$ a $184$ palabras; ningún tamaño supera al documento completo |
-| H5: el realce mejora el orden | rechazada | nunca mejora; adverso y concordante en los difíciles |
+| H5: el realce mejora el orden | no sostenida: efecto contrario al esperado | nunca mejora; el efecto contrario es concordante en los difíciles |
 | H6: truncar el vector no pierde calidad | sostenida a partir de $512$ dimensiones | equivalencia con margen de $0{,}01$ en todos los conjuntos a $512$; a $256$ solo en el ampliado |
 | H7: una fusión distinta de RRF es mejor | sostenida en el corpus v3 (exploratoria en el plan) | con diecisiete reportes ninguna variante es concordante; con $811$ documentos la convexa supera a RRF ($+0{,}089$) y al denso ($+0{,}085$) |
 
@@ -232,8 +232,8 @@ complejidad.
 | Efecto mínimo detectable | la diferencia más pequeña que el número de consultas permitía distinguir del azar |
 | Pseudo-replicación | contar como independientes observaciones casi idénticas, lo que infla el tamaño de muestra |
 
-Los parámetros fijos de toda la estadística son la semilla $42$, $1.000$ réplicas *bootstrap* en la
-escalera y $2.000$ en los *bootstrap* agrupados.
+Los parámetros fijos de toda la estadística son la semilla $42$ y $10.000$ réplicas *bootstrap*, en la
+escalera y en los *bootstrap* agrupados; la validación con cobertura densa completa usó $2.000$.
 
 ## Límites que siguen abiertos
 
@@ -277,7 +277,7 @@ funciones estadísticas están en
 [`lib/stats.py`](https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/lib/stats.py)
 y las métricas en
 [`lib/metrics.py`](https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/lib/metrics.py);
-`make test` corre sus pruebas y las diecinueve pruebas automáticas de
+`make test` corre sus pruebas y las pruebas automáticas de
 [`tests/test_nucleo.py`](https://github.com/luispenaranda08/semantic_search_engine/blob/main/experimentos/tests/test_nucleo.py).
 `make anotacion` genera las hojas ciegas para los anotadores y comprueba el cálculo del $\kappa$, y el
 formulario de necesidades para la validación con personas ajenas al diseño está en

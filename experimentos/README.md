@@ -224,8 +224,10 @@ cada comparación como *robusta* si Wilcoxon y permutación rechazan tras Holm.
 
 ## Versión de la tesis y datos no publicados
 
-La etiqueta `v1.0-tesis` del repositorio corresponde a la versión que produce las cifras de la
-monografía. `resultados/validacion_colab/` contiene los agregados, las métricas por consulta, el
+La etiqueta `v1.1-tesis` del repositorio corresponde a la versión que produce las cifras de la
+monografía final (intervalos con 10.000 remuestreos, figuras de `generar_figuras.py` en `../figuras/` y
+verificación de los vectores de la implementación en Rust en `resultados/verificacion_rust/`). La
+etiqueta `v1.0-tesis` conserva la versión anterior. `resultados/validacion_colab/` contiene los agregados, las métricas por consulta, el
 protocolo y los scripts de la validación con cobertura densa completa sobre el registro
 (757.554 documentos, sección «Validación con cobertura densa completa» de la tesis).
 

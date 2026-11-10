@@ -83,8 +83,8 @@ los de prioridad alta.
 
 Los cinco reportes de mayor demanda suman el $83\%$ de las solicitudes reales, y el Reporte
 Individual de Deportistas explica por sí solo el $40{,}4\%$. Su mediana es de $51{,}7$ MB
-procesados por solicitud, del orden de $138$ GB en la ventana; esa cifra es una estimación que
-multiplica la frecuencia por la mediana y no una medición del volumen total.
+procesados por solicitud. En conjunto, las $14.718$ ejecuciones de la ventana procesaron unos $445$ GB,
+suma de los bytes que el historial registra para cada una.
 
 La desigualdad se resume con el índice de Gini, que vale $0$ cuando todos los reportes se piden
 lo mismo y se acerca a $1$ cuando uno concentra toda la demanda. Sobre los diecisiete reportes

@@ -62,6 +62,9 @@ def main() -> None:
             o["acc1"][s] = float(np.mean(todos))
             o["por_reporte_acc1"][s] = {CORTO(t): [int(sum(v)), len(v)] for t, v in sorted(acc[s].items())}
             o["confusiones"][s] = [{"objetivo": CORTO(t), "devuelto": CORTO(p), "veces": n} for (t, p), n in conf[s].most_common(6)]
+            # matriz completa objetivo -> devuelto en primer lugar (aciertos incluidos), para la figura
+            o.setdefault("matriz", {})[s] = {"aciertos": {t: int(sum(v)) for t, v in acc[s].items()},
+                                              "errores": [[t, p, n] for (t, p), n in conf[s].items()]}
         # consultas que fallan en C4 y C2: qué se devolvió
         for c in cons:
             tgt = max(qr[c["id"]], key=qr[c["id"]].get)

@@ -38,15 +38,14 @@ def wilcoxon_pareado(a: Sequence[float], b: Sequence[float]) -> dict:
             "media_dif": float(dif.mean()), "n": int(len(a))}
 
 
-def bootstrap_ic(valores: Sequence[float], n_muestras: int = 1000,
+def bootstrap_ic(valores: Sequence[float], n_muestras: int = 10000,
                  alpha: float = 0.05, semilla: int = 42) -> dict:
     """Intervalo de confianza por bootstrap percentil para la media de `valores`."""
     v = np.asarray(valores, dtype=float)
     if len(v) == 0:
         return {"media": None, "ic_bajo": None, "ic_alto": None, "n": 0}
     rng = np.random.default_rng(semilla)
-    medias = np.array([rng.choice(v, size=len(v), replace=True).mean()
-                       for _ in range(n_muestras)])
+    medias = rng.choice(v, size=(n_muestras, len(v)), replace=True).mean(axis=1)
     return {
         "media": float(v.mean()),
         "ic_bajo": float(np.percentile(medias, 100 * alpha / 2)),
@@ -108,7 +107,7 @@ def rank_biserial_pareado(a: Sequence[float], b: Sequence[float]) -> float | Non
     return float((wp - wn) / (wp + wn))
 
 
-def bootstrap_dif_pareada(a: Sequence[float], b: Sequence[float], n_muestras: int = 1000,
+def bootstrap_dif_pareada(a: Sequence[float], b: Sequence[float], n_muestras: int = 10000,
                           alpha: float = 0.05, semilla: int = 42) -> dict:
     """IC bootstrap percentil de la media de (a - b), remuestreando consultas (pareado)."""
     return bootstrap_ic(np.asarray(a, float) - np.asarray(b, float), n_muestras, alpha, semilla)
@@ -124,7 +123,7 @@ def holm(p_valores: dict[str, float | None]) -> dict[str, float | None]:
     return {k: ajust.get(k) for k in p_valores}
 
 
-def comparar(a: Sequence[float], b: Sequence[float], n_boot: int = 1000,
+def comparar(a: Sequence[float], b: Sequence[float], n_boot: int = 10000,
              semilla: int = 42) -> dict:
     """Comparación pareada completa de a vs b (mismas consultas, mismo orden)."""
     w = wilcoxon_pareado(a, b)
@@ -150,7 +149,7 @@ FAMILIA = [
 
 
 def familia_comparaciones(serie, ids: list[str], nombres: dict[int, str],
-                          n_boot: int = 1000, semilla: int = 42) -> dict:
+                          n_boot: int = 10000, semilla: int = 42) -> dict:
     """Corre FAMILIA sobre `ids` y añade el p-valor ajustado por Holm a cada comparación.
 
     `serie(nombre_config, ids)` devuelve la métrica por consulta en el orden de `ids`.

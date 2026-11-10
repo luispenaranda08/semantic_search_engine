@@ -84,7 +84,7 @@ def main() -> None:
         celdas = [negrita_si(n(v), abs(v - m) < 1e-12) for v, m in zip(vals, mejores)]
         filas.append(f"{ETQ[c]} & " + " & ".join(celdas))
     out.append(("TABLA_GLOBAL", tabla(
-        "tab:global", "nDCG@10 global de las seis configuraciones en los tres conjuntos de evaluación "
+        "tab:global", "nDCG@10 global de las seis configuraciones en los cuatro conjuntos de evaluación "
         "(corpus de diecisiete reportes, \\texttt{jina-embeddings-v3} con tareas de recuperación). "
         "En negrita, el mejor de cada conjunto. El conjunto difícil B es una réplica con consultas nuevas.", "@{}l C C C C@{}", cab, filas)))
 

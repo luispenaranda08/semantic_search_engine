@@ -3,7 +3,7 @@
 
 PY := python3
 
-.PHONY: all corpus consultas ablation reportes eval_real control dificil dificil_b robustez complementario costo barridos_dificiles fusion ontologia_completa errores escalamiento barridos cobertura diagnostico tablas anotacion final v3 fusion_v3 auditar_pg indep extraer test smoke clean
+.PHONY: all corpus consultas ablation reportes eval_real control dificil dificil_b robustez complementario costo barridos_dificiles fusion ontologia_completa errores escalamiento barridos cobertura diagnostico tablas figuras anotacion final v3 fusion_v3 auditar_pg indep extraer test smoke clean
 
 all: reportes ## pipeline completo: corpus -> consultas -> ablación -> reportes
 
@@ -139,3 +139,6 @@ clean: ## borra artefactos generados (no toca el código)
 help: ## lista los objetivos
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 	  awk 'BEGIN{FS=":.*?## "}{printf "  %-12s %s\n", $$1, $$2}'
+
+figuras: ## figuras de datos de la monografía (PDF en ../figuras/) desde resultados/*.json
+	$(PY) generar_figuras.py

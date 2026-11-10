@@ -18,6 +18,24 @@ El híbrido supera a BM25 en todos los conjuntos, pero casi toda la ventaja vien
 las paráfrasis (difíciles A y B) la ontología es lo que más aporta, y el realce empeora el orden.
 Con diecisiete reportes ninguna fusión alternativa supera a RRF de forma concordante.
 
+```{figure} ../figuras/fig_escalera_global.png
+:width: 100%
+
+nDCG@10 de las seis configuraciones en los cuatro conjuntos del corpus de diecisiete reportes.
+```
+
+```{figure} ../figuras/fig_forest.png
+:width: 100%
+
+Diferencia de cada peldaño con su intervalo del 95 % (10.000 remuestreos). Relleno: comparación concordante (Wilcoxon y permutación tras Holm).
+```
+
+```{figure} ../figuras/fig_dificil.png
+:width: 100%
+
+nDCG@10 por nivel de solape léxico en los difíciles A y B: con puente, sin puente y con solape.
+```
+
 ## Corpus definitivo: 177 documentos
 
 | Configuración | Global ($n=180$) | Recall@100 | Competencias | Difíciles A+B |
@@ -31,6 +49,12 @@ Con diecisiete reportes ninguna fusión alternativa supera a RRF de forma concor
 Con $160$ Pruebas Regionales compitiendo, el híbrido sin ontología queda por debajo del denso en
 las paráfrasis ($-0{,}104$, concordante): RRF promueve documentos que solo comparten palabras
 genéricas con la consulta.
+
+```{figure} ../figuras/fig_posiciones.png
+:width: 100%
+
+Posición del primer documento relevante en las 180 consultas del corpus definitivo.
+```
 
 ## Corpus v3: 811 documentos de cinco tipos
 
@@ -47,6 +71,12 @@ genéricas con la consulta.
 Ninguna configuración fija de la escalera domina: C4 gana donde la consulta comparte vocabulario
 con el documento, y C2 donde no. La convexa supera a C4 ($+0{,}089$) y a C2 ($+0{,}085$) de forma
 concordante y no pierde en ningún grupo de forma significativa.
+
+```{figure} ../figuras/fig_v3.png
+:width: 100%
+
+Diferencia C4 − C2 por tipo de consulta en el corpus v3, con intervalo por objetivo.
+```
 
 ## Registro completo: ontología frente a controles
 
@@ -72,6 +102,12 @@ $0{,}533$), aunque queda lejos del techo que da el tipo conocido ($0{,}712$). Un
 supervisado en dos etapas no mejora a la convexa: los relevantes casi siempre están entre los
 candidatos (techo del conjunto de candidatos $0{,}876$), y lo que falta es ordenarlos mejor.
 
+```{figure} ../figuras/fig_registro.png
+:width: 100%
+
+nDCG@10 con 811 documentos y con el registro completo.
+```
+
 ## Registro completo: búsqueda persona a persona
 
 | Clase de consulta | $n$ | Acierto@1 diccionario | Acierto@1 C4 |
@@ -96,7 +132,14 @@ sinónimos, como «colizeo», «pisina» o «futsal») quedaron en la primera po
 
 ## Costo
 
+```{figure} ../figuras/fig_costo.png
+:width: 100%
+
+Tiempo de cada componente, en escala logarítmica. La latencia la fija la codificación de la consulta.
+```
+
+
 Las configuraciones neuronales responden en unos $0{,}35$ s por consulta con la GPU integrada
 del equipo ($0{,}63$ s solo en CPU) y ocupan unos $2$ GiB de memoria por el codificador. Añadir
 la señal léxica y la ontología no encarece el sistema. Truncar el vector a $512$ dimensiones es
-equivalente a la dimensión nativa en todos los conjuntos y reduce el índice a la mitad.
+no inferior a la dimensión nativa en el ampliado y en los difíciles y reduce el índice a la mitad.

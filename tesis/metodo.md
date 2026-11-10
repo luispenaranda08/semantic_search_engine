@@ -42,24 +42,35 @@ región, y sus relaciones, se recorre para cada documento y produce un bloque de
 entidades y preguntas de negocio que se añade a su descripción antes de indexarla. La ontología
 solo cambia el texto del documento; el recuperador no cambia.
 
+Se construyó desde la evidencia del propio sistema, siguiendo la guía de Noy y McGuinness: las
+$744$ firmas de consulta del historial, unas $90$ columnas técnicas agrupadas en $13$ clases con
+$20$ relaciones, y sinónimos tomados del vocabulario de la plataforma y del deporte escolar.
+
+```{figure} ../images/recorrido/diagrama_3_mapa_relaciones.png
+:width: 100%
+
+Clases principales de la ontología, organizadas alrededor del deportista.
+```
+
 ## Estadística
 
 Todas las comparaciones son pareadas sobre las mismas consultas. Cada contraste se prueba con
-Wilcoxon de rangos con signo y con una prueba de permutación de signos ($20.000$ sorteos, o
+Wilcoxon de rangos con signo y con una prueba de permutación de signos, ambas bilaterales ($20.000$ sorteos, o
 exacta con veinte o menos diferencias no nulas). Se corrige por Holm dentro de cada familia, y una
 diferencia se declara *concordante* solo si las dos pruebas la rechazan tras la corrección. Como
 las consultas que comparten objetivo no son independientes, los intervalos se calculan con un
 *bootstrap* que remuestrea grupos de consultas con el mismo documento objetivo. Se reportan
 también tamaños del efecto (correlación biserial por rangos), efecto mínimo detectable y un
-análisis de dosis-respuesta del efecto de la ontología.
+análisis de dosis-respuesta del efecto de la ontología. Los intervalos usan $10.000$ remuestreos.
+Las definiciones formales, con sus fórmulas, están en el Anexo A de la monografía.
 
-## Escala: el registro completo
+## Extensión exploratoria: el registro completo (P7)
 
 Para probar el método a escala se construyó un corpus con todo el registro de la plataforma
 ($757.538$ documentos, entre ellos $643.107$ deportistas, $45.224$ grupos y $13.097$
 instituciones). Sobre él se evaluaron tres cosas: la escalera con las mismas $450$ consultas del
 corpus v3 y $756.743$ distractores; la búsqueda persona a persona con un diccionario de entidades
 (índice de trigramas con puntuación Damerau–Levenshtein y Jaro–Winkler), y la restricción de
-cada búsqueda a los tipos de objeto de su función. Una validación posterior, fijada por escrito
-antes de calcularla, repitió la escalera con todos los documentos en el índice denso y comparó la
+cada búsqueda a los tipos de objeto de su función. Una validación posterior, con un protocolo publicado en
+`experimentos/resultados/validacion_colab/protocolo.txt`, repitió la escalera con todos los documentos en el índice denso y comparó la
 ontología con tres controles de la misma longitud en subpalabras.

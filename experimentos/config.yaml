@@ -51,4 +51,4 @@ matryoshka:
 evaluacion:
   cortes_k: [10, 100]        # k para nDCG@10, Recall@100, etc.
   semilla: 42
-  bootstrap_muestras: 1000
+  bootstrap_muestras: 10000   # remuestreos de los IC bootstrap (2.ª revisión: 1.000 -> 10.000)

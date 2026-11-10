@@ -39,7 +39,7 @@ def jl(r: Path) -> list[dict]:
     return [json.loads(l) for l in r.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
-def boot_cluster(dif: np.ndarray, grupos: list[str], n: int = 2000, semilla: int = 7) -> list[float]:
+def boot_cluster(dif: np.ndarray, grupos: list[str], n: int = 10000, semilla: int = 7) -> list[float]:
     por: dict[str, list[float]] = defaultdict(list)
     for d, g in zip(dif, grupos):
         por[g].append(d)

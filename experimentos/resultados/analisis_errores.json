@@ -485,7 +485,264 @@
         "C4_top1": "promocion_deportistas",
         "C4_rango_objetivo": 2
       }
-    ]
+    ],
+    "matriz": {
+      "BM25": {
+        "aciertos": {
+          "ri_007_reporte_de_promocion_de_deportistas": 5,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 2,
+          "ri_002_reporte_de_grupos": 2,
+          "ri_003_reporte_de_personal_de_apoyo": 2,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2
+        },
+        "errores": [
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            4
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ]
+        ]
+      },
+      "C1": {
+        "aciertos": {
+          "ri_007_reporte_de_promocion_de_deportistas": 7,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_002_reporte_de_grupos": 2,
+          "ri_003_reporte_de_personal_de_apoyo": 2,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2
+        },
+        "errores": [
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            4
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ]
+        ]
+      },
+      "C2": {
+        "aciertos": {
+          "ri_007_reporte_de_promocion_de_deportistas": 10,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_002_reporte_de_grupos": 2,
+          "ri_003_reporte_de_personal_de_apoyo": 3,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2
+        },
+        "errores": [
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ]
+        ]
+      },
+      "C3": {
+        "aciertos": {
+          "ri_007_reporte_de_promocion_de_deportistas": 9,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 2,
+          "ri_002_reporte_de_grupos": 2,
+          "ri_003_reporte_de_personal_de_apoyo": 2,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2
+        },
+        "errores": [
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ]
+        ]
+      },
+      "C4": {
+        "aciertos": {
+          "ri_007_reporte_de_promocion_de_deportistas": 11,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_002_reporte_de_grupos": 3,
+          "ri_003_reporte_de_personal_de_apoyo": 3,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2
+        },
+        "errores": [
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ]
+        ]
+      }
+    }
   },
   "ampliado": {
     "n": 127,
@@ -1142,7 +1399,384 @@
         "C4_top1": "promocion_deportistas",
         "C4_rango_objetivo": 1
       }
-    ]
+    ],
+    "matriz": {
+      "BM25": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 25,
+          "ri_002_reporte_de_grupos": 10,
+          "ri_003_reporte_de_personal_de_apoyo": 12,
+          "ri_005_reporte_de_participacion": 3,
+          "ri_004_reporte_de_documentacion_de_deportistas": 14,
+          "ri_007_reporte_de_promocion_de_deportistas": 9,
+          "ri_008_reporte_de_instituciones": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 6,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 2,
+          "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": 0,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3,
+          "ri_015_reporte_sobre_pruebas_de_caidas": 0
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            4
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            5
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            7
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            "ri_008_reporte_de_instituciones",
+            1
+          ]
+        ]
+      },
+      "C1": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 27,
+          "ri_002_reporte_de_grupos": 11,
+          "ri_003_reporte_de_personal_de_apoyo": 11,
+          "ri_005_reporte_de_participacion": 8,
+          "ri_004_reporte_de_documentacion_de_deportistas": 20,
+          "ri_007_reporte_de_promocion_de_deportistas": 10,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 6,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 2,
+          "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": 1,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3,
+          "ri_015_reporte_sobre_pruebas_de_caidas": 1
+        },
+        "errores": [
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            2
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ]
+        ]
+      },
+      "C2": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 24,
+          "ri_002_reporte_de_grupos": 11,
+          "ri_003_reporte_de_personal_de_apoyo": 12,
+          "ri_005_reporte_de_participacion": 8,
+          "ri_004_reporte_de_documentacion_de_deportistas": 20,
+          "ri_007_reporte_de_promocion_de_deportistas": 10,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 6,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 2,
+          "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": 1,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3,
+          "ri_015_reporte_sobre_pruebas_de_caidas": 1
+        },
+        "errores": [
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_016_reporte_sobre_resumen_de_pruebas_de_caidas",
+            1
+          ],
+          [
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_016_reporte_sobre_resumen_de_pruebas_de_caidas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ]
+        ]
+      },
+      "C3": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 28,
+          "ri_002_reporte_de_grupos": 10,
+          "ri_003_reporte_de_personal_de_apoyo": 12,
+          "ri_005_reporte_de_participacion": 8,
+          "ri_004_reporte_de_documentacion_de_deportistas": 18,
+          "ri_007_reporte_de_promocion_de_deportistas": 11,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 6,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 2,
+          "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": 0,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3,
+          "ri_015_reporte_sobre_pruebas_de_caidas": 1
+        },
+        "errores": [
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            3
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            2
+          ],
+          [
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            3
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C4": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 27,
+          "ri_002_reporte_de_grupos": 11,
+          "ri_003_reporte_de_personal_de_apoyo": 12,
+          "ri_005_reporte_de_participacion": 9,
+          "ri_004_reporte_de_documentacion_de_deportistas": 24,
+          "ri_007_reporte_de_promocion_de_deportistas": 11,
+          "ri_008_reporte_de_instituciones": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 6,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 2,
+          "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas": 0,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3,
+          "ri_015_reporte_sobre_pruebas_de_caidas": 1
+        },
+        "errores": [
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_016_reporte_sobre_resumen_de_pruebas_de_caidas",
+            1
+          ],
+          [
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            3
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            1
+          ]
+        ]
+      }
+    }
   },
   "dificil": {
     "n": 52,
@@ -1813,7 +2447,664 @@
         "C4_top1": "grupos",
         "C4_rango_objetivo": 7
       }
-    ]
+    ],
+    "matriz": {
+      "BM25": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_002_reporte_de_grupos": 0,
+          "ri_003_reporte_de_personal_de_apoyo": 0,
+          "ri_004_reporte_de_documentacion_de_deportistas": 0,
+          "ri_005_reporte_de_participacion": 0,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 0,
+          "ri_007_reporte_de_promocion_de_deportistas": 0,
+          "ri_008_reporte_de_instituciones": 0,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 1,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 0,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 3,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 1,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_015_reporte_sobre_pruebas_de_caidas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C1": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 2,
+          "ri_002_reporte_de_grupos": 1,
+          "ri_003_reporte_de_personal_de_apoyo": 1,
+          "ri_004_reporte_de_documentacion_de_deportistas": 2,
+          "ri_005_reporte_de_participacion": 0,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 0,
+          "ri_007_reporte_de_promocion_de_deportistas": 2,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            2
+          ]
+        ]
+      },
+      "C2": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 4,
+          "ri_002_reporte_de_grupos": 2,
+          "ri_003_reporte_de_personal_de_apoyo": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 4,
+          "ri_005_reporte_de_participacion": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 1,
+          "ri_007_reporte_de_promocion_de_deportistas": 2,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 4,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1
+        },
+        "errores": [
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            2
+          ]
+        ]
+      },
+      "C3": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 1,
+          "ri_002_reporte_de_grupos": 1,
+          "ri_003_reporte_de_personal_de_apoyo": 1,
+          "ri_004_reporte_de_documentacion_de_deportistas": 2,
+          "ri_005_reporte_de_participacion": 0,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 0,
+          "ri_007_reporte_de_promocion_de_deportistas": 2,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 3,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 3,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            2
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C4": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 2,
+          "ri_002_reporte_de_grupos": 3,
+          "ri_003_reporte_de_personal_de_apoyo": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_005_reporte_de_participacion": 3,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 3,
+          "ri_007_reporte_de_promocion_de_deportistas": 2,
+          "ri_008_reporte_de_instituciones": 2,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 3,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 2,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 1,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 3,
+          "ri_014_reporte_de_delegaciones_de_participacion": 1
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            2
+          ]
+        ]
+      }
+    }
   },
   "dificil_b": {
     "n": 78,
@@ -2583,6 +3874,733 @@
         "C4_top1": "grupos",
         "C4_rango_objetivo": 5
       }
-    ]
+    ],
+    "matriz": {
+      "BM25": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 4,
+          "ri_002_reporte_de_grupos": 0,
+          "ri_003_reporte_de_personal_de_apoyo": 2,
+          "ri_004_reporte_de_documentacion_de_deportistas": 1,
+          "ri_005_reporte_de_participacion": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 1,
+          "ri_007_reporte_de_promocion_de_deportistas": 1,
+          "ri_008_reporte_de_instituciones": 0,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 4,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 4,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 6,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 2,
+          "ri_014_reporte_de_delegaciones_de_participacion": 2
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_001_reporte_individual_de_deportistas",
+            4
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_001_reporte_individual_de_deportistas",
+            4
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_001_reporte_individual_de_deportistas",
+            3
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C1": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 4,
+          "ri_002_reporte_de_grupos": 3,
+          "ri_003_reporte_de_personal_de_apoyo": 3,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_005_reporte_de_participacion": 1,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 3,
+          "ri_007_reporte_de_promocion_de_deportistas": 1,
+          "ri_008_reporte_de_instituciones": 4,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 6,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 4,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 3,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 6,
+          "ri_014_reporte_de_delegaciones_de_participacion": 4
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            2
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C2": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 3,
+          "ri_002_reporte_de_grupos": 3,
+          "ri_003_reporte_de_personal_de_apoyo": 5,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_005_reporte_de_participacion": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 3,
+          "ri_007_reporte_de_promocion_de_deportistas": 3,
+          "ri_008_reporte_de_instituciones": 5,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 6,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 4,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 3,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 6,
+          "ri_014_reporte_de_delegaciones_de_participacion": 4
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            2
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            2
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            3
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C3": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 4,
+          "ri_002_reporte_de_grupos": 3,
+          "ri_003_reporte_de_personal_de_apoyo": 3,
+          "ri_004_reporte_de_documentacion_de_deportistas": 3,
+          "ri_005_reporte_de_participacion": 2,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 1,
+          "ri_007_reporte_de_promocion_de_deportistas": 3,
+          "ri_008_reporte_de_instituciones": 5,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 6,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 4,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 5,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 5,
+          "ri_014_reporte_de_delegaciones_de_participacion": 4
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_017_reporte_sobre_resumen_de_pruebas_de_caidas_todas_las_etapas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_012_reporte_sobre_pruebas_de_caidas_todas_las_etapas",
+            2
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      },
+      "C4": {
+        "aciertos": {
+          "ri_001_reporte_individual_de_deportistas": 3,
+          "ri_002_reporte_de_grupos": 4,
+          "ri_003_reporte_de_personal_de_apoyo": 4,
+          "ri_004_reporte_de_documentacion_de_deportistas": 4,
+          "ri_005_reporte_de_participacion": 3,
+          "ri_006_reporte_sobre_resumen_del_tablero_de_control": 3,
+          "ri_007_reporte_de_promocion_de_deportistas": 5,
+          "ri_008_reporte_de_instituciones": 3,
+          "ri_009_reporte_de_progreso_y_cumplimiento_de_metas": 6,
+          "ri_010_reporte_sobre_distribucion_de_usuarios": 4,
+          "ri_011_reporte_sobre_metricas_por_federacion_deportiva": 4,
+          "ri_013_reporte_de_cambios_en_la_intencion_de_participacion": 4,
+          "ri_014_reporte_de_delegaciones_de_participacion": 3
+        },
+        "errores": [
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_003_reporte_de_personal_de_apoyo",
+            1
+          ],
+          [
+            "ri_001_reporte_individual_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_002_reporte_de_grupos",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_003_reporte_de_personal_de_apoyo",
+            "ri_002_reporte_de_grupos",
+            2
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_007_reporte_de_promocion_de_deportistas",
+            1
+          ],
+          [
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            2
+          ],
+          [
+            "ri_005_reporte_de_participacion",
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_009_reporte_de_progreso_y_cumplimiento_de_metas",
+            1
+          ],
+          [
+            "ri_006_reporte_sobre_resumen_del_tablero_de_control",
+            "ri_005_reporte_de_participacion",
+            2
+          ],
+          [
+            "ri_007_reporte_de_promocion_de_deportistas",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_002_reporte_de_grupos",
+            2
+          ],
+          [
+            "ri_008_reporte_de_instituciones",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_004_reporte_de_documentacion_de_deportistas",
+            1
+          ],
+          [
+            "ri_010_reporte_sobre_distribucion_de_usuarios",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_011_reporte_sobre_metricas_por_federacion_deportiva",
+            "ri_001_reporte_individual_de_deportistas",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_013_reporte_de_cambios_en_la_intencion_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_008_reporte_de_instituciones",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_005_reporte_de_participacion",
+            1
+          ],
+          [
+            "ri_014_reporte_de_delegaciones_de_participacion",
+            "ri_002_reporte_de_grupos",
+            1
+          ]
+        ]
+      }
+    }
   }
 }

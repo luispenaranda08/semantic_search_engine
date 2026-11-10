@@ -189,7 +189,7 @@ def main() -> None:
         x1n, x4n = series[dim_nativa]
         for m_ in dims:
             x1, x4 = series[m_]
-            ic = bootstrap_dif_pareada(x4, x4n, 1000, semilla=cfg["evaluacion"]["semilla"])
+            ic = bootstrap_dif_pareada(x4, x4n, cfg["evaluacion"]["bootstrap_muestras"], semilla=cfg["evaluacion"]["semilla"])
             perm = permutacion_pareada(x4, x4n, semilla=cfg["evaluacion"]["semilla"])
             f = filas[str(m_)]
             f["retencion_C4"] = f["C4"] / filas[str(dim_nativa)]["C4"]
