@@ -116,7 +116,7 @@ una cifra de un cuaderno no coincide con la de estas páginas, vale la de estas 
 
 El código de todas las etapas está en la carpeta
 [`experimentos/`](https://github.com/luispenaranda08/semantic_search_engine/tree/main/experimentos)
-y la etiqueta `v1.0-tesis` fija la versión que produce las cifras de la monografía. Cada página
+y la etiqueta `v1.1-tesis` fija la versión que produce las cifras de la monografía. Cada página
 termina con los objetivos de `make` y los scripts que producen sus tablas. Los corpus de $17$,
 $177$ y $811$ documentos, las consultas y los juicios están publicados, así que todo lo que va de
 la Versión 1 al corpus v3 se puede volver a correr. El historial de consultas, la base operativa

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -651,10 +651,10 @@ en el global) y es adverso de forma concordante en las paráfrasis (<span class=
 <p>En el conjunto global, C4 supera al denso con ontología en <span class="math notranslate nohighlight">\(+0{,}050\)</span>, con <span class="math notranslate nohighlight">\(p&lt;0{,}001\)</span>. Esa
 diferencia resiste el remuestreo por documento objetivo, que es la prueba más exigente frente a
 la dependencia entre consultas que comparten reporte o prueba: su intervalo del <span class="math notranslate nohighlight">\(95\%\)</span> va de
-<span class="math notranslate nohighlight">\(+0{,}006\)</span> a <span class="math notranslate nohighlight">\(+0{,}079\)</span> y excluye el cero, y dejar fuera un reporte a la vez no cambia su signo. Es la
+<span class="math notranslate nohighlight">\(+0{,}005\)</span> a <span class="math notranslate nohighlight">\(+0{,}079\)</span> y excluye el cero, y dejar fuera un reporte a la vez no cambia su signo. Es la
 evidencia medida que respalda recomendar C4 para una versión del buscador limitada a reportes,
-porque gana donde las consultas usan el vocabulario de la plataforma, que es el caso de las
-consultas reales observadas en el historial.</p>
+porque es la mejor en el corpus de <span class="math notranslate nohighlight">\(177\)</span> documentos y tolera mejor los nombres propios ajenos al
+corpus. El orden frente a C2 se confirmará con la validación con usuarios propuesta en la tesis.</p>
 <p>La ventaja se concentra en las consultas de entidad exacta de los reportes (<span class="math notranslate nohighlight">\(+0{,}139\)</span>), donde el
 nombre propio de la consulta no está en ningún documento. En las paráfrasis la diferencia va en
 sentido contrario (<span class="math notranslate nohighlight">\(-0{,}062\)</span>, <span class="math notranslate nohighlight">\(p=0{,}061\)</span>), sin significancia. Con diecisiete reportes esa
@@ -759,28 +759,28 @@ fuera un reporte a la vez no cambia el signo de ninguno de ellos.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>C3 − BM25</p></td>
-<td><p>+0,093 [+0,049; +0,136] *</p></td>
-<td><p>+0,147 [+0,059; +0,234] *</p></td>
+<td><p>+0,093 [+0,047; +0,136] *</p></td>
+<td><p>+0,147 [+0,060; +0,235] *</p></td>
 </tr>
 <tr class="row-odd"><td><p>C3 − C1</p></td>
-<td><p>+0,002 [−0,063; +0,048]</p></td>
-<td><p>−0,104 [−0,160; −0,047] *</p></td>
+<td><p>+0,002 [−0,065; +0,049]</p></td>
+<td><p>−0,104 [−0,158; −0,048] *</p></td>
 </tr>
 <tr class="row-even"><td><p>C2 − C1</p></td>
-<td><p>+0,045 [+0,008; +0,102] *</p></td>
-<td><p>+0,150 [+0,076; +0,239] *</p></td>
+<td><p>+0,045 [+0,007; +0,102] *</p></td>
+<td><p>+0,150 [+0,071; +0,236] *</p></td>
 </tr>
 <tr class="row-odd"><td><p>C4 − C3</p></td>
-<td><p>+0,093 [+0,016; +0,185] *</p></td>
+<td><p>+0,093 [+0,015; +0,189] *</p></td>
 <td><p>+0,192 [+0,075; +0,309] *</p></td>
 </tr>
 <tr class="row-even"><td><p>C5 − C4</p></td>
-<td><p>−0,010 [−0,024; +0,000]</p></td>
-<td><p>−0,027 [−0,062; +0,000]</p></td>
+<td><p>−0,010 [−0,025; +0,000]</p></td>
+<td><p>−0,027 [−0,061; +0,000]</p></td>
 </tr>
 <tr class="row-odd"><td><p>C4 − C2</p></td>
-<td><p>+0,050 [+0,006; +0,079] *</p></td>
-<td><p>−0,062 [−0,143; +0,020]</p></td>
+<td><p>+0,050 [+0,005; +0,079] *</p></td>
+<td><p>−0,062 [−0,144; +0,020]</p></td>
 </tr>
 </tbody>
 </table>

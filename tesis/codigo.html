@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -433,13 +433,13 @@
   <section class="tex2jax_ignore mathjax_ignore" id="codigo-y-reproduccion">
 <h1>Código y reproducción<a class="headerlink" href="#codigo-y-reproduccion" title="Link to this heading">#</a></h1>
 <p>El código está en la carpeta
-<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/v1.0-tesis/experimentos"><code class="docutils literal notranslate"><span class="pre">experimentos/</span></code></a>
-del repositorio. La etiqueta <code class="docutils literal notranslate"><span class="pre">v1.0-tesis</span></code> fija la versión que produce las cifras de la monografía.</p>
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/v1.1-tesis/experimentos"><code class="docutils literal notranslate"><span class="pre">experimentos/</span></code></a>
+del repositorio. La etiqueta <code class="docutils literal notranslate"><span class="pre">v1.1-tesis</span></code> fija la versión que produce las cifras de la monografía.</p>
 <section id="reproducir-los-resultados">
 <h2>Reproducir los resultados<a class="headerlink" href="#reproducir-los-resultados" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/luispenaranda08/semantic_search_engine.git
 <span class="nb">cd</span><span class="w"> </span>semantic_search_engine
-git<span class="w"> </span>checkout<span class="w"> </span>v1.0-tesis
+git<span class="w"> </span>checkout<span class="w"> </span>v1.1-tesis
 <span class="nb">cd</span><span class="w"> </span>experimentos
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 make<span class="w"> </span><span class="nb">test</span><span class="w">     </span><span class="c1"># pruebas de métricas y estadística</span>
@@ -478,7 +478,7 @@ ablación y los reportes. Otros objetivos reconstruyen partes concretas:</p>
 </table>
 </div>
 <p>Los parámetros están fijados en <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code>: <span class="math notranslate nohighlight">\(k_1=1{,}5\)</span>, <span class="math notranslate nohighlight">\(b=0{,}75\)</span>, <span class="math notranslate nohighlight">\(k=60\)</span> para RRF,
-<span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span> para el realce, semilla <span class="math notranslate nohighlight">\(42\)</span> y <span class="math notranslate nohighlight">\(1.000\)</span> remuestreos <em>bootstrap</em>. Ninguno se ajustó
+<span class="math notranslate nohighlight">\(\lambda=0{,}2\)</span> para el realce, semilla <span class="math notranslate nohighlight">\(42\)</span> y <span class="math notranslate nohighlight">\(10.000\)</span> remuestreos <em>bootstrap</em>. Ninguno se ajustó
 sobre los conjuntos de evaluación. La versión del codificador está fijada por commit
 (<code class="docutils literal notranslate"><span class="pre">ab036b0</span></code> de <code class="docutils literal notranslate"><span class="pre">jinaai/jina-embeddings-v3</span></code>) y se carga sin conexión desde la copia local.</p>
 </section>

@@ -69,7 +69,7 @@ entre configuraciones bajo el mismo protocolo.
 | Control sin nombre | $55$ | las consultas de entidad exacta del ampliado con el nombre propio borrado | un solo estrato |
 | Difícil A | $52$ | paráfrasis y expresiones coloquiales del propósito de $13$ reportes, redactadas para no compartir vocabulario con la descripción | niveles A, B y C calculados por solape de raíces |
 | Difícil B | $78$ | réplica con consultas nuevas, seis por reporte en cuatro registros (pregunta, telegráfico, coloquial y administrativo) | mismos niveles calculados |
-| Difíciles A y B | $130$ | unión de los dos anteriores para la estadística | nivel A $52$, nivel B $21$, nivel C $57$ |
+| Difíciles A y B | $130$ | unión de los dos anteriores para la estadística | con puente $52$, sin puente $21$, con solape $57$ |
 
 ### El conjunto sintético
 
@@ -108,11 +108,11 @@ lugar de asignarse a mano, con el solape de raíces Snowball entre la consulta y
 
 | Nivel | Definición | Qué puede ayudar |
 |---|---|---|
-| A: con puente | la consulta no comparte raíces con la descripción, pero sí con el bloque de ontología | la ontología |
-| B: sin puente | no comparte raíces ni con la descripción ni con la ontología | solo la semántica densa |
-| C: con solape | comparte al menos una raíz con la descripción | también la señal léxica |
+| Con puente | la consulta no comparte raíces con la descripción, pero sí con el bloque de ontología | la ontología |
+| Sin puente | no comparte raíces ni con la descripción ni con la ontología | solo la semántica densa |
+| Con solape | comparte al menos una raíz con la descripción | también la señal léxica |
 
-El nivel B sirve de control contra el sesgo de haber redactado consultas con sinónimos de la
+El nivel sin puente sirve de control contra el sesgo de haber redactado consultas con sinónimos de la
 ontología. Conviene no confundir los nombres: el *conjunto* difícil A es el primer grupo de $52$
 paráfrasis, y el *nivel* A es una categoría de solape que existe dentro de los dos conjuntos.
 
@@ -137,7 +137,7 @@ dos conjuntos difíciles gana el denso con ontología (C2), y el híbrido queda 
 BM25 es la configuración de menor desempeño en los cuatro conjuntos. En el sintético su
 Recall@100 es $0{,}950$, por debajo de $1{,}000$, porque BM25 solo devuelve documentos que
 comparten algún término con la consulta y, cuando no hay coincidencia, el objetivo no aparece.
-En el difícil A su nDCG@10 es bajo por construcción, porque en los niveles A y B la consulta no
+En el difícil A su nDCG@10 es bajo por construcción, porque en los niveles con puente y sin puente la consulta no
 comparte raíces con la descripción del documento. Las demás configuraciones devuelven los
 diecisiete documentos, de modo que su Recall@100 vale trivialmente $1$ y no discrimina.
 
@@ -262,7 +262,7 @@ se sintetizaron desde los filtros del propio reporte.
 
 nDCG@10 en la unión de los difíciles ($n=130$) por nivel de solape calculado.
 
-| Configuración | Nivel A: puente ($n=52$) | Nivel B: sin puente ($n=21$) | Nivel C: con solape ($n=57$) | Global ($n=130$) |
+| Configuración | Con puente ($n=52$) | Sin puente ($n=21$) | Con solape ($n=57$) | Global ($n=130$) |
 |---|---|---|---|---|
 | BM25 | 0,000 | 0,000 | 0,747 | 0,328 |
 | C1 · Denso puro | 0,689 | 0,766 | 0,810 | 0,754 |
@@ -271,11 +271,11 @@ nDCG@10 en la unión de los difíciles ($n=130$) por nivel de solape calculado.
 | C4 · Híbrido con ontología | 0,870 | 0,658 | 0,826 | 0,816 |
 | C5 · C4 con realce | 0,810 | 0,655 | 0,752 | 0,759 |
 
-En el nivel A, donde la consulta comparte raíces con el bloque de ontología pero no con la
+En el nivel con puente, donde la consulta comparte raíces con el bloque de ontología pero no con la
 descripción, el denso con ontología alcanza $0{,}819$ frente a $0{,}689$ del denso puro, y el
-híbrido con ontología $0{,}870$ frente a $0{,}636$ del híbrido sin ella. En el nivel B, sin ese
+híbrido con ontología $0{,}870$ frente a $0{,}636$ del híbrido sin ella. En el nivel sin puente, sin ese
 puente, el denso puro llega a $0{,}766$ y la ontología aporta poco ($0{,}801$), porque la
-recuperación depende casi por completo del modelo denso. BM25 vale cero en los niveles A y B
+recuperación depende casi por completo del modelo denso. BM25 vale cero en los niveles con puente y sin puente
 por construcción.
 
 ### La cobertura parcial: un efecto no previsto
@@ -444,24 +444,24 @@ nDCG@10 de C4 y, entre paréntesis, la diferencia con $m=1.024$ y si permite dec
 
 | $m$ | Sintético | Ampliado | Ahorro de índice |
 |---|---|---|---|
-| 1.024 | 0,948 (+0,000; eq.) | 0,960 (+0,000; eq.) | 0 % |
-| 768 | 0,948 (+0,000; eq.) | 0,960 (+0,000; eq.) | 25 % |
-| 512 | 0,931 (−0,018; no eq.) | 0,963 (+0,003; eq.) | 50 % |
-| 256 | 0,940 (−0,008; no eq.) | 0,963 (+0,003; eq.) | 75 % |
-| 128 | 0,944 (−0,004; no eq.) | 0,944 (−0,016; no eq.) | 87,5 % |
-| 64 | 0,949 (+0,001; no eq.) | 0,923 (−0,037; no eq.) | 93,8 % |
+| 1.024 | 0,948 (+0,000; no inf.) | 0,960 (+0,000; no inf.) | 0 % |
+| 768 | 0,948 (+0,000; no inf.) | 0,960 (+0,000; no inf.) | 25 % |
+| 512 | 0,931 (−0,018; no concl.) | 0,963 (+0,003; no inf.) | 50 % |
+| 256 | 0,940 (−0,008; no concl.) | 0,963 (+0,003; no inf.) | 75 % |
+| 128 | 0,944 (−0,004; no concl.) | 0,944 (−0,016; no concl.) | 87,5 % |
+| 64 | 0,949 (+0,001; no concl.) | 0,923 (−0,037; no concl.) | 93,8 % |
 
-En el ampliado, truncar a $256$ dimensiones es equivalente a la dimensión nativa ($+0{,}003$,
+En el ampliado, truncar a $256$ dimensiones no es inferior a la dimensión nativa ($+0{,}003$,
 intervalo de $0{,}000$ a $+0{,}009$), igual que $512$ y $768$; a $128$ la pérdida es pequeña pero
 detectable y a $64$ es clara. Ese conjunto está cerca del techo, y en un conjunto saturado la
-equivalencia es casi automática. En los conjuntos difíciles, donde hay margen para perder, con
-$256$ dimensiones la pérdida puntual es de $-0{,}009$ y el intervalo llega a $-0{,}021$, así que no
-se puede declarar equivalencia; con $512$ sí ($+0{,}007$, intervalo de $0{,}000$ a $+0{,}017$). En el
-sintético, con $40$ consultas, el intervalo es demasiado ancho para declarar equivalencia por
-debajo de $768$, un límite de poder del conjunto y no de calidad. La dimensión recomendada es
-$512$, la menor equivalente en todos los conjuntos; $256$ es aceptable si la memoria se vuelve una
-restricción, con una pérdida esperada menor que un centésimo de nDCG@10. Truncar reduce la
-memoria del índice y no la latencia, que la domina la codificación de la consulta.
+no inferioridad es casi automática. En los difíciles, con $256$ dimensiones la pérdida puntual es de
+$-0{,}009$ y el intervalo llega a $-0{,}023$, así que no se puede declarar no inferioridad; con $512$ sí
+($+0{,}007$, intervalo de $0{,}000$ a $+0{,}017$), mientras que $768$ no resulta concluyente ($-0{,}008$),
+señal de que con $130$ consultas el margen de $0{,}01$ está cerca del límite de resolución. En el
+sintético, con $40$ consultas, el intervalo es demasiado ancho para concluir por debajo de $768$. La
+dimensión recomendada es $512$, por su ahorro de memoria y porque es no inferior en el ampliado y en
+los difíciles; $256$ es aceptable si la memoria se vuelve una restricción. Truncar reduce la memoria
+del índice y no la latencia, que la domina la codificación de la consulta.
 
 ## Fragmentación de los documentos (P4)
 
@@ -599,12 +599,12 @@ fuera un reporte a la vez. El asterisco marca los intervalos que excluyen el cer
 
 | Comparación | Ampliado | Difíciles A+B |
 |---|---|---|
-| C3 − BM25 | +0,056 [+0,024; +0,101] \* | +0,413 [+0,312; +0,517] \* |
-| C3 − C1 | +0,011 [−0,016; +0,034] | −0,013 [−0,053; +0,028] |
-| C2 − C1 | −0,004 [−0,025; +0,014] | +0,081 [+0,038; +0,128] \* |
-| C4 − C3 | +0,016 [−0,016; +0,053] | +0,075 [−0,020; +0,174] |
-| C5 − C4 | −0,016 [−0,042; +0,000] | −0,057 [−0,113; −0,007] \* |
-| C4 − C2 | +0,032 [−0,009; +0,053] | −0,020 [−0,066; +0,025] |
+| C3 − BM25 | +0,056 [+0,022; +0,102] \* | +0,413 [+0,307; +0,517] \* |
+| C3 − C1 | +0,011 [−0,016; +0,035] | −0,013 [−0,052; +0,028] |
+| C2 − C1 | −0,004 [−0,025; +0,014] | +0,081 [+0,037; +0,132] \* |
+| C4 − C3 | +0,016 [−0,017; +0,052] | +0,075 [−0,018; +0,175] |
+| C5 − C4 | −0,016 [−0,045; +0,000] | −0,057 [−0,115; −0,008] \* |
+| C4 − C2 | +0,032 [−0,011; +0,053] | −0,020 [−0,066; +0,029] |
 
 En el ampliado solo la ventaja del híbrido sobre BM25 sobrevive a este criterio, lo que confirma
 que allí las demás diferencias son pequeñas frente a la variación entre reportes. En los
@@ -629,7 +629,8 @@ Con diecisiete reportes, el híbrido supera a BM25 pero no al denso, la ontolog�
 paráfrasis y no en las consultas que ya usan el vocabulario del reporte, el realce no sirve, la
 fragmentación no aporta y $512$ dimensiones bastan. La recomendación para una Versión 1 limitada
 a reportes es C4 sin realce, con el vector truncado a $512$ dimensiones y un índice denso por
-coseno exacto, con C2 como alternativa equivalente si se esperan consultas muy coloquiales.
+coseno exacto, con C2 como alternativa natural si se esperan consultas muy coloquiales, porque no mostró
+diferencias significativas frente a C4.
 
 Quedaron tres límites. La hipótesis de entidad exacta no era contrastable, porque las entidades
 no figuraban en ningún documento. Recall@100 era trivial con diecisiete documentos. Y varias

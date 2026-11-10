@@ -1,15 +1,15 @@
 # Código y reproducción
 
 El código está en la carpeta
-[`experimentos/`](https://github.com/luispenaranda08/semantic_search_engine/tree/v1.0-tesis/experimentos)
-del repositorio. La etiqueta `v1.0-tesis` fija la versión que produce las cifras de la monografía.
+[`experimentos/`](https://github.com/luispenaranda08/semantic_search_engine/tree/v1.1-tesis/experimentos)
+del repositorio. La etiqueta `v1.1-tesis` fija la versión que produce las cifras de la monografía.
 
 ## Reproducir los resultados
 
 ```bash
 git clone https://github.com/luispenaranda08/semantic_search_engine.git
 cd semantic_search_engine
-git checkout v1.0-tesis
+git checkout v1.1-tesis
 cd experimentos
 python3 -m pip install -r requirements.txt
 make test     # pruebas de métricas y estadística
@@ -30,7 +30,7 @@ ablación y los reportes. Otros objetivos reconstruyen partes concretas:
 | `make anotacion` | hojas ciegas para la anotación por expertos |
 
 Los parámetros están fijados en `config.yaml`: $k_1=1{,}5$, $b=0{,}75$, $k=60$ para RRF,
-$\lambda=0{,}2$ para el realce, semilla $42$ y $1.000$ remuestreos *bootstrap*. Ninguno se ajustó
+$\lambda=0{,}2$ para el realce, semilla $42$ y $10.000$ remuestreos *bootstrap*. Ninguno se ajustó
 sobre los conjuntos de evaluación. La versión del codificador está fijada por commit
 (`ab036b0` de `jinaai/jina-embeddings-v3`) y se carga sin conexión desde la copia local.
 

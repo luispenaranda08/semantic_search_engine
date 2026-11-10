@@ -110,10 +110,10 @@ en el global) y es adverso de forma concordante en las paráfrasis ($-0{,}027$).
 En el conjunto global, C4 supera al denso con ontología en $+0{,}050$, con $p<0{,}001$. Esa
 diferencia resiste el remuestreo por documento objetivo, que es la prueba más exigente frente a
 la dependencia entre consultas que comparten reporte o prueba: su intervalo del $95\%$ va de
-$+0{,}006$ a $+0{,}079$ y excluye el cero, y dejar fuera un reporte a la vez no cambia su signo. Es la
+$+0{,}005$ a $+0{,}079$ y excluye el cero, y dejar fuera un reporte a la vez no cambia su signo. Es la
 evidencia medida que respalda recomendar C4 para una versión del buscador limitada a reportes,
-porque gana donde las consultas usan el vocabulario de la plataforma, que es el caso de las
-consultas reales observadas en el historial.
+porque es la mejor en el corpus de $177$ documentos y tolera mejor los nombres propios ajenos al
+corpus. El orden frente a C2 se confirmará con la validación con usuarios propuesta en la tesis.
 
 La ventaja se concentra en las consultas de entidad exacta de los reportes ($+0{,}139$), donde el
 nombre propio de la consulta no está en ningún documento. En las paráfrasis la diferencia va en
@@ -197,12 +197,12 @@ fuera un reporte a la vez no cambia el signo de ninguno de ellos.
 
 | Comparación | Definitivo ($n=180$) | Difíciles con 177 documentos ($n=130$) |
 |---|---|---|
-| C3 − BM25 | +0,093 [+0,049; +0,136] \* | +0,147 [+0,059; +0,234] \* |
-| C3 − C1 | +0,002 [−0,063; +0,048] | −0,104 [−0,160; −0,047] \* |
-| C2 − C1 | +0,045 [+0,008; +0,102] \* | +0,150 [+0,076; +0,239] \* |
-| C4 − C3 | +0,093 [+0,016; +0,185] \* | +0,192 [+0,075; +0,309] \* |
-| C5 − C4 | −0,010 [−0,024; +0,000] | −0,027 [−0,062; +0,000] |
-| C4 − C2 | +0,050 [+0,006; +0,079] \* | −0,062 [−0,143; +0,020] |
+| C3 − BM25 | +0,093 [+0,047; +0,136] \* | +0,147 [+0,060; +0,235] \* |
+| C3 − C1 | +0,002 [−0,065; +0,049] | −0,104 [−0,158; −0,048] \* |
+| C2 − C1 | +0,045 [+0,007; +0,102] \* | +0,150 [+0,071; +0,236] \* |
+| C4 − C3 | +0,093 [+0,015; +0,189] \* | +0,192 [+0,075; +0,309] \* |
+| C5 − C4 | −0,010 [−0,025; +0,000] | −0,027 [−0,061; +0,000] |
+| C4 − C2 | +0,050 [+0,005; +0,079] \* | −0,062 [−0,144; +0,020] |
 
 En el corpus definitivo las ventajas de la ontología sobre el denso y sobre el híbrido y la de C4
 sobre C2 mantienen intervalos que excluyen el cero. Con diecisiete reportes, en cambio, solo la

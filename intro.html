@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -439,7 +439,7 @@
 </a>
 <p>Este sitio acompaña la monografía de grado y reúne el código, los conjuntos de evaluación y los
 resultados que producen sus cifras. La versión exacta que corresponde a la monografía es la
-etiqueta <a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/v1.0-tesis"><code class="docutils literal notranslate"><span class="pre">v1.0-tesis</span></code></a>
+etiqueta <a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/tree/v1.1-tesis"><code class="docutils literal notranslate"><span class="pre">v1.1-tesis</span></code></a>
 del repositorio.</p>
 <p><a class="reference download internal" download="" href="_downloads/977e61a49b554809f6bd76b69643fa3d/monografia_buscador_semantico.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Descargar</span> <span class="pre">la</span> <span class="pre">monografía</span> <span class="pre">(PDF)</span></code></a></p>
 <section id="el-problema">
@@ -454,21 +454,25 @@ relevancia de la estructura del propio sistema.</p>
 </section>
 <section id="lo-que-se-encontro">
 <h2>Lo que se encontró<a class="headerlink" href="#lo-que-se-encontro" title="Link to this heading">#</a></h2>
+<p><strong>Recomendación.</strong> Para la Versión 1 del buscador se recomienda C4: el híbrido con ontología, sin
+realce, con el vector truncado a <span class="math notranslate nohighlight">\(512\)</span> dimensiones. No requiere entrenamiento y es la mejor
+configuración en los conjuntos sintético y ampliado y en el corpus de <span class="math notranslate nohighlight">\(177\)</span> documentos, donde pone
+el reporte correcto en la primera posición en el <span class="math notranslate nohighlight">\(94\%\)</span> de las consultas, frente al <span class="math notranslate nohighlight">\(62\%\)</span> de BM25.</p>
 <ul class="simple">
 <li><p>La demanda real está muy concentrada: de <span class="math notranslate nohighlight">\(6.620\)</span> solicitudes reales de datos en seis semanas y
 media, cinco de diecisiete reportes reúnen el <span class="math notranslate nohighlight">\(83\%\)</span> (Gini de <span class="math notranslate nohighlight">\(0{,}70\)</span>).</p></li>
 <li><p>Casi toda la ventaja sobre BM25 la aporta el codificador denso preentrenado. La fusión por
 rango (RRF) no supera al denso y lo perjudica cuando la consulta no comparte vocabulario con
 el documento.</p></li>
-<li><p>Con <span class="math notranslate nohighlight">\(811\)</span> documentos de cinco tipos, una combinación convexa de puntuaciones
+<li><p>En un análisis exploratorio con <span class="math notranslate nohighlight">\(811\)</span> documentos de cinco tipos, una combinación convexa de puntuaciones
 (<span class="math notranslate nohighlight">\(0{,}8\cdot\)</span>denso <span class="math notranslate nohighlight">\(+ 0{,}2\cdot\)</span>BM25) supera a RRF y al denso de forma concordante
-(<span class="math notranslate nohighlight">\(0{,}799\)</span> frente a <span class="math notranslate nohighlight">\(0{,}710\)</span> y <span class="math notranslate nohighlight">\(0{,}714\)</span> de nDCG&#64;10).</p></li>
+(<span class="math notranslate nohighlight">\(0{,}799\)</span> frente a <span class="math notranslate nohighlight">\(0{,}710\)</span> y <span class="math notranslate nohighlight">\(0{,}714\)</span> de nDCG&#64;10 sobre las <span class="math notranslate nohighlight">\(450\)</span> consultas del corpus v3 y las paráfrasis).</p></li>
 <li><p>La ontología del dominio mejora la recuperación en proporción a los términos que la consulta
 comparte con ella. Sobre <span class="math notranslate nohighlight">\(757.554\)</span> documentos, todos con vector denso, supera a la descripción
 original y a tres controles de la misma longitud.</p></li>
 <li><p>Para buscar personas hace falta resolver entidades. Entre <span class="math notranslate nohighlight">\(643.107\)</span> deportistas, un
-diccionario de entidades acierta en primer lugar el <span class="math notranslate nohighlight">\(97{,}7\%\)</span> de las veces con un error de
-digitación, frente al <span class="math notranslate nohighlight">\(57{,}3\%\)</span> del ranking híbrido sin él.</p></li>
+diccionario de entidades acierta en primer lugar el <span class="math notranslate nohighlight">\(98{,}7\%\)</span> de las veces con el nombre exacto y
+el <span class="math notranslate nohighlight">\(97{,}7\%\)</span> con un error de digitación, frente al <span class="math notranslate nohighlight">\(87{,}7\%\)</span> y el <span class="math notranslate nohighlight">\(57{,}3\%\)</span> del ranking híbrido sin él.</p></li>
 <li><p>El realce por entidad no mejora el orden en ningún conjunto y se descarta.</p></li>
 </ul>
 </section>
@@ -477,7 +481,8 @@ digitación, frente al <span class="math notranslate nohighlight">\(57{,}3\%\)</
 <p>La primera parte resume la monografía, su método y sus resultados, y explica cómo reproducir
 cada cifra con el código. La segunda recorre en detalle cada etapa y cada corpus: la demanda
 observada, los diecisiete reportes, el corpus de <span class="math notranslate nohighlight">\(177\)</span> documentos, el corpus v3 de <span class="math notranslate nohighlight">\(811\)</span>, el
-registro completo de la plataforma y los controles de validez. La tercera guarda los notebooks de las primeras etapas con sus salidas
+registro completo de la plataforma, presentado como extensión exploratoria con su propia pregunta (P7),
+y los controles de validez. La tercera guarda los notebooks de las primeras etapas con sus salidas
 originales; muchas de sus cifras son anteriores a la auditoría del 30 de septiembre de 2026 y la
 monografía ya no las usa, pero se conservan como registro del proceso.</p>
 <p>Todos los nombres propios de las consultas de evaluación son sintéticos, y ningún dato personal

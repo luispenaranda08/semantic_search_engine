@@ -76,15 +76,15 @@ son exploratorios en el sentido del plan: no hay una corrección global entre es
 
 | Estrato | $n$ | BM25 | C1 | C2 | C3 | C4 | C4 − C2 | IC 95 % por objetivo |
 |---|---|---|---|---|---|---|---|---|
-| Entidad exacta (reportes) | 55 | 0,580 | 0,386 | 0,585 | 0,813 | 0,870 | +0,286 \* | [+0,134; +0,416] |
-| Operacional (reportes) | 35 | 0,667 | 0,868 | 0,919 | 0,895 | 0,844 | −0,075 | [−0,169; +0,041] |
-| Documento largo (reportes) | 25 | 0,618 | 0,760 | 0,905 | 0,862 | 0,844 | −0,061 | [−0,186; +0,040] |
-| Ambigua (reportes) | 12 | 0,730 | 0,765 | 0,792 | 0,783 | 0,689 | −0,103 | [−0,341; +0,094] |
-| Pruebas Regionales | 53 | 0,880 | 0,951 | 0,954 | 0,948 | 0,970 | +0,016 | [−0,018; +0,048] |
-| Pruebas del catálogo | 60 | 0,712 | 0,774 | 0,836 | 0,894 | 0,917 | +0,081 | [+0,014; +0,156] |
-| Funcionalidades | 53 | 0,204 | 0,619 | 0,654 | 0,466 | 0,417 | −0,236 \* | [−0,332; −0,140] |
-| Reglas de participación | 27 | 0,241 | 0,912 | 0,926 | 0,430 | 0,443 | −0,483 \* | [−0,642; −0,310] |
-| Total | 320 | 0,582 | 0,731 | 0,803 | 0,773 | 0,773 | −0,030 | [−0,099; +0,030] |
+| Entidad exacta (reportes) | 55 | 0,580 | 0,386 | 0,585 | 0,813 | 0,870 | +0,286 \* | [+0,131; +0,425] |
+| Operacional (reportes) | 35 | 0,667 | 0,868 | 0,919 | 0,895 | 0,844 | −0,075 | [−0,172; +0,041] |
+| Documento largo (reportes) | 25 | 0,618 | 0,760 | 0,905 | 0,862 | 0,844 | −0,061 | [−0,188; +0,039] |
+| Ambigua (reportes) | 12 | 0,730 | 0,765 | 0,792 | 0,783 | 0,689 | −0,103 | [−0,335; +0,098] |
+| Pruebas Regionales | 53 | 0,880 | 0,951 | 0,954 | 0,948 | 0,970 | +0,016 | [−0,018; +0,050] |
+| Pruebas del catálogo | 60 | 0,712 | 0,774 | 0,836 | 0,894 | 0,917 | +0,081 | [+0,011; +0,157] |
+| Funcionalidades | 53 | 0,204 | 0,619 | 0,654 | 0,466 | 0,417 | −0,236 \* | [−0,331; −0,139] |
+| Reglas de participación | 27 | 0,241 | 0,912 | 0,926 | 0,430 | 0,443 | −0,483 \* | [−0,652; −0,301] |
+| Total | 320 | 0,582 | 0,731 | 0,803 | 0,773 | 0,773 | −0,030 | [−0,097; +0,026] |
 
 Con cinco tipos de objeto, ninguna configuración domina. En el total, el denso con ontología
 ($0{,}803$) queda por encima del híbrido con ontología ($0{,}773$), sin significancia. Ese promedio
@@ -116,24 +116,24 @@ Regionales a $+0{,}199$ en las consultas de entidad exacta.
 ### Las paráfrasis con más documentos
 
 Las $130$ paráfrasis de los conjuntos difíciles, evaluadas con $177$ y con $811$ documentos que
-compiten. Los niveles A, B y C se definen por el solape de raíces entre la consulta, el documento
+compiten. Los niveles con puente, sin puente y con solape se definen por el solape de raíces entre la consulta, el documento
 y su ontología, como en [la Versión 1](02_version1_17_reportes.md).
 
 | Estrato | $n$ | BM25 | C1 | C2 | C3 | C4 | C4 − C2 | IC 95 % por objetivo |
 |---|---|---|---|---|---|---|---|---|
 | Total con 177 documentos | 130 | 0,251 | 0,503 | 0,652 | 0,398 | 0,590 | −0,062 | n/d |
-| A: con puente ontológico | 52 | 0,000 | 0,119 | 0,409 | 0,029 | 0,587 | +0,178 \* | [+0,104; +0,256] |
-| C: con solape léxico | 57 | 0,404 | 0,514 | 0,614 | 0,570 | 0,664 | +0,050 | [−0,058; +0,174] |
-| B: sin puente | 21 | 0,000 | 0,341 | 0,393 | 0,199 | 0,177 | −0,216 \* | [−0,331; −0,105] |
-| Total con 811 documentos | 130 | 0,177 | 0,328 | 0,496 | 0,294 | 0,555 | +0,058 | [−0,048; +0,152] |
+| Con puente | 52 | 0,000 | 0,119 | 0,409 | 0,029 | 0,587 | +0,178 \* | [+0,100; +0,258] |
+| Con solape | 57 | 0,404 | 0,514 | 0,614 | 0,570 | 0,664 | +0,050 | [−0,061; +0,174] |
+| Sin puente | 21 | 0,000 | 0,341 | 0,393 | 0,199 | 0,177 | −0,216 \* | [−0,331; −0,104] |
+| Total con 811 documentos | 130 | 0,177 | 0,328 | 0,496 | 0,294 | 0,555 | +0,058 | [−0,048; +0,155] |
 
-Las filas de los niveles A, C y B corresponden al corpus de $811$ documentos. Al pasar de $177$ a
+Las filas de los niveles corresponden al corpus de $811$ documentos. Al pasar de $177$ a
 $811$ documentos todas las configuraciones pierden, pero no por igual. El denso con ontología cae
 de $0{,}652$ a $0{,}496$ y el híbrido con ontología solo de $0{,}590$ a $0{,}555$, de modo que el orden
 entre ambos se invierte ($+0{,}058$ a favor de C4, sin significancia). La inversión se concentra en
-el nivel A, donde la ontología tiende el puente entre la consulta y el documento: allí BM25 sobre
+el nivel con puente, donde la ontología tiende el puente entre la consulta y el documento: allí BM25 sobre
 el texto enriquecido encuentra los términos que la consulta comparte con la ontología y C4 supera
-a C2 en $+0{,}178$, de forma concordante. En el nivel B, sin puente, ocurre lo contrario
+a C2 en $+0{,}178$, de forma concordante. En el nivel sin puente ocurre lo contrario
 ($-0{,}216$, también concordante).
 
 La señal léxica ayuda, entonces, cuando existe algún vocabulario compartido, sea en el documento
@@ -176,13 +176,13 @@ de grupos de consultas con los mismos relevantes, y el asterisco marca las conco
 
 | Grupo | $n$ | C2 | C4 | Cob. | Convexa | Convexa − C4 | Convexa − C2 |
 |---|---|---|---|---|---|---|---|
-| Reportes | 127 | 0,759 | 0,841 | 0,828 | 0,904 | +0,063 \* [+0,018; +0,097] | +0,145 \* [+0,042; +0,209] |
-| Pruebas Regionales | 53 | 0,954 | 0,970 | 0,970 | 0,967 | −0,003 [−0,032; +0,027] | +0,012 \* [+0,003; +0,024] |
-| Funcionalidades | 53 | 0,654 | 0,417 | 0,506 | 0,634 | +0,216 \* [+0,138; +0,300] | −0,020 [−0,063; +0,022] |
-| Pruebas del catálogo | 60 | 0,836 | 0,917 | 0,929 | 0,953 | +0,036 [+0,007; +0,073] | +0,117 \* [+0,054; +0,195] |
-| Reglas de participación | 27 | 0,926 | 0,443 | 0,861 | 0,940 | +0,496 \* [+0,318; +0,654] | +0,014 [+0,000; +0,041] |
-| Difíciles A+B | 130 | 0,496 | 0,555 | 0,534 | 0,594 | +0,039 [−0,015; +0,096] | +0,097 \* [+0,018; +0,183] |
-| Total | 450 | 0,714 | 0,710 | 0,737 | 0,799 | +0,089 \* [+0,060; +0,126] | +0,085 \* [+0,040; +0,122] |
+| Reportes | 127 | 0,759 | 0,841 | 0,828 | 0,904 | +0,063 \* [+0,019; +0,096] | +0,145 \* [+0,046; +0,208] |
+| Pruebas Regionales | 53 | 0,954 | 0,970 | 0,970 | 0,967 | −0,003 [−0,033; +0,027] | +0,012 \* [+0,004; +0,024] |
+| Funcionalidades | 53 | 0,654 | 0,417 | 0,506 | 0,634 | +0,216 \* [+0,139; +0,299] | −0,020 [−0,061; +0,021] |
+| Pruebas del catálogo | 60 | 0,836 | 0,917 | 0,929 | 0,953 | +0,036 [+0,005; +0,074] | +0,117 \* [+0,051; +0,195] |
+| Reglas de participación | 27 | 0,926 | 0,443 | 0,861 | 0,940 | +0,496 \* [+0,315; +0,661] | +0,014 [+0,000; +0,041] |
+| Difíciles A+B | 130 | 0,496 | 0,555 | 0,534 | 0,594 | +0,039 [−0,016; +0,096] | +0,097 \* [+0,018; +0,183] |
+| Total | 450 | 0,714 | 0,710 | 0,737 | 0,799 | +0,089 \* [+0,060; +0,126] | +0,085 \* [+0,039; +0,123] |
 
 La tabla de la monografía reporta la variante por cobertura y la convexa; la compuerta no aparece
 en ella.

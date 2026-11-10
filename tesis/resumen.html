@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -418,7 +418,7 @@
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-investigacion">Preguntas de investigación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Límites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez">Validez</a></li>
 </ul>
             </nav>
         </div>
@@ -433,7 +433,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="la-monografia">
 <h1>La monografía<a class="headerlink" href="#la-monografia" title="Link to this heading">#</a></h1>
 <p><a class="reference download internal" download="" href="../_downloads/977e61a49b554809f6bd76b69643fa3d/monografia_buscador_semantico.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Descargar</span> <span class="pre">la</span> <span class="pre">monografía</span> <span class="pre">en</span> <span class="pre">PDF</span></code></a> ·
-<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/v1.0-tesis/monografia/monografia_buscador_semantico_PRIME.tex">fuente LaTeX</a></p>
+<a class="reference external" href="https://github.com/luispenaranda08/semantic_search_engine/blob/v1.1-tesis/monografia/monografia_buscador_semantico_PRIME.tex">fuente LaTeX</a></p>
 <section id="resumen">
 <h2>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
 <p>Las plataformas públicas concentran su conocimiento operativo en reportes y funcionalidades
@@ -448,13 +448,19 @@ léxico, un codificador denso preentrenado, la fusión por rango, metadatos de l
 realce por entidad, sobre diecisiete reportes, sobre <span class="math notranslate nohighlight">\(177\)</span> documentos y sobre <span class="math notranslate nohighlight">\(811\)</span> documentos
 de cinco tipos.</p>
 <p>La fusión por rango superó a la búsqueda léxica, pero perjudicó al codificador denso cuando la
-consulta no compartía vocabulario con el documento, y una combinación convexa de puntuaciones
-superó a ambas. La ontología mejoró la recuperación en proporción a los términos compartidos,
-conservó su aporte entre <span class="math notranslate nohighlight">\(757.554\)</span> documentos y superó a tres controles de la misma longitud. Al
-extender el corpus a todo el registro, un diccionario de entidades puso primera a la persona
-buscada en el <span class="math notranslate nohighlight">\(98\%\)</span> de los casos, frente al <span class="math notranslate nohighlight">\(57\%\)</span> del ranking híbrido sin él, y restringir
-cada búsqueda a los tipos de objeto de su función eliminó los distractores de un corpus
-heterogéneo. Cada consulta tardó <span class="math notranslate nohighlight">\(0{,}35\)</span> segundos.</p>
+consulta no compartía vocabulario con el documento; un análisis exploratorio mostró que una
+combinación convexa de puntuaciones superó a ambas en el corpus de <span class="math notranslate nohighlight">\(811\)</span> documentos. La ontología
+mejoró la recuperación en proporción a los términos compartidos, conservó su aporte al repetir la
+evaluación entre <span class="math notranslate nohighlight">\(757.554\)</span> documentos y superó a tres controles de la misma longitud; el realce no
+aportó. En la implementación de investigación cada consulta tardó <span class="math notranslate nohighlight">\(0{,}35\)</span> segundos, casi todo en
+codificarla. En una extensión exploratoria a todo el registro, un diccionario de entidades puso
+primera a la persona buscada en el <span class="math notranslate nohighlight">\(98{,}7\%\)</span> de los casos con el nombre exacto y en el <span class="math notranslate nohighlight">\(97{,}7\%\)</span>
+con un error de digitación, frente al <span class="math notranslate nohighlight">\(87{,}7\%\)</span> y el <span class="math notranslate nohighlight">\(57{,}3\%\)</span> del ranking híbrido sin él, y
+restringir cada búsqueda a los tipos de objeto de su función eliminó los distractores de un corpus
+heterogéneo.</p>
+<p><strong>Recomendación.</strong> Para la Versión 1 se recomienda C4, el híbrido con ontología, sin realce, con el
+vector a <span class="math notranslate nohighlight">\(512\)</span> dimensiones. La combinación convexa es la opción más prometedora para un buscador
+sobre todos los objetos funcionales, y su adopción se confirmará con la validación con usuarios.</p>
 </section>
 <section id="preguntas-de-investigacion">
 <h2>Preguntas de investigación<a class="headerlink" href="#preguntas-de-investigacion" title="Link to this heading">#</a></h2>
@@ -488,18 +494,22 @@ heterogéneo. Cada consulta tardó <span class="math notranslate nohighlight">\(
 </tr>
 <tr class="row-odd"><td><p>P6</p></td>
 <td><p>¿Qué configuración y dimensión convienen?</p></td>
-<td><p>Las neuronales cuestan lo mismo (unos <span class="math notranslate nohighlight">\(0{,}35\)</span> s, <span class="math notranslate nohighlight">\(2\)</span> GiB). La menor dimensión equivalente a la nativa es <span class="math notranslate nohighlight">\(512\)</span>.</p></td>
+<td><p>Las neuronales cuestan lo mismo (unos <span class="math notranslate nohighlight">\(0{,}35\)</span> s, <span class="math notranslate nohighlight">\(2\)</span> GiB). <span class="math notranslate nohighlight">\(512\)</span> dimensiones son no inferiores a la nativa en el ampliado y en los difíciles.</p></td>
+</tr>
+<tr class="row-even"><td><p>P7 (exploratoria)</p></td>
+<td><p>¿Se mantienen las conclusiones a la escala del registro completo?</p></td>
+<td><p>Sí, con matices: la ontología conserva su aporte y la búsqueda por entidad necesita un diccionario aparte.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="limites">
-<h2>Límites<a class="headerlink" href="#limites" title="Link to this heading">#</a></h2>
-<p>Las consultas difíciles y la ontología las redactó el mismo autor, sin juicios de expertos, y la
-evaluación usa un protocolo de objetivo conocido sobre una sola plataforma. Las conclusiones
-describen el comportamiento de las configuraciones bajo ese protocolo. La validación con
-personas ajenas al diseño es el primer paso del trabajo futuro.</p>
+<section id="validez">
+<h2>Validez<a class="headerlink" href="#validez" title="Link to this heading">#</a></h2>
+<p>Las consultas y la ontología se construyeron desde la estructura del propio sistema, y la
+evaluación usa un protocolo de objetivo conocido. Las conclusiones se apoyan en comparaciones
+entre configuraciones bajo ese mismo protocolo, con dos pruebas y corrección de Holm. El primer
+paso del trabajo futuro es una validación con personas ajenas al diseño.</p>
 </section>
 </section>
 
@@ -571,7 +581,7 @@ personas ajenas al diseño es el primer paso del trabajo futuro.</p>
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-de-investigacion">Preguntas de investigación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Límites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez">Validez</a></li>
 </ul>
   </nav></div>
 

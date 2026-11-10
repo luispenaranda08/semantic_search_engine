@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -579,7 +579,7 @@ entre configuraciones bajo el mismo protocolo.</p>
 <tr class="row-odd"><td><p>Difíciles A y B</p></td>
 <td><p><span class="math notranslate nohighlight">\(130\)</span></p></td>
 <td><p>unión de los dos anteriores para la estadística</p></td>
-<td><p>nivel A <span class="math notranslate nohighlight">\(52\)</span>, nivel B <span class="math notranslate nohighlight">\(21\)</span>, nivel C <span class="math notranslate nohighlight">\(57\)</span></p></td>
+<td><p>con puente <span class="math notranslate nohighlight">\(52\)</span>, sin puente <span class="math notranslate nohighlight">\(21\)</span>, con solape <span class="math notranslate nohighlight">\(57\)</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -626,22 +626,22 @@ lugar de asignarse a mano, con el solape de raíces Snowball entre la consulta y
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>A: con puente</p></td>
+<tr class="row-even"><td><p>Con puente</p></td>
 <td><p>la consulta no comparte raíces con la descripción, pero sí con el bloque de ontología</p></td>
 <td><p>la ontología</p></td>
 </tr>
-<tr class="row-odd"><td><p>B: sin puente</p></td>
+<tr class="row-odd"><td><p>Sin puente</p></td>
 <td><p>no comparte raíces ni con la descripción ni con la ontología</p></td>
 <td><p>solo la semántica densa</p></td>
 </tr>
-<tr class="row-even"><td><p>C: con solape</p></td>
+<tr class="row-even"><td><p>Con solape</p></td>
 <td><p>comparte al menos una raíz con la descripción</p></td>
 <td><p>también la señal léxica</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>El nivel B sirve de control contra el sesgo de haber redactado consultas con sinónimos de la
+<p>El nivel sin puente sirve de control contra el sesgo de haber redactado consultas con sinónimos de la
 ontología. Conviene no confundir los nombres: el <em>conjunto</em> difícil A es el primer grupo de <span class="math notranslate nohighlight">\(52\)</span>
 paráfrasis, y el <em>nivel</em> A es una categoría de solape que existe dentro de los dos conjuntos.</p>
 <p>El conjunto difícil B se redactó después de conocer los resultados de A, para poner a prueba los
@@ -706,7 +706,7 @@ dos conjuntos difíciles gana el denso con ontología (C2), y el híbrido queda 
 BM25 es la configuración de menor desempeño en los cuatro conjuntos. En el sintético su
 Recall&#64;100 es <span class="math notranslate nohighlight">\(0{,}950\)</span>, por debajo de <span class="math notranslate nohighlight">\(1{,}000\)</span>, porque BM25 solo devuelve documentos que
 comparten algún término con la consulta y, cuando no hay coincidencia, el objetivo no aparece.
-En el difícil A su nDCG&#64;10 es bajo por construcción, porque en los niveles A y B la consulta no
+En el difícil A su nDCG&#64;10 es bajo por construcción, porque en los niveles con puente y sin puente la consulta no
 comparte raíces con la descripción del documento. Las demás configuraciones devuelven los
 diecisiete documentos, de modo que su Recall&#64;100 vale trivialmente <span class="math notranslate nohighlight">\(1\)</span> y no discrimina.</p>
 </section>
@@ -1012,9 +1012,9 @@ se sintetizaron desde los filtros del propio reporte.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Configuración</p></th>
-<th class="head"><p>Nivel A: puente (<span class="math notranslate nohighlight">\(n=52\)</span>)</p></th>
-<th class="head"><p>Nivel B: sin puente (<span class="math notranslate nohighlight">\(n=21\)</span>)</p></th>
-<th class="head"><p>Nivel C: con solape (<span class="math notranslate nohighlight">\(n=57\)</span>)</p></th>
+<th class="head"><p>Con puente (<span class="math notranslate nohighlight">\(n=52\)</span>)</p></th>
+<th class="head"><p>Sin puente (<span class="math notranslate nohighlight">\(n=21\)</span>)</p></th>
+<th class="head"><p>Con solape (<span class="math notranslate nohighlight">\(n=57\)</span>)</p></th>
 <th class="head"><p>Global (<span class="math notranslate nohighlight">\(n=130\)</span>)</p></th>
 </tr>
 </thead>
@@ -1058,11 +1058,11 @@ se sintetizaron desde los filtros del propio reporte.</p>
 </tbody>
 </table>
 </div>
-<p>En el nivel A, donde la consulta comparte raíces con el bloque de ontología pero no con la
+<p>En el nivel con puente, donde la consulta comparte raíces con el bloque de ontología pero no con la
 descripción, el denso con ontología alcanza <span class="math notranslate nohighlight">\(0{,}819\)</span> frente a <span class="math notranslate nohighlight">\(0{,}689\)</span> del denso puro, y el
-híbrido con ontología <span class="math notranslate nohighlight">\(0{,}870\)</span> frente a <span class="math notranslate nohighlight">\(0{,}636\)</span> del híbrido sin ella. En el nivel B, sin ese
+híbrido con ontología <span class="math notranslate nohighlight">\(0{,}870\)</span> frente a <span class="math notranslate nohighlight">\(0{,}636\)</span> del híbrido sin ella. En el nivel sin puente, sin ese
 puente, el denso puro llega a <span class="math notranslate nohighlight">\(0{,}766\)</span> y la ontología aporta poco (<span class="math notranslate nohighlight">\(0{,}801\)</span>), porque la
-recuperación depende casi por completo del modelo denso. BM25 vale cero en los niveles A y B
+recuperación depende casi por completo del modelo denso. BM25 vale cero en los niveles con puente y sin puente
 por construcción.</p>
 </section>
 <section id="la-cobertura-parcial-un-efecto-no-previsto">
@@ -1444,49 +1444,49 @@ intervalo, no con un <span class="math notranslate nohighlight">\(p\)</span>-val
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1.024</p></td>
-<td><p>0,948 (+0,000; eq.)</p></td>
-<td><p>0,960 (+0,000; eq.)</p></td>
+<td><p>0,948 (+0,000; no inf.)</p></td>
+<td><p>0,960 (+0,000; no inf.)</p></td>
 <td><p>0 %</p></td>
 </tr>
 <tr class="row-odd"><td><p>768</p></td>
-<td><p>0,948 (+0,000; eq.)</p></td>
-<td><p>0,960 (+0,000; eq.)</p></td>
+<td><p>0,948 (+0,000; no inf.)</p></td>
+<td><p>0,960 (+0,000; no inf.)</p></td>
 <td><p>25 %</p></td>
 </tr>
 <tr class="row-even"><td><p>512</p></td>
-<td><p>0,931 (−0,018; no eq.)</p></td>
-<td><p>0,963 (+0,003; eq.)</p></td>
+<td><p>0,931 (−0,018; no concl.)</p></td>
+<td><p>0,963 (+0,003; no inf.)</p></td>
 <td><p>50 %</p></td>
 </tr>
 <tr class="row-odd"><td><p>256</p></td>
-<td><p>0,940 (−0,008; no eq.)</p></td>
-<td><p>0,963 (+0,003; eq.)</p></td>
+<td><p>0,940 (−0,008; no concl.)</p></td>
+<td><p>0,963 (+0,003; no inf.)</p></td>
 <td><p>75 %</p></td>
 </tr>
 <tr class="row-even"><td><p>128</p></td>
-<td><p>0,944 (−0,004; no eq.)</p></td>
-<td><p>0,944 (−0,016; no eq.)</p></td>
+<td><p>0,944 (−0,004; no concl.)</p></td>
+<td><p>0,944 (−0,016; no concl.)</p></td>
 <td><p>87,5 %</p></td>
 </tr>
 <tr class="row-odd"><td><p>64</p></td>
-<td><p>0,949 (+0,001; no eq.)</p></td>
-<td><p>0,923 (−0,037; no eq.)</p></td>
+<td><p>0,949 (+0,001; no concl.)</p></td>
+<td><p>0,923 (−0,037; no concl.)</p></td>
 <td><p>93,8 %</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>En el ampliado, truncar a <span class="math notranslate nohighlight">\(256\)</span> dimensiones es equivalente a la dimensión nativa (<span class="math notranslate nohighlight">\(+0{,}003\)</span>,
+<p>En el ampliado, truncar a <span class="math notranslate nohighlight">\(256\)</span> dimensiones no es inferior a la dimensión nativa (<span class="math notranslate nohighlight">\(+0{,}003\)</span>,
 intervalo de <span class="math notranslate nohighlight">\(0{,}000\)</span> a <span class="math notranslate nohighlight">\(+0{,}009\)</span>), igual que <span class="math notranslate nohighlight">\(512\)</span> y <span class="math notranslate nohighlight">\(768\)</span>; a <span class="math notranslate nohighlight">\(128\)</span> la pérdida es pequeña pero
 detectable y a <span class="math notranslate nohighlight">\(64\)</span> es clara. Ese conjunto está cerca del techo, y en un conjunto saturado la
-equivalencia es casi automática. En los conjuntos difíciles, donde hay margen para perder, con
-<span class="math notranslate nohighlight">\(256\)</span> dimensiones la pérdida puntual es de <span class="math notranslate nohighlight">\(-0{,}009\)</span> y el intervalo llega a <span class="math notranslate nohighlight">\(-0{,}021\)</span>, así que no
-se puede declarar equivalencia; con <span class="math notranslate nohighlight">\(512\)</span> sí (<span class="math notranslate nohighlight">\(+0{,}007\)</span>, intervalo de <span class="math notranslate nohighlight">\(0{,}000\)</span> a <span class="math notranslate nohighlight">\(+0{,}017\)</span>). En el
-sintético, con <span class="math notranslate nohighlight">\(40\)</span> consultas, el intervalo es demasiado ancho para declarar equivalencia por
-debajo de <span class="math notranslate nohighlight">\(768\)</span>, un límite de poder del conjunto y no de calidad. La dimensión recomendada es
-<span class="math notranslate nohighlight">\(512\)</span>, la menor equivalente en todos los conjuntos; <span class="math notranslate nohighlight">\(256\)</span> es aceptable si la memoria se vuelve una
-restricción, con una pérdida esperada menor que un centésimo de nDCG&#64;10. Truncar reduce la
-memoria del índice y no la latencia, que la domina la codificación de la consulta.</p>
+no inferioridad es casi automática. En los difíciles, con <span class="math notranslate nohighlight">\(256\)</span> dimensiones la pérdida puntual es de
+<span class="math notranslate nohighlight">\(-0{,}009\)</span> y el intervalo llega a <span class="math notranslate nohighlight">\(-0{,}023\)</span>, así que no se puede declarar no inferioridad; con <span class="math notranslate nohighlight">\(512\)</span> sí
+(<span class="math notranslate nohighlight">\(+0{,}007\)</span>, intervalo de <span class="math notranslate nohighlight">\(0{,}000\)</span> a <span class="math notranslate nohighlight">\(+0{,}017\)</span>), mientras que <span class="math notranslate nohighlight">\(768\)</span> no resulta concluyente (<span class="math notranslate nohighlight">\(-0{,}008\)</span>),
+señal de que con <span class="math notranslate nohighlight">\(130\)</span> consultas el margen de <span class="math notranslate nohighlight">\(0{,}01\)</span> está cerca del límite de resolución. En el
+sintético, con <span class="math notranslate nohighlight">\(40\)</span> consultas, el intervalo es demasiado ancho para concluir por debajo de <span class="math notranslate nohighlight">\(768\)</span>. La
+dimensión recomendada es <span class="math notranslate nohighlight">\(512\)</span>, por su ahorro de memoria y porque es no inferior en el ampliado y en
+los difíciles; <span class="math notranslate nohighlight">\(256\)</span> es aceptable si la memoria se vuelve una restricción. Truncar reduce la memoria
+del índice y no la latencia, que la domina la codificación de la consulta.</p>
 </section>
 <section id="fragmentacion-de-los-documentos-p4">
 <h2>Fragmentación de los documentos (P4)<a class="headerlink" href="#fragmentacion-de-los-documentos-p4" title="Link to this heading">#</a></h2>
@@ -1885,28 +1885,28 @@ fuera un reporte a la vez. El asterisco marca los intervalos que excluyen el cer
 </thead>
 <tbody>
 <tr class="row-even"><td><p>C3 − BM25</p></td>
-<td><p>+0,056 [+0,024; +0,101] *</p></td>
-<td><p>+0,413 [+0,312; +0,517] *</p></td>
+<td><p>+0,056 [+0,022; +0,102] *</p></td>
+<td><p>+0,413 [+0,307; +0,517] *</p></td>
 </tr>
 <tr class="row-odd"><td><p>C3 − C1</p></td>
-<td><p>+0,011 [−0,016; +0,034]</p></td>
-<td><p>−0,013 [−0,053; +0,028]</p></td>
+<td><p>+0,011 [−0,016; +0,035]</p></td>
+<td><p>−0,013 [−0,052; +0,028]</p></td>
 </tr>
 <tr class="row-even"><td><p>C2 − C1</p></td>
 <td><p>−0,004 [−0,025; +0,014]</p></td>
-<td><p>+0,081 [+0,038; +0,128] *</p></td>
+<td><p>+0,081 [+0,037; +0,132] *</p></td>
 </tr>
 <tr class="row-odd"><td><p>C4 − C3</p></td>
-<td><p>+0,016 [−0,016; +0,053]</p></td>
-<td><p>+0,075 [−0,020; +0,174]</p></td>
+<td><p>+0,016 [−0,017; +0,052]</p></td>
+<td><p>+0,075 [−0,018; +0,175]</p></td>
 </tr>
 <tr class="row-even"><td><p>C5 − C4</p></td>
-<td><p>−0,016 [−0,042; +0,000]</p></td>
-<td><p>−0,057 [−0,113; −0,007] *</p></td>
+<td><p>−0,016 [−0,045; +0,000]</p></td>
+<td><p>−0,057 [−0,115; −0,008] *</p></td>
 </tr>
 <tr class="row-odd"><td><p>C4 − C2</p></td>
-<td><p>+0,032 [−0,009; +0,053]</p></td>
-<td><p>−0,020 [−0,066; +0,025]</p></td>
+<td><p>+0,032 [−0,011; +0,053]</p></td>
+<td><p>−0,020 [−0,066; +0,029]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1933,7 +1933,8 @@ en las telegráficas (<span class="math notranslate nohighlight">\(0{,}866\)</sp
 paráfrasis y no en las consultas que ya usan el vocabulario del reporte, el realce no sirve, la
 fragmentación no aporta y <span class="math notranslate nohighlight">\(512\)</span> dimensiones bastan. La recomendación para una Versión 1 limitada
 a reportes es C4 sin realce, con el vector truncado a <span class="math notranslate nohighlight">\(512\)</span> dimensiones y un índice denso por
-coseno exacto, con C2 como alternativa equivalente si se esperan consultas muy coloquiales.</p>
+coseno exacto, con C2 como alternativa natural si se esperan consultas muy coloquiales, porque no mostró
+diferencias significativas frente a C4.</p>
 <p>Quedaron tres límites. La hipótesis de entidad exacta no era contrastable, porque las entidades
 no figuraban en ningún documento. Recall&#64;100 era trivial con diecisiete documentos. Y varias
 diferencias eran menores que lo que el número de consultas permitía detectar. El

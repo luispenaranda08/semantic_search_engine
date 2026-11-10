@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -492,6 +492,27 @@ corpus se midió, porque la conclusión sobre la fusión cambia con el corpus.</
 <p>El híbrido supera a BM25 en todos los conjuntos, pero casi toda la ventaja viene del denso. En
 las paráfrasis (difíciles A y B) la ontología es lo que más aporta, y el realce empeora el orden.
 Con diecisiete reportes ninguna fusión alternativa supera a RRF de forma concordante.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/fig_escalera_global.png"><img alt="../_images/fig_escalera_global.png" src="../_images/fig_escalera_global.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 2 </span><span class="caption-text">nDCG&#64;10 de las seis configuraciones en los cuatro conjuntos del corpus de diecisiete reportes.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/fig_forest.png"><img alt="../_images/fig_forest.png" src="../_images/fig_forest.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 3 </span><span class="caption-text">Diferencia de cada peldaño con su intervalo del 95 % (10.000 remuestreos). Relleno: comparación concordante (Wilcoxon y permutación tras Holm).</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/fig_dificil.png"><img alt="../_images/fig_dificil.png" src="../_images/fig_dificil.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 4 </span><span class="caption-text">nDCG&#64;10 por nivel de solape léxico en los difíciles A y B: con puente, sin puente y con solape.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="corpus-definitivo-177-documentos">
 <h2>Corpus definitivo: 177 documentos<a class="headerlink" href="#corpus-definitivo-177-documentos" title="Link to this heading">#</a></h2>
@@ -541,6 +562,13 @@ Con diecisiete reportes ninguna fusión alternativa supera a RRF de forma concor
 <p>Con <span class="math notranslate nohighlight">\(160\)</span> Pruebas Regionales compitiendo, el híbrido sin ontología queda por debajo del denso en
 las paráfrasis (<span class="math notranslate nohighlight">\(-0{,}104\)</span>, concordante): RRF promueve documentos que solo comparten palabras
 genéricas con la consulta.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/fig_posiciones.png"><img alt="../_images/fig_posiciones.png" src="../_images/fig_posiciones.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 5 </span><span class="caption-text">Posición del primer documento relevante en las 180 consultas del corpus definitivo.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="corpus-v3-811-documentos-de-cinco-tipos">
 <h2>Corpus v3: 811 documentos de cinco tipos<a class="headerlink" href="#corpus-v3-811-documentos-de-cinco-tipos" title="Link to this heading">#</a></h2>
@@ -602,6 +630,13 @@ genéricas con la consulta.</p>
 <p>Ninguna configuración fija de la escalera domina: C4 gana donde la consulta comparte vocabulario
 con el documento, y C2 donde no. La convexa supera a C4 (<span class="math notranslate nohighlight">\(+0{,}089\)</span>) y a C2 (<span class="math notranslate nohighlight">\(+0{,}085\)</span>) de forma
 concordante y no pierde en ningún grupo de forma significativa.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/fig_v3.png"><img alt="../_images/fig_v3.png" src="../_images/fig_v3.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 6 </span><span class="caption-text">Diferencia C4 − C2 por tipo de consulta en el corpus v3, con intervalo por objetivo.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="registro-completo-ontologia-frente-a-controles">
 <h2>Registro completo: ontología frente a controles<a class="headerlink" href="#registro-completo-ontologia-frente-a-controles" title="Link to this heading">#</a></h2>
@@ -659,6 +694,13 @@ entrenamiento mejora a la búsqueda libre de forma concordante (convexa <span cl
 <span class="math notranslate nohighlight">\(0{,}533\)</span>), aunque queda lejos del techo que da el tipo conocido (<span class="math notranslate nohighlight">\(0{,}712\)</span>). Un reordenador
 supervisado en dos etapas no mejora a la convexa: los relevantes casi siempre están entre los
 candidatos (techo del conjunto de candidatos <span class="math notranslate nohighlight">\(0{,}876\)</span>), y lo que falta es ordenarlos mejor.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/fig_registro.png"><img alt="../_images/fig_registro.png" src="../_images/fig_registro.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 7 </span><span class="caption-text">nDCG&#64;10 con 811 documentos y con el registro completo.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="registro-completo-busqueda-persona-a-persona">
 <h2>Registro completo: búsqueda persona a persona<a class="headerlink" href="#registro-completo-busqueda-persona-a-persona" title="Link to this heading">#</a></h2>
@@ -717,10 +759,17 @@ sinónimos, como «colizeo», «pisina» o «futsal») quedaron en la primera po
 </section>
 <section id="costo">
 <h2>Costo<a class="headerlink" href="#costo" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/fig_costo.png"><img alt="../_images/fig_costo.png" src="../_images/fig_costo.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 8 </span><span class="caption-text">Tiempo de cada componente, en escala logarítmica. La latencia la fija la codificación de la consulta.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Las configuraciones neuronales responden en unos <span class="math notranslate nohighlight">\(0{,}35\)</span> s por consulta con la GPU integrada
 del equipo (<span class="math notranslate nohighlight">\(0{,}63\)</span> s solo en CPU) y ocupan unos <span class="math notranslate nohighlight">\(2\)</span> GiB de memoria por el codificador. Añadir
 la señal léxica y la ontología no encarece el sistema. Truncar el vector a <span class="math notranslate nohighlight">\(512\)</span> dimensiones es
-equivalente a la dimensión nativa en todos los conjuntos y reduce el índice a la mitad.</p>
+no inferior a la dimensión nativa en el ampliado y en los difíciles y reduce el índice a la mitad.</p>
 </section>
 </section>
 

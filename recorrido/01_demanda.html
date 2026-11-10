@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -610,15 +610,15 @@ diecisiete reportes que la plataforma ofrece.</p>
 <a class="reference internal image-reference" href="../_images/fig_ranking_ajustado.png"><img alt="Barras horizontales con las solicitudes reales de cada uno de los diecisiete reportes" src="../_images/fig_ranking_ajustado.png" style="width: 90%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 1 </span><span class="caption-text">Solicitudes reales de datos por reporte en la ventana de seis semanas y media, sin las
+<p><span class="caption-number">Figura 9 </span><span class="caption-text">Solicitudes reales de datos por reporte en la ventana de seis semanas y media, sin las
 verificaciones de paginación ni las consultas de filtros. Los cinco primeros, en naranja, son
 los de prioridad alta.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Los cinco reportes de mayor demanda suman el <span class="math notranslate nohighlight">\(83\%\)</span> de las solicitudes reales, y el Reporte
 Individual de Deportistas explica por sí solo el <span class="math notranslate nohighlight">\(40{,}4\%\)</span>. Su mediana es de <span class="math notranslate nohighlight">\(51{,}7\)</span> MB
-procesados por solicitud, del orden de <span class="math notranslate nohighlight">\(138\)</span> GB en la ventana; esa cifra es una estimación que
-multiplica la frecuencia por la mediana y no una medición del volumen total.</p>
+procesados por solicitud. En conjunto, las <span class="math notranslate nohighlight">\(14.718\)</span> ejecuciones de la ventana procesaron unos <span class="math notranslate nohighlight">\(445\)</span> GB,
+suma de los bytes que el historial registra para cada una.</p>
 <p>La desigualdad se resume con el índice de Gini, que vale <span class="math notranslate nohighlight">\(0\)</span> cuando todos los reportes se piden
 lo mismo y se acerca a <span class="math notranslate nohighlight">\(1\)</span> cuando uno concentra toda la demanda. Sobre los diecisiete reportes
 vale <span class="math notranslate nohighlight">\(0{,}70\)</span>. Para saber cuánto podría variar esa cifra con otra ventana de observación, se
@@ -726,7 +726,7 @@ de eventos del almacén está vacía y ninguna de las tablas ya resueltas cubre 
 <a class="reference internal image-reference" href="../_images/fig_diferencial_dominios.png"><img alt="Dos paneles; a la izquierda las 6.620 consultas reales frente a cero consultas a eventos y resultados; a la derecha los registros del dominio de competencias en escala logarítmica" src="../_images/fig_diferencial_dominios.png" style="width: 95%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 2 </span><span class="caption-text">Mapeo diferencial entre la demanda observada y el tamaño del dominio de competencias. Las
+<p><span class="caption-number">Figura 10 </span><span class="caption-text">Mapeo diferencial entre la demanda observada y el tamaño del dominio de competencias. Las
 tablas que definen la competencia no reciben ninguna consulta y guardan cientos de miles de
 registros.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
@@ -750,7 +750,7 @@ arma componiendo conceptos.</p>
 <a class="reference internal image-reference" href="../_images/diagrama_6_construccion_competencia1.png"><img alt="Diagrama en el que disciplina, fase y región confluyen en la Prueba Regional, que se nombra como Atletismo Pre-Juvenil en Región Caribe 1 y forma parte de un evento" src="../_images/diagrama_6_construccion_competencia1.png" style="width: 85%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 3 </span><span class="caption-text">Construcción de la Prueba Regional. La disciplina con su categoría, la fase y la región
+<p><span class="caption-number">Figura 11 </span><span class="caption-text">Construcción de la Prueba Regional. La disciplina con su categoría, la fase y la región
 deportiva confluyen en una entidad compuesta que se nombra en lenguaje natural y forma parte de
 un evento.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
@@ -848,7 +848,7 @@ composición descrita arriba.</p>
 <a class="reference internal image-reference" href="../_images/diagrama_3_mapa_relaciones1.png"><img alt="Grafo con Deportista e Institución resaltadas y flechas hacia disciplina, documento, grupo, evento, promoción, ubicación, fase y federación" src="../_images/diagrama_3_mapa_relaciones1.png" style="width: 100%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 4 </span><span class="caption-text">Clases principales de la ontología y sus relaciones. En naranja, las dos clases que admiten
+<p><span class="caption-number">Figura 12 </span><span class="caption-text">Clases principales de la ontología y sus relaciones. En naranja, las dos clases que admiten
 búsqueda por nombre propio. La federación aparece como entidad relacionada; en la ontología no
 tiene clase propia.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
